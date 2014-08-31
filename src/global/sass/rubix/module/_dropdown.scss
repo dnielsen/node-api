@@ -1,0 +1,21 @@
+.dropdown-menu {
+  > li > a {
+    border: none;
+    padding: 4px 25px;
+    white-space: pre-line;
+  }
+}
+
+.dropdown-header {
+  font-size: 10px;
+  padding: 6px 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+a[role='menuitem'] {
+  >div {
+    margin: -4px -25px;
+    padding: 4px 25px;
+  }
+}
