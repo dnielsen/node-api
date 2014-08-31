@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! rubix - v0.1.0 - 2014-08-28 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
+/*! rubix - v0.1.0 - 2014-08-31 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
 
 @keyframes vex-flipin-horizontal {
   /* line 2, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/components/vex */
@@ -1586,73 +1586,97 @@ html.default .tl-theme .rubix-timeline-body > ul > li:before {
   border-color: #E76049;
 }
 
-/* line 108, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 109, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.default .border-hover-theme:hover {
+  border-color: #E76049;
+}
+
+/* line 114, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.default .border-focus-theme:focus {
+  border-color: #E76049;
+}
+
+/* line 118, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.default .border-theme {
   border-color: #E76049 !important;
 }
 
-/* line 111, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 121, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.default .border-theme .rubix-timeline-body > ul {
   border-color: #E76049;
 }
 
-/* line 115, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 125, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.default .border-theme.rubix-timeline-view:before {
   border-color: #E76049;
 }
 
-/* line 120, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 130, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.default .fg-theme {
+html.default .fg-focus-theme {
   color: #E76049;
 }
 
-/* line 123, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 134, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.default .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
-  color: #E76049;
-}
-
-/* line 127, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.default .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
-  color: #E76049;
-}
-
-/* line 132, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.default .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+html.default .fg-hover-theme {
   color: #E76049;
 }
 
 /* line 138, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
+html.default .fg-theme {
+  color: #E76049;
+}
+
+/* line 141, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.default .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
+  color: #E76049;
+}
+
+/* line 145, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.default .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
+  color: #E76049;
+}
+
+/* line 150, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.default .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+  color: #E76049;
+}
+
+/* line 156, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
 html.default .bg-theme {
   background: #E76049;
 }
 
-/* line 143, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 161, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.default .bg-theme > .tab-container > .nav-tabs > .b-tab.open > a {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* line 147, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 165, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.default .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
   border-color: #e0371d;
 }
 
-/* line 151, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 169, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.default .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
   background: #E76049;
 }
 
-/* line 158, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 176, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.default .bg-theme table td,
 html.default .bg-theme th {
@@ -1804,7 +1828,7 @@ html.default body #rubix-nav-header .navbar-nav > li > a > .rubix-icon {
 
 html.default body #rubix-nav-header .navbar-nav > li.divider {
   height: 75px;
-  border: 1px solid rgba(59, 70, 72, 0.35);
+  border: 1px solid rgba(59, 70, 72, 0.45);
 }
 
 /* line 61, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/sections/header */
@@ -3233,73 +3257,97 @@ html.green .tl-theme .rubix-timeline-body > ul > li:before {
   border-color: #2EB398;
 }
 
-/* line 108, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 109, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.green .border-hover-theme:hover {
+  border-color: #2EB398;
+}
+
+/* line 114, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.green .border-focus-theme:focus {
+  border-color: #2EB398;
+}
+
+/* line 118, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.green .border-theme {
   border-color: #2EB398 !important;
 }
 
-/* line 111, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 121, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.green .border-theme .rubix-timeline-body > ul {
   border-color: #2EB398;
 }
 
-/* line 115, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 125, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.green .border-theme.rubix-timeline-view:before {
   border-color: #2EB398;
 }
 
-/* line 120, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 130, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.green .fg-theme {
+html.green .fg-focus-theme {
   color: #2EB398;
 }
 
-/* line 123, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 134, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.green .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
-  color: #2EB398;
-}
-
-/* line 127, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.green .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
-  color: #2EB398;
-}
-
-/* line 132, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.green .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+html.green .fg-hover-theme {
   color: #2EB398;
 }
 
 /* line 138, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
+html.green .fg-theme {
+  color: #2EB398;
+}
+
+/* line 141, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.green .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
+  color: #2EB398;
+}
+
+/* line 145, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.green .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
+  color: #2EB398;
+}
+
+/* line 150, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.green .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+  color: #2EB398;
+}
+
+/* line 156, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
 html.green .bg-theme {
   background: #2EB398;
 }
 
-/* line 143, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 161, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.green .bg-theme > .tab-container > .nav-tabs > .b-tab.open > a {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* line 147, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 165, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.green .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
   border-color: #248a74;
 }
 
-/* line 151, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 169, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.green .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
   background: #2EB398;
 }
 
-/* line 158, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 176, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.green .bg-theme table td,
 html.green .bg-theme th {
@@ -3451,7 +3499,7 @@ html.green body #rubix-nav-header .navbar-nav > li > a > .rubix-icon {
 
 html.green body #rubix-nav-header .navbar-nav > li.divider {
   height: 75px;
-  border: 1px solid rgba(59, 70, 72, 0.35);
+  border: 1px solid rgba(59, 70, 72, 0.45);
 }
 
 /* line 61, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/sections/header */
@@ -4880,73 +4928,97 @@ html.blue .tl-theme .rubix-timeline-body > ul > li:before {
   border-color: #79B0EC;
 }
 
-/* line 108, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 109, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.blue .border-hover-theme:hover {
+  border-color: #79B0EC;
+}
+
+/* line 114, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.blue .border-focus-theme:focus {
+  border-color: #79B0EC;
+}
+
+/* line 118, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.blue .border-theme {
   border-color: #79B0EC !important;
 }
 
-/* line 111, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 121, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.blue .border-theme .rubix-timeline-body > ul {
   border-color: #79B0EC;
 }
 
-/* line 115, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 125, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.blue .border-theme.rubix-timeline-view:before {
   border-color: #79B0EC;
 }
 
-/* line 120, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 130, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.blue .fg-theme {
+html.blue .fg-focus-theme {
   color: #79B0EC;
 }
 
-/* line 123, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 134, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.blue .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
-  color: #79B0EC;
-}
-
-/* line 127, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.blue .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
-  color: #79B0EC;
-}
-
-/* line 132, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.blue .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+html.blue .fg-hover-theme {
   color: #79B0EC;
 }
 
 /* line 138, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
+html.blue .fg-theme {
+  color: #79B0EC;
+}
+
+/* line 141, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.blue .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
+  color: #79B0EC;
+}
+
+/* line 145, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.blue .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
+  color: #79B0EC;
+}
+
+/* line 150, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.blue .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+  color: #79B0EC;
+}
+
+/* line 156, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
 html.blue .bg-theme {
   background: #79B0EC;
 }
 
-/* line 143, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 161, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.blue .bg-theme > .tab-container > .nav-tabs > .b-tab.open > a {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* line 147, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 165, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.blue .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
   border-color: #4c96e6;
 }
 
-/* line 151, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 169, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.blue .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
   background: #79B0EC;
 }
 
-/* line 158, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 176, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.blue .bg-theme table td,
 html.blue .bg-theme th {
@@ -5098,7 +5170,7 @@ html.blue body #rubix-nav-header .navbar-nav > li > a > .rubix-icon {
 
 html.blue body #rubix-nav-header .navbar-nav > li.divider {
   height: 75px;
-  border: 1px solid rgba(59, 70, 72, 0.35);
+  border: 1px solid rgba(59, 70, 72, 0.45);
 }
 
 /* line 61, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/sections/header */
@@ -6527,73 +6599,97 @@ html.purple .tl-theme .rubix-timeline-body > ul > li:before {
   border-color: #B4A1DD;
 }
 
-/* line 108, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 109, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.purple .border-hover-theme:hover {
+  border-color: #B4A1DD;
+}
+
+/* line 114, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.purple .border-focus-theme:focus {
+  border-color: #B4A1DD;
+}
+
+/* line 118, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.purple .border-theme {
   border-color: #B4A1DD !important;
 }
 
-/* line 111, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 121, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.purple .border-theme .rubix-timeline-body > ul {
   border-color: #B4A1DD;
 }
 
-/* line 115, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 125, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.purple .border-theme.rubix-timeline-view:before {
   border-color: #B4A1DD;
 }
 
-/* line 120, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 130, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.purple .fg-theme {
+html.purple .fg-focus-theme {
   color: #B4A1DD;
 }
 
-/* line 123, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 134, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.purple .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
-  color: #B4A1DD;
-}
-
-/* line 127, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.purple .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
-  color: #B4A1DD;
-}
-
-/* line 132, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.purple .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+html.purple .fg-hover-theme {
   color: #B4A1DD;
 }
 
 /* line 138, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
+html.purple .fg-theme {
+  color: #B4A1DD;
+}
+
+/* line 141, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.purple .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
+  color: #B4A1DD;
+}
+
+/* line 145, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.purple .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
+  color: #B4A1DD;
+}
+
+/* line 150, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.purple .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+  color: #B4A1DD;
+}
+
+/* line 156, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
 html.purple .bg-theme {
   background: #B4A1DD;
 }
 
-/* line 143, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 161, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.purple .bg-theme > .tab-container > .nav-tabs > .b-tab.open > a {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* line 147, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 165, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.purple .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
   border-color: #967ccf;
 }
 
-/* line 151, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 169, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.purple .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
   background: #B4A1DD;
 }
 
-/* line 158, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 176, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.purple .bg-theme table td,
 html.purple .bg-theme th {
@@ -6745,7 +6841,7 @@ html.purple body #rubix-nav-header .navbar-nav > li > a > .rubix-icon {
 
 html.purple body #rubix-nav-header .navbar-nav > li.divider {
   height: 75px;
-  border: 1px solid rgba(59, 70, 72, 0.35);
+  border: 1px solid rgba(59, 70, 72, 0.45);
 }
 
 /* line 61, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/sections/header */
@@ -8174,73 +8270,97 @@ html.brown .tl-theme .rubix-timeline-body > ul > li:before {
   border-color: #A8553A;
 }
 
-/* line 108, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 109, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.brown .border-hover-theme:hover {
+  border-color: #A8553A;
+}
+
+/* line 114, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.brown .border-focus-theme:focus {
+  border-color: #A8553A;
+}
+
+/* line 118, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.brown .border-theme {
   border-color: #A8553A !important;
 }
 
-/* line 111, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 121, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.brown .border-theme .rubix-timeline-body > ul {
   border-color: #A8553A;
 }
 
-/* line 115, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 125, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.brown .border-theme.rubix-timeline-view:before {
   border-color: #A8553A;
 }
 
-/* line 120, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 130, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.brown .fg-theme {
+html.brown .fg-focus-theme {
   color: #A8553A;
 }
 
-/* line 123, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 134, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.brown .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
-  color: #A8553A;
-}
-
-/* line 127, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.brown .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
-  color: #A8553A;
-}
-
-/* line 132, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.brown .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+html.brown .fg-hover-theme {
   color: #A8553A;
 }
 
 /* line 138, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
+html.brown .fg-theme {
+  color: #A8553A;
+}
+
+/* line 141, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.brown .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
+  color: #A8553A;
+}
+
+/* line 145, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.brown .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
+  color: #A8553A;
+}
+
+/* line 150, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.brown .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+  color: #A8553A;
+}
+
+/* line 156, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
 html.brown .bg-theme {
   background: #A8553A;
 }
 
-/* line 143, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 161, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.brown .bg-theme > .tab-container > .nav-tabs > .b-tab.open > a {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* line 147, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 165, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.brown .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
   border-color: #82412d;
 }
 
-/* line 151, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 169, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.brown .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
   background: #A8553A;
 }
 
-/* line 158, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 176, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.brown .bg-theme table td,
 html.brown .bg-theme th {
@@ -8392,7 +8512,7 @@ html.brown body #rubix-nav-header .navbar-nav > li > a > .rubix-icon {
 
 html.brown body #rubix-nav-header .navbar-nav > li.divider {
   height: 75px;
-  border: 1px solid rgba(59, 70, 72, 0.35);
+  border: 1px solid rgba(59, 70, 72, 0.45);
 }
 
 /* line 61, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/sections/header */
@@ -9821,73 +9941,97 @@ html.cyan .tl-theme .rubix-timeline-body > ul > li:before {
   border-color: #68A0A5;
 }
 
-/* line 108, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 109, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.cyan .border-hover-theme:hover {
+  border-color: #68A0A5;
+}
+
+/* line 114, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.cyan .border-focus-theme:focus {
+  border-color: #68A0A5;
+}
+
+/* line 118, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.cyan .border-theme {
   border-color: #68A0A5 !important;
 }
 
-/* line 111, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 121, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.cyan .border-theme .rubix-timeline-body > ul {
   border-color: #68A0A5;
 }
 
-/* line 115, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 125, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.cyan .border-theme.rubix-timeline-view:before {
   border-color: #68A0A5;
 }
 
-/* line 120, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 130, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.cyan .fg-theme {
+html.cyan .fg-focus-theme {
   color: #68A0A5;
 }
 
-/* line 123, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 134, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
-html.cyan .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
-  color: #68A0A5;
-}
-
-/* line 127, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.cyan .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
-  color: #68A0A5;
-}
-
-/* line 132, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
-
-html.cyan .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+html.cyan .fg-hover-theme {
   color: #68A0A5;
 }
 
 /* line 138, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
+html.cyan .fg-theme {
+  color: #68A0A5;
+}
+
+/* line 141, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.cyan .fg-theme > .tab-container > .nav-tabs > .b-tab > a {
+  color: #68A0A5;
+}
+
+/* line 145, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.cyan .fg-theme .tab-container.plain > .nav-tabs > .b-tab.active > a {
+  color: #68A0A5;
+}
+
+/* line 150, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
+html.cyan .fg-theme.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
+  color: #68A0A5;
+}
+
+/* line 156, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+
 html.cyan .bg-theme {
   background: #68A0A5;
 }
 
-/* line 143, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 161, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.cyan .bg-theme > .tab-container > .nav-tabs > .b-tab.open > a {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* line 147, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 165, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.cyan .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
   border-color: #518589;
 }
 
-/* line 151, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 169, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.cyan .bg-theme > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
   background: #68A0A5;
 }
 
-/* line 158, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
+/* line 176, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/colors */
 
 html.cyan .bg-theme table td,
 html.cyan .bg-theme th {
@@ -10039,7 +10183,7 @@ html.cyan body #rubix-nav-header .navbar-nav > li > a > .rubix-icon {
 
 html.cyan body #rubix-nav-header .navbar-nav > li.divider {
   height: 75px;
-  border: 1px solid rgba(59, 70, 72, 0.35);
+  border: 1px solid rgba(59, 70, 72, 0.45);
 }
 
 /* line 61, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/theme/sections/header */

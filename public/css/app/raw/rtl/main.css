@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! rubix - v0.1.0 - 2014-08-28 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
+/*! rubix - v0.1.0 - 2014-08-31 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
 
 /* 
  * Pojoaque Style by Jason Tate 
@@ -9274,6 +9274,12 @@ label {
   display: block;
 }
 
+/* line 30, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/base/base */
+
+label.inline {
+  display: inline-block;
+}
+
 @media (max-width: 989px) {
   /* line 2, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/layout/col */
 
@@ -10388,7 +10394,7 @@ html.no-touch .rubix-panel-container-with-controls.active > .rubix-panel-control
 /* line 89, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/panel */
 
 .rubix-panel-body {
-  min-height: 30px;
+  min-height: 35px;
   padding-top: 25px;
 }
 
@@ -11015,9 +11021,11 @@ input[type="file"] {
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
   height: 50px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
 }
 
-/* line 131, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/forms */
+/* line 133, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/forms */
 
 .form-horizontal .radio,
 .form-horizontal .checkbox,
@@ -11027,7 +11035,7 @@ input[type="file"] {
   padding-bottom: 3px;
 }
 
-/* line 137, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/forms */
+/* line 139, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/forms */
 
 .list-group-item:hover,
 .list-group-item:focus {
@@ -11905,56 +11913,56 @@ a[role='menuitem'] > div {
 
 .pricing-table {
   padding: 0;
-  height: 150px;
   background: white;
   margin-bottom: 25px;
 }
 
-/* line 7, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+/* line 6, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
 
 .pricing-table.preferred {
   z-index: 1;
   right: -1px;
-  border: none;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  border: 1px solid gray;
 }
 
 @media (min-width: 990px) {
   .pricing-table {
-    border-left: 1px solid #BBCDDA;
+    border-left: 1px solid #E9F0F5;
   }
 
-  /* line 17, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+  /* line 15, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
 
   .pricing-table:last-child {
     border: none;
   }
 }
 
-/* line 23, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+/* line 21, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
 
 .pricing-table.preferred ~ .pricing-table {
   right: -1px;
 }
 
-/* line 27, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+/* line 25, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
 
 .pricing-table-header {
   color: #8BA0AF;
   background: #D2E0EB;
 }
 
-/* line 31, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+/* line 29, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
 
 .pricing-table-header > h3 {
   margin: 0;
+  font-size: 18px;
+  font-weight: 300;
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
 /* line 38, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
 
-.pricing-table-info {
+.pricing-table-price {
   color: inherit;
   background: #D2E0EB;
   margin-top: 25px;
@@ -11962,7 +11970,7 @@ a[role='menuitem'] > div {
 
 /* line 44, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
 
-.pricing-table-info h2 {
+.pricing-table-price h2 {
   right: 50%;
   width: 85px;
   margin: auto;
@@ -11975,6 +11983,43 @@ a[role='menuitem'] > div {
   border-radius: 100px;
   border: 5px solid white;
   margin-top: -12.5px;
+}
+
+/* line 59, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+
+.pricing-table-body {
+  margin-bottom: 25px;
+  margin-top: 50px;
+}
+
+/* line 64, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+
+.pricing-table-feature {
+  margin: 0 25px;
+  padding: 12.5px;
+}
+
+/* line 69, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+
+.pricing-btn-container {
+  padding: 25px;
+  padding-bottom: 0;
+  padding-top: 12.5px;
+}
+
+/* line 74, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+
+.pricing-btn-container > button {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* line 79, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/global/sass/rubix/module/pricing_table */
+
+.pricing-btn-container > button.btn-lightblue50:hover,
+.pricing-btn-container > button.btn-lightblue50:focus {
+  background: #8BA0AF;
+  border-color: #8BA0AF;
 }
 
 /* Ion.Tabs
@@ -26513,6 +26558,236 @@ body:last-child .blueimp-gallery-playing > .play-pause {
   }
 }
 
+/* line 1, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+html.authentication {
+  background: #43525A !important;
+}
+
+/* line 4, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+html.authentication body {
+  background: #43525A !important;
+}
+
+/* line 9, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  overflow: auto;
+  position: fixed;
+  background: #43525A;
+  z-index: 1000000000000000000;
+}
+
+/* line 21, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-row {
+  margin: auto;
+  display: block;
+  margin-top: 50px;
+}
+
+/* line 27, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-cell {
+  margin: auto;
+}
+
+/* line 30, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-cell > div {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  #auth-cell > div {
+    width: 500px;
+  }
+}
+
+/* line 40, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.login #facebook-btn {
+  position: relative;
+  border-radius: 4px;
+  background: #2960B1;
+  text-transform: none;
+  border-color: #2960B1;
+}
+
+/* line 47, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.login #facebook-btn:hover,
+#auth-container.login #facebook-btn:focus {
+  background: #1f4b88;
+  border-color: #1f4b88;
+}
+
+/* line 52, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.login #facebook-btn > .rubix-icon {
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  position: absolute;
+  vertical-align: top;
+}
+
+/* line 59, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.login #facebook-btn > .rubix-icon + span {
+  font-size: 18px;
+  padding-right: 20px;
+  position: relative;
+}
+
+/* line 67, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.login a {
+  color: #4A90E2;
+  border-color: #4A90E2;
+}
+
+/* line 71, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.login a:hover,
+#auth-container.login a:focus {
+  color: #4A90E2;
+  border-color: #4A90E2;
+}
+
+/* line 79, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup #facebook-btn,
+#auth-container.signup #twitter-btn {
+  position: relative;
+  border-radius: 4px;
+  text-transform: none;
+}
+
+/* line 84, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup #facebook-btn > .rubix-icon,
+#auth-container.signup #twitter-btn > .rubix-icon {
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  position: absolute;
+  vertical-align: top;
+}
+
+/* line 91, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup #facebook-btn > .rubix-icon + span,
+#auth-container.signup #twitter-btn > .rubix-icon + span {
+  font-size: 18px;
+  padding-right: 20px;
+  position: relative;
+}
+
+/* line 99, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup #twitter-btn {
+  background: #00ACDF;
+  border-color: #00ACDF;
+}
+
+/* line 103, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup #twitter-btn:hover,
+#auth-container.signup #twitter-btn:focus {
+  background: #0087ac;
+  border-color: #0087ac;
+}
+
+/* line 109, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup #facebook-btn {
+  background: #2960B1;
+  border-color: #2960B1;
+}
+
+/* line 113, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup #facebook-btn:hover,
+#auth-container.signup #facebook-btn:focus {
+  background: #1f4b88;
+  border-color: #1f4b88;
+}
+
+/* line 119, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup .facebook-container {
+  padding-left: 12.5px;
+}
+
+/* line 123, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup .twitter-container {
+  padding-right: 12.5px;
+}
+
+/* line 127, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup a {
+  color: #4A90E2;
+  border-color: #4A90E2;
+}
+
+/* line 131, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.signup a:hover,
+#auth-container.signup a:focus {
+  color: #4A90E2;
+  border-color: #4A90E2;
+}
+
+/* line 139, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.lockpage #auth-cell > div {
+  width: 700px;
+}
+
+/* line 143, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.lockpage label {
+  color: black;
+  width: 200px;
+  font-weight: 400;
+  background: white;
+  position: relative;
+  text-align: center;
+  margin-left: -5px;
+  display: inline-block;
+  padding: 12.5px 25px;
+}
+
+/* line 155, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.lockpage img {
+  border-radius: 100px;
+  display: inline-block;
+  border: 7px solid white;
+}
+
+/* line 161, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/auth */
+
+#auth-container.lockpage input[type='password'] {
+  width: 200px;
+  height: auto;
+  border: none;
+  margin-right: -5px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding: 12.5px 25px;
+}
+
 /* line 2, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/homepage */
 
 html.boxed #homepage-container {
@@ -26597,7 +26872,95 @@ html.boxed #homepage-container {
   letter-spacing: 0.8px;
 }
 
-/* line 40, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 2, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/dashboard */
+
+.dashboard #dash-btn-toolbar {
+  background: white;
+  border-bottom: 1px solid #EEE;
+  padding: 25px;
+}
+
+/* line 7, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/dashboard */
+
+.dashboard #dash-btn-toolbar > div {
+  line-height: 0;
+}
+
+/* line 11, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/dashboard */
+
+.dashboard #dash-btn-toolbar .btn-toolbar {
+  display: inline-block;
+}
+
+/* line 14, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/dashboard */
+
+.dashboard #dash-btn-toolbar .btn-toolbar .btn-group .btn {
+  margin-right: 0px;
+  background: white;
+  border-width: 1px;
+}
+
+/* line 19, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/dashboard */
+
+.dashboard #dash-btn-toolbar .btn-toolbar .btn-group .btn:hover,
+.dashboard #dash-btn-toolbar .btn-toolbar .btn-group .btn:focus,
+.dashboard #dash-btn-toolbar .btn-toolbar .btn-group .btn.active {
+  color: #89949B;
+  background: #EEEDEB;
+  border-color: #EEEDEB;
+}
+
+/* line 25, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/dashboard */
+
+.dashboard #dash-btn-toolbar .btn-toolbar .btn-group .btn:first-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* line 30, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/dashboard */
+
+.dashboard #dash-btn-toolbar .btn-toolbar .btn-group .btn:last-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* line 38, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/pages/dashboard */
+
+.dashboard #dash-btn-toolbar input.form-control {
+  border-width: 1px;
+  margin-left: 12.5px;
+  border-radius: 4px !important;
+}
+
+@media print {
+  /* line 2, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/print/print */
+
+  #sidebar {
+    display: none !important;
+  }
+
+  /* line 5, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/print/print */
+
+  #navbar {
+    display: none !important;
+  }
+
+  /* line 8, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/print/print */
+
+  #body {
+    background: white;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* line 13, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/print/print */
+
+  .rubix-panel-controls {
+    display: none !important;
+  }
+}
+
+/* line 41, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 html[dir='rtl'] [class^="icon-"].float-right-rtl,
 html[dir='rtl'] [class*=" icon-"].float-right-rtl {
@@ -26606,7 +26969,7 @@ html[dir='rtl'] [class*=" icon-"].float-right-rtl {
   float: right;
 }
 
-/* line 46, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 47, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 body {
   opacity: 1;
@@ -26614,7 +26977,7 @@ body {
   transition: all 0.7s ease;
 }
 
-/* line 50, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 51, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 body.fade-out {
   -webkit-transition: all 0.25s ease;
@@ -26622,7 +26985,7 @@ body.fade-out {
   opacity: 0;
 }
 
-/* line 56, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 57, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #app-preloader > .preloader {
   top: 0;
@@ -26634,7 +26997,7 @@ body.fade-out {
   z-index: 99999999999;
 }
 
-/* line 65, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 66, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #app-preloader > .preloader > img {
   margin: auto;
@@ -26645,20 +27008,20 @@ body.fade-out {
 
 /* DEMO STUFF - SAFE TO REMOVE */
 
-/* line 76, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 77, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #sidebar .rubix-timeline-view .rubix-timeline-title {
   background: none;
   padding: 4px 0px;
 }
 
-/* line 80, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 81, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #sidebar .rubix-timeline-view .rubix-timeline-body li:before {
   box-shadow: 0px 0px 0px 6px #273135;
 }
 
-/* line 86, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 87, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #c3js-1 .c3-event-rect {
   stroke: #fff;
@@ -26666,7 +27029,7 @@ body.fade-out {
   fill: rgba(0, 0, 0, 0.02);
 }
 
-/* line 92, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 93, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #external-events {
   width: 150px;
@@ -26677,7 +27040,7 @@ body.fade-out {
   position: absolute;
 }
 
-/* line 101, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 102, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #external-events h4 {
   font-size: 16px;
@@ -26685,7 +27048,7 @@ body.fade-out {
   padding-top: 1em;
 }
 
-/* line 107, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 108, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .external-event {
   /* try to mimick the look of a real event */
@@ -26697,7 +27060,7 @@ body.fade-out {
   cursor: pointer;
 }
 
-/* line 116, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 117, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #external-events p {
   margin: 1.5em 0;
@@ -26705,26 +27068,26 @@ body.fade-out {
   color: #666;
 }
 
-/* line 122, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 123, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #external-events p input {
   margin: 0;
   vertical-align: middle;
 }
 
-/* line 127, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 128, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #external-calendar {
   padding-right: 175px;
 }
 
-/* line 131, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 132, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .gallery-view {
   padding-left: 25px;
 }
 
-/* line 136, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 137, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .gallery-item .black-wrapper {
   top: 0;
@@ -26738,20 +27101,20 @@ body.fade-out {
   transition: all 0.25s ease;
 }
 
-/* line 145, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 146, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .gallery-item .black-wrapper td {
   vertical-align: middle;
 }
 
-/* line 149, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 150, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .gallery-item .black-wrapper .rubix-icon {
   color: white;
   display: block;
 }
 
-/* line 156, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 157, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .gallery-item-link {
   display: block;
@@ -26761,7 +27124,7 @@ body.fade-out {
   border: none !important;
 }
 
-/* line 164, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 165, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .gallery-item-link:hover .black-wrapper,
 .gallery-item-link:focus .black-wrapper {
@@ -26769,14 +27132,14 @@ body.fade-out {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* line 172, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 173, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .fav-btn > .rubix-icon {
   font-size: 20px !important;
   line-height: 20px !important;
 }
 
-/* line 177, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 178, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .fav-btn > .counts {
   top: -6px;
@@ -26789,7 +27152,7 @@ body.fade-out {
   vertical-align: middle !important;
 }
 
-/* line 189, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 190, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-toolbar {
   top: 5px;
@@ -26803,14 +27166,14 @@ body.fade-out {
   }
 }
 
-/* line 199, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 200, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-avatar {
   padding-top: 12.5px;
   padding-bottom: 12.5px;
 }
 
-/* line 204, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 205, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-avatar-name {
   text-align: right;
@@ -26819,27 +27182,27 @@ body.fade-out {
   vertical-align: middle;
 }
 
-/* line 210, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 211, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-avatar-name > div:first-child {
   top: 5px;
   position: relative;
 }
 
-/* line 215, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 216, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-avatar-name > div:last-child > small {
   top: -5px;
   position: relative;
 }
 
-/* line 221, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 222, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-nav {
   border-left: 1px solid #EEE;
 }
 
-/* line 225, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 226, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-nav .badge {
   width: 10px;
@@ -26850,7 +27213,7 @@ body.fade-out {
   vertical-align: middle;
 }
 
-/* line 234, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 235, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-nav .list-group-item {
   border: none;
@@ -26861,20 +27224,20 @@ body.fade-out {
   margin-bottom: 5px;
 }
 
-/* line 242, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 243, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-nav .list-group-item:hover,
 .inbox-nav .list-group-item:focus {
   border: none !important;
 }
 
-/* line 247, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 248, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-nav hr {
   margin-top: -5px;
 }
 
-/* line 251, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 252, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-nav .list-group-item .inbox-item-icon {
   float: right;
@@ -26884,14 +27247,14 @@ body.fade-out {
   margin-left: 12.5px;
 }
 
-/* line 258, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 259, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-nav .list-group-item .inbox-item-icon ~ span {
   top: 5px;
   position: relative;
 }
 
-/* line 264, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 265, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-item {
   color: inherit;
@@ -26905,19 +27268,19 @@ body.fade-out {
   background: #f9f9f9;
 }
 
-/* line 275, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 276, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-item:last-child {
   border-bottom: none !important;
 }
 
-/* line 279, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 280, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-item.unread {
   background: white;
 }
 
-/* line 283, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 284, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-item:hover,
 .inbox-item:focus {
@@ -26925,7 +27288,7 @@ body.fade-out {
   background: rgba(255, 255, 102, 0.2);
 }
 
-/* line 288, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 289, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-item img {
   padding: 2px;
@@ -26933,26 +27296,26 @@ body.fade-out {
   border: 2px solid #eee;
 }
 
-/* line 293, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 294, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-item .inbox-avatar-name > div:first-child {
   top: 2px;
 }
 
-/* line 298, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 299, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-date {
   float: left;
 }
 
-/* line 302, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 303, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-attachments > .rubix-icon {
   float: right;
   line-height: 1;
 }
 
-/* line 306, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 307, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-attachments > .rubix-icon ~ span {
   top: -2px;
@@ -26960,13 +27323,13 @@ body.fade-out {
   position: relative;
 }
 
-/* line 313, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 314, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 .inbox-attachment-download {
   float: left;
 }
 
-/* line 318, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 319, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #trumbowyg-demo-container .trumbowyg-box {
   margin: 0;
@@ -26977,13 +27340,13 @@ body.fade-out {
   margin-bottom: 25px;
 }
 
-/* line 326, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 327, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #trumbowyg-demo-container .trumbowyg-box blockquote {
   color: #777;
 }
 
-/* line 331, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 332, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #trumbowyg-demo-container .trumbowyg-button-pane {
   padding: 0;
@@ -26992,7 +27355,7 @@ body.fade-out {
   border-bottom: 1px solid #EEE;
 }
 
-/* line 339, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 340, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #trumbowyg-demo-container .trumbowyg-button-pane li button:hover,
 #trumbowyg-demo-container .trumbowyg-button-pane li button:focus,
@@ -27000,32 +27363,32 @@ body.fade-out {
   background-color: #f5f5f5;
 }
 
-/* line 345, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 346, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #body.social {
   background: #fff !important;
 }
 
-/* line 348, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 349, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #body.social .rubix-panel-container {
   border: 2px solid #EAEDF1;
 }
 
-/* line 352, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 353, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #body.social .rubix-panel-controls {
   border: 2px solid #EAEDF1;
   border-bottom: none;
 }
 
-/* line 355, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 356, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 #body.social .rubix-panel-controls > button {
   top: -5px;
 }
 
-/* line 360, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
+/* line 361, /Library/WebServer/Documents/tf/sketchpixy/projects/slush-rubix/rubix/src/sass/app/main.scss */
 
 html.social body .sidebar-nav > li.active:after {
   display: none !important;
