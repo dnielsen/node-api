@@ -39,9 +39,11 @@ var chartjs = require('./routes/app/charts/chartjs.jsx');
 var c3js = require('./routes/app/charts/c3.jsx');
 var morrisjs = require('./routes/app/charts/morris.jsx');
 
-var fonts = require('./routes/app/fonts.jsx');
 var timeline = require('./routes/app/timeline.jsx');
 var interactivetimeline = require('./routes/app/interactive-timeline.jsx');
+var maps = require('./routes/app/maps.jsx');
+var editor = require('./routes/app/editor.jsx');
+var fonts = require('./routes/app/fonts.jsx');
 var buttons = require('./routes/app/buttons.jsx');
 var dropdowns = require('./routes/app/dropdowns.jsx');
 var tabs_and_navs = require('./routes/app/tabs_and_navs.jsx');
@@ -82,6 +84,11 @@ var typography = require('./routes/app/docs/bootstrap/typography.jsx');
 var code = require('./routes/app/docs/bootstrap/code.jsx');
 var tables = require('./routes/app/docs/bootstrap/tables.jsx');
 var forms = require('./routes/app/docs/bootstrap/forms.jsx');
+var inputsdocs = require('./routes/app/docs/bootstrap/inputsdocs.jsx');
+var textareadocs = require('./routes/app/docs/bootstrap/textareadocs.jsx');
+var checkradio = require('./routes/app/docs/bootstrap/checkradio.jsx');
+var selectdocs = require('./routes/app/docs/bootstrap/select.jsx');
+var buttondocs = require('./routes/app/docs/bootstrap/buttons.jsx');
 
 /* EXPERIMENTAL PAGES */
 var panel_tests = require('./routes/expt/panel-tests.jsx');
@@ -120,6 +127,8 @@ var routes = (
         <Route name='fonts' path='fonts' view={fonts} />
         <Route name='timeline' path='timeline' view={timeline} />
         <Route name='interactive-timeline' path='interactive-timeline' view={interactivetimeline} />
+        <Route name='maps' path='maps' view={maps} />
+        <Route name='editor' path='editor' view={editor} />
 
         <Route name='ui-elements' path='ui-elements'>
           <Route name='buttons' path='buttons' view={buttons} />
@@ -177,6 +186,15 @@ var routes = (
             <Route name='code' path='code' view={code} />
             <Route name='tables' path='tables' view={tables} />
             <Route name='forms' path='forms' view={forms} />
+
+            <Route name='form_controls' path='form_controls'>
+              <Route name='inputs' path='inputs' view={inputsdocs} />
+              <Route name='textarea' path='textarea' view={textareadocs} />
+              <Route name='checkradio' path='checkradio' view={checkradio} />
+              <Route name='select' path='select' view={selectdocs} />
+              <Route name='buttons' path='buttons' view={buttondocs} />
+            </Route>
+
           </Route>
         </Route>
       </Route>

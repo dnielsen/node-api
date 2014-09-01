@@ -3,7 +3,6 @@ var path = require('path');
 var gulp = require('gulp');
 var flip = require('css-flip');
 var map = require('map-stream');
-var shrthnd = require('shrthnd');
 var through = require('through');
 var transform = require('vinyl-transform');
 var child_process = require('child_process');
@@ -66,7 +65,7 @@ logData('Environment : '+ (production ? 'Production':'Development'));
 gulp.task('sass:app', function() {
   return gulp.src('./src/sass/'+defaultAppName+'/*.scss')
           .pipe(sass({
-            sourceComments: 'normal' // uncomment when https://github.com/sass/node-sass/issues/337 is fixed
+            // sourceComments: 'normal' // uncomment when https://github.com/sass/node-sass/issues/337 is fixed
           }))
           .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 9'))
           .pipe(insert.prepend(banner()+'\n'))
@@ -86,39 +85,33 @@ gulp.task('sass:app:rtl', ['sass:app'], function() {
           .pipe(gulp.dest('public/css/'+defaultAppName+'/raw/rtl'));
 });
 
-var shortenCss = function(filename) {
-  return map(function(chunk, next) {
-    return next(null, shrthnd(chunk.toString()).string);
-  });
-};
-
 gulp.task('minifycss:app', function() {
-  return gulp.src(['public/css/'+defaultAppName+'/raw/ltr/main.css', 'public/css/'+defaultAppName+'/raw/ltr/theme.css', 'public/css/'+defaultAppName+'/raw/ltr/colors.css', 'public/css/'+defaultAppName+'/raw/ltr/font-faces.css'])
-          .pipe(transform(shortenCss))
+  return gulp.src(['public/css/'+defaultAppName+'/raw/ltr/*.css'])
           .pipe(minifycss())
-          .pipe(concat('main.min.css'))
           .pipe(gulp.dest('public/css/'+defaultAppName+'/min/ltr'));
 });
 
 gulp.task('minifycss:app:rtl', function() {
   if(!createRTL) return null;
-  return gulp.src(['public/css/'+defaultAppName+'/raw/rtl/main.css', 'public/css/'+defaultAppName+'/raw/rtl/theme.css', 'public/css/'+defaultAppName+'/raw/rtl/colors.css', 'public/css/'+defaultAppName+'/raw/rtl/font-faces.css'])
-        .pipe(transform(shortenCss))
+  return gulp.src(['public/css/'+defaultAppName+'/raw/rtl/*.css'])
         .pipe(minifycss())
-        .pipe(concat('main.min.css'))
         .pipe(gulp.dest('public/css/'+defaultAppName+'/min/rtl'));
 });
 
 gulp.task('bless:app', function() {
-  return gulp.src('public/css/'+defaultAppName+'/min/ltr/main.min.css')
+  return gulp.src('public/css/'+defaultAppName+'/min/ltr/*.css')
           .pipe(bless())
+          .pipe(insert.prepend(banner()+'\n'))
+          .pipe(insert.prepend('@charset "UTF-8";\n'))
           .pipe(gulp.dest('public/css/'+defaultAppName+'/blessed/ltr'));
 });
 
 gulp.task('bless:app:rtl', function() {
   if(!createRTL) return null;
-  return gulp.src('public/css/'+defaultAppName+'/min/rtl/main.min.css')
+  return gulp.src('public/css/'+defaultAppName+'/min/rtl/*.css')
           .pipe(bless())
+          .pipe(insert.prepend(banner()+'\n'))
+          .pipe(insert.prepend('@charset "UTF-8";\n'))
           .pipe(gulp.dest('public/css/'+defaultAppName+'/blessed/rtl'));
 });
 /* -------------------------------- */
@@ -302,6 +295,7 @@ gulp.task('base64-css:convert', function() {
 
 gulp.task('base64-css:concat', ['base64-css:convert'], function() {
   return gulp.src(['prebuild/css/fonts/'+defaultAppName+'/*.css'])
+          .pipe(insert.prepend('@charset "UTF-8";\n'))
           .pipe(concat('fonts.css'))
           .pipe(gulp.dest('public/css/fonts/'+defaultAppName));
 });
@@ -371,7 +365,7 @@ gulp.task('build:dist', ['minifycss', 'bless', 'uglify']);
 if(production) {
   logData('Building please wait...');
   gulp.task('default', function(callback) {
-    runSequence('build:css', 'build:essentials', 'build:app', 'build:dist', function() {
+    runSequence('build:css', 'build:essentials', 'build:app', 'minifycss', 'bless', 'uglify', function() {
       callback();
       gutil.log(
         gutil.colors.bgMagenta(
