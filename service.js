@@ -50,10 +50,12 @@ if(process.env.NODE_ENV === 'development') {
   stylesheets += createStyleTag('/css/'+defaultAppName+'/raw/{dir}/colors.css');
   stylesheets += createStyleTag('/css/'+defaultAppName+'/raw/{dir}/font-faces.css');
 } else {
-  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/main.min-blessed3.css', 'screen,print');
-  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/main.min-blessed2.css');
-  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/main.min-blessed1.css');
-  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/main.min.css');
+  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/main-blessed1.css', 'screen,print');
+  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/main.css', 'screen,print');
+  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/theme.css');
+  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/colors-blessed1.css');
+  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/colors.css');
+  stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/font-faces.css');
 }
 
 html = minify(html.replace('{stylesheets}', stylesheets), {

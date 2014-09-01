@@ -170,6 +170,47 @@ var Body = React.createClass({
                 </code>
               </pre>
             </div>
+            <hr/>
+            <h4 className='fg-black50'>Static control</h4>
+            <p>
+              {"When you need to place plain text next to a form label within a horizontal form, use the "}<code>Static</code>{" component."}
+            </p>
+            <Well className='bg-white'>
+              <Form horizontal>
+                <FormGroup>
+                  <Label sm={2} control>Email</Label>
+                  <Col sm={10}>
+                    <Static>email@example.com</Static>
+                  </Col>
+                </FormGroup>
+                <FormGroup>
+                  <Label sm={2} htmlFor='inputPassword4' control>Password</Label>
+                  <Col sm={10}>
+                    <Input type='password' id='inputPassword4' placeholder='Password' />
+                  </Col>
+                </FormGroup>
+              </Form>
+            </Well>
+            <div>
+              <pre>
+                <code className='language-markup'>
+                  {"<Form horizontal>\n"}
+                  {"  <FormGroup>\n"}
+                  {"    <Label sm={2} control>Email</Label>\n"}
+                  {"    <Col sm={10}>\n"}
+                  {"      <Static>email@example.com</Static>\n"}
+                  {"    </Col>\n"}
+                  {"  </FormGroup>\n"}
+                  {"  <FormGroup>\n"}
+                  {"    <Label sm={2} htmlFor='inputPassword4' control>Password</Label>\n"}
+                  {"    <Col sm={10}>\n"}
+                  {"      <Input type='password' id='inputPassword4' placeholder='Password' />\n"}
+                  {"    </Col>\n"}
+                  {"  </FormGroup>\n"}
+                  {"</Form>\n"}
+                </code>
+              </pre>
+            </div>
           </DocUnit>
           <DocUnit name='Bootstrap: Rubix Enhancements'>
             <h4 className='fg-black50'>Auto-complete</h4>

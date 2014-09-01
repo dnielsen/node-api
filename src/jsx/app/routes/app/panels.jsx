@@ -5,191 +5,6 @@ var Sidebar = require('../../common/sidebar.jsx');
 var Footer = require('../../common/footer.jsx');
 
 var Body = React.createClass({
-  componentDidMount: function() {
-    (function() {
-        var chart = new Rubix("#main-chart", {
-            width: '100%',
-            height: 300,
-            title: 'Chart of Total Users',
-            titleColor: '#2EB398',
-            subtitle: 'Period: 2004 and 2008',
-            subtitleColor: '#2EB398',
-            axis: {
-                x: {
-                    type: 'datetime',
-                    tickCount: 3,
-                    label: 'Time',
-                    labelColor: '#2EB398'
-                },
-                y: {
-                    type: 'linear',
-                    tickFormat: 'd',
-                    tickCount: 2,
-                    label: 'Total Users',
-                    labelColor: '#2EB398'
-                }
-            },
-            tooltip: {
-                color: '#55C9A6',
-                format: {
-                    y: '.0f',
-                    x: '%x'
-                }
-            },
-            margin: {
-                left: 25,
-                top: 50,
-                right: 25
-            },
-            interpolate: 'linear'
-        });
-
-        var total_users = chart.area_series({
-            name: 'Total Users',
-            color: '#2EB398',
-            marker: 'circle',
-            fillopacity: 0.7,
-            noshadow: true
-        });
-
-        var t = 1297110663*850;
-        var v = [5, 10, 2, 20, 40, 35, 30, 20, 25, 10, 20, 10, 20, 15, 25, 20, 30, 25, 30, 25, 30, 35, 40, 20, 15, 20, 10, 25, 15, 20, 10, 25, 30, 30, 25, 20, 10, 50, 60, 30];
-
-        var getValue = function() {
-          var val = v.shift();
-          v.push(val);
-          return val;
-        }
-
-        var data = d3.range(40).map(function() {
-            return {
-                x: (t+=(86400000*20)),
-                y: getValue()
-            };
-        });
-
-        total_users.addData(data);
-    })();
-    (function() {
-        var chart = new Rubix('#alert-chart', {
-            width: '100%',
-            height: 200,
-            hideLegend: true,
-            hideAxisAndGrid: true,
-            focusLineColor: '#fff',
-            theme_style: 'dark',
-            axis: {
-                x: {
-                    type: 'linear'
-                },
-                y: {
-                    type: 'linear',
-                    tickFormat: 'd'
-                }
-            },
-            tooltip: {
-                color: '#fff',
-                format: {
-                    x: 'd',
-                    y: 'd'
-                }
-            },
-            margin: {
-                left: 25,
-                top: 50,
-                right: 25,
-                bottom: 25
-            },
-        });
-
-        var alerts = chart.column_series({
-            name: 'Load',
-            color: '#7CD5BA',
-            nostroke: true
-        });
-
-        alerts.addData([
-            {x: 0, y: 30},
-            {x: 1, y: 40},
-            {x: 2, y: 15},
-            {x: 3, y: 30},
-            {x: 4, y: 35},
-            {x: 5, y: 70},
-            {x: 6, y: 50},
-            {x: 7, y: 60},
-            {x: 8, y: 35},
-            {x: 9, y: 30},
-            {x: 10, y: 40},
-            {x: 11, y: 30},
-            {x: 12, y: 50},
-            {x: 13, y: 35}
-        ])
-    })();
-    (function() {
-        var chart = new Rubix('#male-female-chart', {
-            height: 200,
-            title: 'Male VS Female',
-            subtitle: 'Visitors',
-            axis: {
-                x: {
-                    type: 'ordinal',
-                    tickFormat: 'd',
-                    tickCount: 2,
-                    label: 'Time'
-                },
-                y:  {
-                    type: 'linear',
-                    tickFormat: 'd',
-                    label: 'Visitors'
-                }
-            },
-            tooltip: {
-                theme_style: 'dark',
-                format: {
-                    y: '.0f'
-                },
-                abs: {
-                    y: true
-                }
-            },
-            stacked: true,
-            interpolate: 'linear',
-            show_markers: true
-        });
-
-        var column = chart.column_series({
-            name: 'Male',
-            color: '#2D89EF',
-            marker: 'cross'
-        });
-
-        var data = [
-            {x: 2005, y: 21},
-            {x: 2006, y: 44},
-            {x: 2007, y: 14},
-            {x: 2008, y: 18},
-            {x: 2009, y: 23},
-            {x: 2010, y: 21}
-        ];
-        column.addData(data);
-
-        var column1 = chart.column_series({
-            name: 'Female',
-            color: '#FF0097',
-            marker: 'diamond'
-        });
-
-        var data1 = [
-            {x: 2005, y: -79},
-            {x: 2006, y: -56},
-            {x: 2007, y: -86},
-            {x: 2008, y: -82},
-            {x: 2009, y: -77},
-            {x: 2010, y: -79}
-        ];
-        column1.addData(data1);
-    })();
-  },
   render: function() {
     return (
       <Container id='body'>
@@ -198,11 +13,28 @@ var Body = React.createClass({
             <Col sm={4} smCollapseRight>
               <PanelContainer>
                 <Panel>
-                  <PanelHeader>
+                  <PanelBody style={{padding: 0}}>
                     <Grid>
                       <Row>
                         <Col xs={12}>
-                          <h3>Awesome Heading</h3>
+                          <h3>Basic Panel</h3>
+                          <p>
+                            <LoremIpsum query='5s' />
+                          </p>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelBody>
+                </Panel>
+              </PanelContainer>
+              <PanelContainer controlStyles='bg-blue fg-white'>
+                <Panel>
+                  <PanelHeader className='bg-blue'>
+                    <Grid>
+                      <Row>
+                        <Col xs={12} className='fg-white'>
+                          <h3>Panel Header</h3>
+                          <h6>Mini Heading</h6>
                         </Col>
                       </Row>
                     </Grid>
@@ -218,6 +50,98 @@ var Body = React.createClass({
                       </Row>
                     </Grid>
                   </PanelBody>
+                  <PanelFooter className='bg-lightblue'>
+                    <Grid>
+                      <Row>
+                        <Col xs={12} className='fg-white'>
+                          <h3>Panel Footer</h3>
+                          <h6>Mini heading</h6>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelFooter>
+                </Panel>
+              </PanelContainer>
+              <PanelContainer controlStyles='bg-red fg-white'>
+                <Panel className='force-collapse'>
+                  <PanelHeader className='bg-red fg-white tabs'>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <h4>Panel Header + Plain Tabs</h4>
+                        </Col>
+                      </Row>
+                    </Grid>
+                    <TabContainer className='plain'>
+                      <TabList>
+                        <Tab pane='ptpc_hf:home' active>
+                          <Icon bundle='fontello' glyph='home'/>
+                        </Tab>
+                        <Tab pane='ptpc_hf:profile'>
+                          <Icon bundle='fontello' glyph='user'/>
+                        </Tab>
+                        <Tab pane='ptpc_hf:settings'>
+                          <Icon bundle='fontello' glyph='cog'/>
+                        </Tab>
+                      </TabList>
+                    </TabContainer>
+                  </PanelHeader>
+                  <PanelBody>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <TabContent>
+                            <TabPane ref='ptpc_hf:home' active>
+                              <h4>Top Panel 1</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='ptpc_hf:profile'>
+                              <h4>Top Panel 2</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='ptpc_hf:settings'>
+                              <h4>Top Panel 3</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='ptpc_hf:table'>
+                              <h4>Bottom Panel 1</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='ptpc_hf:archive'>
+                              <h4>Bottom Panel 2</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='ptpc_hf:landscape'>
+                              <h4>Bottom Panel 3</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                          </TabContent>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelBody>
+                  <PanelFooter className='bg-purple fg-white tabs'>
+                    <TabContainer className='plain'>
+                      <TabList>
+                        <Tab pane='ptpc_hf:table'>
+                          <Icon bundle='fontello' glyph='th'/>
+                        </Tab>
+                        <Tab pane='ptpc_hf:archive'>
+                          <Icon bundle='fontello' glyph='archive'/>
+                        </Tab>
+                        <Tab pane='ptpc_hf:landscape'>
+                          <Icon bundle='fontello' glyph='docs-landscape'/>
+                        </Tab>
+                      </TabList>
+                    </TabContainer>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <h4>Panel Footer + Plain Tabs</h4>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelFooter>
                 </Panel>
               </PanelContainer>
             </Col>
@@ -239,7 +163,7 @@ var Body = React.createClass({
                     <Grid>
                       <Row>
                         <Col xs={12} className='fg-white'>
-                          <h3>Awesome Footer but no Heading</h3>
+                          <h4>Panel Body + Footer without Panel Header</h4>
                           <h6>Mini Heading</h6>
                         </Col>
                       </Row>
@@ -247,83 +171,13 @@ var Body = React.createClass({
                   </PanelFooter>
                 </Panel>
               </PanelContainer>
-            </Col>
-            <Col sm={4}>
-              <PanelContainer controlStyles='bg-green fg-white'>
-                <Panel>
-                  <PanelHeader className='bg-green'>
-                    <Grid>
-                      <Row>
-                        <Col xs={12} className='fg-white'>
-                          <h3>Awesome Heading</h3>
-                          <h6>Mini Heading</h6>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelHeader>
-                  <PanelBody>
-                    <Grid>
-                      <Row>
-                        <Col xs={12}>
-                          <p>
-                            <LoremIpsum query='5s' />
-                          </p>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelBody>
-                </Panel>
-              </PanelContainer>
-            </Col>
-          </Row>
-        </Grid>
-        <Grid>
-          <Row>
-            <Col sm={4} smCollapseRight>
-              <PanelContainer controlStyles='bg-blue fg-white'>
-                <Panel>
-                  <PanelHeader className='bg-blue'>
-                    <Grid>
-                      <Row>
-                        <Col xs={12} className='fg-white'>
-                          <h3>Awesome Heading</h3>
-                          <h6>Mini Heading</h6>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelHeader>
-                  <PanelBody>
-                    <Grid>
-                      <Row>
-                        <Col xs={12}>
-                          <p>
-                            <LoremIpsum query='5s' />
-                          </p>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelBody>
-                  <PanelFooter className='bg-lightblue'>
-                    <Grid>
-                      <Row>
-                        <Col xs={12} className='fg-white'>
-                          <h3>Awesome Footer</h3>
-                          <h6>Mini heading</h6>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelFooter>
-                </Panel>
-              </PanelContainer>
-            </Col>
-            <Col sm={4} smCollapseRight>
               <PanelContainer controlStyles='bg-purple fg-white'>
                 <Panel>
                   <PanelHeader className='bg-purple fg-white tabs'>
                     <Grid>
                       <Row>
                         <Col xs={12}>
-                          <h3>Hello world!</h3>
+                          <h4>Panel Header + Plain Tabs</h4>
                         </Col>
                       </Row>
                     </Grid>
@@ -391,7 +245,7 @@ var Body = React.createClass({
                     <Grid>
                       <Row>
                         <Col xs={12} className='fg-white'>
-                          <h3>Awesome Footer</h3>
+                          <h4>Panel Footer</h4>
                           <h6>Mini heading</h6>
                         </Col>
                       </Row>
@@ -399,15 +253,81 @@ var Body = React.createClass({
                   </PanelFooter>
                 </Panel>
               </PanelContainer>
+              <PanelContainer controlStyles='bg-palegreen fg-white'>
+                <Panel className='force-collapse'>
+                  <PanelHeader className='bg-palegreen fg-white tabs'>
+                    <TabContainer>
+                      <TabList>
+                        <Tab pane='tpc_hft:home' active>
+                          <Icon bundle='fontello' glyph='home'/>
+                        </Tab>
+                        <Tab pane='tpc_hft:profile'>
+                          <Icon bundle='fontello' glyph='user'/>
+                        </Tab>
+                        <Tab pane='tpc_hft:settings'>
+                          <Icon bundle='fontello' glyph='cog'/>
+                        </Tab>
+                      </TabList>
+                    </TabContainer>
+                  </PanelHeader>
+                  <PanelBody>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <TabContent>
+                            <TabPane ref='tpc_hft:home' active>
+                              <h4>Top Panel 1</h4>
+                              <p><LoremIpsum query='7s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hft:profile'>
+                              <h4>Top Panel 2</h4>
+                              <p><LoremIpsum query='7s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hft:settings'>
+                              <h4>Top Panel 3</h4>
+                              <p><LoremIpsum query='7s'/></p>
+                            </TabPane>
+                          </TabContent>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelBody>
+                </Panel>
+              </PanelContainer>
             </Col>
             <Col sm={4}>
+              <PanelContainer controlStyles='bg-green fg-white'>
+                <Panel>
+                  <PanelHeader className='bg-green'>
+                    <Grid>
+                      <Row>
+                        <Col xs={12} className='fg-white'>
+                          <h4>Panel Body + Header without Panel Footer</h4>
+                          <h6>Mini Heading</h6>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelHeader>
+                  <PanelBody>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <p>
+                            <LoremIpsum query='5s' />
+                          </p>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelBody>
+                </Panel>
+              </PanelContainer>
               <PanelContainer controlStyles='bg-palepink fg-white'>
                 <Panel>
                   <PanelHeader className='bg-palepink'>
                     <Grid>
                       <Row>
                         <Col xs={12} className='fg-white'>
-                          <h3>Awesome Footer</h3>
+                          <h4>Panel Header</h4>
                           <h6>Mini heading</h6>
                         </Col>
                       </Row>
@@ -476,10 +396,125 @@ var Body = React.createClass({
                     <Grid>
                       <Row>
                         <Col xs={12}>
-                          <h1>Hello world</h1>
+                          <h4>Panel Footer + Plain Tabs</h4>
                         </Col>
                       </Row>
                     </Grid>
+                  </PanelFooter>
+                </Panel>
+              </PanelContainer>
+              <PanelContainer controlStyles='bg-lightorange fg-white'>
+                <Panel className='force-collapse'>
+                  <PanelBody>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <TabContent>
+                            <TabPane active ref='tpc_hff:table'>
+                              <h4>Bottom Panel 1</h4>
+                              <p><LoremIpsum query='6s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hff:archive'>
+                              <h4>Bottom Panel 2</h4>
+                              <p><LoremIpsum query='6s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hff:landscape'>
+                              <h4>Bottom Panel 3</h4>
+                              <p><LoremIpsum query='6s'/></p>
+                            </TabPane>
+                          </TabContent>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelBody>
+                  <PanelFooter className='bg-lightorange fg-white tabs'>
+                    <TabContainer>
+                      <TabList>
+                        <Tab active pane='tpc_hff:table'>
+                          <Icon bundle='fontello' glyph='th'/>
+                        </Tab>
+                        <Tab pane='tpc_hff:archive'>
+                          <Icon bundle='fontello' glyph='archive'/>
+                        </Tab>
+                        <Tab pane='tpc_hff:landscape'>
+                          <Icon bundle='fontello' glyph='docs-landscape'/>
+                        </Tab>
+                      </TabList>
+                    </TabContainer>
+                  </PanelFooter>
+                </Panel>
+              </PanelContainer>
+            </Col>
+          </Row>
+        </Grid>
+        <Grid>
+          <Row>
+            <Col xs={12}>
+              <PanelContainer controlStyles='bg-grayishcyan fg-white'>
+                <Panel className='force-collapse'>
+                  <PanelHeader className='bg-grayishcyan fg-white tabs'>
+                    <TabContainer>
+                      <TabList>
+                        <Tab pane='tpc_hf:home' active>
+                          <Icon bundle='fontello' glyph='home'/>
+                        </Tab>
+                        <Tab pane='tpc_hf:profile'>
+                          <Icon bundle='fontello' glyph='user'/>
+                        </Tab>
+                        <Tab pane='tpc_hf:settings'>
+                          <Icon bundle='fontello' glyph='cog'/>
+                        </Tab>
+                      </TabList>
+                    </TabContainer>
+                  </PanelHeader>
+                  <PanelBody>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <TabContent>
+                            <TabPane ref='tpc_hf:home' active>
+                              <h4>Top Panel 1</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hf:profile'>
+                              <h4>Top Panel 2</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hf:settings'>
+                              <h4>Top Panel 3</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hf:table'>
+                              <h4>Bottom Panel 1</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hf:archive'>
+                              <h4>Bottom Panel 2</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                            <TabPane ref='tpc_hf:landscape'>
+                              <h4>Bottom Panel 3</h4>
+                              <p><LoremIpsum query='2s'/></p>
+                            </TabPane>
+                          </TabContent>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelBody>
+                  <PanelFooter className='bg-darkcyan fg-white tabs'>
+                    <TabContainer>
+                      <TabList>
+                        <Tab pane='tpc_hf:table'>
+                          <Icon bundle='fontello' glyph='th'/>
+                        </Tab>
+                        <Tab pane='tpc_hf:archive'>
+                          <Icon bundle='fontello' glyph='archive'/>
+                        </Tab>
+                        <Tab pane='tpc_hf:landscape'>
+                          <Icon bundle='fontello' glyph='docs-landscape'/>
+                        </Tab>
+                      </TabList>
+                    </TabContainer>
                   </PanelFooter>
                 </Panel>
               </PanelContainer>
@@ -510,7 +545,7 @@ var Body = React.createClass({
                     <Grid>
                       <Row>
                         <Col xs={12}>
-                          <TabContent>
+                          <TabContent style={{paddingTop: 12.5}}>
                             <TabPane ref='panel_tab_panel_left:home' active>
                               <p><LoremIpsum query='2s'/></p>
                             </TabPane>
@@ -535,7 +570,7 @@ var Body = React.createClass({
                     <Grid>
                       <Row>
                         <Col xs={12}>
-                          <TabContent>
+                          <TabContent style={{paddingTop: 12.5}}>
                             <TabPane ref='panel_tab_panel_right:home' active>
                               <p><LoremIpsum query='2s'/></p>
                             </TabPane>
@@ -594,7 +629,7 @@ var Body = React.createClass({
                     <Grid>
                       <Row>
                         <Col xs={12}>
-                          <TabContent>
+                          <TabContent style={{paddingTop: 12.5}}>
                             <TabPane ref='panel_tab_panel_combined:home' active>
                               <h4>Left Panel</h4>
                               <p><LoremIpsum query='2s'/></p>
@@ -638,116 +673,6 @@ var Body = React.createClass({
                         </Tab>
                       </TabList>
                     </TabContainer>
-                  </PanelRight>
-                </Panel>
-              </PanelContainer>
-            </Col>
-          </Row>
-        </Grid>
-        <Grid>
-          <Row>
-            <Col sm={12}>
-              <PanelContainer>
-                <Panel>
-                  <PanelBody>
-                    <Grid>
-                      <Row>
-                        <Col xs={12}>
-                          <div id='main-chart'></div>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelBody>
-                </Panel>
-                <Panel horizontal className='force-collapse'>
-                  <PanelLeft className='bg-red fg-white tabs panel-sm-1'>
-                    <TabContainer className='plain'>
-                      <TabList>
-                        <Tab pane='panel_tab_panel_combined_plain:home' active>
-                          <Icon bundle='fontello' glyph='home'/>
-                        </Tab>
-                        <Tab pane='panel_tab_panel_combined_plain:profile'>
-                          <Icon bundle='fontello' glyph='user'/>
-                        </Tab>
-                        <Tab pane='panel_tab_panel_combined_plain:settings'>
-                          <Icon bundle='fontello' glyph='cog'/>
-                        </Tab>
-                      </TabList>
-                    </TabContainer>
-                  </PanelLeft>
-                  <PanelBody className='panel-sm-4'>
-                    <Grid>
-                      <Row>
-                        <Col xs={12}>
-                          <TabContent>
-                            <TabPane ref='panel_tab_panel_combined_plain:home' active>
-                              <div id='male-female-chart'></div>
-                            </TabPane>
-                            <TabPane ref='panel_tab_panel_combined_plain:profile'>
-                              <h4>Left Panel</h4>
-                              <p><LoremIpsum query='2s'/></p>
-                            </TabPane>
-                            <TabPane ref='panel_tab_panel_combined_plain:settings'>
-                              <h4>Left Panel</h4>
-                              <p><LoremIpsum query='2s'/></p>
-                            </TabPane>
-                          </TabContent>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelBody>
-                  <PanelRight className='bg-lightgreen fg-white panel-sm-2'>
-                    <Grid>
-                      <Row>
-                        <Col xs={12} className='text-center'>
-                          <br/>
-                          <div>
-                            <h4>Gross Revenue</h4>
-                            <h2 className='fg-green visible-xs visible-md visible-lg'>9,362.74</h2>
-                            <h4 className='fg-green visible-sm'>9,362.74</h4>
-                          </div>
-                          <hr className='border-green'/>
-                          <div>
-                            <h4>Net Revenue</h4>
-                            <h2 className='fg-green visible-xs visible-md visible-lg'>6,734.89</h2>
-                            <h4 className='fg-green visible-sm'>6,734.89</h4>
-                          </div>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelRight>
-                  <PanelRight className='bg-darkgreen45 fg-green panel-sm-4'>
-                    <Grid>
-                      <Row className='bg-green fg-lightgreen'>
-                        <Col xs={6}>
-                          <h3>Daily Load</h3>
-                        </Col>
-                        <Col xs={6} className='text-right'>
-                          <h2 className='fg-lightgreen'>67%</h2>
-                        </Col>
-                      </Row>
-                    </Grid>
-                    <Grid>
-                      <Row>
-                        <Col xs={12} className='bg-green fg-lightgreen'>
-                          <div id='alert-chart' className='rubix-chart'></div>
-                        </Col>
-                      </Row>
-                    </Grid>
-                    <Grid>
-                      <Row>
-                        <Col xs={12} className='bg-lightgreen fg-darkgreen45 text-center'>
-                          <h5>Grid with different color!</h5>
-                        </Col>
-                      </Row>
-                    </Grid>
-                    <Grid>
-                      <Row>
-                        <Col xs={12} className='text-center'>
-                          <h5>Grid with yet another color!</h5>
-                        </Col>
-                      </Row>
-                    </Grid>
                   </PanelRight>
                 </Panel>
               </PanelContainer>

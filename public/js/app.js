@@ -1,4 +1,4 @@
-/*! rubix - v0.1.0 - 2014-08-31 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
+/*! rubix - v0.1.0 - 2014-09-02 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -194,62 +194,69 @@ var l20n=_RL20n_.l20n,
 	/* COMPONENT PAGES */
 	var panels = __webpack_require__(10);
 
-	var rubix_line = __webpack_require__(40);
-	var rubix_area = __webpack_require__(41);
-	var rubix_barcol = __webpack_require__(42);
-	var rubix_mixed = __webpack_require__(43);
-	var rubix_piedonut = __webpack_require__(44);
-	var chartjs = __webpack_require__(37);
-	var c3js = __webpack_require__(38);
-	var morrisjs = __webpack_require__(39);
+	var rubix_line = __webpack_require__(42);
+	var rubix_area = __webpack_require__(43);
+	var rubix_barcol = __webpack_require__(44);
+	var rubix_mixed = __webpack_require__(45);
+	var rubix_piedonut = __webpack_require__(46);
+	var chartjs = __webpack_require__(39);
+	var c3js = __webpack_require__(40);
+	var morrisjs = __webpack_require__(41);
 
-	var fonts = __webpack_require__(11);
-	var timeline = __webpack_require__(12);
-	var interactivetimeline = __webpack_require__(13);
-	var buttons = __webpack_require__(14);
-	var dropdowns = __webpack_require__(15);
-	var tabs_and_navs = __webpack_require__(16);
-	var sliders = __webpack_require__(17);
-	var knobs = __webpack_require__(18);
-	var modals = __webpack_require__(19);
-	var messenger = __webpack_require__(20);
-	var form_controls = __webpack_require__(21);
-	var xeditable = __webpack_require__(22);
-	var wizard = __webpack_require__(23);
-	var bootstraptables = __webpack_require__(24);
-	var datatables = __webpack_require__(25);
-	var tablesaw = __webpack_require__(26);
-	var grid = __webpack_require__(27);
-	var calendar = __webpack_require__(28);
-	var lists = __webpack_require__(29);
-	var dropzone = __webpack_require__(30);
-	var crop = __webpack_require__(31);
+	var timeline = __webpack_require__(11);
+	var interactivetimeline = __webpack_require__(12);
+	var maps = __webpack_require__(13);
+	var editor = __webpack_require__(14);
+	var fonts = __webpack_require__(15);
+	var buttons = __webpack_require__(16);
+	var dropdowns = __webpack_require__(17);
+	var tabs_and_navs = __webpack_require__(18);
+	var sliders = __webpack_require__(19);
+	var knobs = __webpack_require__(20);
+	var modals = __webpack_require__(21);
+	var messenger = __webpack_require__(22);
+	var form_controls = __webpack_require__(23);
+	var xeditable = __webpack_require__(24);
+	var wizard = __webpack_require__(25);
+	var bootstraptables = __webpack_require__(26);
+	var datatables = __webpack_require__(27);
+	var tablesaw = __webpack_require__(28);
+	var grid = __webpack_require__(29);
+	var calendar = __webpack_require__(30);
+	var lists = __webpack_require__(31);
+	var dropzone = __webpack_require__(32);
+	var crop = __webpack_require__(33);
 
 	/* EXTRA PAGES */
-	var login = __webpack_require__(32);
-	var signup = __webpack_require__(33);
-	var lock = __webpack_require__(34);
-	var pricing = __webpack_require__(35);
-	var invoice = __webpack_require__(36);
+	var login = __webpack_require__(34);
+	var signup = __webpack_require__(35);
+	var lock = __webpack_require__(36);
+	var pricing = __webpack_require__(37);
+	var invoice = __webpack_require__(38);
 
 	/* DOCUMENTATION PAGES */
-	var css = __webpack_require__(45);
-	var components = __webpack_require__(46);
-	var installation = __webpack_require__(47);
-	var gulpfilebasics = __webpack_require__(48);
-	var gulpfilesass = __webpack_require__(49);
-	var gulpfilejsx = __webpack_require__(50);
-	var gulpfilewebfont = __webpack_require__(51);
-	var reactdoc = __webpack_require__(52);
-	var bootstrapgrid = __webpack_require__(53);
-	var typography = __webpack_require__(54);
-	var code = __webpack_require__(55);
-	var tables = __webpack_require__(56);
-	var forms = __webpack_require__(57);
+	var css = __webpack_require__(47);
+	var components = __webpack_require__(48);
+	var installation = __webpack_require__(49);
+	var gulpfilebasics = __webpack_require__(50);
+	var gulpfilesass = __webpack_require__(51);
+	var gulpfilejsx = __webpack_require__(52);
+	var gulpfilewebfont = __webpack_require__(53);
+	var reactdoc = __webpack_require__(54);
+	var bootstrapgrid = __webpack_require__(55);
+	var typography = __webpack_require__(56);
+	var code = __webpack_require__(57);
+	var tables = __webpack_require__(58);
+	var forms = __webpack_require__(59);
+	var inputsdocs = __webpack_require__(60);
+	var textareadocs = __webpack_require__(61);
+	var checkradio = __webpack_require__(62);
+	var selectdocs = __webpack_require__(63);
+	var buttondocs = __webpack_require__(64);
 
 	/* EXPERIMENTAL PAGES */
-	var panel_tests = __webpack_require__(58);
-	var fluxxor_tests = __webpack_require__(59);
+	var panel_tests = __webpack_require__(65);
+	var fluxxor_tests = __webpack_require__(66);
 
 	/* ROUTES */
 	var routes = (
@@ -284,6 +291,8 @@ var l20n=_RL20n_.l20n,
 	        Route({name: "fonts", path: "fonts", view: fonts}), 
 	        Route({name: "timeline", path: "timeline", view: timeline}), 
 	        Route({name: "interactive-timeline", path: "interactive-timeline", view: interactivetimeline}), 
+	        Route({name: "maps", path: "maps", view: maps}), 
+	        Route({name: "editor", path: "editor", view: editor}), 
 
 	        Route({name: "ui-elements", path: "ui-elements"}, 
 	          Route({name: "buttons", path: "buttons", view: buttons}), 
@@ -340,7 +349,16 @@ var l20n=_RL20n_.l20n,
 	            Route({name: "typography", path: "typography", view: typography}), 
 	            Route({name: "code", path: "code", view: code}), 
 	            Route({name: "tables", path: "tables", view: tables}), 
-	            Route({name: "forms", path: "forms", view: forms})
+	            Route({name: "forms", path: "forms", view: forms}), 
+
+	            Route({name: "form_controls", path: "form_controls"}, 
+	              Route({name: "inputs", path: "inputs", view: inputsdocs}), 
+	              Route({name: "textarea", path: "textarea", view: textareadocs}), 
+	              Route({name: "checkradio", path: "checkradio", view: checkradio}), 
+	              Route({name: "select", path: "select", view: selectdocs}), 
+	              Route({name: "buttons", path: "buttons", view: buttondocs})
+	            )
+
 	          )
 	        )
 	      ), 
@@ -432,9 +450,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -671,9 +689,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -1160,7 +1178,7 @@ var l20n=_RL20n_.l20n,
 	                        React.DOM.div({id: "orderscomparision"}), 
 	                        Grid({style: {margin: -25, marginTop: 0}}, 
 	                          Row({className: "bg-lightorange fg-darkorange text-center"}, 
-	                            Col({xs: 12, collapseLeft: true, collapseRight: true}, 
+	                            Col({xs: 12, collapseLeft: true, collapseRight: true, style: {padding: 25, paddingTop: 0}}, 
 	                              Table({alignMiddle: true, collapsed: true}, 
 	                                React.DOM.tbody(null, 
 	                                  React.DOM.tr(null, 
@@ -1234,7 +1252,7 @@ var l20n=_RL20n_.l20n,
 	                            TabPane({ref: "complex_stats_table_panel:complex_statistics", active: true}, 
 	                              Grid(null, 
 	                                Row(null, 
-	                                  Col({xs: 12, collapseLeft: true, collapseRight: true}, 
+	                                  Col({xs: 12, style: {padding: 25}}, 
 	                                    Table({striped: true, style: {margin: 0}}, 
 	                                      React.DOM.tbody(null, 
 	                                        React.DOM.tr(null, 
@@ -1292,7 +1310,7 @@ var l20n=_RL20n_.l20n,
 	                      )
 	                    )
 	                  ), 
-	                  PanelRight({className: "bg-red fg-white tabs panel-sm-2"}, 
+	                  PanelRight({className: "bg-green fg-white tabs panel-sm-2"}, 
 	                    TabContainer(null, 
 	                      TabList(null, 
 	                        Tab({pane: "complex_stats_table_panel:complex_statistics", active: true}, 
@@ -1395,9 +1413,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var classSet = React.addons.classSet;
 	var InboxNavItem = React.createClass({displayName: 'InboxNavItem',
@@ -1622,9 +1640,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var classSet = React.addons.classSet;
 	var Body = React.createClass({displayName: 'Body',
@@ -1761,9 +1779,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var classSet = React.addons.classSet;
 	var Body = React.createClass({displayName: 'Body',
@@ -1954,9 +1972,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var preloadImages = function() {
 	  for (var i = 0; i < arguments.length; i++) {
@@ -2102,9 +2120,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var SocialBanner = React.createClass({displayName: 'SocialBanner',
 	  getInitialState: function() {
@@ -2424,196 +2442,11 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
-	  componentDidMount: function() {
-	    (function() {
-	        var chart = new Rubix("#main-chart", {
-	            width: '100%',
-	            height: 300,
-	            title: 'Chart of Total Users',
-	            titleColor: '#2EB398',
-	            subtitle: 'Period: 2004 and 2008',
-	            subtitleColor: '#2EB398',
-	            axis: {
-	                x: {
-	                    type: 'datetime',
-	                    tickCount: 3,
-	                    label: 'Time',
-	                    labelColor: '#2EB398'
-	                },
-	                y: {
-	                    type: 'linear',
-	                    tickFormat: 'd',
-	                    tickCount: 2,
-	                    label: 'Total Users',
-	                    labelColor: '#2EB398'
-	                }
-	            },
-	            tooltip: {
-	                color: '#55C9A6',
-	                format: {
-	                    y: '.0f',
-	                    x: '%x'
-	                }
-	            },
-	            margin: {
-	                left: 25,
-	                top: 50,
-	                right: 25
-	            },
-	            interpolate: 'linear'
-	        });
-
-	        var total_users = chart.area_series({
-	            name: 'Total Users',
-	            color: '#2EB398',
-	            marker: 'circle',
-	            fillopacity: 0.7,
-	            noshadow: true
-	        });
-
-	        var t = 1297110663*850;
-	        var v = [5, 10, 2, 20, 40, 35, 30, 20, 25, 10, 20, 10, 20, 15, 25, 20, 30, 25, 30, 25, 30, 35, 40, 20, 15, 20, 10, 25, 15, 20, 10, 25, 30, 30, 25, 20, 10, 50, 60, 30];
-
-	        var getValue = function() {
-	          var val = v.shift();
-	          v.push(val);
-	          return val;
-	        }
-
-	        var data = d3.range(40).map(function() {
-	            return {
-	                x: (t+=(86400000*20)),
-	                y: getValue()
-	            };
-	        });
-
-	        total_users.addData(data);
-	    })();
-	    (function() {
-	        var chart = new Rubix('#alert-chart', {
-	            width: '100%',
-	            height: 200,
-	            hideLegend: true,
-	            hideAxisAndGrid: true,
-	            focusLineColor: '#fff',
-	            theme_style: 'dark',
-	            axis: {
-	                x: {
-	                    type: 'linear'
-	                },
-	                y: {
-	                    type: 'linear',
-	                    tickFormat: 'd'
-	                }
-	            },
-	            tooltip: {
-	                color: '#fff',
-	                format: {
-	                    x: 'd',
-	                    y: 'd'
-	                }
-	            },
-	            margin: {
-	                left: 25,
-	                top: 50,
-	                right: 25,
-	                bottom: 25
-	            },
-	        });
-
-	        var alerts = chart.column_series({
-	            name: 'Load',
-	            color: '#7CD5BA',
-	            nostroke: true
-	        });
-
-	        alerts.addData([
-	            {x: 0, y: 30},
-	            {x: 1, y: 40},
-	            {x: 2, y: 15},
-	            {x: 3, y: 30},
-	            {x: 4, y: 35},
-	            {x: 5, y: 70},
-	            {x: 6, y: 50},
-	            {x: 7, y: 60},
-	            {x: 8, y: 35},
-	            {x: 9, y: 30},
-	            {x: 10, y: 40},
-	            {x: 11, y: 30},
-	            {x: 12, y: 50},
-	            {x: 13, y: 35}
-	        ])
-	    })();
-	    (function() {
-	        var chart = new Rubix('#male-female-chart', {
-	            height: 200,
-	            title: 'Male VS Female',
-	            subtitle: 'Visitors',
-	            axis: {
-	                x: {
-	                    type: 'ordinal',
-	                    tickFormat: 'd',
-	                    tickCount: 2,
-	                    label: 'Time'
-	                },
-	                y:  {
-	                    type: 'linear',
-	                    tickFormat: 'd',
-	                    label: 'Visitors'
-	                }
-	            },
-	            tooltip: {
-	                theme_style: 'dark',
-	                format: {
-	                    y: '.0f'
-	                },
-	                abs: {
-	                    y: true
-	                }
-	            },
-	            stacked: true,
-	            interpolate: 'linear',
-	            show_markers: true
-	        });
-
-	        var column = chart.column_series({
-	            name: 'Male',
-	            color: '#2D89EF',
-	            marker: 'cross'
-	        });
-
-	        var data = [
-	            {x: 2005, y: 21},
-	            {x: 2006, y: 44},
-	            {x: 2007, y: 14},
-	            {x: 2008, y: 18},
-	            {x: 2009, y: 23},
-	            {x: 2010, y: 21}
-	        ];
-	        column.addData(data);
-
-	        var column1 = chart.column_series({
-	            name: 'Female',
-	            color: '#FF0097',
-	            marker: 'diamond'
-	        });
-
-	        var data1 = [
-	            {x: 2005, y: -79},
-	            {x: 2006, y: -56},
-	            {x: 2007, y: -86},
-	            {x: 2008, y: -82},
-	            {x: 2009, y: -77},
-	            {x: 2010, y: -79}
-	        ];
-	        column1.addData(data1);
-	    })();
-	  },
 	  render: function() {
 	    return (
 	      Container({id: "body"}, 
@@ -2622,11 +2455,28 @@ var l20n=_RL20n_.l20n,
 	            Col({sm: 4, smCollapseRight: true}, 
 	              PanelContainer(null, 
 	                Panel(null, 
-	                  PanelHeader(null, 
+	                  PanelBody({style: {padding: 0}}, 
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12}, 
-	                          React.DOM.h3(null, "Awesome Heading")
+	                          React.DOM.h3(null, "Basic Panel"), 
+	                          React.DOM.p(null, 
+	                            LoremIpsum({query: "5s"})
+	                          )
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
+	              PanelContainer({controlStyles: "bg-blue fg-white"}, 
+	                Panel(null, 
+	                  PanelHeader({className: "bg-blue"}, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12, className: "fg-white"}, 
+	                          React.DOM.h3(null, "Panel Header"), 
+	                          React.DOM.h6(null, "Mini Heading")
 	                        )
 	                      )
 	                    )
@@ -2638,6 +2488,98 @@ var l20n=_RL20n_.l20n,
 	                          React.DOM.p(null, 
 	                            LoremIpsum({query: "5s"})
 	                          )
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelFooter({className: "bg-lightblue"}, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12, className: "fg-white"}, 
+	                          React.DOM.h3(null, "Panel Footer"), 
+	                          React.DOM.h6(null, "Mini heading")
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
+	              PanelContainer({controlStyles: "bg-red fg-white"}, 
+	                Panel({className: "force-collapse"}, 
+	                  PanelHeader({className: "bg-red fg-white tabs"}, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.h4(null, "Panel Header + Plain Tabs")
+	                        )
+	                      )
+	                    ), 
+	                    TabContainer({className: "plain"}, 
+	                      TabList(null, 
+	                        Tab({pane: "ptpc_hf:home", active: true}, 
+	                          Icon({bundle: "fontello", glyph: "home"})
+	                        ), 
+	                        Tab({pane: "ptpc_hf:profile"}, 
+	                          Icon({bundle: "fontello", glyph: "user"})
+	                        ), 
+	                        Tab({pane: "ptpc_hf:settings"}, 
+	                          Icon({bundle: "fontello", glyph: "cog"})
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelBody(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          TabContent(null, 
+	                            TabPane({ref: "ptpc_hf:home", active: true}, 
+	                              React.DOM.h4(null, "Top Panel 1"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "ptpc_hf:profile"}, 
+	                              React.DOM.h4(null, "Top Panel 2"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "ptpc_hf:settings"}, 
+	                              React.DOM.h4(null, "Top Panel 3"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "ptpc_hf:table"}, 
+	                              React.DOM.h4(null, "Bottom Panel 1"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "ptpc_hf:archive"}, 
+	                              React.DOM.h4(null, "Bottom Panel 2"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "ptpc_hf:landscape"}, 
+	                              React.DOM.h4(null, "Bottom Panel 3"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            )
+	                          )
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelFooter({className: "bg-purple fg-white tabs"}, 
+	                    TabContainer({className: "plain"}, 
+	                      TabList(null, 
+	                        Tab({pane: "ptpc_hf:table"}, 
+	                          Icon({bundle: "fontello", glyph: "th"})
+	                        ), 
+	                        Tab({pane: "ptpc_hf:archive"}, 
+	                          Icon({bundle: "fontello", glyph: "archive"})
+	                        ), 
+	                        Tab({pane: "ptpc_hf:landscape"}, 
+	                          Icon({bundle: "fontello", glyph: "docs-landscape"})
+	                        )
+	                      )
+	                    ), 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.h4(null, "Panel Footer + Plain Tabs")
 	                        )
 	                      )
 	                    )
@@ -2663,91 +2605,21 @@ var l20n=_RL20n_.l20n,
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12, className: "fg-white"}, 
-	                          React.DOM.h3(null, "Awesome Footer but no Heading"), 
+	                          React.DOM.h4(null, "Panel Body + Footer without Panel Header"), 
 	                          React.DOM.h6(null, "Mini Heading")
 	                        )
 	                      )
 	                    )
 	                  )
 	                )
-	              )
-	            ), 
-	            Col({sm: 4}, 
-	              PanelContainer({controlStyles: "bg-green fg-white"}, 
-	                Panel(null, 
-	                  PanelHeader({className: "bg-green"}, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "fg-white"}, 
-	                          React.DOM.h3(null, "Awesome Heading"), 
-	                          React.DOM.h6(null, "Mini Heading")
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelBody(null, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12}, 
-	                          React.DOM.p(null, 
-	                            LoremIpsum({query: "5s"})
-	                          )
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        ), 
-	        Grid(null, 
-	          Row(null, 
-	            Col({sm: 4, smCollapseRight: true}, 
-	              PanelContainer({controlStyles: "bg-blue fg-white"}, 
-	                Panel(null, 
-	                  PanelHeader({className: "bg-blue"}, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "fg-white"}, 
-	                          React.DOM.h3(null, "Awesome Heading"), 
-	                          React.DOM.h6(null, "Mini Heading")
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelBody(null, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12}, 
-	                          React.DOM.p(null, 
-	                            LoremIpsum({query: "5s"})
-	                          )
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelFooter({className: "bg-lightblue"}, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "fg-white"}, 
-	                          React.DOM.h3(null, "Awesome Footer"), 
-	                          React.DOM.h6(null, "Mini heading")
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            ), 
-	            Col({sm: 4, smCollapseRight: true}, 
+	              ), 
 	              PanelContainer({controlStyles: "bg-purple fg-white"}, 
 	                Panel(null, 
 	                  PanelHeader({className: "bg-purple fg-white tabs"}, 
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12}, 
-	                          React.DOM.h3(null, "Hello world!")
+	                          React.DOM.h4(null, "Panel Header + Plain Tabs")
 	                        )
 	                      )
 	                    ), 
@@ -2815,8 +2687,49 @@ var l20n=_RL20n_.l20n,
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12, className: "fg-white"}, 
-	                          React.DOM.h3(null, "Awesome Footer"), 
+	                          React.DOM.h4(null, "Panel Footer"), 
 	                          React.DOM.h6(null, "Mini heading")
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
+	              PanelContainer({controlStyles: "bg-palegreen fg-white"}, 
+	                Panel({className: "force-collapse"}, 
+	                  PanelHeader({className: "bg-palegreen fg-white tabs"}, 
+	                    TabContainer(null, 
+	                      TabList(null, 
+	                        Tab({pane: "tpc_hft:home", active: true}, 
+	                          Icon({bundle: "fontello", glyph: "home"})
+	                        ), 
+	                        Tab({pane: "tpc_hft:profile"}, 
+	                          Icon({bundle: "fontello", glyph: "user"})
+	                        ), 
+	                        Tab({pane: "tpc_hft:settings"}, 
+	                          Icon({bundle: "fontello", glyph: "cog"})
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelBody(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          TabContent(null, 
+	                            TabPane({ref: "tpc_hft:home", active: true}, 
+	                              React.DOM.h4(null, "Top Panel 1"), 
+	                              React.DOM.p(null, LoremIpsum({query: "7s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hft:profile"}, 
+	                              React.DOM.h4(null, "Top Panel 2"), 
+	                              React.DOM.p(null, LoremIpsum({query: "7s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hft:settings"}, 
+	                              React.DOM.h4(null, "Top Panel 3"), 
+	                              React.DOM.p(null, LoremIpsum({query: "7s"}))
+	                            )
+	                          )
 	                        )
 	                      )
 	                    )
@@ -2825,13 +2738,38 @@ var l20n=_RL20n_.l20n,
 	              )
 	            ), 
 	            Col({sm: 4}, 
+	              PanelContainer({controlStyles: "bg-green fg-white"}, 
+	                Panel(null, 
+	                  PanelHeader({className: "bg-green"}, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12, className: "fg-white"}, 
+	                          React.DOM.h4(null, "Panel Body + Header without Panel Footer"), 
+	                          React.DOM.h6(null, "Mini Heading")
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelBody(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.p(null, 
+	                            LoremIpsum({query: "5s"})
+	                          )
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
 	              PanelContainer({controlStyles: "bg-palepink fg-white"}, 
 	                Panel(null, 
 	                  PanelHeader({className: "bg-palepink"}, 
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12, className: "fg-white"}, 
-	                          React.DOM.h3(null, "Awesome Footer"), 
+	                          React.DOM.h4(null, "Panel Header"), 
 	                          React.DOM.h6(null, "Mini heading")
 	                        )
 	                      )
@@ -2900,7 +2838,122 @@ var l20n=_RL20n_.l20n,
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12}, 
-	                          React.DOM.h1(null, "Hello world")
+	                          React.DOM.h4(null, "Panel Footer + Plain Tabs")
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
+	              PanelContainer({controlStyles: "bg-lightorange fg-white"}, 
+	                Panel({className: "force-collapse"}, 
+	                  PanelBody(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          TabContent(null, 
+	                            TabPane({active: true, ref: "tpc_hff:table"}, 
+	                              React.DOM.h4(null, "Bottom Panel 1"), 
+	                              React.DOM.p(null, LoremIpsum({query: "6s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hff:archive"}, 
+	                              React.DOM.h4(null, "Bottom Panel 2"), 
+	                              React.DOM.p(null, LoremIpsum({query: "6s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hff:landscape"}, 
+	                              React.DOM.h4(null, "Bottom Panel 3"), 
+	                              React.DOM.p(null, LoremIpsum({query: "6s"}))
+	                            )
+	                          )
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelFooter({className: "bg-lightorange fg-white tabs"}, 
+	                    TabContainer(null, 
+	                      TabList(null, 
+	                        Tab({active: true, pane: "tpc_hff:table"}, 
+	                          Icon({bundle: "fontello", glyph: "th"})
+	                        ), 
+	                        Tab({pane: "tpc_hff:archive"}, 
+	                          Icon({bundle: "fontello", glyph: "archive"})
+	                        ), 
+	                        Tab({pane: "tpc_hff:landscape"}, 
+	                          Icon({bundle: "fontello", glyph: "docs-landscape"})
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        Grid(null, 
+	          Row(null, 
+	            Col({xs: 12}, 
+	              PanelContainer({controlStyles: "bg-grayishcyan fg-white"}, 
+	                Panel({className: "force-collapse"}, 
+	                  PanelHeader({className: "bg-grayishcyan fg-white tabs"}, 
+	                    TabContainer(null, 
+	                      TabList(null, 
+	                        Tab({pane: "tpc_hf:home", active: true}, 
+	                          Icon({bundle: "fontello", glyph: "home"})
+	                        ), 
+	                        Tab({pane: "tpc_hf:profile"}, 
+	                          Icon({bundle: "fontello", glyph: "user"})
+	                        ), 
+	                        Tab({pane: "tpc_hf:settings"}, 
+	                          Icon({bundle: "fontello", glyph: "cog"})
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelBody(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          TabContent(null, 
+	                            TabPane({ref: "tpc_hf:home", active: true}, 
+	                              React.DOM.h4(null, "Top Panel 1"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hf:profile"}, 
+	                              React.DOM.h4(null, "Top Panel 2"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hf:settings"}, 
+	                              React.DOM.h4(null, "Top Panel 3"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hf:table"}, 
+	                              React.DOM.h4(null, "Bottom Panel 1"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hf:archive"}, 
+	                              React.DOM.h4(null, "Bottom Panel 2"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            ), 
+	                            TabPane({ref: "tpc_hf:landscape"}, 
+	                              React.DOM.h4(null, "Bottom Panel 3"), 
+	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            )
+	                          )
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelFooter({className: "bg-darkcyan fg-white tabs"}, 
+	                    TabContainer(null, 
+	                      TabList(null, 
+	                        Tab({pane: "tpc_hf:table"}, 
+	                          Icon({bundle: "fontello", glyph: "th"})
+	                        ), 
+	                        Tab({pane: "tpc_hf:archive"}, 
+	                          Icon({bundle: "fontello", glyph: "archive"})
+	                        ), 
+	                        Tab({pane: "tpc_hf:landscape"}, 
+	                          Icon({bundle: "fontello", glyph: "docs-landscape"})
 	                        )
 	                      )
 	                    )
@@ -2934,7 +2987,7 @@ var l20n=_RL20n_.l20n,
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12}, 
-	                          TabContent(null, 
+	                          TabContent({style: {paddingTop: 12.5}}, 
 	                            TabPane({ref: "panel_tab_panel_left:home", active: true}, 
 	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
 	                            ), 
@@ -2959,7 +3012,7 @@ var l20n=_RL20n_.l20n,
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12}, 
-	                          TabContent(null, 
+	                          TabContent({style: {paddingTop: 12.5}}, 
 	                            TabPane({ref: "panel_tab_panel_right:home", active: true}, 
 	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
 	                            ), 
@@ -3018,7 +3071,7 @@ var l20n=_RL20n_.l20n,
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12}, 
-	                          TabContent(null, 
+	                          TabContent({style: {paddingTop: 12.5}}, 
 	                            TabPane({ref: "panel_tab_panel_combined:home", active: true}, 
 	                              React.DOM.h4(null, "Left Panel"), 
 	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
@@ -3068,116 +3121,6 @@ var l20n=_RL20n_.l20n,
 	            )
 	          )
 	        ), 
-	        Grid(null, 
-	          Row(null, 
-	            Col({sm: 12}, 
-	              PanelContainer(null, 
-	                Panel(null, 
-	                  PanelBody(null, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12}, 
-	                          React.DOM.div({id: "main-chart"})
-	                        )
-	                      )
-	                    )
-	                  )
-	                ), 
-	                Panel({horizontal: true, className: "force-collapse"}, 
-	                  PanelLeft({className: "bg-red fg-white tabs panel-sm-1"}, 
-	                    TabContainer({className: "plain"}, 
-	                      TabList(null, 
-	                        Tab({pane: "panel_tab_panel_combined_plain:home", active: true}, 
-	                          Icon({bundle: "fontello", glyph: "home"})
-	                        ), 
-	                        Tab({pane: "panel_tab_panel_combined_plain:profile"}, 
-	                          Icon({bundle: "fontello", glyph: "user"})
-	                        ), 
-	                        Tab({pane: "panel_tab_panel_combined_plain:settings"}, 
-	                          Icon({bundle: "fontello", glyph: "cog"})
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelBody({className: "panel-sm-4"}, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12}, 
-	                          TabContent(null, 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:home", active: true}, 
-	                              React.DOM.div({id: "male-female-chart"})
-	                            ), 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:profile"}, 
-	                              React.DOM.h4(null, "Left Panel"), 
-	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
-	                            ), 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:settings"}, 
-	                              React.DOM.h4(null, "Left Panel"), 
-	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
-	                            )
-	                          )
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelRight({className: "bg-lightgreen fg-white panel-sm-2"}, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "text-center"}, 
-	                          React.DOM.br(null), 
-	                          React.DOM.div(null, 
-	                            React.DOM.h4(null, "Gross Revenue"), 
-	                            React.DOM.h2({className: "fg-green visible-xs visible-md visible-lg"}, "9,362.74"), 
-	                            React.DOM.h4({className: "fg-green visible-sm"}, "9,362.74")
-	                          ), 
-	                          React.DOM.hr({className: "border-green"}), 
-	                          React.DOM.div(null, 
-	                            React.DOM.h4(null, "Net Revenue"), 
-	                            React.DOM.h2({className: "fg-green visible-xs visible-md visible-lg"}, "6,734.89"), 
-	                            React.DOM.h4({className: "fg-green visible-sm"}, "6,734.89")
-	                          )
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelRight({className: "bg-darkgreen45 fg-green panel-sm-4"}, 
-	                    Grid(null, 
-	                      Row({className: "bg-green fg-lightgreen"}, 
-	                        Col({xs: 6}, 
-	                          React.DOM.h3(null, "Daily Load")
-	                        ), 
-	                        Col({xs: 6, className: "text-right"}, 
-	                          React.DOM.h2({className: "fg-lightgreen"}, "67%")
-	                        )
-	                      )
-	                    ), 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "bg-green fg-lightgreen"}, 
-	                          React.DOM.div({id: "alert-chart", className: "rubix-chart"})
-	                        )
-	                      )
-	                    ), 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "bg-lightgreen fg-darkgreen45 text-center"}, 
-	                          React.DOM.h5(null, "Grid with different color!")
-	                        )
-	                      )
-	                    ), 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "text-center"}, 
-	                          React.DOM.h5(null, "Grid with yet another color!")
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        ), 
 	        this.props.children
 	      )
 	    );
@@ -3212,146 +3155,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
-
-	var fonts = [{
-	  name: 'climacon',
-	  color: 'brown',
-	  fonts: __webpack_require__(64)
-	}, {
-	  name: 'mfizz',
-	  color: 'darkblue',
-	  fonts: __webpack_require__(65)
-	}, {
-	  name: 'devicon',
-	  color: 'darkgreen45',
-	  fonts: __webpack_require__(66)
-	}, {
-	  name: 'stroke-gap-icons',
-	  color: 'pink',
-	  fonts: __webpack_require__(67)
-	}, {
-	  name: 'simple-line-icons',
-	  color: 'brown',
-	  fonts: __webpack_require__(68)
-	}, {
-	  name: 'pixelvicon',
-	  color: 'purple',
-	  fonts: __webpack_require__(69)
-	}, {
-	  name: 'nargela',
-	  color: 'paleblue',
-	  fonts: __webpack_require__(70)
-	}, {
-	  name: 'flatline',
-	  color: 'desaturateddarkblue',
-	  fonts: __webpack_require__(71)
-	}, {
-	  name: 'feather',
-	  color: 'darkcyan',
-	  fonts: __webpack_require__(72)
-	}, {
-	  name: 'dripicons',
-	  color: 'deepred',
-	  fonts: __webpack_require__(73)
-	}, {
-	  name: 'outlined',
-	  color: 'blue',
-	  fonts: __webpack_require__(74)
-	},{
-	  name: 'ikons',
-	  color: 'paleorange',
-	  fonts: __webpack_require__(75)
-	}, {
-	  name: 'fontello',
-	  color: 'green',
-	  fonts: __webpack_require__(76)
-	}];
-
-	var Body = React.createClass({displayName: 'Body',
-	  render: function() {
-	    return (
-	      Container({id: "body"}, 
-	        Grid(null, 
-	          Row(null, 
-	            Col({xs: 12}, 
-	              fonts.map(function(font) {
-	                return (
-	                  PanelContainer({key: font.name, controlStyles: 'fg-white bg-'+font.color}, 
-	                    Panel(null, 
-	                      PanelHeader({className: 'fg-white bg-'+font.color}, 
-	                        Grid(null, 
-	                          Row(null, 
-	                            Col({xs: 12}, 
-	                              React.DOM.h3({className: "text-center"}, font.name, " [Total fonts: ", font.fonts.length, "]")
-	                            )
-	                          )
-	                        )
-	                      ), 
-	                      PanelBody(null, 
-	                        Grid(null, 
-	                          Row(null, 
-	                              font.fonts.map(function(fontname) {
-	                                return (
-	                                  Col({key: fontname, xs: 4, className: "text-center"}, 
-	                                    React.DOM.div(null, 
-	                                      Icon({className: 'fg-'+font.color, style: {fontSize: 48}, glyph: fontname})
-	                                    ), 
-	                                    React.DOM.div(null, 
-	                                      fontname
-	                                    )
-	                                  )
-	                                );
-	                              }.bind(this))
-	                          )
-	                        )
-	                      )
-	                    )
-	                  )
-	                );
-	              }.bind(this))
-	            )
-	          )
-	        ), 
-	        this.props.children
-	      )
-	    );
-	  }
-	});
-
-	var classSet = React.addons.classSet;
-	var Fonts = React.createClass({displayName: 'Fonts',
-	  mixins: [Sidebar.SidebarMixin],
-	  render: function() {
-	    var classes = classSet({
-	      'container-open': this.state.open
-	    });
-	    return (
-	      Container({id: "container", className: classes}, 
-	        Sidebar(null), 
-	        Header(null), 
-	        Body(null, 
-	          Footer(null)
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = Fonts;
-
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx React.DOM */
-
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -3601,16 +3407,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var dataObject = JSON.parse(__webpack_require__(80));
+	var dataObject = JSON.parse(__webpack_require__(87));
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -3681,16 +3487,594 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
+
+	var MapContainer = React.createClass({displayName: 'MapContainer',
+	  render: function() {
+	    return (
+	      PanelContainer(null, 
+	        Panel(null, 
+	          PanelBody({style: {padding: 25}}, 
+	            React.DOM.h4({className: "text-center", style: {marginTop: 0}}, this.props.name), 
+	            this.props.children, 
+	            React.DOM.div({id: this.props.id, style: {height: 300}})
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var Body = React.createClass({displayName: 'Body',
+	  geocode: null,
+	  routingmap: null,
+	  getInitialState: function() {
+	    return {
+	      routeslist: []
+	    };
+	  },
+	  geoCode: function(address) {
+	    GMaps.geocode({
+	      address: address,
+	      callback: function(results, status) {
+	        if (status == 'OK') {
+	          var latlng = results[0].geometry.location;
+	          this.geocode.setCenter(latlng.lat(), latlng.lng());
+	          this.geocode.addMarker({
+	            lat: latlng.lat(),
+	            lng: latlng.lng(),
+	            infoWindow: {
+	              content: '<div><strong>Address:</strong> '+results[0].formatted_address+'</div>'
+	            }
+	          });
+	        }
+	      }.bind(this)
+	    });
+	  },
+	  componentDidMount: function() {
+	    (function() {
+	      new GMaps({
+	        div: '#basic-map',
+	        lat: -12.043333,
+	        lng: -77.028333
+	      });
+	    })();
+
+	    (function() {
+	      new GMaps({
+	        div: '#map-events',
+	        zoom: 16,
+	        lat: -12.043333,
+	        lng: -77.028333,
+	        click: function(e) {
+	          alert('click');
+	        },
+	        dragend: function(e) {
+	          alert('dragend');
+	        }
+	      });
+	    })();
+
+	    (function() {
+	      var map = new GMaps({
+	        div: '#markers',
+	        zoom: 16,
+	        lat: -12.043333,
+	        lng: -77.028333
+	      });
+
+	      map.addMarker({
+	        lat: -12.043333,
+	        lng: -77.028333,
+	        title: 'Lima',
+	        click: function(e) {
+	          alert('You clicked in this marker');
+	        }
+	      });
+
+	      map.addMarker({
+	        lat: -12.043333,
+	        lng: -77.029333,
+	        title: 'Lima',
+	        infoWindow: {
+	          content: '<p>Some content here!</p>'
+	        }
+	      });
+	    })();
+
+	    (function() {
+	      this.geocode = new GMaps({
+	        div: '#geocode',
+	        zoom: 16,
+	        lat: -12.043333,
+	        lng: -77.028333
+	      });
+	      this.geoCode('New York, NY, USA');
+	    }.bind(this))();
+
+	    (function() {
+	      var map = new GMaps({
+	        div: '#polyline',
+	        zoom: 12,
+	        lat: -12.043333,
+	        lng: -77.028333
+	      });
+
+	      var path = [[-12.044012922866312, -77.02470665341184], [-12.05449279282314, -77.03024273281858], [-12.055122327623378, -77.03039293652341], [-12.075917129727586, -77.02764635449216], [-12.07635776902266, -77.02792530422971], [-12.076819390363665, -77.02893381481931], [-12.088527520066453, -77.0241058385925], [-12.090814532191756, -77.02271108990476]];
+
+	      map.drawPolyline({
+	        path: path,
+	        strokeColor: '#FF0080',
+	        strokeOpacity: 0.75,
+	        strokeWeight: 8
+	      });
+	    })();
+
+	    (function() {
+	      var map = new GMaps({
+	        div: '#overlays',
+	        zoom: 18,
+	        lat: 40.7638435,
+	        lng: -73.9729691
+	      });
+
+	      map.drawOverlay({
+	        lat: 40.7640135,
+	        lng: -73.9729691,
+	        content: '<div class="overlay">Apple Store, NY, USA<div class="overlay_arrow above"></div></div>'
+	      });
+	    })();
+
+	    (function() {
+	      var map = new GMaps({
+	        div: '#polygon',
+	        lat: -12.043333,
+	        lng: -77.028333
+	      });
+
+	      var path = [[-12.040397656836609,-77.03373871559225], [-12.040248585302038,-77.03993927003302], [-12.050047116528843,-77.02448169303511], [-12.044804866577001,-77.02154422636042]];
+
+	      polygon = map.drawPolygon({
+	        paths: path, // pre-defined polygon shape
+	        strokeColor: '#D71F4B',
+	        strokeOpacity: 1,
+	        strokeWeight: 3,
+	        fillColor: '#D71F4B',
+	        fillOpacity: 0.6
+	      });
+	    })();
+
+	    (function() {
+	      var map = new GMaps({
+	        div: '#geojson',
+	        lat: 39.743296277167325,
+	        lng: -105.00517845153809
+	      });
+
+	      var paths = [
+	                [
+	                  [
+	                    [-105.00432014465332, 39.74732195489861],
+	                    [-105.00715255737305, 39.74620006835170],
+	                    [-105.00921249389647, 39.74468219277038],
+	                    [-105.01067161560059, 39.74362625960105],
+	                    [-105.01195907592773, 39.74290029616054],
+	                    [-105.00989913940431, 39.74078835902781],
+	                    [-105.00758171081543, 39.74059036160317],
+	                    [-105.00346183776855, 39.74059036160317],
+	                    [-105.00097274780272, 39.74059036160317],
+	                    [-105.00062942504881, 39.74072235994946],
+	                    [-105.00020027160645, 39.74191033368865],
+	                    [-105.00071525573731, 39.74276830198601],
+	                    [-105.00097274780272, 39.74369225589818],
+	                    [-105.00097274780272, 39.74461619742136],
+	                    [-105.00123023986816, 39.74534214278395],
+	                    [-105.00183105468751, 39.74613407445653],
+	                    [-105.00432014465332, 39.74732195489861]
+	                  ],[
+	                    [-105.00361204147337, 39.74354376414072],
+	                    [-105.00301122665405, 39.74278480127163],
+	                    [-105.00221729278564, 39.74316428375108],
+	                    [-105.00283956527711, 39.74390674342741],
+	                    [-105.00361204147337, 39.74354376414072]
+	                  ]
+	                ],[
+	                  [
+	                    [-105.00942707061768, 39.73989736613708],
+	                    [-105.00942707061768, 39.73910536278566],
+	                    [-105.00685214996338, 39.73923736397631],
+	                    [-105.00384807586671, 39.73910536278566],
+	                    [-105.00174522399902, 39.73903936209552],
+	                    [-105.00041484832764, 39.73910536278566],
+	                    [-105.00041484832764, 39.73979836621592],
+	                    [-105.00535011291504, 39.73986436617916],
+	                    [-105.00942707061768, 39.73989736613708]
+	                  ]
+	                ]
+	              ];
+
+	      var polygon = map.drawPolygon({
+	        paths: paths,
+	        useGeoJSON: true,
+	        strokeColor: '#2EB398',
+	        strokeOpacity: 1,
+	        strokeWeight: 3,
+	        fillColor: '#2EB398',
+	        fillOpacity: 0.6
+	      });
+	    })();
+
+	    (function() {
+	      this.routingmap = new GMaps({
+	        div: '#routingmap',
+	        lat: -12.043333,
+	        lng: -77.028333
+	      });
+	    }.bind(this))();
+	  },
+	  handleSubmit: function(e) {
+	    e.preventDefault();
+	    e.stopPropagation();
+	    this.geoCode($('#address').val());
+	  },
+	  startRouting: function(e) {
+	    e.preventDefault();
+	    e.stopPropagation();
+	    this.setState({
+	      routeslist: []
+	    }, function() {
+	      var map = this.routingmap;
+	      var list = [];
+	      map.travelRoute({
+	        origin: [-12.044012922866312, -77.02470665341184],
+	        destination: [-12.090814532191756, -77.02271108990476],
+	        travelMode: 'driving',
+	        step: function(e){
+	          list.push({
+	            instructions: e.instructions,
+	            lat: e.end_location.lat(),
+	            lng: e.end_location.lng(),
+	            path: e.path
+	          });
+	        }.bind(this),
+	        end: function(e) {
+	          var lat, lng, path;
+	          var processList = function(i) {
+	            if(list.length === i) return;
+	            lat = list[i].lat;
+	            lng = list[i].lng;
+	            path = list[i].path;
+	            setTimeout(function() {
+	              this.setState({
+	                routeslist: list.slice(0, i+1)
+	              });
+	              map.setCenter(lat, lng);
+	              map.drawPolyline({
+	                path: path,
+	                strokeColor: '#FF6FCF',
+	                strokeWeight: 8
+	              });
+	              processList(i+1);
+	            }.bind(this), 500);
+	          }.bind(this);
+	          processList(0);
+	        }.bind(this)
+	      });
+	    }.bind(this));
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        Grid(null, 
+	          Row(null, 
+	            Col({sm: 6, collapseRight: true}, 
+	              MapContainer({id: "basic-map", name: "Basic Map"}), 
+	              MapContainer({id: "markers", name: "Map Markers"}), 
+	              MapContainer({id: "polyline", name: "Polylines"}), 
+	              MapContainer({id: "polygon", name: "Polygon"})
+	            ), 
+	            Col({sm: 6}, 
+	              MapContainer({id: "map-events", name: "Map Events"}), 
+	              MapContainer({id: "geocode", name: "Geocoding"}, 
+	                Form({onSubmit: this.handleSubmit}, 
+	                  FormGroup(null, 
+	                    InputGroup(null, 
+	                      Input({type: "text", id: "address", placeholder: "Address", defaultValue: "New York, NY, USA"}), 
+	                      InputGroupAddon({className: "plain"}, 
+	                        Button({outlined: true, onlyOnHover: true, type: "submit", bsStyle: "darkgreen45"}, "search")
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
+	              MapContainer({id: "overlays", name: "Overlays"}), 
+	              MapContainer({id: "geojson", name: "GeoJSON Polygon"})
+	            )
+	          ), 
+	          Row(null, 
+	            Col({xs: 12}, 
+	              PanelContainer(null, 
+	                Panel(null, 
+	                  PanelBody({style: {padding: 25}}, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12, sm: 6, collapseLeft: true}, 
+	                          React.DOM.div({id: "routingmap", style: {height: 300}})
+	                        ), 
+	                        Col({xs: 12, sm: 6, collapseRight: true}, 
+	                          React.DOM.hr({className: "visible-xs"}), 
+	                          React.DOM.div({className: "text-center", style: {paddingBottom: 25}}, 
+	                            Button({outlined: true, onlyOnHover: true, type: "button", bsStyle: "darkgreen45", onClick: this.startRouting}, "Start routing")
+	                          ), 
+	                          React.DOM.div(null, 
+	                            React.DOM.ul(null, 
+	                              this.state.routeslist.map(function(route, i) {
+	                                return (React.DOM.li({key: i, dangerouslySetInnerHTML: {__html: route.instructions}}));
+	                              })
+	                            )
+	                          )
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var MorrisJSPage = React.createClass({displayName: 'MorrisJSPage',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return this.transferPropsTo(
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = MorrisJSPage;
+
+
+/***/ },
 /* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var colors = __webpack_require__(77);
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    $('#trumbowyg-demo').trumbowyg({
+	      autogrow: true,
+	      dir: $('html').attr('dir')
+	    }).trumbowyg('html', '<p>Steve Jobs became the greatest business executive of our era, the one most certain to be remembered a century from now. History will place him in the pantheon right next to Edison and Ford. More than anyone else of his time, he made products that were completely innovative, combining the power of poetry and processors.</p><blockquote><p style="margin-bottom: 12.5px;"><span style="font-size: 11pt; line-height: 1.78571;">Some people say, “Give the customers what they want.” But that’s not my approach. Our job is to figure out what they’re going to want before they do. I think Henry Ford once said, <b>“If I’d asked customers what they wanted, they would have told me, ‘A faster horse!’”</b> People don’t know what they want until you show it to them. That’s why I never rely on market research. Our task is to read things that are not yet on the page.&nbsp;</span><br></p><div><span style="font-size: 11pt; line-height: 1.78571;">- Steve Jobs in <i>Steve Jobs by Walter Isaacson</i></span></div></blockquote><p>Was he smart? No, not exceptionally. Instead, he was a <b><i>genius</i></b>. His imaginative leaps were instinctive, unexpected, and at times <b><i>magical</i></b>. He was, indeed, an example of what the mathematician Mark Kac called a magician genius, someone whose insights come out of the blue and require intuition more than mere mental processing power. Like a pathfinder, he could absorb information, sniff the winds, and sense what lay ahead.</p>');
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        Grid(null, 
+	          Row(null, 
+	            Col({xs: 12}, 
+	              PanelContainer(null, 
+	                Panel(null, 
+	                  PanelHeader(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.h3({className: "text-center"}, "Trumbowyg Editor")
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelBody(null, 
+	                    React.DOM.div({id: "trumbowyg-demo"})
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var MorrisJSPage = React.createClass({displayName: 'MorrisJSPage',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return this.transferPropsTo(
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = MorrisJSPage;
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
+
+	var fonts = [{
+	  name: 'climacon',
+	  color: 'brown',
+	  fonts: __webpack_require__(71)
+	}, {
+	  name: 'mfizz',
+	  color: 'darkblue',
+	  fonts: __webpack_require__(72)
+	}, {
+	  name: 'devicon',
+	  color: 'darkgreen45',
+	  fonts: __webpack_require__(73)
+	}, {
+	  name: 'stroke-gap-icons',
+	  color: 'pink',
+	  fonts: __webpack_require__(74)
+	}, {
+	  name: 'simple-line-icons',
+	  color: 'brown',
+	  fonts: __webpack_require__(75)
+	}, {
+	  name: 'pixelvicon',
+	  color: 'purple',
+	  fonts: __webpack_require__(76)
+	}, {
+	  name: 'nargela',
+	  color: 'paleblue',
+	  fonts: __webpack_require__(77)
+	}, {
+	  name: 'flatline',
+	  color: 'desaturateddarkblue',
+	  fonts: __webpack_require__(78)
+	}, {
+	  name: 'feather',
+	  color: 'darkcyan',
+	  fonts: __webpack_require__(79)
+	}, {
+	  name: 'dripicons',
+	  color: 'deepred',
+	  fonts: __webpack_require__(80)
+	}, {
+	  name: 'outlined',
+	  color: 'blue',
+	  fonts: __webpack_require__(81)
+	},{
+	  name: 'ikons',
+	  color: 'paleorange',
+	  fonts: __webpack_require__(82)
+	}, {
+	  name: 'fontello',
+	  color: 'green',
+	  fonts: __webpack_require__(83)
+	}];
+
+	var Body = React.createClass({displayName: 'Body',
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        Grid(null, 
+	          Row(null, 
+	            Col({xs: 12}, 
+	              fonts.map(function(font) {
+	                return (
+	                  PanelContainer({key: font.name, controlStyles: 'fg-white bg-'+font.color}, 
+	                    Panel(null, 
+	                      PanelHeader({className: 'fg-white bg-'+font.color}, 
+	                        Grid(null, 
+	                          Row(null, 
+	                            Col({xs: 12}, 
+	                              React.DOM.h3({className: "text-center"}, font.name, " [Total fonts: ", font.fonts.length, "]")
+	                            )
+	                          )
+	                        )
+	                      ), 
+	                      PanelBody(null, 
+	                        Grid(null, 
+	                          Row(null, 
+	                              font.fonts.map(function(fontname) {
+	                                return (
+	                                  Col({key: fontname, xs: 4, className: "text-center"}, 
+	                                    React.DOM.div(null, 
+	                                      Icon({className: 'fg-'+font.color, style: {fontSize: 48}, glyph: fontname})
+	                                    ), 
+	                                    React.DOM.div(null, 
+	                                      fontname
+	                                    )
+	                                  )
+	                                );
+	                              }.bind(this))
+	                          )
+	                        )
+	                      )
+	                    )
+	                  )
+	                );
+	              }.bind(this))
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var Fonts = React.createClass({displayName: 'Fonts',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Fonts;
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
+
+	var colors = __webpack_require__(84);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -4488,16 +4872,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var colors = __webpack_require__(77);
+	var colors = __webpack_require__(84);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -5148,14 +5532,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -5266,18 +5650,24 @@ var l20n=_RL20n_.l20n,
 	                      )
 	                    )
 	                  ), 
-	                  TabContent(null, 
-	                    TabPane({ref: "tab1:home", active: true}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab1:profile"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab1:fat"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab1:mdo"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                  Grid(null, 
+	                    Row(null, 
+	                      Col({xs: 12, style: {paddingTop: 12.5}}, 
+	                        TabContent(null, 
+	                          TabPane({ref: "tab1:home", active: true}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab1:profile"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab1:fat"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab1:mdo"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          )
+	                        )
+	                      )
 	                    )
 	                  )
 	                )
@@ -5287,26 +5677,26 @@ var l20n=_RL20n_.l20n,
 	                  Grid(null, 
 	                    Row(null, 
 	                      Col({xs: 12}, 
-	                        React.DOM.h3(null, "Tabs: Inline"), 
-	                        TabList({bsStyle: "purple"}, 
-	                          Tab({pane: "tab2:home", active: true}, "Home"), 
-	                          Tab({pane: "tab2:profile"}, "Profile"), 
-	                          Tab(null, 
-	                            DropdownButton({tab: true, container: this, menu: "tabmenu2"}, 
-	                              React.DOM.span(null, "Dropdown "), Caret(null)
-	                            ), 
-	                            Menu({autoHide: true, bsStyle: "lightpurple", ref: "tabmenu2"}, 
-	                              MenuItem({href: "#"}, 
-	                                Tab({dropdown: true, pane: "tab2:fat"}, 
-	                                  "@fat"
-	                                )
-	                              ), 
-	                              MenuItem({href: "#"}, 
-	                                Tab({dropdown: true, pane: "tab2:mdo"}, 
-	                                  "@mdo"
-	                                )
-	                              )
-	                            )
+	                        React.DOM.h3(null, "Tabs: Inline")
+	                      )
+	                    )
+	                  ), 
+	                  TabList({bsStyle: "purple"}, 
+	                    Tab({pane: "tab2:home", active: true}, "Home"), 
+	                    Tab({pane: "tab2:profile"}, "Profile"), 
+	                    Tab(null, 
+	                      DropdownButton({tab: true, container: this, menu: "tabmenu2"}, 
+	                        React.DOM.span(null, "Dropdown "), Caret(null)
+	                      ), 
+	                      Menu({autoHide: true, bsStyle: "lightpurple", ref: "tabmenu2"}, 
+	                        MenuItem({href: "#"}, 
+	                          Tab({dropdown: true, pane: "tab2:fat"}, 
+	                            "@fat"
+	                          )
+	                        ), 
+	                        MenuItem({href: "#"}, 
+	                          Tab({dropdown: true, pane: "tab2:mdo"}, 
+	                            "@mdo"
 	                          )
 	                        )
 	                      )
@@ -5314,18 +5704,24 @@ var l20n=_RL20n_.l20n,
 	                  )
 	                ), 
 	                PanelBody(null, 
-	                  TabContent(null, 
-	                    TabPane({ref: "tab2:home", active: true}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab2:profile"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab2:fat"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab2:mdo"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                  Grid(null, 
+	                    Row(null, 
+	                      Col({xs: 12, style: {paddingTop: 12.5}}, 
+	                        TabContent(null, 
+	                          TabPane({ref: "tab2:home", active: true}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab2:profile"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab2:fat"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab2:mdo"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          )
+	                        )
+	                      )
 	                    )
 	                  )
 	                )
@@ -5362,18 +5758,24 @@ var l20n=_RL20n_.l20n,
 	                  )
 	                ), 
 	                PanelBody(null, 
-	                  TabContent(null, 
-	                    TabPane({ref: "tab3:home", active: true}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab3:profile"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab3:fat"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "tab3:mdo"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                  Grid(null, 
+	                    Row(null, 
+	                      Col({xs: 12, style: {paddingTop: 12.5}}, 
+	                        TabContent(null, 
+	                          TabPane({ref: "tab3:home", active: true}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab3:profile"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab3:fat"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "tab3:mdo"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          )
+	                        )
+	                      )
 	                    )
 	                  )
 	                )
@@ -5412,18 +5814,24 @@ var l20n=_RL20n_.l20n,
 	                      )
 	                    )
 	                  ), 
-	                  TabContent(null, 
-	                    TabPane({ref: "pills1:home", active: true}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "pills1:profile"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "pills1:fat"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "pills1:mdo"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                  Grid(null, 
+	                    Row(null, 
+	                      Col({xs: 12, style: {paddingTop: 12.5}}, 
+	                        TabContent(null, 
+	                          TabPane({ref: "pills1:home", active: true}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "pills1:profile"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "pills1:fat"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "pills1:mdo"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          )
+	                        )
+	                      )
 	                    )
 	                  )
 	                )
@@ -5524,18 +5932,24 @@ var l20n=_RL20n_.l20n,
 	                      )
 	                    )
 	                  ), 
-	                  TabContent(null, 
-	                    TabPane({ref: "pill3:home", active: true}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "pill3:profile"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "pill3:fat"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                    ), 
-	                    TabPane({ref: "pill3:mdo"}, 
-	                      React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                  Grid(null, 
+	                    Row(null, 
+	                      Col({xs: 12, style: {paddingTop: 12.5}}, 
+	                        TabContent(null, 
+	                          TabPane({ref: "pill3:home", active: true}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "pill3:profile"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "pill3:fat"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          ), 
+	                          TabPane({ref: "pill3:mdo"}, 
+	                            React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                          )
+	                        )
+	                      )
 	                    )
 	                  )
 	                )
@@ -5783,16 +6197,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var ReactStyle = __webpack_require__(79);
+	var ReactStyle = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  getInitialState: function() {
@@ -6167,14 +6581,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -6374,14 +6788,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  destroyPlanet: function() {
@@ -6728,14 +7142,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -7061,14 +7475,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -7808,14 +8222,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  mixins: [RoutingContextMixin],
@@ -8126,16 +8540,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var ReactStyle = __webpack_require__(79);
+	var ReactStyle = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  createStep: function(e) {
@@ -8467,14 +8881,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -8920,14 +9334,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -9471,14 +9885,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -10253,14 +10667,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -10464,14 +10878,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -10686,14 +11100,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -10784,14 +11198,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -10869,14 +11283,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 31 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11316,14 +11730,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 32 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  back: function(e) {
@@ -11432,14 +11846,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 33 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  back: function(e) {
@@ -11560,14 +11974,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 34 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  interval: null,
@@ -11646,14 +12060,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 35 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -11803,14 +12217,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 36 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -11993,14 +12407,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 37 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -12246,14 +12660,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 38 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -12599,14 +13013,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 39 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -12741,14 +13155,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 40 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -13088,14 +13502,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 41 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -13500,14 +13914,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 42 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14009,14 +14423,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 43 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14339,14 +14753,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 44 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14509,14 +14923,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 45 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
 	'use strict';
 
-	var Navigation = __webpack_require__(78);
+	var Navigation = __webpack_require__(85);
 
 	var CSS = React.createClass({displayName: 'CSS',
 	  mixins: [RoutingContextMixin, React.addons.LinkedStateMixin],
@@ -15820,14 +16234,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 46 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
 	'use strict';
 
-	var Navigation = __webpack_require__(78);
+	var Navigation = __webpack_require__(85);
 
 	var Components = React.createClass({displayName: 'Components',
 	  mixins: [RoutingContextMixin],
@@ -17329,16 +17743,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 47 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var package_snippet = __webpack_require__(81);
+	var package_snippet = __webpack_require__(88);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -17651,14 +18065,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 48 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -17809,14 +18223,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 49 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -17945,14 +18359,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 50 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -18073,14 +18487,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 51 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -18151,14 +18565,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 52 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -18229,31 +18643,31 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 53 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var gridbasic = __webpack_require__(82);
-	var gridsnippet = __webpack_require__(83);
-	var gridfixedwidth = __webpack_require__(84);
-	var gridzeropadding = __webpack_require__(85);
-	var gridgutter = __webpack_require__(86);
-	var griddir = __webpack_require__(87);
-	var gridnest = __webpack_require__(88);
-	var rowsyntax = __webpack_require__(89);
-	var colsyntax = __webpack_require__(90);
-	var colclearfix = __webpack_require__(91);
-	var colhiddenvisible = __webpack_require__(92);
-	var coloffsets = __webpack_require__(93);
-	var colpushpull = __webpack_require__(94);
-	var colcollapse = __webpack_require__(95);
+	var gridbasic = __webpack_require__(89);
+	var gridsnippet = __webpack_require__(90);
+	var gridfixedwidth = __webpack_require__(91);
+	var gridzeropadding = __webpack_require__(92);
+	var gridgutter = __webpack_require__(93);
+	var griddir = __webpack_require__(94);
+	var gridnest = __webpack_require__(95);
+	var rowsyntax = __webpack_require__(96);
+	var colsyntax = __webpack_require__(97);
+	var colclearfix = __webpack_require__(98);
+	var colhiddenvisible = __webpack_require__(99);
+	var coloffsets = __webpack_require__(100);
+	var colpushpull = __webpack_require__(101);
+	var colcollapse = __webpack_require__(102);
 
-	var Doc = __webpack_require__(60);
+	var Doc = __webpack_require__(67);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -18525,16 +18939,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 54 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var Doc = __webpack_require__(60);
+	var Doc = __webpack_require__(67);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -19165,16 +19579,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 55 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var Doc = __webpack_require__(60);
+	var Doc = __webpack_require__(67);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -19298,16 +19712,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 56 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var Doc = __webpack_require__(60);
+	var Doc = __webpack_require__(67);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -19857,16 +20271,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 57 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(61);
-	var Sidebar = __webpack_require__(62);
-	var Footer = __webpack_require__(63);
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
 
-	var Doc = __webpack_require__(60);
+	var Doc = __webpack_require__(67);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -20031,6 +20445,47 @@ var l20n=_RL20n_.l20n,
 	                  "</Form>\n"
 	                )
 	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Static control"), 
+	            React.DOM.p(null, 
+	              "When you need to place plain text next to a form label within a horizontal form, use the ", React.DOM.code(null, "Static"), " component."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              Form({horizontal: true}, 
+	                FormGroup(null, 
+	                  Label({sm: 2, control: true}, "Email"), 
+	                  Col({sm: 10}, 
+	                    Static(null, "email@example.com")
+	                  )
+	                ), 
+	                FormGroup(null, 
+	                  Label({sm: 2, htmlFor: "inputPassword4", control: true}, "Password"), 
+	                  Col({sm: 10}, 
+	                    Input({type: "password", id: "inputPassword4", placeholder: "Password"})
+	                  )
+	                )
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Form horizontal>\n", 
+	                  "  <FormGroup>\n", 
+	                  "    <Label sm={2} control>Email</Label>\n", 
+	                  "    <Col sm={10}>\n", 
+	                  "      <Static>email@example.com</Static>\n", 
+	                  "    </Col>\n", 
+	                  "  </FormGroup>\n", 
+	                  "  <FormGroup>\n", 
+	                  "    <Label sm={2} htmlFor='inputPassword4' control>Password</Label>\n", 
+	                  "    <Col sm={10}>\n", 
+	                  "      <Input type='password' id='inputPassword4' placeholder='Password' />\n", 
+	                  "    </Col>\n", 
+	                  "  </FormGroup>\n", 
+	                  "</Form>\n"
+	                )
+	              )
 	            )
 	          ), 
 	          DocUnit({name: "Bootstrap: Rubix Enhancements"}, 
@@ -20105,7 +20560,763 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 58 */
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
+
+	var Doc = __webpack_require__(67);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var inputgetdomnode = __webpack_require__(103);
+	var inputgetchecked = __webpack_require__(104);
+	var inputsetchecked = __webpack_require__(105);
+	var inputgetvalue = __webpack_require__(106);
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: Basic Inputs"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Default"), 
+	            React.DOM.p(null, 
+	              "Most common form control, text-based Input fields. Includes support for all HTML5 types: ", React.DOM.code(null, "text"), ", ", React.DOM.code(null, "password"), ", ", React.DOM.code(null, "datetime"), ", ", React.DOM.code(null, "datetime-local"), ", ", React.DOM.code(null, "date"), ", ", React.DOM.code(null, "month"), ", ", React.DOM.code(null, "time"), ", ", React.DOM.code(null, "week"), ", ", React.DOM.code(null, "number"), ", ", React.DOM.code(null, "email"), ", ", React.DOM.code(null, "url"), ", ", React.DOM.code(null, "search"), ", ", React.DOM.code(null, "tel"), ", and ", React.DOM.code(null, "color"), "."
+	            ), 
+	            React.DOM.p(null, 
+	              "NOTE: The Input component defined here is case sensitive. We have provided this component so that it saves you time by having to write less. The classname ", React.DOM.code(null, "form-control"), " is added by default to all types defined above."
+	            ), 
+	            Well(null, 
+	              Input({type: "password", placeholder: "Password"})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Input type='password' placeholder='Password' />\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Disabled input"), 
+	            React.DOM.p(null, 
+	              "Add the ", React.DOM.code(null, "disabled"), " boolean attribute on an input to prevent user input and trigger a slightly different look."
+	            ), 
+	            Well(null, 
+	              Input({disabled: true, type: "password", placeholder: "Password"})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Input disabled type='password' placeholder='Password' />\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Readonly input"), 
+	            React.DOM.p(null, 
+	              "Add the ", React.DOM.code(null, "readOnly"), " boolean attribute on an input to prevent user input and style the input as disabled."
+	            ), 
+	            Well(null, 
+	              Input({readOnly: true, type: "password", placeholder: "Password"})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Input readOnly type='password' placeholder='Password' />\n"
+	                )
+	              )
+	            )
+	          ), 
+	          DocUnit({name: "Bootstrap: Control Sizing"}, 
+	            React.DOM.p(null, 
+	              "Set heights using properties like: ", React.DOM.code(null, "lg"), " and ", React.DOM.code(null, "sm")
+	            ), 
+	            Well(null, 
+	              Input({lg: true, type: "text", placeholder: "Large Input"}), React.DOM.br(null), 
+	              Input({sm: true, type: "text", placeholder: "Small Input"})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Input lg type='text' placeholder='Large Input' />\n", 
+	                  "<Input sm type='text' placeholder='Small Input' />\n"
+	                )
+	              )
+	            )
+	          ), 
+	          DocUnit({name: "Bootstrap: Rubix Enhancements [API]", docStyle: "bg-red fg-white"}, 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "getInputDOMNode()")), 
+	            React.DOM.p(null, 
+	              "Access the raw DOM Node. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  inputgetdomnode
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "getChecked()")), 
+	            React.DOM.p(null, 
+	              "Access the checked state of a checkbox or radio primitive. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  inputgetchecked
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "setChecked(true|false)")), 
+	            React.DOM.p(null, 
+	              "Set the checked state of a checkbox or radio primitive. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  inputsetchecked
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "getValue()")), 
+	            React.DOM.p(null, 
+	              "Convenience function to get the value of the raw input dom element. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  inputgetvalue
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var InputsDocs = React.createClass({displayName: 'InputsDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = InputsDocs;
+
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
+
+	var Doc = __webpack_require__(67);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var textareadomnode = __webpack_require__(107);
+	var textareagetvalue = __webpack_require__(108);
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: Textarea"}, 
+	            React.DOM.p(null, 
+	              "Form control which supports multiple lines of text. Change ", React.DOM.code(null, "rows"), " attribute as necessary."
+	            ), 
+	            Well(null, 
+	              Textarea({rows: "3"})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Textarea rows='3' />\n"
+	                )
+	              )
+	            )
+	          ), 
+	          DocUnit({name: "Bootstrap: Rubix Enhancements [API]", docStyle: "bg-red fg-white"}, 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "getInputDOMNode()")), 
+	            React.DOM.p(null, 
+	              "Access the raw DOM Node. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  textareadomnode
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "getValue()")), 
+	            React.DOM.p(null, 
+	              "Convenience function to get the value of the raw input dom element. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  textareagetvalue
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var TextareaDocs = React.createClass({displayName: 'TextareaDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = TextareaDocs;
+
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
+
+	var Doc = __webpack_require__(67);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var rccheckedstate = __webpack_require__(109);
+	var setrccheckedstate = __webpack_require__(110);
+	var isrccheckedstate = __webpack_require__(111);
+	var rcgetvalue = __webpack_require__(112);
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: Checkboxes and radios"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Default (Stacked)"), 
+	            React.DOM.p(null, 
+	              "Checkboxes are for selecting one or several options in a list, while radios are for selecting one option from many."
+	            ), 
+	            React.DOM.p(null, 
+	              "We provide ", React.DOM.code(null, "Checkbox"), " and ", React.DOM.code(null, "Radio"), " component that reduces a lot of redundant code. This is preferred to using native Input checkbox/radio elements."
+	            ), 
+	            Well(null, 
+	              Checkbox(null, "Option one is this and that", "—", "be sure to include why it's great"), 
+	              Checkbox({disabled: true}, "Option two is disabled"), 
+	              Radio({name: "optionsRadios", value: "option1"}, "Option one is this and that", "—", "be sure to include why it's great"), 
+	              Radio({name: "optionsRadios", value: "option2"}, "Option two can be something else and selecting it will deselect option one"), 
+	              Radio({disabled: true, name: "optionsRadios", value: "option3"}, "Option three is disabled")
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Checkbox>\n  Option one is this and that&mdash;be sure to include why it's great\n</Checkbox>\n", 
+	                  "<Checkbox disabled>\n  Option two is disabled\n</Checkbox>\n", 
+	                  "<Radio name='optionsRadios' value='option1'>\n  Option one is this and that&mdash;be sure to include why it's great\n</Radio>\n", 
+	                  "<Radio name='optionsRadios' value='option2'>\n  Option two can be something else and selecting it will deselect option one\n</Radio>\n", 
+	                  "<Radio disabled name='optionsRadios' value='option3'>\n  Option three is disabled\n</Radio>"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Inline checkboxes and radios"), 
+	            React.DOM.p(null, 
+	              "Use the attribute ", React.DOM.code(null, "inline"), " on a series of checkboxes or radios for controls that appear on the same line."
+	            ), 
+	            Well(null, 
+	              React.DOM.div(null, 
+	                Checkbox({inline: true, defaultChecked: true}, "1"), 
+	                Checkbox({inline: true}, "2"), 
+	                Checkbox({inline: true}, "3"), 
+	                Checkbox({inline: true, disabled: true}, "4")
+	              ), 
+	              React.DOM.div(null, 
+	                Radio({inline: true, name: "inline", value: "option1"}, "1"), 
+	                Radio({inline: true, defaultChecked: true, name: "inline", value: "option2"}, "2"), 
+	                Radio({inline: true, name: "inline", value: "option3"}, "3"), 
+	                Radio({inline: true, disabled: true, name: "inline", value: "option4"}, "4")
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<div>\n", 
+	                  "  <Checkbox inline defaultChecked>1</Checkbox>\n", 
+	                  "  <Checkbox inline>2</Checkbox>\n", 
+	                  "  <Checkbox inline>3</Checkbox>\n", 
+	                  "  <Checkbox inline disabled>4</Checkbox>\n", 
+	                  "</div>\n", 
+	                  "<div>\n", 
+	                  " <Radio inline name='inline' value='option1'>1</Radio>\n", 
+	                  " <Radio inline defaultChecked name='inline' value='option2'>2</Radio>\n", 
+	                  " <Radio inline name='inline' value='option3'>3</Radio>\n", 
+	                  " <Radio inline disabled name='inline' value='option4'>4</Radio>\n", 
+	                  "</div>"
+	                )
+	              )
+	            )
+	          ), 
+	          DocUnit({name: "Bootstrap: Rubix Enhancements [API]", docStyle: "bg-red fg-white"}, 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "getChecked()")), 
+	            React.DOM.p(null, 
+	              "Access checked state of checkbox/radio. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  rccheckedstate
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "setChecked(true|false)")), 
+	            React.DOM.p(null, 
+	              "Set checked state of checkbox/radio. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  setrccheckedstate
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "isChecked()")), 
+	            React.DOM.p(null, 
+	              "Test if checked. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  isrccheckedstate
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "getValue()")), 
+	            React.DOM.p(null, 
+	              "Convenience function to get the value of the inner span element. Example:"
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  rcgetvalue
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var CheckRadioDocs = React.createClass({displayName: 'CheckRadioDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = CheckRadioDocs;
+
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
+
+	var Doc = __webpack_require__(67);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var rccheckedstate = __webpack_require__(109);
+	var setrccheckedstate = __webpack_require__(110);
+	var isrccheckedstate = __webpack_require__(111);
+	var rcgetvalue = __webpack_require__(112);
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: Selects"}, 
+	            React.DOM.p(null, 
+	              "Use the default option, or add ", React.DOM.code(null, "multiple"), " to show multiple options at once."
+	            ), 
+	            Well(null, 
+	              Select(null, 
+	                React.DOM.option(null, "1"), 
+	                React.DOM.option(null, "2"), 
+	                React.DOM.option(null, "3"), 
+	                React.DOM.option(null, "4"), 
+	                React.DOM.option(null, "5")
+	              ), 
+	              React.DOM.br(null), 
+	              Select({multiple: true}, 
+	                React.DOM.option(null, "1"), 
+	                React.DOM.option(null, "2"), 
+	                React.DOM.option(null, "3"), 
+	                React.DOM.option(null, "4"), 
+	                React.DOM.option(null, "5")
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Select>\n", 
+	                  "  <option>1</option>\n", 
+	                  "  <option>2</option>\n", 
+	                  "  <option>3</option>\n", 
+	                  "  <option>4</option>\n", 
+	                  "  <option>5</option>\n", 
+	                  "</Select>\n", 
+	                  "<Select multiple>\n", 
+	                  "  <option>1</option>\n", 
+	                  "  <option>2</option>\n", 
+	                  "  <option>3</option>\n", 
+	                  "  <option>4</option>\n", 
+	                  "  <option>5</option>\n", 
+	                  "</Select>"
+	                )
+	              )
+	            )
+	          ), 
+	          DocUnit({name: "Bootstrap: Control Sizing"}, 
+	            React.DOM.p(null, 
+	              "Set heights using properties like: ", React.DOM.code(null, "lg"), " and ", React.DOM.code(null, "sm")
+	            ), 
+	            Well(null, 
+	              Select({sm: true}, 
+	                React.DOM.option(null, "1"), 
+	                React.DOM.option(null, "2"), 
+	                React.DOM.option(null, "3"), 
+	                React.DOM.option(null, "4"), 
+	                React.DOM.option(null, "5")
+	              ), 
+	              React.DOM.br(null), 
+	              Select({lg: true}, 
+	                React.DOM.option(null, "1"), 
+	                React.DOM.option(null, "2"), 
+	                React.DOM.option(null, "3"), 
+	                React.DOM.option(null, "4"), 
+	                React.DOM.option(null, "5")
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Select sm>\n", 
+	                  "  <option>1</option>\n", 
+	                  "  <option>2</option>\n", 
+	                  "  <option>3</option>\n", 
+	                  "  <option>4</option>\n", 
+	                  "  <option>5</option>\n", 
+	                  "</Select>\n", 
+	                  "<Select lg>\n", 
+	                  "  <option>1</option>\n", 
+	                  "  <option>2</option>\n", 
+	                  "  <option>3</option>\n", 
+	                  "  <option>4</option>\n", 
+	                  "  <option>5</option>\n", 
+	                  "</Select>"
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var SelectDocs = React.createClass({displayName: 'SelectDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = SelectDocs;
+
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(68);
+	var Sidebar = __webpack_require__(69);
+	var Footer = __webpack_require__(70);
+
+	var Doc = __webpack_require__(67);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var rccheckedstate = __webpack_require__(109);
+	var setrccheckedstate = __webpack_require__(110);
+	var isrccheckedstate = __webpack_require__(111);
+	var rcgetvalue = __webpack_require__(112);
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: Buttons"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Colors"), 
+	            React.DOM.p(null, 
+	              "To style a button use the ", React.DOM.code(null, "bsStyle"), " attribute. More colors are available (Check the colors.scss file for more)."
+	            ), 
+	            Well(null, 
+	              Button(null, "Default"), ' ', 
+	              Button({bsStyle: "primary"}, "Primary"), ' ', 
+	              Button({bsStyle: "success"}, "Success"), ' ', 
+	              Button({bsStyle: "info"}, "Info"), ' ', 
+	              Button({bsStyle: "warning"}, "Warning"), ' ', 
+	              Button({bsStyle: "danger"}, "Danger"), ' ', 
+	              Button({bsStyle: "link"}, "Link")
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Button>Default</Button>\n", 
+	                  "<Button bsStyle='primary'>Primary</Button>\n", 
+	                  "<Button bsStyle='success'>Success</Button>\n", 
+	                  "<Button bsStyle='info'>Info</Button>\n", 
+	                  "<Button bsStyle='warning'>Warning</Button>\n", 
+	                  "<Button bsStyle='danger'>Danger</Button>\n", 
+	                  "<Button bsStyle='link'>Link</Button>"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Sizes"), 
+	            React.DOM.p(null, 
+	              "Fancy larger or smaller buttons? Add ", React.DOM.code(null, "lg"), ", ", React.DOM.code(null, "sm"), " or ", React.DOM.code(null, "xs"), " attribute for additional sizes."
+	            ), 
+	            Well(null, 
+	              React.DOM.p(null, 
+	                Button({lg: true, bsStyle: "primary"}, "Large Button")
+	              ), 
+	              React.DOM.p(null, 
+	                Button({bsStyle: "primary"}, "Default Button")
+	              ), 
+	              React.DOM.p(null, 
+	                Button({sm: true, bsStyle: "primary"}, "Small Button")
+	              ), 
+	              React.DOM.p(null, 
+	                Button({xs: true, bsStyle: "primary"}, "Extra small Button")
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<p>\n", 
+	                  "  <Button lg bsStyle='primary'>Large Button</Button>\n", 
+	                  "</p>\n", 
+	                  "<p>\n", 
+	                  "  <Button bsStyle='primary'>Default Button</Button>\n", 
+	                  "</p>\n", 
+	                  "<p>\n", 
+	                  "  <Button sm bsStyle='primary'>Small Button</Button>\n", 
+	                  "</p>\n", 
+	                  "<p>\n", 
+	                  "  <Button xs bsStyle='primary'>Extra small Button</Button>\n", 
+	                  "</p>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Blocks"), 
+	            React.DOM.p(null, 
+	              "Create block level buttons—those that span the full width of a parent— by adding ", React.DOM.code(null, "block")
+	            ), 
+	            Well(null, 
+	              React.DOM.p(null, 
+	                Button({lg: true, block: true, bsStyle: "primary"}, "Large Block Level Button")
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<p>\n", 
+	                  "  <Button lg block bsStyle='primary'>Large Block Level Button</Button>\n", 
+	                  "</p>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Active State"), 
+	            React.DOM.p(null, 
+	              "Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active"
+	            ), 
+	            Well(null, 
+	              React.DOM.p(null, 
+	                Button({lg: true, bsStyle: "primary"}, "Normal Button"), ' ', 
+	                Button({lg: true, bsStyle: "primary", active: true}, "Active Button")
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<p>\n", 
+	                  "  <Button lg bsStyle='primary'>Normal Button</Button>{' '}\n", 
+	                  "  <Button lg bsStyle='primary' active>Active Button</Button>\n", 
+	                  "</p>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Disabled State"), 
+	            React.DOM.p(null, 
+	              "Make buttons look unclickable by fading them back 50%."
+	            ), 
+	            Well(null, 
+	              React.DOM.p(null, 
+	                Button({lg: true, bsStyle: "primary"}, "Normal Button"), ' ', 
+	                Button({lg: true, bsStyle: "primary", disabled: true}, "Disabled Button")
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<p>\n", 
+	                  "  <Button lg bsStyle='primary'>Normal Button</Button>{' '}\n", 
+	                  "  <Button lg bsStyle='primary' disabled>Disabled Button</Button>\n", 
+	                  "</p>\n"
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var ButtonsDocs = React.createClass({displayName: 'ButtonsDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ButtonsDocs;
+
+
+/***/ },
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -20871,12 +22082,12 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 59 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Fluxxor = __webpack_require__(96);
+	var Fluxxor = __webpack_require__(113);
 
 	var FluxMixin = Fluxxor.FluxMixin(React);
 	var FluxChildMixin = Fluxxor.FluxChildMixin(React);
@@ -21013,7 +22224,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 60 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -21067,7 +22278,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 61 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -21682,12 +22893,12 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 62 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var SidebarComponent = __webpack_require__(97);
+	var SidebarComponent = __webpack_require__(114);
 
 	var Sidebar = SidebarComponent.Sidebar,
 	    SidebarNav = SidebarComponent.SidebarNav,
@@ -21696,7 +22907,7 @@ var l20n=_RL20n_.l20n,
 	    SidebarControls = SidebarComponent.SidebarControls,
 	    SidebarControlBtn = SidebarComponent.SidebarControlBtn;
 
-	var ChatComponent = __webpack_require__(98)
+	var ChatComponent = __webpack_require__(115)
 
 	var ApplicationSidebar = React.createClass({displayName: 'ApplicationSidebar',
 	  render: function() {
@@ -21750,6 +22961,7 @@ var l20n=_RL20n_.l20n,
 	                  SidebarNavItem({href: "/app/timeline", glyph: "icon-ikons-time", name: "Static Timeline"}), 
 	                  SidebarNavItem({href: "/app/interactive-timeline", glyph: "icon-fontello-back-in-time", name: "Interactive Timeline"}), 
 	                  SidebarNavItem({href: "/app/maps", glyph: "icon-ikons-pin-2", name: "Maps"}), 
+	                  SidebarNavItem({href: "/app/editor", glyph: "icon-simple-line-icons-note", name: "Editor"}), 
 	                  SidebarNavItem({glyph: "icon-feather-toggle", name: React.DOM.span(null, "UI Elements ", BLabel({className: "bg-deepred fg-white"}, "7"))}, 
 	                    SidebarNav(null, 
 	                      SidebarNavItem({href: "/app/ui-elements/buttons", glyph: "icon-mfizz-oracle", name: "Buttons"}), 
@@ -21830,7 +23042,16 @@ var l20n=_RL20n_.l20n,
 	                      SidebarNavItem({name: "Typography", href: "/app/docs/bootstrap/typography"}), 
 	                      SidebarNavItem({name: "Code", href: "/app/docs/bootstrap/code"}), 
 	                      SidebarNavItem({name: "Tables", href: "/app/docs/bootstrap/tables"}), 
-	                      SidebarNavItem({name: "Forms", href: "/app/docs/bootstrap/forms"})
+	                      SidebarNavItem({name: "Forms", href: "/app/docs/bootstrap/forms"}), 
+	                      SidebarNavItem({name: "Form Controls"}, 
+	                        SidebarNav(null, 
+	                          SidebarNavItem({name: "Inputs", href: "/app/docs/bootstrap/form_controls/inputs"}), 
+	                          SidebarNavItem({name: "Textarea", href: "/app/docs/bootstrap/form_controls/textarea"}), 
+	                          SidebarNavItem({name: "Checkbox & Radio", href: "/app/docs/bootstrap/form_controls/checkradio"}), 
+	                          SidebarNavItem({name: "Select", href: "/app/docs/bootstrap/form_controls/select"}), 
+	                          SidebarNavItem({name: "Buttons", href: "/app/docs/bootstrap/form_controls/buttons"})
+	                        )
+	                      )
 	                    )
 	                  ), 
 	                  SidebarNavItem({glyph: "icon-outlined-geolocalizator", name: "Mozilla L20n.js", href: "/app/docs/l20n"})
@@ -22325,7 +23546,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 63 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -22351,7 +23572,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 64 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -22491,7 +23712,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 65 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -22592,7 +23813,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 66 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -22682,7 +23903,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 67 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -22892,7 +24113,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 68 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -23064,7 +24285,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 69 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -23154,7 +24375,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 70 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -23244,7 +24465,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 71 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -23304,7 +24525,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 72 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -23444,7 +24665,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 73 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -23549,7 +24770,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 74 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -23709,7 +24930,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 75 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -24019,7 +25240,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 76 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26077,7 +27298,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 77 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26146,7 +27367,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 78 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26192,15 +27413,15 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 79 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * @providesModule ReactStyle
 	 */
 
-	var ReactStyleRules = __webpack_require__(99);
-	var ReactStyleRulesManager = __webpack_require__(100);
+	var ReactStyleRules = __webpack_require__(116);
+	var ReactStyleRulesManager = __webpack_require__(117);
 
 	/**
 	 * @constructor
@@ -26297,111 +27518,171 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 80 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "\n{\n    \"timeline\":  \n    {\n        \"headline\":\"Revolutionary User Interfaces\",\n    \"startDate\":\"1600\",\n        \"text\":\"<p>The human computer interface helps to define computing at any one time. As computers have become more mainstream the interfaces have become more intimate. This is the journey of computer technology and how it has come to touch all of our lives.</p>\",\n        \"type\":\"default\",\n    \"asset\":\n        {\n            \"media\":\"/imgs/timeline/user-interface/input.png\",\n            \"credit\":\"credit: Arjuna Soriano\",\n            \"caption\":\"From punch cards to multi touch.\"\n    },\n    \"date\": [\n            {\n                \"startDate\":\"1600\",\n                \"headline\":\"The Antikythera\",\n                \"text\":\"In the year 1900, sponge divers discovered the Antikythera Mechanism, a remarkable mechanical computer used to track the cycles of the solar system dated to as early as 89 B.C. There was no input however. All computations were carried out by the intricate system of clockwork like plates and wheels..\",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/DiQSHiAYt98\",\n                    \"credit\":\"credit: <a href=\\\"http://www.nature.com/nature/videoarchive/index.html\\\">Nature Video Channel</a>\",\n                    \"caption\":\"\"\n                }\n            },\n        {\n                \"startDate\":\"1642\",\n                \"headline\":\"Pascal's Calculator\",\n                \"text\":\"<p>Blaise Pascal invented this calculator to help his father reorganize the French tax system. It could add and subtract in one step and multiply and divide by repetition.</p><p>Input was achieved by spinning the little wheels: inspiration for the iPod click wheel?</p>\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/pascaline.jpg\",\n                    \"credit\":\"credit: Â© 2005 <a href=\\\"http://commons.wikimedia.org/wiki/User:David.Monniaux\\\">David Monniaux</a>  \",\n                    \"caption\":\"This piece is on display at MusÃ©e des Arts et MÃ©tiers, Paris.\"\n                }\n            },\n        {\n                \"startDate\":\"1820\",\n                \"headline\":\"Thomas Arithometer\",\n                \"text\":\"This is the first mass-produced calculator that could add, subtract, multiply and divide. Numbers were  input with all of the little knobs and dials and then the handle was twisted to perform the calculation.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/59/Arithmometre.jpg\",\n                    \"credit\":\"credit: By <a href=\\\"http://commons.wikimedia.org/wiki/File%3AArithmometre.jpg\\\">Ezrdr</a>, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1801\",\n                \"headline\":\"Jacquard Loom\",\n                \"text\":\"A loom is not a computer. It is the first machine however to use punch-cards as a means of input into a machine. By changing the arrangement of the holes in the card, the loom would weave different patterns. \",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/2ypE4ZJF7qY\",\n                    \"credit\":\"credit: <a href='http://www.youtube.com/user/FiberMusings'>FiberMusings</a>\",\n                    \"caption\":\"The Jacquard loom is still in use today in modern factories. The punch-cards can be clearly seen being pulled to the top of the loom.\"\n                }\n            },\n            {\n                \"startDate\":\"1833\",\n                \"headline\":\"The Analytical Engine\",\n                \"text\":\"Charles Babbage designed but was never able to produce a working model but it is significant in that it relied upon punched cards for data and programs and would employ a language similar to modern assembly language complete with loops and conditional branching (for the nerds out there).\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/a/a4/Analytical_Engine_%282290032530%29.jpg\",\n                    \"credit\":\"credit: By <a href='http://commons.wikimedia.org/wiki/File%3AAnalytical_Engine_(2290032530).jpg'>Marcin Wichary</a> via Wikimedia Commons\",\n                    \"caption\":\"This modern model of the Analytical Engine is housed at the Science Museum in London.\"\n                }\n            },\n            {\n                \"startDate\":\"1868\",\n                \"headline\":\"The Typewriter\",\n                \"text\":\"Again, not a computer but an important step forward in user interfaces. Invented by Christopher Sholes, An American engineer, the typewriter was layed out in the familiar QWERTY style.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/9/9a/Sholes_typewriter.jpg\",\n                    \"credit\":\"credit:By George Iles, via Wikimedia Commons\",\n                    \"caption\":\"A prototype of the typewriter with the QWERTY layout clearly visible.\"\n                }\n            },\n            {\n                \"startDate\":\"1890\",\n                \"headline\":\"Herman Hollerith\",\n                \"text\":\"In 1890, Hollerith introduced his tabulating machine to be used in the census. He also later invented a key punch, a machine that punched the holes into cards operated by a keyboard. His company was one of the companies that later merged to form IBM.\",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/UZVEp78b0XI?t=1m54s\",\n                    \"credit\":\"credit:<a href=\\\"http://www.youtube.com/user/clipcafe\\\">clipcafe</a>\",\n                    \"caption\":\"A history of early IBM punch card machines and featuring a Pascal calculator.\"\n                }\n            },\n            {\n                \"startDate\":\"1940\",\n                \"headline\":\"Remote Access Computing\",\n                \"text\":\"George Stibitz demonstrated the Complex Number Calculator (CNC) at Dartmouth College. The astonishing part was that the CNC was in New York City.\",\n                \"asset\":\n                {\n                    \"media\":\"\",\n                    \"credit\":\"\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1946\",\n                \"headline\":\"ENIAC\",\n                \"text\":\"Weighing 30 tons, and containing over 18,000 vacuum tubes, the ENIAC was the first truly modern computer. It could be programmed for many complex programs and used an early keyboard as its input.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/1/16/Classic_shot_of_the_ENIAC.jpg\",\n                    \"credit\":\"credit: U.S. Army photo\",\n                    \"caption\":\"\\\"Cpl. Irwin Goldstein (foreground) sets the switches on one of the ENIAC's function tables at the Moore School of Electrical Engineering.\\\" (Caption via Wikimedia)\"\n                }\n            },\n            {\n                \"startDate\":\"1951\",\n                \"headline\":\"UNICVAC I\",\n                \"text\":\"The Universal Automatic Computer I weighed in at 13 tons and sold for over one million dollars. It was the first mass produced computer, selling 46 units. The massive cockpit of a console featured a keyboard\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/55/Museum_of_Science%2C_Boston%2C_MA_-_IMG_3163.JPG\",\n                    \"credit\":\"credit: By Daderot (Own work) [Public domain], via Wikimedia Commons\",\n                    \"caption\":\"Input for the UNIVAC I was via keyboard in this massive input console.\"\n                }\n            },\n            {\n                \"startDate\":\"1964\",\n                \"headline\":\"Multics\",\n                \"text\":\"A collaboration between MIT, Bell Laboratories and General Electric created the Multics system. It was a multi-user, time sharing system that spurred along the use of a new interface, a monitor.\",\n                \"asset\":\n                {\n                    \"media\":\"\",\n                    \"credit\":\"\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1968\",\n                \"headline\":\"Minicomputer\",\n                \"text\":\"Data General introduces the Nova Minicomputer which served as an inspiration for Steve Wozniak's design of the Apple I.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/7/7f/Data_General_Nova_SN_1.agr.JPG\",\n                    \"credit\":\"credit: By Arnold Reinhold, via Wikimedia Commons\",\n                    \"caption\":\"The first Data General Nova minicomputer displayed at the Computer History Museum in Silicon Valley.\"\n                }\n            },\n            {\n                \"startDate\":\"1968,12,9\",\n                \"headline\":\"The Mouse\",\n                \"text\":\"Douglas C. Engelbart and his team demonstrated an online system featuring a mouse, hypertext and the first graphical user interface, a \\\"windows\\\" system. The mouse was encased in a wood body and had only one button.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/f/f0/SRI_Douglas_Engelbart_2008.jpg\",\n                    \"credit\":\"credit: By SRI International, via Wikimedia Commons\",\n                    \"caption\":\"Douglas Engelbart with the first computer mouse prototype.\"\n                }\n            },\n            {\n                \"startDate\":\"1974\",\n                \"headline\":\"Xerox Alto\",\n                \"text\":\"The Xerox Alto was the first workstation with a built in mouse with three buttons.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/5e/Xerox_Alto_mit_Rechner.JPG\",\n                    \"credit\":\"credit: By Joho345, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1976\",\n                \"headline\":\"Apple I\",\n                \"text\":\"Steve Wozniak designed the Apple I, a single-board computer that he and Steve Jobs sold for $500 each. Thus began Apple Inc. and the Personal Computer.\",\n                \"asset\":\n                {\n                    \"media\":\"http://www.flickr.com/photos/euthman/281712899/\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/euthman/281712899/'>Ed Uthman</a> via Flickr\",\n                    \"caption\":\"An Apple I computer on display at the Smithsonian.\"\n                }\n            },\n            {\n                \"startDate\":\"1976\",\n                \"headline\":\"The Osborne I\",\n                \"text\":\"Weighing 24 pounds and costing under $2,000, the Osborne I was the first portable computer, although you probably couldn't use it in your lap for too long.\",\n                \"asset\":\n                {\n                    \"media\":\"http://www.flickr.com/photos/mightyohm/5333827381/\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/mightyohm/5333827381/'>Jeff Keyzer</a> via Flickr\",\n                    \"caption\":\"An Apple I computer on display at the Smithsonian.\"\n                }\n            },\n            {\n                \"startDate\":\"1982\",\n                \"headline\":\"Windows 1.0\",\n                \"text\":\"Microsoft unveils what will become the dominant operating system for the next several decades.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/a/a9/Microsoft_Windows_1.0_page1.jpg\",\n                    \"credit\":\"credit: By Microsoft, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1984\",\n                \"headline\":\"The Macintosh\",\n                \"text\":\"Apple introduced the Macintosh which was the first commercially successful computer with a mouse and a Graphical User Interface. Apple's Think Different Superbowl commercial also plays this year.\",\n                \"asset\":\n                {\n                    \"media\":\"https://farm3.staticflickr.com/2077/2179402603_bd8f1fcbe6_b.jpg\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/mwichary/2179402603/'>Marcin Wichary</a> via Flickr\",\n                    \"caption\":\"The Original Macintosh with extra external floppy drive.\"\n                }\n            },\n            {\n                \"startDate\":\"1997\",\n                \"headline\":\"The Stylus\",\n                \"text\":\"Personal digital assistants introduce the touch screen with the use of a stylus. Handwriting recognition was hit or miss but some companies developed simplified alphabet input strokes to improve recognition.\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/palm.png\",\n                    \"credit\":\"credit: <a href='http://en.wikipedia.org/wiki/File:Palmpilot5000_eu.png'>Channel R</a> via Wikimedia Commons\",\n                    \"caption\":\"A Palm Pilot.\"\n                }\n            },\n            {\n                \"startDate\":\"2001,10,23\",\n                \"headline\":\"Continuous Scrolling\",\n                \"text\":\"The first iPod introduces the wheel as a user interface. It allowed users to continuously scroll through thousands of songs seemlessly. This interface helped Apple dominate the music player business and eventually the music content business through its iTunes ecosystem.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/3/35/Ipod_1G.png\",\n                    \"credit\":\"credit: By Rjcflyer@aol.com at en.wikipedia via Wikimedia Commons\",\n                    \"caption\":\"The Original iPod with click wheel user interface.\"\n                }\n            },\n            {\n                \"startDate\":\"2007\",\n                \"headline\":\"Multi Touch\",\n                \"text\":\"Steve Jobs unveils the iPhone and the multi touch interface.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/4/49/IPhone_at_Macworld_%28angled_view%29.jpg\",\n                    \"credit\":\"credit: By blakeburris, via <a href='http://commons.wikimedia.org/wiki/File:IPhone_at_Macworld_(angled_view).jpg'>Wikimedia Commons</a>\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"2012\",\n                \"headline\":\"Speech Recognition\",\n                \"text\":\"<p>Speech recognition has been tested and improved upon for years in military cockpits in the U.S. France and U.K. In fact, Siri, the speech recognition engine used in the iPhone 4S was developed first by DARPA, the Defense Advanced Research Projects Agency.</p>\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/4s.jpg\",\n                    \"credit\":\"credit: Apple Inc.\",\n                    \"caption\":\"\"\n                }\n            }\n        ]\n    }\n}\n"
 
 /***/ },
-/* 81 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"copyright\": \"SketchPixy LLP, email: admin@sketchpixy.com\",\n  \"devDependencies\": {\n    \"compression\": \"^1.0.8\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-compressor\": \"^0.1.0\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"map-stream\": \"^0.1.0\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"run-sequence\": \"^0.3.6\",\n    \"shrthnd\": \"0.0.2\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
-
-/***/ },
-/* 82 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<Grid>\n</Grid>\n"
-
-/***/ },
-/* 83 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<Grid>\n  <Row>\n    <Col sm={6} md={6} lg={6} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4}>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop gutterBottom>\n  <Row>\n    <Col md={2} lg={2} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:2)</Well>\n    </Col>\n    <Col md={4} lg={4} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n"
-
-/***/ },
-/* 84 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<Grid fixed>\n</Grid>\n"
-
-/***/ },
-/* 85 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<Grid collapse>\n</Grid>\n"
-
-/***/ },
-/* 86 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<Grid gutter>\n</Grid>\n"
-
-/***/ },
-/* 87 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<Grid gutterTop gutterLeft gutterRight gutterBottom>\n</Grid>\n"
-
-/***/ },
 /* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col xs={12}>\n      <Grid fixed gutter>\n        <Row>\n          <Col xs={6} sm={3} md={4} lg={2}></Col>\n        </Row>\n      </Grid>\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"copyright\": \"SketchPixy LLP, email: admin@sketchpixy.com\",\n  \"devDependencies\": {\n    \"compression\": \"^1.0.8\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-compressor\": \"^0.1.0\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"map-stream\": \"^0.1.0\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"run-sequence\": \"^0.3.6\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
 
 /***/ },
 /* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Row>\n</Row>\n"
+	module.exports = "<Grid>\n</Grid>\n"
 
 /***/ },
 /* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Col xs={12} sm={12} md={12} lg={12}>\n</Col>\n"
+	module.exports = "<Grid>\n  <Row>\n    <Col sm={6} md={6} lg={6} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4}>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop gutterBottom>\n  <Row>\n    <Col md={2} lg={2} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:2)</Well>\n    </Col>\n    <Col md={4} lg={4} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
 /* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Col clearfix>\n</Col>\n"
+	module.exports = "<Grid fixed>\n</Grid>\n"
 
 /***/ },
 /* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Col xs={6} md={3} lg={4} sm={12} hidden='xs, md, lg, print' visible='sm'>\n</Col>\n"
+	module.exports = "<Grid collapse>\n</Grid>\n"
 
 /***/ },
 /* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col md={4}>\n      Col(md:4)\n    </Col>\n    <Col md={4} mdOffset={4}>\n      Col(md:4,mdOffset:4)\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "<Grid gutter>\n</Grid>\n"
 
 /***/ },
 /* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col md={9} mdPush={3}>\n      Col(md:9, mdPush:3)\n    </Col>\n    <Col md={3} mdPull={9}>\n      Col(md:3, mdPull:9)\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "<Grid gutterTop gutterLeft gutterRight gutterBottom>\n</Grid>\n"
 
 /***/ },
 /* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col xs={6} collapseRight>\n    </Col>\n    <Col xs={6} collapseLeft>\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "<Grid>\n  <Row>\n    <Col xs={12}>\n      <Grid fixed gutter>\n        <Row>\n          <Col xs={6} sm={3} md={4} lg={2}></Col>\n        </Row>\n      </Grid>\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
 /* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(102),
-	    Flux = __webpack_require__(103),
-	    FluxMixin = __webpack_require__(104),
-	    FluxChildMixin = __webpack_require__(105),
-	    StoreWatchMixin = __webpack_require__(106),
-	    createStore = __webpack_require__(107);
+	module.exports = "<Row>\n</Row>\n"
+
+/***/ },
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<Col xs={12} sm={12} md={12} lg={12}>\n</Col>\n"
+
+/***/ },
+/* 98 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<Col clearfix>\n</Col>\n"
+
+/***/ },
+/* 99 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<Col xs={6} md={3} lg={4} sm={12} hidden='xs, md, lg, print' visible='sm'>\n</Col>\n"
+
+/***/ },
+/* 100 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<Grid>\n  <Row>\n    <Col md={4}>\n      Col(md:4)\n    </Col>\n    <Col md={4} mdOffset={4}>\n      Col(md:4,mdOffset:4)\n    </Col>\n  </Row>\n</Grid>\n"
+
+/***/ },
+/* 101 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<Grid>\n  <Row>\n    <Col md={9} mdPush={3}>\n      Col(md:9, mdPush:3)\n    </Col>\n    <Col md={3} mdPull={9}>\n      Col(md:3, mdPull:9)\n    </Col>\n  </Row>\n</Grid>\n"
+
+/***/ },
+/* 102 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<Grid>\n  <Row>\n    <Col xs={6} collapseRight>\n    </Col>\n    <Col xs={6} collapseLeft>\n    </Col>\n  </Row>\n</Grid>\n"
+
+/***/ },
+/* 103 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var node = this.refs.inputelement.getInputDOMNode();\n    console.log(node.value === 'Default text');\n  },\n  render: function() {\n    return (\n      <Input type='text' ref='inputelement' defaultValue='Default text' />\n    );\n  }  \n});\n"
+
+/***/ },
+/* 104 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var checked = this.refs.checkboxelement.getChecked();\n    console.log(checked === true);\n  },\n  render: function() {\n    return (\n      <Input type='checkbox' ref='checkboxelement' defaultChecked />\n    );\n  }  \n});\n"
+
+/***/ },
+/* 105 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    this.refs.checkboxelement.setChecked(false);\n    var checked = this.refs.checkboxelement.getChecked();\n    console.log(checked === false);\n  },\n  render: function() {\n    return (\n      <Input type='checkbox' ref='checkboxelement' defaultChecked />\n    );\n  }  \n});\n"
+
+/***/ },
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.inputelement.getValue();\n    console.log(value === 'Default Value');\n  },\n  render: function() {\n    return (\n      <Input type='text' ref='inputelement' defaultValue='Default Value' />\n    );\n  }  \n});\n"
+
+/***/ },
+/* 107 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var node = this.refs.textareaelement.getInputDOMNode();\n    console.log(node.getAttribute('rows') === 3);\n  },\n  render: function() {\n    return (\n      <Textarea ref='textareaelement' rows='3' />\n    );\n  }  \n});\n"
+
+/***/ },
+/* 108 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.textareaelement.getValue();\n    console.log(value === 'Default Value');\n  },\n  render: function() {\n    return (\n      <Textarea ref='textareaelement' rows='3' defaultValue='Default Value' />\n    );\n  }  \n});\n"
+
+/***/ },
+/* 109 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var checkedState = this.refs.check.getChecked();\n    console.log(checkedState === true);\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
+
+/***/ },
+/* 110 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    this.refs.check.setChecked(false);\n    console.log(checkedState === false);\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
+
+/***/ },
+/* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    if(this.refs.check.isChecked())\n      console.log('Checkbox is checked');\n    else\n      console.log('Checkbox is unchecked');\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
+
+/***/ },
+/* 112 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.check.getValue();\n    console.log(value === 'Should be checked');\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
+
+/***/ },
+/* 113 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(119),
+	    Flux = __webpack_require__(120),
+	    FluxMixin = __webpack_require__(121),
+	    FluxChildMixin = __webpack_require__(122),
+	    StoreWatchMixin = __webpack_require__(123),
+	    createStore = __webpack_require__(124);
 
 	var Fluxxor = {
 	  Dispatcher: Dispatcher,
@@ -26410,14 +27691,14 @@ var l20n=_RL20n_.l20n,
 	  FluxChildMixin: FluxChildMixin,
 	  StoreWatchMixin: StoreWatchMixin,
 	  createStore: createStore,
-	  version: __webpack_require__(101).version
+	  version: __webpack_require__(118).version
 	};
 
 	module.exports = Fluxxor;
 
 
 /***/ },
-/* 97 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26784,7 +28065,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 98 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26873,7 +28154,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 99 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26965,7 +28246,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 100 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26975,7 +28256,7 @@ var l20n=_RL20n_.l20n,
 
 	'use strict'
 
-	var ReactStyleRules = __webpack_require__(99);
+	var ReactStyleRules = __webpack_require__(116);
 
 	/**
 	 * @param {number} maxRulesLengthPerStyle
@@ -27073,25 +28354,25 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 101 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = {"name":"fluxxor","version":"1.3.2","description":"Flux architecture tools for React","repository":{"type":"git","url":"https://github.com/BinaryMuse/fluxxor.git"},"main":"index.js","scripts":{"test":"npm run jshint && mocha --recursive","jshint":"jsxhint lib/ test/","build":"./script/build-fluxxor && ./script/build-examples","preview-site":"wintersmith preview -C site","build-site":"wintersmith build -C site"},"keywords":["react","flux"],"author":"Brandon Tilley <brandon@brandontilley.com>","license":"MIT","devDependencies":{"chai":"^1.9.1","css-loader":"^0.6.12","envify":"^1.2.1","jsdom":"^0.10.5","json-loader":"^0.5.0","jsx-loader":"^0.10.2","jsxhint":"^0.4.9","less":"^1.7.0","less-loader":"^0.7.3","mocha":"^1.18.2","react":"^0.10.0","sinon":"^1.9.1","sinon-chai":"^2.5.0","style-loader":"^0.6.3","webpack":"^1.1.11","webpack-dev-server":"^1.2.7","wintersmith":"^2.0.10","wintersmith-ejs":"^0.1.4","wintersmith-less":"^0.2.2"},"dependencies":{"lodash-node":"^2.4.1"},"jshintConfig":{"camelcase":true,"curly":true,"eqeqeq":true,"forin":true,"latedef":true,"newcap":false,"undef":true,"unused":true,"trailing":true,"node":true,"browser":true,"predef":["it","describe","beforeEach","afterEach"]}}
 
 /***/ },
-/* 102 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _clone = __webpack_require__(112),
-	    _mapValues = __webpack_require__(110),
-	    _forOwn = __webpack_require__(111),
-	    _intersection = __webpack_require__(115),
-	    _keys = __webpack_require__(113),
-	    _map = __webpack_require__(117),
-	    _each = __webpack_require__(118),
-	    _size = __webpack_require__(119),
-	    _findKey = __webpack_require__(114),
-	    _uniq = __webpack_require__(116);
+	var _clone = __webpack_require__(127),
+	    _mapValues = __webpack_require__(128),
+	    _forOwn = __webpack_require__(129),
+	    _intersection = __webpack_require__(132),
+	    _keys = __webpack_require__(130),
+	    _map = __webpack_require__(134),
+	    _each = __webpack_require__(135),
+	    _size = __webpack_require__(136),
+	    _findKey = __webpack_require__(131),
+	    _uniq = __webpack_require__(133);
 
 	var Dispatcher = function(stores) {
 	  this.stores = stores;
@@ -27210,10 +28491,10 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 103 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(102);
+	var Dispatcher = __webpack_require__(119);
 
 	function bindActions(target, actions, dispatchBinder) {
 	  for (var key in actions) {
@@ -27257,7 +28538,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 104 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var FluxMixin = function(React) {
@@ -27291,7 +28572,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 105 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var FluxChildMixin = function(React) {
@@ -27315,10 +28596,10 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 106 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _each = __webpack_require__(118);
+	var _each = __webpack_require__(135);
 
 	var StoreWatchMixin = function() {
 	  var storeNames = Array.prototype.slice.call(arguments);
@@ -27359,12 +28640,12 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 107 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _each = __webpack_require__(118),
-	    Store = __webpack_require__(108),
-	    util = __webpack_require__(109);
+	var _each = __webpack_require__(135),
+	    Store = __webpack_require__(125),
+	    util = __webpack_require__(126);
 
 	var RESERVED_KEYS = ["flux", "waitFor"];
 
@@ -27404,11 +28685,11 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 108 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var EventEmitter = __webpack_require__(120).EventEmitter,
-	    util = __webpack_require__(109);
+	var EventEmitter = __webpack_require__(137).EventEmitter,
+	    util = __webpack_require__(126);
 
 	function Store(dispatcher) {
 	  this.dispatcher = dispatcher;
@@ -27451,7 +28732,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 109 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -27979,7 +29260,7 @@ var l20n=_RL20n_.l20n,
 	}
 	exports.isPrimitive = isPrimitive;
 
-	exports.isBuffer = __webpack_require__(138);
+	exports.isBuffer = __webpack_require__(139);
 
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -28023,7 +29304,7 @@ var l20n=_RL20n_.l20n,
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(140);
+	exports.inherits = __webpack_require__(157);
 
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -28041,10 +29322,10 @@ var l20n=_RL20n_.l20n,
 	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(139)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(156)))
 
 /***/ },
-/* 110 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28055,128 +29336,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(122),
-	    forOwn = __webpack_require__(111);
-
-	/**
-	 * Creates an object with the same keys as `object` and values generated by
-	 * running each own enumerable property of `object` through the callback.
-	 * The callback is bound to `thisArg` and invoked with three arguments;
-	 * (value, key, object).
-	 *
-	 * If a property name is provided for `callback` the created "_.pluck" style
-	 * callback will return the property value of the given element.
-	 *
-	 * If an object is provided for `callback` the created "_.where" style callback
-	 * will return `true` for elements that have the properties of the given object,
-	 * else `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Objects
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function|Object|string} [callback=identity] The function called
-	 *  per iteration. If a property name or object is provided it will be used
-	 *  to create a "_.pluck" or "_.where" style callback, respectively.
-	 * @param {*} [thisArg] The `this` binding of `callback`.
-	 * @returns {Array} Returns a new object with values of the results of each `callback` execution.
-	 * @example
-	 *
-	 * _.mapValues({ 'a': 1, 'b': 2, 'c': 3} , function(num) { return num * 3; });
-	 * // => { 'a': 3, 'b': 6, 'c': 9 }
-	 *
-	 * var characters = {
-	 *   'fred': { 'name': 'fred', 'age': 40 },
-	 *   'pebbles': { 'name': 'pebbles', 'age': 1 }
-	 * };
-	 *
-	 * // using "_.pluck" callback shorthand
-	 * _.mapValues(characters, 'age');
-	 * // => { 'fred': 40, 'pebbles': 1 }
-	 */
-	function mapValues(object, callback, thisArg) {
-	  var result = {};
-	  callback = createCallback(callback, thisArg, 3);
-
-	  forOwn(object, function(value, key, object) {
-	    result[key] = callback(value, key, object);
-	  });
-	  return result;
-	}
-
-	module.exports = mapValues;
-
-
-/***/ },
-/* 111 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseCreateCallback = __webpack_require__(123),
-	    keys = __webpack_require__(113),
-	    objectTypes = __webpack_require__(124);
-
-	/**
-	 * Iterates over own enumerable properties of an object, executing the callback
-	 * for each property. The callback is bound to `thisArg` and invoked with three
-	 * arguments; (value, key, object). Callbacks may exit iteration early by
-	 * explicitly returning `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Function
-	 * @category Objects
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} [callback=identity] The function called per iteration.
-	 * @param {*} [thisArg] The `this` binding of `callback`.
-	 * @returns {Object} Returns `object`.
-	 * @example
-	 *
-	 * _.forOwn({ '0': 'zero', '1': 'one', 'length': 2 }, function(num, key) {
-	 *   console.log(key);
-	 * });
-	 * // => logs '0', '1', and 'length' (property order is not guaranteed across environments)
-	 */
-	var forOwn = function(collection, callback, thisArg) {
-	  var index, iterable = collection, result = iterable;
-	  if (!iterable) return result;
-	  if (!objectTypes[typeof iterable]) return result;
-	  callback = callback && typeof thisArg == 'undefined' ? callback : baseCreateCallback(callback, thisArg, 3);
-	    var ownIndex = -1,
-	        ownProps = objectTypes[typeof iterable] && keys(iterable),
-	        length = ownProps ? ownProps.length : 0;
-
-	    while (++ownIndex < length) {
-	      index = ownProps[ownIndex];
-	      if (callback(iterable[index], index, collection) === false) return result;
-	    }
-	  return result
-	};
-
-	module.exports = forOwn;
-
-
-/***/ },
-/* 112 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseClone = __webpack_require__(125),
-	    baseCreateCallback = __webpack_require__(123);
+	var baseClone = __webpack_require__(140),
+	    baseCreateCallback = __webpack_require__(141);
 
 	/**
 	 * Creates a clone of `value`. If `isDeep` is `true` nested objects will also
@@ -28233,7 +29394,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 113 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28244,9 +29405,129 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(126),
-	    isObject = __webpack_require__(121),
-	    shimKeys = __webpack_require__(127);
+	var createCallback = __webpack_require__(145),
+	    forOwn = __webpack_require__(129);
+
+	/**
+	 * Creates an object with the same keys as `object` and values generated by
+	 * running each own enumerable property of `object` through the callback.
+	 * The callback is bound to `thisArg` and invoked with three arguments;
+	 * (value, key, object).
+	 *
+	 * If a property name is provided for `callback` the created "_.pluck" style
+	 * callback will return the property value of the given element.
+	 *
+	 * If an object is provided for `callback` the created "_.where" style callback
+	 * will return `true` for elements that have the properties of the given object,
+	 * else `false`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Objects
+	 * @param {Object} object The object to iterate over.
+	 * @param {Function|Object|string} [callback=identity] The function called
+	 *  per iteration. If a property name or object is provided it will be used
+	 *  to create a "_.pluck" or "_.where" style callback, respectively.
+	 * @param {*} [thisArg] The `this` binding of `callback`.
+	 * @returns {Array} Returns a new object with values of the results of each `callback` execution.
+	 * @example
+	 *
+	 * _.mapValues({ 'a': 1, 'b': 2, 'c': 3} , function(num) { return num * 3; });
+	 * // => { 'a': 3, 'b': 6, 'c': 9 }
+	 *
+	 * var characters = {
+	 *   'fred': { 'name': 'fred', 'age': 40 },
+	 *   'pebbles': { 'name': 'pebbles', 'age': 1 }
+	 * };
+	 *
+	 * // using "_.pluck" callback shorthand
+	 * _.mapValues(characters, 'age');
+	 * // => { 'fred': 40, 'pebbles': 1 }
+	 */
+	function mapValues(object, callback, thisArg) {
+	  var result = {};
+	  callback = createCallback(callback, thisArg, 3);
+
+	  forOwn(object, function(value, key, object) {
+	    result[key] = callback(value, key, object);
+	  });
+	  return result;
+	}
+
+	module.exports = mapValues;
+
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var baseCreateCallback = __webpack_require__(141),
+	    keys = __webpack_require__(130),
+	    objectTypes = __webpack_require__(142);
+
+	/**
+	 * Iterates over own enumerable properties of an object, executing the callback
+	 * for each property. The callback is bound to `thisArg` and invoked with three
+	 * arguments; (value, key, object). Callbacks may exit iteration early by
+	 * explicitly returning `false`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Function
+	 * @category Objects
+	 * @param {Object} object The object to iterate over.
+	 * @param {Function} [callback=identity] The function called per iteration.
+	 * @param {*} [thisArg] The `this` binding of `callback`.
+	 * @returns {Object} Returns `object`.
+	 * @example
+	 *
+	 * _.forOwn({ '0': 'zero', '1': 'one', 'length': 2 }, function(num, key) {
+	 *   console.log(key);
+	 * });
+	 * // => logs '0', '1', and 'length' (property order is not guaranteed across environments)
+	 */
+	var forOwn = function(collection, callback, thisArg) {
+	  var index, iterable = collection, result = iterable;
+	  if (!iterable) return result;
+	  if (!objectTypes[typeof iterable]) return result;
+	  callback = callback && typeof thisArg == 'undefined' ? callback : baseCreateCallback(callback, thisArg, 3);
+	    var ownIndex = -1,
+	        ownProps = objectTypes[typeof iterable] && keys(iterable),
+	        length = ownProps ? ownProps.length : 0;
+
+	    while (++ownIndex < length) {
+	      index = ownProps[ownIndex];
+	      if (callback(iterable[index], index, collection) === false) return result;
+	    }
+	  return result
+	};
+
+	module.exports = forOwn;
+
+
+/***/ },
+/* 130 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var isNative = __webpack_require__(143),
+	    isObject = __webpack_require__(138),
+	    shimKeys = __webpack_require__(144);
 
 	/* Native method shortcuts for methods with the same name as other `lodash` methods */
 	var nativeKeys = isNative(nativeKeys = Object.keys) && nativeKeys;
@@ -28275,7 +29556,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 114 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28286,8 +29567,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(122),
-	    forOwn = __webpack_require__(111);
+	var createCallback = __webpack_require__(145),
+	    forOwn = __webpack_require__(129);
 
 	/**
 	 * This method is like `_.findIndex` except that it returns the key of the
@@ -28346,7 +29627,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 115 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28357,15 +29638,15 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(130),
-	    cacheIndexOf = __webpack_require__(131),
-	    createCache = __webpack_require__(132),
-	    getArray = __webpack_require__(133),
-	    isArguments = __webpack_require__(128),
-	    isArray = __webpack_require__(129),
-	    largeArraySize = __webpack_require__(134),
-	    releaseArray = __webpack_require__(135),
-	    releaseObject = __webpack_require__(136);
+	var baseIndexOf = __webpack_require__(148),
+	    cacheIndexOf = __webpack_require__(149),
+	    createCache = __webpack_require__(150),
+	    getArray = __webpack_require__(151),
+	    isArguments = __webpack_require__(146),
+	    isArray = __webpack_require__(147),
+	    largeArraySize = __webpack_require__(152),
+	    releaseArray = __webpack_require__(153),
+	    releaseObject = __webpack_require__(154);
 
 	/**
 	 * Creates an array of unique values present in all provided arrays using
@@ -28435,7 +29716,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 116 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28446,8 +29727,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseUniq = __webpack_require__(137),
-	    createCallback = __webpack_require__(122);
+	var baseUniq = __webpack_require__(155),
+	    createCallback = __webpack_require__(145);
 
 	/**
 	 * Creates a duplicate-value-free version of an array using strict equality
@@ -28510,7 +29791,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 117 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28521,8 +29802,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(122),
-	    forOwn = __webpack_require__(111);
+	var createCallback = __webpack_require__(145),
+	    forOwn = __webpack_require__(129);
 
 	/**
 	 * Creates an array of values by running each element in the collection
@@ -28586,7 +29867,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 118 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28597,8 +29878,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreateCallback = __webpack_require__(123),
-	    forOwn = __webpack_require__(111);
+	var baseCreateCallback = __webpack_require__(141),
+	    forOwn = __webpack_require__(129);
 
 	/**
 	 * Iterates over elements of a collection, executing the callback for each
@@ -28647,7 +29928,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 119 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28658,7 +29939,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var keys = __webpack_require__(113);
+	var keys = __webpack_require__(130);
 
 	/**
 	 * Gets the size of the `collection` by returning `collection.length` for arrays
@@ -28689,7 +29970,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 120 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -28998,7 +30279,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 121 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29009,7 +30290,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectTypes = __webpack_require__(124);
+	var objectTypes = __webpack_require__(142);
 
 	/**
 	 * Checks if `value` is the language type of Object.
@@ -29043,94 +30324,18 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 122 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseCreateCallback = __webpack_require__(123),
-	    baseIsEqual = __webpack_require__(141),
-	    isObject = __webpack_require__(121),
-	    keys = __webpack_require__(113),
-	    property = __webpack_require__(151);
-
-	/**
-	 * Produces a callback bound to an optional `thisArg`. If `func` is a property
-	 * name the created callback will return the property value for a given element.
-	 * If `func` is an object the created callback will return `true` for elements
-	 * that contain the equivalent object properties, otherwise it will return `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Utilities
-	 * @param {*} [func=identity] The value to convert to a callback.
-	 * @param {*} [thisArg] The `this` binding of the created callback.
-	 * @param {number} [argCount] The number of arguments the callback accepts.
-	 * @returns {Function} Returns a callback function.
-	 * @example
-	 *
-	 * var characters = [
-	 *   { 'name': 'barney', 'age': 36 },
-	 *   { 'name': 'fred',   'age': 40 }
-	 * ];
-	 *
-	 * // wrap to create custom callback shorthands
-	 * _.createCallback = _.wrap(_.createCallback, function(func, callback, thisArg) {
-	 *   var match = /^(.+?)__([gl]t)(.+)$/.exec(callback);
-	 *   return !match ? func(callback, thisArg) : function(object) {
-	 *     return match[2] == 'gt' ? object[match[1]] > match[3] : object[match[1]] < match[3];
-	 *   };
-	 * });
-	 *
-	 * _.filter(characters, 'age__gt38');
-	 * // => [{ 'name': 'fred', 'age': 40 }]
-	 */
-	function createCallback(func, thisArg, argCount) {
-	  var type = typeof func;
-	  if (func == null || type == 'function') {
-	    return baseCreateCallback(func, thisArg, argCount);
-	  }
-	  // handle "_.pluck" style callback shorthands
-	  if (type != 'object') {
-	    return property(func);
-	  }
-	  var props = keys(func),
-	      key = props[0],
-	      a = func[key];
-
-	  // handle "_.where" style callback shorthands
-	  if (props.length == 1 && a === a && !isObject(a)) {
-	    // fast path the common case of providing an object with a single
-	    // property containing a primitive value
-	    return function(object) {
-	      var b = object[key];
-	      return a === b && (a !== 0 || (1 / a == 1 / b));
-	    };
-	  }
-	  return function(object) {
-	    var length = props.length,
-	        result = false;
-
-	    while (length--) {
-	      if (!(result = baseIsEqual(object[props[length]], func[props[length]], null, true))) {
-	        break;
-	      }
-	    }
-	    return result;
-	  };
+	module.exports = function isBuffer(arg) {
+	  return arg && typeof arg === 'object'
+	    && typeof arg.copy === 'function'
+	    && typeof arg.fill === 'function'
+	    && typeof arg.readUInt8 === 'function';
 	}
 
-	module.exports = createCallback;
-
-
 /***/ },
-/* 123 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29141,126 +30346,14 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var bind = __webpack_require__(142),
-	    identity = __webpack_require__(152),
-	    setBindData = __webpack_require__(143),
-	    support = __webpack_require__(144);
-
-	/** Used to detected named functions */
-	var reFuncName = /^\s*function[ \n\r\t]+\w/;
-
-	/** Used to detect functions containing a `this` reference */
-	var reThis = /\bthis\b/;
-
-	/** Native method shortcuts */
-	var fnToString = Function.prototype.toString;
-
-	/**
-	 * The base implementation of `_.createCallback` without support for creating
-	 * "_.pluck" or "_.where" style callbacks.
-	 *
-	 * @private
-	 * @param {*} [func=identity] The value to convert to a callback.
-	 * @param {*} [thisArg] The `this` binding of the created callback.
-	 * @param {number} [argCount] The number of arguments the callback accepts.
-	 * @returns {Function} Returns a callback function.
-	 */
-	function baseCreateCallback(func, thisArg, argCount) {
-	  if (typeof func != 'function') {
-	    return identity;
-	  }
-	  // exit early for no `thisArg` or already bound by `Function#bind`
-	  if (typeof thisArg == 'undefined' || !('prototype' in func)) {
-	    return func;
-	  }
-	  var bindData = func.__bindData__;
-	  if (typeof bindData == 'undefined') {
-	    if (support.funcNames) {
-	      bindData = !func.name;
-	    }
-	    bindData = bindData || !support.funcDecomp;
-	    if (!bindData) {
-	      var source = fnToString.call(func);
-	      if (!support.funcNames) {
-	        bindData = !reFuncName.test(source);
-	      }
-	      if (!bindData) {
-	        // checks if `func` references the `this` keyword and stores the result
-	        bindData = reThis.test(source);
-	        setBindData(func, bindData);
-	      }
-	    }
-	  }
-	  // exit early if there are no `this` references or `func` is bound
-	  if (bindData === false || (bindData !== true && bindData[1] & 1)) {
-	    return func;
-	  }
-	  switch (argCount) {
-	    case 1: return function(value) {
-	      return func.call(thisArg, value);
-	    };
-	    case 2: return function(a, b) {
-	      return func.call(thisArg, a, b);
-	    };
-	    case 3: return function(value, index, collection) {
-	      return func.call(thisArg, value, index, collection);
-	    };
-	    case 4: return function(accumulator, value, index, collection) {
-	      return func.call(thisArg, accumulator, value, index, collection);
-	    };
-	  }
-	  return bind(func, thisArg);
-	}
-
-	module.exports = baseCreateCallback;
-
-
-/***/ },
-/* 124 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/** Used to determine if values are of the language type Object */
-	var objectTypes = {
-	  'boolean': false,
-	  'function': true,
-	  'object': true,
-	  'number': false,
-	  'string': false,
-	  'undefined': false
-	};
-
-	module.exports = objectTypes;
-
-
-/***/ },
-/* 125 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var assign = __webpack_require__(145),
-	    forEach = __webpack_require__(118),
-	    forOwn = __webpack_require__(111),
-	    getArray = __webpack_require__(133),
-	    isArray = __webpack_require__(129),
-	    isObject = __webpack_require__(121),
-	    releaseArray = __webpack_require__(135),
-	    slice = __webpack_require__(146);
+	var assign = __webpack_require__(158),
+	    forEach = __webpack_require__(135),
+	    forOwn = __webpack_require__(129),
+	    getArray = __webpack_require__(151),
+	    isArray = __webpack_require__(147),
+	    isObject = __webpack_require__(138),
+	    releaseArray = __webpack_require__(153),
+	    slice = __webpack_require__(159);
 
 	/** Used to match regexp flags from their coerced string values */
 	var reFlags = /\w*$/;
@@ -29400,7 +30493,119 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 126 */
+/* 141 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var bind = __webpack_require__(160),
+	    identity = __webpack_require__(170),
+	    setBindData = __webpack_require__(161),
+	    support = __webpack_require__(162);
+
+	/** Used to detected named functions */
+	var reFuncName = /^\s*function[ \n\r\t]+\w/;
+
+	/** Used to detect functions containing a `this` reference */
+	var reThis = /\bthis\b/;
+
+	/** Native method shortcuts */
+	var fnToString = Function.prototype.toString;
+
+	/**
+	 * The base implementation of `_.createCallback` without support for creating
+	 * "_.pluck" or "_.where" style callbacks.
+	 *
+	 * @private
+	 * @param {*} [func=identity] The value to convert to a callback.
+	 * @param {*} [thisArg] The `this` binding of the created callback.
+	 * @param {number} [argCount] The number of arguments the callback accepts.
+	 * @returns {Function} Returns a callback function.
+	 */
+	function baseCreateCallback(func, thisArg, argCount) {
+	  if (typeof func != 'function') {
+	    return identity;
+	  }
+	  // exit early for no `thisArg` or already bound by `Function#bind`
+	  if (typeof thisArg == 'undefined' || !('prototype' in func)) {
+	    return func;
+	  }
+	  var bindData = func.__bindData__;
+	  if (typeof bindData == 'undefined') {
+	    if (support.funcNames) {
+	      bindData = !func.name;
+	    }
+	    bindData = bindData || !support.funcDecomp;
+	    if (!bindData) {
+	      var source = fnToString.call(func);
+	      if (!support.funcNames) {
+	        bindData = !reFuncName.test(source);
+	      }
+	      if (!bindData) {
+	        // checks if `func` references the `this` keyword and stores the result
+	        bindData = reThis.test(source);
+	        setBindData(func, bindData);
+	      }
+	    }
+	  }
+	  // exit early if there are no `this` references or `func` is bound
+	  if (bindData === false || (bindData !== true && bindData[1] & 1)) {
+	    return func;
+	  }
+	  switch (argCount) {
+	    case 1: return function(value) {
+	      return func.call(thisArg, value);
+	    };
+	    case 2: return function(a, b) {
+	      return func.call(thisArg, a, b);
+	    };
+	    case 3: return function(value, index, collection) {
+	      return func.call(thisArg, value, index, collection);
+	    };
+	    case 4: return function(accumulator, value, index, collection) {
+	      return func.call(thisArg, accumulator, value, index, collection);
+	    };
+	  }
+	  return bind(func, thisArg);
+	}
+
+	module.exports = baseCreateCallback;
+
+
+/***/ },
+/* 142 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/** Used to determine if values are of the language type Object */
+	var objectTypes = {
+	  'boolean': false,
+	  'function': true,
+	  'object': true,
+	  'number': false,
+	  'string': false,
+	  'undefined': false
+	};
+
+	module.exports = objectTypes;
+
+
+/***/ },
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29440,7 +30645,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 127 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29451,7 +30656,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectTypes = __webpack_require__(124);
+	var objectTypes = __webpack_require__(142);
 
 	/** Used for native method references */
 	var objectProto = Object.prototype;
@@ -29484,7 +30689,94 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 128 */
+/* 145 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var baseCreateCallback = __webpack_require__(141),
+	    baseIsEqual = __webpack_require__(163),
+	    isObject = __webpack_require__(138),
+	    keys = __webpack_require__(130),
+	    property = __webpack_require__(171);
+
+	/**
+	 * Produces a callback bound to an optional `thisArg`. If `func` is a property
+	 * name the created callback will return the property value for a given element.
+	 * If `func` is an object the created callback will return `true` for elements
+	 * that contain the equivalent object properties, otherwise it will return `false`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Utilities
+	 * @param {*} [func=identity] The value to convert to a callback.
+	 * @param {*} [thisArg] The `this` binding of the created callback.
+	 * @param {number} [argCount] The number of arguments the callback accepts.
+	 * @returns {Function} Returns a callback function.
+	 * @example
+	 *
+	 * var characters = [
+	 *   { 'name': 'barney', 'age': 36 },
+	 *   { 'name': 'fred',   'age': 40 }
+	 * ];
+	 *
+	 * // wrap to create custom callback shorthands
+	 * _.createCallback = _.wrap(_.createCallback, function(func, callback, thisArg) {
+	 *   var match = /^(.+?)__([gl]t)(.+)$/.exec(callback);
+	 *   return !match ? func(callback, thisArg) : function(object) {
+	 *     return match[2] == 'gt' ? object[match[1]] > match[3] : object[match[1]] < match[3];
+	 *   };
+	 * });
+	 *
+	 * _.filter(characters, 'age__gt38');
+	 * // => [{ 'name': 'fred', 'age': 40 }]
+	 */
+	function createCallback(func, thisArg, argCount) {
+	  var type = typeof func;
+	  if (func == null || type == 'function') {
+	    return baseCreateCallback(func, thisArg, argCount);
+	  }
+	  // handle "_.pluck" style callback shorthands
+	  if (type != 'object') {
+	    return property(func);
+	  }
+	  var props = keys(func),
+	      key = props[0],
+	      a = func[key];
+
+	  // handle "_.where" style callback shorthands
+	  if (props.length == 1 && a === a && !isObject(a)) {
+	    // fast path the common case of providing an object with a single
+	    // property containing a primitive value
+	    return function(object) {
+	      var b = object[key];
+	      return a === b && (a !== 0 || (1 / a == 1 / b));
+	    };
+	  }
+	  return function(object) {
+	    var length = props.length,
+	        result = false;
+
+	    while (length--) {
+	      if (!(result = baseIsEqual(object[props[length]], func[props[length]], null, true))) {
+	        break;
+	      }
+	    }
+	    return result;
+	  };
+	}
+
+	module.exports = createCallback;
+
+
+/***/ },
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29530,7 +30822,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 129 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29541,7 +30833,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(126);
+	var isNative = __webpack_require__(143);
 
 	/** `Object#toString` result shortcuts */
 	var arrayClass = '[object Array]';
@@ -29581,7 +30873,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 130 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29619,7 +30911,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 131 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29630,8 +30922,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(130),
-	    keyPrefix = __webpack_require__(147);
+	var baseIndexOf = __webpack_require__(148),
+	    keyPrefix = __webpack_require__(164);
 
 	/**
 	 * An implementation of `_.contains` for cache objects that mimics the return
@@ -29664,7 +30956,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 132 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29675,9 +30967,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var cachePush = __webpack_require__(148),
-	    getObject = __webpack_require__(149),
-	    releaseObject = __webpack_require__(136);
+	var cachePush = __webpack_require__(165),
+	    getObject = __webpack_require__(166),
+	    releaseObject = __webpack_require__(154);
 
 	/**
 	 * Creates a cache object to optimize linear searches of large arrays.
@@ -29715,7 +31007,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 133 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29726,7 +31018,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var arrayPool = __webpack_require__(150);
+	var arrayPool = __webpack_require__(167);
 
 	/**
 	 * Gets an array from the array pool or creates a new one if the pool is empty.
@@ -29742,7 +31034,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 134 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29761,7 +31053,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 135 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29772,8 +31064,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var arrayPool = __webpack_require__(150),
-	    maxPoolSize = __webpack_require__(153);
+	var arrayPool = __webpack_require__(167),
+	    maxPoolSize = __webpack_require__(168);
 
 	/**
 	 * Releases the given array back to the array pool.
@@ -29792,7 +31084,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 136 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29803,8 +31095,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var maxPoolSize = __webpack_require__(153),
-	    objectPool = __webpack_require__(154);
+	var maxPoolSize = __webpack_require__(168),
+	    objectPool = __webpack_require__(169);
 
 	/**
 	 * Releases the given object back to the object pool.
@@ -29827,7 +31119,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 137 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29838,13 +31130,13 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(130),
-	    cacheIndexOf = __webpack_require__(131),
-	    createCache = __webpack_require__(132),
-	    getArray = __webpack_require__(133),
-	    largeArraySize = __webpack_require__(134),
-	    releaseArray = __webpack_require__(135),
-	    releaseObject = __webpack_require__(136);
+	var baseIndexOf = __webpack_require__(148),
+	    cacheIndexOf = __webpack_require__(149),
+	    createCache = __webpack_require__(150),
+	    getArray = __webpack_require__(151),
+	    largeArraySize = __webpack_require__(152),
+	    releaseArray = __webpack_require__(153),
+	    releaseObject = __webpack_require__(154);
 
 	/**
 	 * The base implementation of `_.uniq` without support for callback shorthands
@@ -29897,18 +31189,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 138 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = function isBuffer(arg) {
-	  return arg && typeof arg === 'object'
-	    && typeof arg.copy === 'function'
-	    && typeof arg.fill === 'function'
-	    && typeof arg.readUInt8 === 'function';
-	}
-
-/***/ },
-/* 139 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// shim for using process in browser
@@ -29977,7 +31258,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 140 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	if (typeof Object.create === 'function') {
@@ -30006,7 +31287,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 141 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30017,11 +31298,273 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var forIn = __webpack_require__(155),
-	    getArray = __webpack_require__(133),
-	    isFunction = __webpack_require__(156),
-	    objectTypes = __webpack_require__(124),
-	    releaseArray = __webpack_require__(135);
+	var baseCreateCallback = __webpack_require__(141),
+	    keys = __webpack_require__(130),
+	    objectTypes = __webpack_require__(142);
+
+	/**
+	 * Assigns own enumerable properties of source object(s) to the destination
+	 * object. Subsequent sources will overwrite property assignments of previous
+	 * sources. If a callback is provided it will be executed to produce the
+	 * assigned values. The callback is bound to `thisArg` and invoked with two
+	 * arguments; (objectValue, sourceValue).
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Function
+	 * @alias extend
+	 * @category Objects
+	 * @param {Object} object The destination object.
+	 * @param {...Object} [source] The source objects.
+	 * @param {Function} [callback] The function to customize assigning values.
+	 * @param {*} [thisArg] The `this` binding of `callback`.
+	 * @returns {Object} Returns the destination object.
+	 * @example
+	 *
+	 * _.assign({ 'name': 'fred' }, { 'employer': 'slate' });
+	 * // => { 'name': 'fred', 'employer': 'slate' }
+	 *
+	 * var defaults = _.partialRight(_.assign, function(a, b) {
+	 *   return typeof a == 'undefined' ? b : a;
+	 * });
+	 *
+	 * var object = { 'name': 'barney' };
+	 * defaults(object, { 'name': 'fred', 'employer': 'slate' });
+	 * // => { 'name': 'barney', 'employer': 'slate' }
+	 */
+	var assign = function(object, source, guard) {
+	  var index, iterable = object, result = iterable;
+	  if (!iterable) return result;
+	  var args = arguments,
+	      argsIndex = 0,
+	      argsLength = typeof guard == 'number' ? 2 : args.length;
+	  if (argsLength > 3 && typeof args[argsLength - 2] == 'function') {
+	    var callback = baseCreateCallback(args[--argsLength - 1], args[argsLength--], 2);
+	  } else if (argsLength > 2 && typeof args[argsLength - 1] == 'function') {
+	    callback = args[--argsLength];
+	  }
+	  while (++argsIndex < argsLength) {
+	    iterable = args[argsIndex];
+	    if (iterable && objectTypes[typeof iterable]) {
+	    var ownIndex = -1,
+	        ownProps = objectTypes[typeof iterable] && keys(iterable),
+	        length = ownProps ? ownProps.length : 0;
+
+	    while (++ownIndex < length) {
+	      index = ownProps[ownIndex];
+	      result[index] = callback ? callback(result[index], iterable[index]) : iterable[index];
+	    }
+	    }
+	  }
+	  return result
+	};
+
+	module.exports = assign;
+
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/**
+	 * Slices the `collection` from the `start` index up to, but not including,
+	 * the `end` index.
+	 *
+	 * Note: This function is used instead of `Array#slice` to support node lists
+	 * in IE < 9 and to ensure dense arrays are returned.
+	 *
+	 * @private
+	 * @param {Array|Object|string} collection The collection to slice.
+	 * @param {number} start The start index.
+	 * @param {number} end The end index.
+	 * @returns {Array} Returns the new array.
+	 */
+	function slice(array, start, end) {
+	  start || (start = 0);
+	  if (typeof end == 'undefined') {
+	    end = array ? array.length : 0;
+	  }
+	  var index = -1,
+	      length = end - start || 0,
+	      result = Array(length < 0 ? 0 : length);
+
+	  while (++index < length) {
+	    result[index] = array[start + index];
+	  }
+	  return result;
+	}
+
+	module.exports = slice;
+
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var createWrapper = __webpack_require__(172),
+	    slice = __webpack_require__(159);
+
+	/**
+	 * Creates a function that, when called, invokes `func` with the `this`
+	 * binding of `thisArg` and prepends any additional `bind` arguments to those
+	 * provided to the bound function.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Functions
+	 * @param {Function} func The function to bind.
+	 * @param {*} [thisArg] The `this` binding of `func`.
+	 * @param {...*} [arg] Arguments to be partially applied.
+	 * @returns {Function} Returns the new bound function.
+	 * @example
+	 *
+	 * var func = function(greeting) {
+	 *   return greeting + ' ' + this.name;
+	 * };
+	 *
+	 * func = _.bind(func, { 'name': 'fred' }, 'hi');
+	 * func();
+	 * // => 'hi fred'
+	 */
+	function bind(func, thisArg) {
+	  return arguments.length > 2
+	    ? createWrapper(func, 17, slice(arguments, 2), null, thisArg)
+	    : createWrapper(func, 1, null, null, thisArg);
+	}
+
+	module.exports = bind;
+
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var isNative = __webpack_require__(143),
+	    noop = __webpack_require__(173);
+
+	/** Used as the property descriptor for `__bindData__` */
+	var descriptor = {
+	  'configurable': false,
+	  'enumerable': false,
+	  'value': null,
+	  'writable': false
+	};
+
+	/** Used to set meta data on functions */
+	var defineProperty = (function() {
+	  // IE 8 only accepts DOM elements
+	  try {
+	    var o = {},
+	        func = isNative(func = Object.defineProperty) && func,
+	        result = func(o, o, o) && func;
+	  } catch(e) { }
+	  return result;
+	}());
+
+	/**
+	 * Sets `this` binding data on a given function.
+	 *
+	 * @private
+	 * @param {Function} func The function to set data on.
+	 * @param {Array} value The data array to set.
+	 */
+	var setBindData = !defineProperty ? noop : function(func, value) {
+	  descriptor.value = value;
+	  defineProperty(func, '__bindData__', descriptor);
+	};
+
+	module.exports = setBindData;
+
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var isNative = __webpack_require__(143);
+
+	/** Used to detect functions containing a `this` reference */
+	var reThis = /\bthis\b/;
+
+	/**
+	 * An object used to flag environments features.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Object
+	 */
+	var support = {};
+
+	/**
+	 * Detect if functions can be decompiled by `Function#toString`
+	 * (all but PS3 and older Opera mobile browsers & avoided in Windows 8 apps).
+	 *
+	 * @memberOf _.support
+	 * @type boolean
+	 */
+	support.funcDecomp = !isNative(global.WinRTError) && reThis.test(function() { return this; });
+
+	/**
+	 * Detect if `Function#name` is supported (all but IE).
+	 *
+	 * @memberOf _.support
+	 * @type boolean
+	 */
+	support.funcNames = typeof Function.name == 'string';
+
+	module.exports = support;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var forIn = __webpack_require__(174),
+	    getArray = __webpack_require__(151),
+	    isFunction = __webpack_require__(175),
+	    objectTypes = __webpack_require__(142),
+	    releaseArray = __webpack_require__(153);
 
 	/** `Object#toString` result shortcuts */
 	var argsClass = '[object Arguments]',
@@ -30221,269 +31764,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 142 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var createWrapper = __webpack_require__(157),
-	    slice = __webpack_require__(146);
-
-	/**
-	 * Creates a function that, when called, invokes `func` with the `this`
-	 * binding of `thisArg` and prepends any additional `bind` arguments to those
-	 * provided to the bound function.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Functions
-	 * @param {Function} func The function to bind.
-	 * @param {*} [thisArg] The `this` binding of `func`.
-	 * @param {...*} [arg] Arguments to be partially applied.
-	 * @returns {Function} Returns the new bound function.
-	 * @example
-	 *
-	 * var func = function(greeting) {
-	 *   return greeting + ' ' + this.name;
-	 * };
-	 *
-	 * func = _.bind(func, { 'name': 'fred' }, 'hi');
-	 * func();
-	 * // => 'hi fred'
-	 */
-	function bind(func, thisArg) {
-	  return arguments.length > 2
-	    ? createWrapper(func, 17, slice(arguments, 2), null, thisArg)
-	    : createWrapper(func, 1, null, null, thisArg);
-	}
-
-	module.exports = bind;
-
-
-/***/ },
-/* 143 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var isNative = __webpack_require__(126),
-	    noop = __webpack_require__(158);
-
-	/** Used as the property descriptor for `__bindData__` */
-	var descriptor = {
-	  'configurable': false,
-	  'enumerable': false,
-	  'value': null,
-	  'writable': false
-	};
-
-	/** Used to set meta data on functions */
-	var defineProperty = (function() {
-	  // IE 8 only accepts DOM elements
-	  try {
-	    var o = {},
-	        func = isNative(func = Object.defineProperty) && func,
-	        result = func(o, o, o) && func;
-	  } catch(e) { }
-	  return result;
-	}());
-
-	/**
-	 * Sets `this` binding data on a given function.
-	 *
-	 * @private
-	 * @param {Function} func The function to set data on.
-	 * @param {Array} value The data array to set.
-	 */
-	var setBindData = !defineProperty ? noop : function(func, value) {
-	  descriptor.value = value;
-	  defineProperty(func, '__bindData__', descriptor);
-	};
-
-	module.exports = setBindData;
-
-
-/***/ },
-/* 144 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var isNative = __webpack_require__(126);
-
-	/** Used to detect functions containing a `this` reference */
-	var reThis = /\bthis\b/;
-
-	/**
-	 * An object used to flag environments features.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Object
-	 */
-	var support = {};
-
-	/**
-	 * Detect if functions can be decompiled by `Function#toString`
-	 * (all but PS3 and older Opera mobile browsers & avoided in Windows 8 apps).
-	 *
-	 * @memberOf _.support
-	 * @type boolean
-	 */
-	support.funcDecomp = !isNative(global.WinRTError) && reThis.test(function() { return this; });
-
-	/**
-	 * Detect if `Function#name` is supported (all but IE).
-	 *
-	 * @memberOf _.support
-	 * @type boolean
-	 */
-	support.funcNames = typeof Function.name == 'string';
-
-	module.exports = support;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 145 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseCreateCallback = __webpack_require__(123),
-	    keys = __webpack_require__(113),
-	    objectTypes = __webpack_require__(124);
-
-	/**
-	 * Assigns own enumerable properties of source object(s) to the destination
-	 * object. Subsequent sources will overwrite property assignments of previous
-	 * sources. If a callback is provided it will be executed to produce the
-	 * assigned values. The callback is bound to `thisArg` and invoked with two
-	 * arguments; (objectValue, sourceValue).
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Function
-	 * @alias extend
-	 * @category Objects
-	 * @param {Object} object The destination object.
-	 * @param {...Object} [source] The source objects.
-	 * @param {Function} [callback] The function to customize assigning values.
-	 * @param {*} [thisArg] The `this` binding of `callback`.
-	 * @returns {Object} Returns the destination object.
-	 * @example
-	 *
-	 * _.assign({ 'name': 'fred' }, { 'employer': 'slate' });
-	 * // => { 'name': 'fred', 'employer': 'slate' }
-	 *
-	 * var defaults = _.partialRight(_.assign, function(a, b) {
-	 *   return typeof a == 'undefined' ? b : a;
-	 * });
-	 *
-	 * var object = { 'name': 'barney' };
-	 * defaults(object, { 'name': 'fred', 'employer': 'slate' });
-	 * // => { 'name': 'barney', 'employer': 'slate' }
-	 */
-	var assign = function(object, source, guard) {
-	  var index, iterable = object, result = iterable;
-	  if (!iterable) return result;
-	  var args = arguments,
-	      argsIndex = 0,
-	      argsLength = typeof guard == 'number' ? 2 : args.length;
-	  if (argsLength > 3 && typeof args[argsLength - 2] == 'function') {
-	    var callback = baseCreateCallback(args[--argsLength - 1], args[argsLength--], 2);
-	  } else if (argsLength > 2 && typeof args[argsLength - 1] == 'function') {
-	    callback = args[--argsLength];
-	  }
-	  while (++argsIndex < argsLength) {
-	    iterable = args[argsIndex];
-	    if (iterable && objectTypes[typeof iterable]) {
-	    var ownIndex = -1,
-	        ownProps = objectTypes[typeof iterable] && keys(iterable),
-	        length = ownProps ? ownProps.length : 0;
-
-	    while (++ownIndex < length) {
-	      index = ownProps[ownIndex];
-	      result[index] = callback ? callback(result[index], iterable[index]) : iterable[index];
-	    }
-	    }
-	  }
-	  return result
-	};
-
-	module.exports = assign;
-
-
-/***/ },
-/* 146 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/**
-	 * Slices the `collection` from the `start` index up to, but not including,
-	 * the `end` index.
-	 *
-	 * Note: This function is used instead of `Array#slice` to support node lists
-	 * in IE < 9 and to ensure dense arrays are returned.
-	 *
-	 * @private
-	 * @param {Array|Object|string} collection The collection to slice.
-	 * @param {number} start The start index.
-	 * @param {number} end The end index.
-	 * @returns {Array} Returns the new array.
-	 */
-	function slice(array, start, end) {
-	  start || (start = 0);
-	  if (typeof end == 'undefined') {
-	    end = array ? array.length : 0;
-	  }
-	  var index = -1,
-	      length = end - start || 0,
-	      result = Array(length < 0 ? 0 : length);
-
-	  while (++index < length) {
-	    result[index] = array[start + index];
-	  }
-	  return result;
-	}
-
-	module.exports = slice;
-
-
-/***/ },
-/* 147 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30502,7 +31783,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 148 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30513,7 +31794,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var keyPrefix = __webpack_require__(147);
+	var keyPrefix = __webpack_require__(164);
 
 	/**
 	 * Adds a given value to the corresponding cache object.
@@ -30546,7 +31827,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 149 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30557,7 +31838,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectPool = __webpack_require__(154);
+	var objectPool = __webpack_require__(169);
 
 	/**
 	 * Gets an object from the object pool or creates a new one if the pool is empty.
@@ -30587,7 +31868,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 150 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30606,7 +31887,79 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 151 */
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/** Used as the max size of the `arrayPool` and `objectPool` */
+	var maxPoolSize = 40;
+
+	module.exports = maxPoolSize;
+
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/** Used to pool arrays and objects used internally */
+	var objectPool = [];
+
+	module.exports = objectPool;
+
+
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/**
+	 * This method returns the first argument provided to it.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Utilities
+	 * @param {*} value Any value.
+	 * @returns {*} Returns `value`.
+	 * @example
+	 *
+	 * var object = { 'name': 'fred' };
+	 * _.identity(object) === object;
+	 * // => true
+	 */
+	function identity(value) {
+	  return value;
+	}
+
+	module.exports = identity;
+
+
+/***/ },
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30652,7 +32005,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 152 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30663,175 +32016,10 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-
-	/**
-	 * This method returns the first argument provided to it.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Utilities
-	 * @param {*} value Any value.
-	 * @returns {*} Returns `value`.
-	 * @example
-	 *
-	 * var object = { 'name': 'fred' };
-	 * _.identity(object) === object;
-	 * // => true
-	 */
-	function identity(value) {
-	  return value;
-	}
-
-	module.exports = identity;
-
-
-/***/ },
-/* 153 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/** Used as the max size of the `arrayPool` and `objectPool` */
-	var maxPoolSize = 40;
-
-	module.exports = maxPoolSize;
-
-
-/***/ },
-/* 154 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/** Used to pool arrays and objects used internally */
-	var objectPool = [];
-
-	module.exports = objectPool;
-
-
-/***/ },
-/* 155 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseCreateCallback = __webpack_require__(123),
-	    objectTypes = __webpack_require__(124);
-
-	/**
-	 * Iterates over own and inherited enumerable properties of an object,
-	 * executing the callback for each property. The callback is bound to `thisArg`
-	 * and invoked with three arguments; (value, key, object). Callbacks may exit
-	 * iteration early by explicitly returning `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Function
-	 * @category Objects
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} [callback=identity] The function called per iteration.
-	 * @param {*} [thisArg] The `this` binding of `callback`.
-	 * @returns {Object} Returns `object`.
-	 * @example
-	 *
-	 * function Shape() {
-	 *   this.x = 0;
-	 *   this.y = 0;
-	 * }
-	 *
-	 * Shape.prototype.move = function(x, y) {
-	 *   this.x += x;
-	 *   this.y += y;
-	 * };
-	 *
-	 * _.forIn(new Shape, function(value, key) {
-	 *   console.log(key);
-	 * });
-	 * // => logs 'x', 'y', and 'move' (property order is not guaranteed across environments)
-	 */
-	var forIn = function(collection, callback, thisArg) {
-	  var index, iterable = collection, result = iterable;
-	  if (!iterable) return result;
-	  if (!objectTypes[typeof iterable]) return result;
-	  callback = callback && typeof thisArg == 'undefined' ? callback : baseCreateCallback(callback, thisArg, 3);
-	    for (index in iterable) {
-	      if (callback(iterable[index], index, collection) === false) return result;
-	    }
-	  return result
-	};
-
-	module.exports = forIn;
-
-
-/***/ },
-/* 156 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/**
-	 * Checks if `value` is a function.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Objects
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if the `value` is a function, else `false`.
-	 * @example
-	 *
-	 * _.isFunction(_);
-	 * // => true
-	 */
-	function isFunction(value) {
-	  return typeof value == 'function';
-	}
-
-	module.exports = isFunction;
-
-
-/***/ },
-/* 157 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseBind = __webpack_require__(159),
-	    baseCreateWrapper = __webpack_require__(160),
-	    isFunction = __webpack_require__(156),
-	    slice = __webpack_require__(146);
+	var baseBind = __webpack_require__(176),
+	    baseCreateWrapper = __webpack_require__(177),
+	    isFunction = __webpack_require__(175),
+	    slice = __webpack_require__(159);
 
 	/**
 	 * Used for `Array` method references.
@@ -30929,7 +32117,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 158 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30961,7 +32149,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 159 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30972,10 +32160,103 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreate = __webpack_require__(161),
-	    isObject = __webpack_require__(121),
-	    setBindData = __webpack_require__(143),
-	    slice = __webpack_require__(146);
+	var baseCreateCallback = __webpack_require__(141),
+	    objectTypes = __webpack_require__(142);
+
+	/**
+	 * Iterates over own and inherited enumerable properties of an object,
+	 * executing the callback for each property. The callback is bound to `thisArg`
+	 * and invoked with three arguments; (value, key, object). Callbacks may exit
+	 * iteration early by explicitly returning `false`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Function
+	 * @category Objects
+	 * @param {Object} object The object to iterate over.
+	 * @param {Function} [callback=identity] The function called per iteration.
+	 * @param {*} [thisArg] The `this` binding of `callback`.
+	 * @returns {Object} Returns `object`.
+	 * @example
+	 *
+	 * function Shape() {
+	 *   this.x = 0;
+	 *   this.y = 0;
+	 * }
+	 *
+	 * Shape.prototype.move = function(x, y) {
+	 *   this.x += x;
+	 *   this.y += y;
+	 * };
+	 *
+	 * _.forIn(new Shape, function(value, key) {
+	 *   console.log(key);
+	 * });
+	 * // => logs 'x', 'y', and 'move' (property order is not guaranteed across environments)
+	 */
+	var forIn = function(collection, callback, thisArg) {
+	  var index, iterable = collection, result = iterable;
+	  if (!iterable) return result;
+	  if (!objectTypes[typeof iterable]) return result;
+	  callback = callback && typeof thisArg == 'undefined' ? callback : baseCreateCallback(callback, thisArg, 3);
+	    for (index in iterable) {
+	      if (callback(iterable[index], index, collection) === false) return result;
+	    }
+	  return result
+	};
+
+	module.exports = forIn;
+
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/**
+	 * Checks if `value` is a function.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Objects
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if the `value` is a function, else `false`.
+	 * @example
+	 *
+	 * _.isFunction(_);
+	 * // => true
+	 */
+	function isFunction(value) {
+	  return typeof value == 'function';
+	}
+
+	module.exports = isFunction;
+
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var baseCreate = __webpack_require__(178),
+	    isObject = __webpack_require__(138),
+	    setBindData = __webpack_require__(161),
+	    slice = __webpack_require__(159);
 
 	/**
 	 * Used for `Array` method references.
@@ -31029,7 +32310,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 160 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31040,10 +32321,10 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreate = __webpack_require__(161),
-	    isObject = __webpack_require__(121),
-	    setBindData = __webpack_require__(143),
-	    slice = __webpack_require__(146);
+	var baseCreate = __webpack_require__(178),
+	    isObject = __webpack_require__(138),
+	    setBindData = __webpack_require__(161),
+	    slice = __webpack_require__(159);
 
 	/**
 	 * Used for `Array` method references.
@@ -31113,7 +32394,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 161 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -31124,9 +32405,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(126),
-	    isObject = __webpack_require__(121),
-	    noop = __webpack_require__(158);
+	var isNative = __webpack_require__(143),
+	    isObject = __webpack_require__(138),
+	    noop = __webpack_require__(173);
 
 	/* Native method shortcuts for methods with the same name as other `lodash` methods */
 	var nativeCreate = isNative(nativeCreate = Object.create) && nativeCreate;
