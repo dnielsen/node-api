@@ -489,7 +489,7 @@ var Body = React.createClass({
                         <div id='orderscomparision'></div>
                         <Grid style={{margin: -25, marginTop: 0}}>
                           <Row className='bg-lightorange fg-darkorange text-center'>
-                            <Col xs={12} collapseLeft collapseRight>
+                            <Col xs={12} collapseLeft collapseRight style={{padding: 25, paddingTop: 0}}>
                               <Table alignMiddle collapsed>
                                 <tbody>
                                   <tr>
@@ -563,7 +563,7 @@ var Body = React.createClass({
                             <TabPane ref='complex_stats_table_panel:complex_statistics' active>
                               <Grid>
                                 <Row>
-                                  <Col xs={12} collapseLeft collapseRight>
+                                  <Col xs={12} style={{padding: 25}}>
                                     <Table striped style={{margin: 0}}>
                                       <tbody>
                                         <tr>
@@ -621,7 +621,7 @@ var Body = React.createClass({
                       </Row>
                     </Grid>
                   </PanelBody>
-                  <PanelRight className='bg-red fg-white tabs panel-sm-2'>
+                  <PanelRight className='bg-green fg-white tabs panel-sm-2'>
                     <TabContainer>
                       <TabList>
                         <Tab pane='complex_stats_table_panel:complex_statistics' active>

@@ -63,6 +63,7 @@ var ApplicationSidebar = React.createClass({
                   <SidebarNavItem href='/app/timeline' glyph='icon-ikons-time' name='Static Timeline' />
                   <SidebarNavItem href='/app/interactive-timeline' glyph='icon-fontello-back-in-time' name='Interactive Timeline' />
                   <SidebarNavItem href='/app/maps' glyph='icon-ikons-pin-2' name='Maps' />
+                  <SidebarNavItem href='/app/editor' glyph='icon-simple-line-icons-note' name='Editor' />
                   <SidebarNavItem glyph='icon-feather-toggle' name={<span>UI Elements <BLabel className='bg-deepred fg-white'>7</BLabel></span>}>
                     <SidebarNav>
                       <SidebarNavItem href='/app/ui-elements/buttons' glyph='icon-mfizz-oracle' name='Buttons' />
@@ -144,6 +145,15 @@ var ApplicationSidebar = React.createClass({
                       <SidebarNavItem name='Code' href='/app/docs/bootstrap/code' />
                       <SidebarNavItem name='Tables' href='/app/docs/bootstrap/tables' />
                       <SidebarNavItem name='Forms' href='/app/docs/bootstrap/forms' />
+                      <SidebarNavItem name='Form Controls'>
+                        <SidebarNav>
+                          <SidebarNavItem name='Inputs' href='/app/docs/bootstrap/form_controls/inputs' />
+                          <SidebarNavItem name='Textarea' href='/app/docs/bootstrap/form_controls/textarea' />
+                          <SidebarNavItem name='Checkbox &amp; Radio' href='/app/docs/bootstrap/form_controls/checkradio' />
+                          <SidebarNavItem name='Select' href='/app/docs/bootstrap/form_controls/select' />
+                          <SidebarNavItem name='Buttons' href='/app/docs/bootstrap/form_controls/buttons' />
+                        </SidebarNav>
+                      </SidebarNavItem>
                     </SidebarNav>
                   </SidebarNavItem>
                   <SidebarNavItem glyph='icon-outlined-geolocalizator' name='Mozilla L20n.js' href='/app/docs/l20n' />

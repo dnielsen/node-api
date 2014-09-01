@@ -113,20 +113,26 @@ var Body = React.createClass({
                       </Menu>
                     </Tab>
                   </TabList>
-                  <TabContent>
-                    <TabPane ref='tab1:home' active>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab1:profile'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab1:fat'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab1:mdo'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                  </TabContent>
+                  <Grid>
+                    <Row>
+                      <Col xs={12} style={{paddingTop: 12.5}}>
+                        <TabContent>
+                          <TabPane ref='tab1:home' active>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab1:profile'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab1:fat'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab1:mdo'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                        </TabContent>
+                      </Col>
+                    </Row>
+                  </Grid>
                 </PanelBody>
               </PanelContainer>
               <PanelContainer controlStyles='bg-lightpurple fg-white'>
@@ -135,46 +141,52 @@ var Body = React.createClass({
                     <Row>
                       <Col xs={12}>
                         <h3>Tabs: Inline</h3>
-                        <TabList bsStyle='purple'>
-                          <Tab pane='tab2:home' active>Home</Tab>
-                          <Tab pane='tab2:profile'>Profile</Tab>
-                          <Tab>
-                            <DropdownButton tab container={this} menu='tabmenu2'>
-                              <span>Dropdown </span><Caret/>
-                            </DropdownButton>
-                            <Menu autoHide bsStyle='lightpurple' ref='tabmenu2'>
-                              <MenuItem href='#'>
-                                <Tab dropdown pane='tab2:fat'>
-                                  @fat
-                                </Tab>
-                              </MenuItem>
-                              <MenuItem href='#'>
-                                <Tab dropdown pane='tab2:mdo'>
-                                  @mdo
-                                </Tab>
-                              </MenuItem>
-                            </Menu>
-                          </Tab>
-                        </TabList>
                       </Col>
                     </Row>
                   </Grid>
+                  <TabList bsStyle='purple'>
+                    <Tab pane='tab2:home' active>Home</Tab>
+                    <Tab pane='tab2:profile'>Profile</Tab>
+                    <Tab>
+                      <DropdownButton tab container={this} menu='tabmenu2'>
+                        <span>Dropdown </span><Caret/>
+                      </DropdownButton>
+                      <Menu autoHide bsStyle='lightpurple' ref='tabmenu2'>
+                        <MenuItem href='#'>
+                          <Tab dropdown pane='tab2:fat'>
+                            @fat
+                          </Tab>
+                        </MenuItem>
+                        <MenuItem href='#'>
+                          <Tab dropdown pane='tab2:mdo'>
+                            @mdo
+                          </Tab>
+                        </MenuItem>
+                      </Menu>
+                    </Tab>
+                  </TabList>
                 </PanelHeader>
                 <PanelBody>
-                  <TabContent>
-                    <TabPane ref='tab2:home' active>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab2:profile'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab2:fat'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab2:mdo'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                  </TabContent>
+                  <Grid>
+                    <Row>
+                      <Col xs={12} style={{paddingTop: 12.5}}>
+                        <TabContent>
+                          <TabPane ref='tab2:home' active>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab2:profile'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab2:fat'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab2:mdo'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                        </TabContent>
+                      </Col>
+                    </Row>
+                  </Grid>
                 </PanelBody>
               </PanelContainer>
               <PanelContainer controlStyles='bg-lightred fg-white'>
@@ -209,20 +221,26 @@ var Body = React.createClass({
                   </Grid>
                 </PanelHeader>
                 <PanelBody>
-                  <TabContent>
-                    <TabPane ref='tab3:home' active>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab3:profile'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab3:fat'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='tab3:mdo'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                  </TabContent>
+                  <Grid>
+                    <Row>
+                      <Col xs={12} style={{paddingTop: 12.5}}>
+                        <TabContent>
+                          <TabPane ref='tab3:home' active>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab3:profile'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab3:fat'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='tab3:mdo'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                        </TabContent>
+                      </Col>
+                    </Row>
+                  </Grid>
                 </PanelBody>
               </PanelContainer>
             </Col>
@@ -259,20 +277,26 @@ var Body = React.createClass({
                       </Menu>
                     </Tab>
                   </TabList>
-                  <TabContent>
-                    <TabPane ref='pills1:home' active>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='pills1:profile'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='pills1:fat'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='pills1:mdo'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                  </TabContent>
+                  <Grid>
+                    <Row>
+                      <Col xs={12} style={{paddingTop: 12.5}}>
+                        <TabContent>
+                          <TabPane ref='pills1:home' active>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='pills1:profile'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='pills1:fat'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='pills1:mdo'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                        </TabContent>
+                      </Col>
+                    </Row>
+                  </Grid>
                 </PanelBody>
               </PanelContainer>
               <PanelContainer noOverflow controlStyles='bg-lightblue fg-white'>
@@ -371,20 +395,26 @@ var Body = React.createClass({
                       </Col>
                     </Row>
                   </Grid>
-                  <TabContent>
-                    <TabPane ref='pill3:home' active>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='pill3:profile'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='pill3:fat'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                    <TabPane ref='pill3:mdo'>
-                      <p><LoremIpsum query='3s' /></p>
-                    </TabPane>
-                  </TabContent>
+                  <Grid>
+                    <Row>
+                      <Col xs={12} style={{paddingTop: 12.5}}>
+                        <TabContent>
+                          <TabPane ref='pill3:home' active>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='pill3:profile'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='pill3:fat'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                          <TabPane ref='pill3:mdo'>
+                            <p><LoremIpsum query='3s' /></p>
+                          </TabPane>
+                        </TabContent>
+                      </Col>
+                    </Row>
+                  </Grid>
                 </PanelBody>
               </PanelContainer>
             </Col>

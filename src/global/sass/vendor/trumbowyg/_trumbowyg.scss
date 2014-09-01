@@ -627,3 +627,31 @@
         background-position: 5px -20px;
     }
 }
+
+
+
+.trumbowyg-box {
+  margin: 0;
+  width: 100%;
+  color: #333;
+  border: none;
+  border-bottom: 1px solid #EEE;
+  margin-bottom: $line-height-computed;
+
+  blockquote {
+    color: #777;
+  }
+}
+
+.trumbowyg-button-pane {
+  padding: 0;
+  background: none;
+  border-top: 1px solid #EEE;
+  border-bottom: 1px solid #EEE;
+}
+
+.trumbowyg-button-pane li button {
+  &:hover, &:focus, &.trumbowyg-active {
+    background-color: #f5f5f5;
+  }
+}
