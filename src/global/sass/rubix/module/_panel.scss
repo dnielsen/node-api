@@ -263,7 +263,7 @@ html.no-touch .rubix-panel-container-with-controls {
   }
 }
 
-.rubix-panel.horizontal {
+.rubix-panel.horizontal > div > {
   .rubix-panel-body {
     padding: 0;
   }
@@ -305,12 +305,12 @@ html.no-touch .rubix-panel-container-with-controls {
       display: block;
     }
 
-    .rubix-panel-left, .rubix-panel-body, .rubix-panel-right {
+    >div>.rubix-panel-left, >div>.rubix-panel-body, >div>.rubix-panel-right {
       display: block;
       width: 100.1% !important;
     }
 
-    .rubix-panel-left.tabs, .rubix-panel-right.tabs {
+    >div>.rubix-panel-left.tabs, >div>.rubix-panel-right.tabs {
       display: table;
       overflow: hidden;
 
@@ -339,3 +339,6 @@ html.no-touch .rubix-panel-container-with-controls {
   }
 }
 
+.rubix-panel-container.panel-plain {
+  background: none !important;
+}

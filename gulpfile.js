@@ -138,7 +138,7 @@ gulp.task('react:react', function() {
 
                 function write(buf) { data += buf }
                 function end() {
-                  data = data.replace(/\/\*\*\s+@jsx\s+React.DOM\s+\*\//mig, "/** @jsx React.DOM */\nwindow.React = require('react/addons');window.ReactInjection = require('react/lib/ReactInjection');");
+                  data = data.replace(/\/\*\*\s+@jsx\s+React.DOM\s+\*\//mig, "/** @jsx React.DOM */\nwindow.React = require('react/addons');window.ReactInjection = require('react/lib/ReactInjection');React.ReactCompositeComponent = require('react/lib/ReactCompositeComponent');React.mergeInto = require('react/lib/mergeInto');React.hyphenateStyleName = require('react/lib/hyphenateStyleName');");
                   this.queue(data);
                   this.queue(null);
                 }

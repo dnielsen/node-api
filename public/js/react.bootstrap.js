@@ -146,7 +146,8 @@
 	  PricingTablePrice: __webpack_require__(43).PricingTablePrice,
 	  PricingTableHeader: __webpack_require__(43).PricingTableHeader,
 	  PricingTableContainer: __webpack_require__(43).PricingTableContainer,
-	  PricingButtonContainer: __webpack_require__(43).PricingButtonContainer
+	  PricingButtonContainer: __webpack_require__(43).PricingButtonContainer,
+	  Tag: __webpack_require__(44)
 	};
 
 
@@ -838,9 +839,9 @@
 	      'active': this.props.active,
 	      'btn-block': this.props.block,
 	      'navbar-btn': this.props.navbar,
-	      'btn-inverse': this.props.inverse,
+	      'btn-inverse': (this.props.retainBackground ? true : false) || this.props.inverse,
 	      'btn-rounded': this.props.rounded,
-	      'btn-outlined': this.props.outlined,
+	      'btn-outlined': (this.props.inverse ? true : false) || (this.props.onlyOnHover ? true : false) || (this.props.retainBackground ? true : false) || this.props.outlined,
 	      'btn-onlyOnHover': this.props.onlyOnHover,
 	      'btn-retainBg': this.props.retainBackground
 	    };
@@ -1093,6 +1094,10 @@
 
 	var classSet = React.addons.classSet;
 	var DropdownButton = React.createClass({displayName: 'DropdownButton',
+	  propTypes: {
+	    menu: React.PropTypes.string.isRequired,
+	    container: React.PropTypes.object.isRequired
+	  },
 	  getInitialState: function() {
 	    return {
 	      pressed: false
@@ -1273,7 +1278,9 @@
 	    this.props.onHide();
 	    this.state.ul.display = 'none';
 	    this.setState(this.state, function() {
-	      this.toggle.unpress();
+	      try {
+	        this.toggle.unpress();
+	      } catch(e) {}
 
 	      if(cb) cb();
 	      this.props.onHidden();
@@ -1305,7 +1312,9 @@
 	      if(this.props.noTimer)
 	        return this.hide();
 	      this.timer = setTimeout(function() {
-	        this.hide()
+	        try {
+	          this.hide();
+	        } catch(e) {}
 	      }.bind(this), 500);
 	    }.bind(this));
 	  },
@@ -1332,7 +1341,7 @@
 	      this.hide();
 	      this.toggle.focus();
 	    } else if(e.key === 'Enter') { // return
-	      this.props.onItemSelect(this.getActiveItem());
+	      this.props.onItemSelect(this.getActiveItemProps(), this);
 	      $(e.target).find('>.div-b-tab').trigger('click');
 	    }
 	  },
@@ -1607,6 +1616,7 @@
 	    this.setState(this.state, function() {
 	      if(this.props.dropdown) {
 	        var node = $(this.refs.div.getDOMNode());
+	        node.parents('li.b-tab').addClass('active');
 	        node.parents('li[role=presentation]').addClass('active');
 	      }
 	      ReactBootstrap.Dispatcher.emit('tab:'+this.listName, this.paneName);
@@ -1625,6 +1635,7 @@
 	          var node = $(this.refs.li.getDOMNode());
 	          node.siblings('.active').removeClass('active');
 	        }
+	        ReactBootstrap.Dispatcher.emit('tab:_tabchange_', this.listName, this.props);
 	      }.bind(this));
 	    } else {
 	      this.setState({active: false});
@@ -1634,11 +1645,17 @@
 	      }
 	    }
 	  },
+	  selectTabListener: function(data) {
+	    if(this.props.hasOwnProperty(data.key) && this.props[data.key] === data.value)
+	      this.handleRawClick();
+	  },
 	  componentDidMount: function() {
 	    ReactBootstrap.Dispatcher.on('tab:'+this.listName, this.stateChangeCallback);
+	    ReactBootstrap.Dispatcher.on('tab:select_tab', this.selectTabListener);
 	  },
 	  componentWillUnmount: function() {
 	    ReactBootstrap.Dispatcher.off('tab:'+this.listName, this.stateChangeCallback);
+	    ReactBootstrap.Dispatcher.off('tab:select_tab', this.selectTabListener);
 	  },
 	  render: function() {
 	    if(this.props.hasOwnProperty('pane')) {
@@ -1676,12 +1693,39 @@
 	    pills: React.PropTypes.bool,
 	    stacked: React.PropTypes.bool,
 	    justified: React.PropTypes.bool,
-	    bsStyle: React.PropTypes.string
+	    bsStyle: React.PropTypes.string,
+	    onTabSelect: React.PropTypes.func,
+	    listName: React.PropTypes.string
 	  },
 	  getDefaultProps: function() {
 	    return {
-	      bsStyle: 'default'
+	      bsStyle: 'default',
+	      onTabSelect: function() {}
 	    };
+	  },
+	  onTabSelect: function(listName, child_props) {
+	    if(child_props.parent === this || this.props.listName === listName) {
+	      this.props.onTabSelect(child_props);
+	    }
+	  },
+	  componentWillMount: function() {
+	    var children = React.Children.map(this.props.children, function(child, i) {
+	      return React.withContext(this._descriptor._context, function() {
+	        return React.addons.cloneWithProps(child, {
+	          parent: this, key: i
+	        });
+	      }.bind(this));
+	    }, this);
+	    this.setState({
+	      children: children
+	    });
+	    ReactBootstrap.Dispatcher.on('tab:_tabchange_', this.onTabSelect);
+	  },
+	  componentWillUnmount: function() {
+	    ReactBootstrap.Dispatcher.off('tab:_tabchange_', this.onTabSelect);
+	  },
+	  selectTab: function(key, value) {
+	    ReactBootstrap.Dispatcher.emit('tab:select_tab', {key: key, value: value});
 	  },
 	  render: function() {
 	    var isPills = this.props.pills ? true : false;
@@ -1708,7 +1752,7 @@
 	    });
 	    return this.transferPropsTo(
 	      React.DOM.ul({className: classes, role: tablist}, 
-	        this.props.children
+	        this.state.children
 	      )
 	    );
 	  }
@@ -2498,6 +2542,24 @@
 	  }
 	});
 
+	var MediaObject = React.createClass({displayName: 'MediaObject',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.img({className: "media-object"})
+	    );
+	  }
+	});
+
+	var MediaHeading = React.createClass({displayName: 'MediaHeading',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.h4({className: "media-heading"}, 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
 	module.exports.Media = Media;
 	module.exports.MediaBody = MediaBody;
 	module.exports.MediaList = MediaList;
@@ -2806,7 +2868,8 @@
 	    gutterBottom: React.PropTypes.bool,
 	    collapseBottom: React.PropTypes.bool,
 	    controlStyles: React.PropTypes.string,
-	    containerStyles: React.PropTypes.string
+	    containerStyles: React.PropTypes.string,
+	    plain: React.PropTypes.bool
 	  },
 	  statics: {
 	    zIndex: 9999999,
@@ -2881,12 +2944,16 @@
 	      'rubix-panel-container': true,
 	      'bordered': this.props.bordered,
 	      'noOverflow': this.props.noOverflow,
+	      'panel-plain': this.props.plain,
 	      'panel-gutter-bottom': this.props.gutterBottom,
 	      'panel-collapse-bottom': this.props.collapseBottom,
 	    });
 
 	    if(this.props.containerClasses)
 	      containerClasses += ' ' + this.props.containerClasses;
+
+	    if(this.props.plain)
+	      this.props.noControls = true;
 
 	    if(!this.props.noControls) {
 	      controls = (
@@ -3607,6 +3674,29 @@
 	module.exports.PricingTableHeader = PricingTableHeader;
 	module.exports.PricingTableContainer = PricingTableContainer;
 	module.exports.PricingButtonContainer = PricingButtonContainer;
+
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Tag = React.createClass({displayName: 'Tag',
+	  getDefaultProps: function() {
+	    return {
+	      href: '#',
+	      color: 'darkgreen45'
+	    };
+	  },
+	  render: function() {
+	    return (
+	      RRouter.Link({href: this.props.href, className: 'left-tag border-hover-'+this.props.color+' bg-hover-'+this.props.color+' fg-hover-white bg-lightgray50 border-lightgray50 fg-text'}, this.props.children)
+	    );
+	  }
+	});
+
+	module.exports = Tag;
 
 
 /***/ }

@@ -26,6 +26,8 @@ var compose = require('./routes/app/compose.jsx');
 var mail = require('./routes/app/mail.jsx');
 var gallery = require('./routes/app/gallery.jsx');
 var social = require('./routes/app/social.jsx');
+var posts = require('./routes/app/blog/posts.jsx');
+var single_post = require('./routes/app/blog/single_post.jsx');
 
 /* COMPONENT PAGES */
 var panels = require('./routes/app/panels.jsx');
@@ -89,6 +91,10 @@ var textareadocs = require('./routes/app/docs/bootstrap/textareadocs.jsx');
 var checkradio = require('./routes/app/docs/bootstrap/checkradio.jsx');
 var selectdocs = require('./routes/app/docs/bootstrap/select.jsx');
 var buttondocs = require('./routes/app/docs/bootstrap/buttons.jsx');
+var dropdowndocs = require('./routes/app/docs/bootstrap/dropdowns.jsx');
+var buttongroupdocs = require('./routes/app/docs/bootstrap/button_groups.jsx');
+var inputgroupdocs = require('./routes/app/docs/bootstrap/input_groups.jsx');
+var navdocs = require('./routes/app/docs/bootstrap/navs.jsx');
 
 /* EXPERIMENTAL PAGES */
 var panel_tests = require('./routes/expt/panel-tests.jsx');
@@ -107,6 +113,11 @@ var routes = (
         </Route>
         <Route name='gallery' path='gallery' view={gallery} />
         <Route name='social' path='social' view={social} />
+
+        <Route name='blog' path='blog'>
+          <Route name='posts' path='posts' view={posts} />
+          <Route name='post' path='post' view={single_post} />
+        </Route>
 
         <Route name='panels' path='panels' view={panels} />
 
@@ -193,6 +204,13 @@ var routes = (
               <Route name='checkradio' path='checkradio' view={checkradio} />
               <Route name='select' path='select' view={selectdocs} />
               <Route name='buttons' path='buttons' view={buttondocs} />
+            </Route>
+
+            <Route name='components' path='components'>
+              <Route name='dropdowns' path='dropdowns' view={dropdowndocs} />
+              <Route name='button_groups' path='button_groups' view={buttongroupdocs} />
+              <Route name='input_groups' path='input_groups' view={inputgroupdocs} />
+              <Route name='navs' path='navs' view={navdocs} />
             </Route>
 
           </Route>

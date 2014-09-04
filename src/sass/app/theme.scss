@@ -1,6 +1,6 @@
 @import "../../global/sass/rubix/overrides/variables";
 @import "../../global/sass/vendor/sass-list-maps/sass-list-maps";
-@import "../../global/sass/rubix/theme/theme-mixin";
+@import "theme/theme-mixin";
 
 @mixin theme-maker($name, $list) {
   /* GLOBAL SETTINGS */

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! rubix - v0.1.0 - 2014-09-02 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
+/*! rubix - v0.1.0 - 2014-09-04 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
 code[class*="language-"], pre[class*="language-"] {
   -moz-tab-size: 4;
   tab-size: 4;
@@ -4446,6 +4446,44 @@ td > .tab-content > .tab-pane {
   .tablist > tbody > tr > td:last-child {
     padding-left: 25px; }
 
+.left-tag, .right-tag {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  border: none !important; }
+  .left-tag:before, .right-tag:before {
+    top: 0;
+    width: 0;
+    height: 0;
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0); }
+
+.left-tag {
+  margin-left: 12px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 0 10px 0 8px !important;
+  margin-bottom: 12.5px; }
+  .left-tag:before {
+    left: -12px;
+    float: left;
+    border-right-color: inherit;
+    border-width: 12px 12px 12px 0; }
+
+.right-tag {
+  margin-right: 12px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 0 8px 0 10px !important;
+  margin-bottom: 12.5px; }
+  .right-tag:before {
+    right: -12px;
+    float: right;
+    border-left-color: inherit;
+    border-width: 12px 0 12px 12px; }
+
 .rubix-panel-container-with-controls {
   position: relative; }
 
@@ -4612,23 +4650,23 @@ html.no-touch .rubix-panel-container-with-controls:hover > .rubix-panel-controls
   .rubix-panel.horizontal > div {
     display: table-row; }
 
-.rubix-panel.horizontal .rubix-panel-body {
+.rubix-panel.horizontal > div > .rubix-panel-body {
   padding: 0; }
-.rubix-panel.horizontal .rubix-panel-left, .rubix-panel.horizontal .rubix-panel-body, .rubix-panel.horizontal .rubix-panel-right {
+.rubix-panel.horizontal > div > .rubix-panel-left, .rubix-panel.horizontal > div > .rubix-panel-body, .rubix-panel.horizontal > div > .rubix-panel-right {
   display: table-cell;
   vertical-align: top; }
-.rubix-panel.horizontal .rubix-panel-left.tabs, .rubix-panel.horizontal .rubix-panel-right.tabs {
+.rubix-panel.horizontal > div > .rubix-panel-left.tabs, .rubix-panel.horizontal > div > .rubix-panel-right.tabs {
   overflow: hidden;
   display: table-cell; }
-  .rubix-panel.horizontal .rubix-panel-left.tabs > .tab-container > .nav-tabs, .rubix-panel.horizontal .rubix-panel-right.tabs > .tab-container > .nav-tabs {
+  .rubix-panel.horizontal > div > .rubix-panel-left.tabs > .tab-container > .nav-tabs, .rubix-panel.horizontal > div > .rubix-panel-right.tabs > .tab-container > .nav-tabs {
     display: block; }
-    .rubix-panel.horizontal .rubix-panel-left.tabs > .tab-container > .nav-tabs > li, .rubix-panel.horizontal .rubix-panel-right.tabs > .tab-container > .nav-tabs > li {
+    .rubix-panel.horizontal > div > .rubix-panel-left.tabs > .tab-container > .nav-tabs > li, .rubix-panel.horizontal > div > .rubix-panel-right.tabs > .tab-container > .nav-tabs > li {
       display: block; }
-      .rubix-panel.horizontal .rubix-panel-left.tabs > .tab-container > .nav-tabs > li > a, .rubix-panel.horizontal .rubix-panel-right.tabs > .tab-container > .nav-tabs > li > a {
+      .rubix-panel.horizontal > div > .rubix-panel-left.tabs > .tab-container > .nav-tabs > li > a, .rubix-panel.horizontal > div > .rubix-panel-right.tabs > .tab-container > .nav-tabs > li > a {
         margin: 0;
         border: none;
         border-bottom: none; }
-      .rubix-panel.horizontal .rubix-panel-left.tabs > .tab-container > .nav-tabs > li:last-child > a, .rubix-panel.horizontal .rubix-panel-right.tabs > .tab-container > .nav-tabs > li:last-child > a {
+      .rubix-panel.horizontal > div > .rubix-panel-left.tabs > .tab-container > .nav-tabs > li:last-child > a, .rubix-panel.horizontal > div > .rubix-panel-right.tabs > .tab-container > .nav-tabs > li:last-child > a {
         border: none; }
 
 @media (max-width: 989px) {
@@ -4636,24 +4674,27 @@ html.no-touch .rubix-panel-container-with-controls:hover > .rubix-panel-controls
     display: block; }
     .rubix-panel.horizontal.force-collapse > div {
       display: block; }
-    .rubix-panel.horizontal.force-collapse .rubix-panel-left, .rubix-panel.horizontal.force-collapse .rubix-panel-body, .rubix-panel.horizontal.force-collapse .rubix-panel-right {
+    .rubix-panel.horizontal.force-collapse > div > .rubix-panel-left, .rubix-panel.horizontal.force-collapse > div > .rubix-panel-body, .rubix-panel.horizontal.force-collapse > div > .rubix-panel-right {
       display: block;
       width: 100.1% !important; }
-    .rubix-panel.horizontal.force-collapse .rubix-panel-left.tabs, .rubix-panel.horizontal.force-collapse .rubix-panel-right.tabs {
+    .rubix-panel.horizontal.force-collapse > div > .rubix-panel-left.tabs, .rubix-panel.horizontal.force-collapse > div > .rubix-panel-right.tabs {
       display: table;
       overflow: hidden; }
-      .rubix-panel.horizontal.force-collapse .rubix-panel-left.tabs > .tab-container > .nav-tabs, .rubix-panel.horizontal.force-collapse .rubix-panel-right.tabs > .tab-container > .nav-tabs {
+      .rubix-panel.horizontal.force-collapse > div > .rubix-panel-left.tabs > .tab-container > .nav-tabs, .rubix-panel.horizontal.force-collapse > div > .rubix-panel-right.tabs > .tab-container > .nav-tabs {
         display: table-row; }
-        .rubix-panel.horizontal.force-collapse .rubix-panel-left.tabs > .tab-container > .nav-tabs > li, .rubix-panel.horizontal.force-collapse .rubix-panel-right.tabs > .tab-container > .nav-tabs > li {
+        .rubix-panel.horizontal.force-collapse > div > .rubix-panel-left.tabs > .tab-container > .nav-tabs > li, .rubix-panel.horizontal.force-collapse > div > .rubix-panel-right.tabs > .tab-container > .nav-tabs > li {
           display: table-cell; }
-          .rubix-panel.horizontal.force-collapse .rubix-panel-left.tabs > .tab-container > .nav-tabs > li > a, .rubix-panel.horizontal.force-collapse .rubix-panel-right.tabs > .tab-container > .nav-tabs > li > a {
+          .rubix-panel.horizontal.force-collapse > div > .rubix-panel-left.tabs > .tab-container > .nav-tabs > li > a, .rubix-panel.horizontal.force-collapse > div > .rubix-panel-right.tabs > .tab-container > .nav-tabs > li > a {
             margin: 0;
             border: none;
             border-bottom: none; }
-          .rubix-panel.horizontal.force-collapse .rubix-panel-left.tabs > .tab-container > .nav-tabs > li:last-child > a, .rubix-panel.horizontal.force-collapse .rubix-panel-right.tabs > .tab-container > .nav-tabs > li:last-child > a {
+          .rubix-panel.horizontal.force-collapse > div > .rubix-panel-left.tabs > .tab-container > .nav-tabs > li:last-child > a, .rubix-panel.horizontal.force-collapse > div > .rubix-panel-right.tabs > .tab-container > .nav-tabs > li:last-child > a {
             border: none; }
   .rubix-chart {
     width: 100% !important; } }
+
+.rubix-panel-container.panel-plain {
+  background: none !important; }
 
 .badge-default {
   background-color: #777777; }
@@ -5026,6 +5067,16 @@ a.btn:hover, a.btn:focus {
 
 .input-group .form-control:focus {
   z-index: 3; }
+
+.btn.btn-icon {
+  line-height: 0;
+  font-size: 30px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 100px;
+  width: auto !important;
+  height: auto !important;
+  padding: 5px 10px !important; }
 
 .dropdown-menu > li > a {
   border: none;
@@ -13835,6 +13886,28 @@ html.authentication {
   position: relative;
   display: inline-block;
   padding: 12.5px 25px; }
+
+.blog-sidebar-heading {
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 12.5px; }
+
+.blog-post-header {
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(/imgs/gallery/tumblr_na0kb0BLqR1st5lhmo1_1280.jpg); }
+  .blog-post-header:after {
+    content: ' ';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7); }
+
+.blog-post-btn-holder > button {
+  border-color: transparent !important; }
 
 html.boxed #homepage-container {
   height: 100%;

@@ -31,6 +31,12 @@ var ApplicationSidebar = React.createClass({
                   </SidebarNavItem>
                   <SidebarNavItem glyph='icon-pixelvicon-photo-gallery' name='Gallery' href='/app/gallery' />
                   <SidebarNavItem glyph='icon-feather-share' name='Social' href='/app/social' />
+                  <SidebarNavItem glyph='icon-stroke-gap-icons-Blog' name={<span>Blog <BLabel className='bg-darkcyan fg-white'>2</BLabel></span>}>
+                    <SidebarNav>
+                      <SidebarNavItem glyph='icon-feather-layout' name='Posts' href='/app/blog/posts' />
+                      <SidebarNavItem glyph='icon-feather-paper' name='Single Post' href='/app/blog/post' />
+                    </SidebarNav>
+                  </SidebarNavItem>
                 </SidebarNav>
               </div>
             </Col>
@@ -152,6 +158,14 @@ var ApplicationSidebar = React.createClass({
                           <SidebarNavItem name='Checkbox &amp; Radio' href='/app/docs/bootstrap/form_controls/checkradio' />
                           <SidebarNavItem name='Select' href='/app/docs/bootstrap/form_controls/select' />
                           <SidebarNavItem name='Buttons' href='/app/docs/bootstrap/form_controls/buttons' />
+                        </SidebarNav>
+                      </SidebarNavItem>
+                      <SidebarNavItem name='Components'>
+                        <SidebarNav>
+                          <SidebarNavItem name='Dropdowns' href='/app/docs/bootstrap/components/dropdowns' />
+                          <SidebarNavItem name='Button Groups' href='/app/docs/bootstrap/components/button_groups' />
+                          <SidebarNavItem name='Input Groups' href='/app/docs/bootstrap/components/input_groups' />
+                          <SidebarNavItem name='Navs' href='/app/docs/bootstrap/components/navs' />
                         </SidebarNav>
                       </SidebarNavItem>
                     </SidebarNav>

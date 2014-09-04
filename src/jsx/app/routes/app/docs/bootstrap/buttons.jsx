@@ -147,6 +147,86 @@ var Body = React.createClass({
               </pre>
             </div>
           </DocUnit>
+          <DocUnit name='Bootstrap: Rubix Enhancements' docStyle='bg-red fg-white'>
+            <h4 className='fg-black50'>Outlined</h4>
+            <p>
+              {"Outlined button."}
+            </p>
+            <Well className='bg-desaturateddarkblue75'>
+              <Button bsStyle='darkgreen45' outlined>45% Dark Green Button</Button>
+            </Well>
+            <div>
+              <pre>
+                <code className='language-markup'>
+                  {"<Button bsStyle='darkgreen45' outlined>45% Dark Green Button</Button>"}
+                </code>
+              </pre>
+            </div>
+            <hr/>
+            <h4 className='fg-black50'>Inverse</h4>
+            <p>
+              {"Inverse foreground/background colors."}
+            </p>
+            <Well className='bg-desaturateddarkblue75'>
+              <Button bsStyle='desaturateddarkblue75' inverse>75% Desaturated Dark Blue</Button>
+            </Well>
+            <div>
+              <pre>
+                <code className='language-markup'>
+                  {"<Button bsStyle='desaturateddarkblue75' inverse>75% Desaturated Dark Blue</Button>"}
+                </code>
+              </pre>
+            </div>
+            <hr/>
+            <h4 className='fg-black50'>Rounded</h4>
+            <p>
+              {"Rounded button."}
+            </p>
+            <Well className='bg-desaturateddarkblue75'>
+              <Button bsStyle='green' rounded><Icon glyph='icon-fontello-mail' /></Button>{' '}
+              <Button bsStyle='blue' rounded><Icon glyph='icon-fontello-rss-1' /></Button>{' '}
+              <Button bsStyle='red' rounded><Icon glyph='icon-fontello-cog' /></Button>
+            </Well>
+            <div>
+              <pre>
+                <code className='language-markup'>
+                  {"<Button bsStyle='green' rounded><Icon glyph='icon-fontello-mail' /></Button>{' '}\n"}
+                  {"<Button bsStyle='blue' rounded><Icon glyph='icon-fontello-rss-1' /></Button>{' '}\n"}
+                  {"<Button bsStyle='red' rounded><Icon glyph='icon-fontello-cog' /></Button>"}
+                </code>
+              </pre>
+            </div>
+            <hr/>
+            <h4 className='fg-black50'>Only Activate styles on Hover/Focus</h4>
+            <p>
+              {"Add styles only on button hover/focus."}
+            </p>
+            <Well className='bg-white'>
+              <Button bsStyle='pink' onlyOnHover>Pink Button (only on hover)</Button>
+            </Well>
+            <div>
+              <pre>
+                <code className='language-markup'>
+                  {"<Button bsStyle='pink' onlyOnHover>Pink Button (only on hover)</Button>\n"}
+                </code>
+              </pre>
+            </div>
+            <hr/>
+            <h4 className='fg-black50'>Retain Background</h4>
+            <p>
+              {"Outlined white border and color in the default state but behaves like non-outlined, colored background + border and white foreground on hover/focused state."}
+            </p>
+            <Well className='bg-desaturateddarkblue75'>
+              <Button bsStyle='darkcyan' retainBackground>Dark Cyan Button</Button>
+            </Well>
+            <div>
+              <pre>
+                <code className='language-markup'>
+                  {"<Button bsStyle='darkcyan' retainBackground>Dark Cyan Button</Button>\n"}
+                </code>
+              </pre>
+            </div>
+          </DocUnit>
         </DocContainer>
         {this.props.children}
       </Container>
