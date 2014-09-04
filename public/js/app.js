@@ -397,11 +397,13 @@ var l20n=_RL20n_.l20n,
 	});
 
 	var InitializeRouter = function(View) {
+	  console.time('render');
 	  // cleanup
 	  if(window.Rubix) window.Rubix.Cleanup();
 	  Pace.restart();
 	  React.renderComponent(View(null), document.getElementById('app-container'), function() {
 	    // l20n initialized only after everything is rendered/updated
+	    console.timeEnd('render');
 	    l20n.ready();
 	    setTimeout(function() {
 	      $('body').removeClass('fade-out');
@@ -1636,7 +1638,11 @@ var l20n=_RL20n_.l20n,
 
 	var Inbox = React.createClass({displayName: 'Inbox',
 	  mixins: [Sidebar.SidebarMixin],
+	  componentDidMount: function() {
+	    console.timeEnd('inbox');
+	  },
 	  render: function() {
+	    console.time('inbox');
 	    var classes = classSet({
 	      'container-open': this.state.open
 	    });
@@ -30423,9 +30429,9 @@ var l20n=_RL20n_.l20n,
 /* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(131),
+	var Dispatcher = __webpack_require__(130),
 	    Flux = __webpack_require__(129),
-	    FluxMixin = __webpack_require__(130),
+	    FluxMixin = __webpack_require__(131),
 	    FluxChildMixin = __webpack_require__(132),
 	    StoreWatchMixin = __webpack_require__(133),
 	    createStore = __webpack_require__(134);
@@ -30653,7 +30659,7 @@ var l20n=_RL20n_.l20n,
 /* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(131);
+	var Dispatcher = __webpack_require__(130);
 
 	function bindActions(target, actions, dispatchBinder) {
 	  for (var key in actions) {
@@ -30700,43 +30706,9 @@ var l20n=_RL20n_.l20n,
 /* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var FluxMixin = function(React) {
-	  return {
-	    propTypes: {
-	      flux: React.PropTypes.object.isRequired
-	    },
-
-	    childContextTypes: {
-	      flux: React.PropTypes.object
-	    },
-
-	    getChildContext: function() {
-	      return {
-	        flux: this.props.flux
-	      };
-	    },
-
-	    getFlux: function() {
-	      return this.props.flux;
-	    }
-	  };
-	};
-
-	FluxMixin.componentWillMount = function() {
-	  throw new Error("Fluxxor.FluxMixin is a function that takes React as a " +
-	    "parameter and returns the mixin, e.g.: mixins[Fluxxor.FluxMixin(React)]");
-	};
-
-	module.exports = FluxMixin;
-
-
-/***/ },
-/* 131 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _clone = __webpack_require__(139),
-	    _mapValues = __webpack_require__(137),
-	    _forOwn = __webpack_require__(138),
+	var _clone = __webpack_require__(137),
+	    _mapValues = __webpack_require__(138),
+	    _forOwn = __webpack_require__(139),
 	    _intersection = __webpack_require__(142),
 	    _keys = __webpack_require__(140),
 	    _map = __webpack_require__(145),
@@ -30859,6 +30831,40 @@ var l20n=_RL20n_.l20n,
 	};
 
 	module.exports = Dispatcher;
+
+
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var FluxMixin = function(React) {
+	  return {
+	    propTypes: {
+	      flux: React.PropTypes.object.isRequired
+	    },
+
+	    childContextTypes: {
+	      flux: React.PropTypes.object
+	    },
+
+	    getChildContext: function() {
+	      return {
+	        flux: this.props.flux
+	      };
+	    },
+
+	    getFlux: function() {
+	      return this.props.flux;
+	    }
+	  };
+	};
+
+	FluxMixin.componentWillMount = function() {
+	  throw new Error("Fluxxor.FluxMixin is a function that takes React as a " +
+	    "parameter and returns the mixin, e.g.: mixins[Fluxxor.FluxMixin(React)]");
+	};
+
+	module.exports = FluxMixin;
 
 
 /***/ },

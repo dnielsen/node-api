@@ -54,9 +54,8 @@ var DropdownButton = React.createClass({
     e.preventDefault();
     e.stopPropagation();
     var menu = this.props.container.refs[this.props.menu];
-    this.press(function() {
-      menu.show();
-    });
+    this.press();
+    menu.show();
   },
   componentDidMount: function() {
     this.props.container.refs[this.props.menu].setToggle(this);
