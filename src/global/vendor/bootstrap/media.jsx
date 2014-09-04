@@ -30,6 +30,24 @@ var MediaList = React.createClass({
   }
 });
 
+var MediaObject = React.createClass({
+  render: function() {
+    return this.transferPropsTo(
+      <img className='media-object' />
+    );
+  }
+});
+
+var MediaHeading = React.createClass({
+  render: function() {
+    return this.transferPropsTo(
+      <h4 className='media-heading'>
+        {this.props.children}
+      </h4>
+    );
+  }
+});
+
 module.exports.Media = Media;
 module.exports.MediaBody = MediaBody;
 module.exports.MediaList = MediaList;

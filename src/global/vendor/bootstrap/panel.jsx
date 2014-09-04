@@ -78,7 +78,8 @@ var PanelContainer = React.createClass({
     gutterBottom: React.PropTypes.bool,
     collapseBottom: React.PropTypes.bool,
     controlStyles: React.PropTypes.string,
-    containerStyles: React.PropTypes.string
+    containerStyles: React.PropTypes.string,
+    plain: React.PropTypes.bool
   },
   statics: {
     zIndex: 9999999,
@@ -153,12 +154,16 @@ var PanelContainer = React.createClass({
       'rubix-panel-container': true,
       'bordered': this.props.bordered,
       'noOverflow': this.props.noOverflow,
+      'panel-plain': this.props.plain,
       'panel-gutter-bottom': this.props.gutterBottom,
       'panel-collapse-bottom': this.props.collapseBottom,
     });
 
     if(this.props.containerClasses)
       containerClasses += ' ' + this.props.containerClasses;
+
+    if(this.props.plain)
+      this.props.noControls = true;
 
     if(!this.props.noControls) {
       controls = (

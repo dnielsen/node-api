@@ -107,6 +107,7 @@ var Container=_RB32_.Container,
     PricingTableHeader=_RB32_.PricingTableHeader,
     PricingTableContainer=_RB32_.PricingTableContainer,
     PricingButtonContainer=_RB32_.PricingButtonContainer,
+    Tag=_RB32_.Tag,
     TransitionEndEvent='webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
 
 /*L20N*/

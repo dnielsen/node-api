@@ -344,7 +344,9 @@ var Body = React.createClass({
     })();
     (function() {
       // create a map in the "map" div, set the view to a given place and zoom
-      var map = L.map('map').setView([38.889221, -77.050176], 16);
+      var map = L.map('map', {
+        scrollWheelZoom: false
+      }).setView([38.889221, -77.050176], 16);
 
       // add an OpenStreetMap tile layer
       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {

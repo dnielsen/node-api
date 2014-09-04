@@ -29,7 +29,7 @@ var SocialBanner = React.createClass({
   },
   render: function() {
     return (
-      <div style={{height: 350, marginTop: -25, backgroundImage: 'url(/imgs/shots/tumblr_n9hyqfJavs1st5lhmo1_1280.jpg)', backgroundSize: 'cover', position: 'relative', marginBottom: 25}}>
+      <div style={{height: 350, marginTop: -25, backgroundImage: 'url(/imgs/shots/Blick_auf_Manhattan.JPG)', backgroundSize: 'cover', position: 'relative', marginBottom: 25, backgroundPosition: 'center'}}>
         <div className='social-cover' style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)'}}>
         </div>
         <div className='social-desc' style={{position: 'absolute', left: 0, right: 300, top: 0, bottom: 0}}>
@@ -38,7 +38,7 @@ var SocialBanner = React.createClass({
             <h5 className='fg-white' style={{opacity: 0.8}}>- Aug 20th, 2014</h5>
             <div style={{marginTop: 50}}>
               <div style={{display: 'inline-block'}}>
-                <Button id='likeCount' outlined inverse retainBackground rounded bsStyle='orange75' active={this.state.likeActive} onClick={this.handleLike}>
+                <Button id='likeCount' retainBackground rounded bsStyle='orange75' active={this.state.likeActive} onClick={this.handleLike}>
                   <Icon glyph='icon-fontello-heart-1' />
                 </Button>
                 <Label htmlFor='likeCount' style={{cursor: 'pointer', display: 'inline-block'}}><span className={this.state.likeTextStyle} style={{marginLeft: 25}}>{this.state.likeCount} likes</span></Label>
@@ -67,7 +67,9 @@ var Body = React.createClass({
     $('html').addClass('social');
     (function() {
       // create a map in the "map" div, set the view to a given place and zoom
-      var map = L.map('map').setView([40.7127, -74.0059], 16);
+      var map = L.map('map', {
+        scrollWheelZoom: false
+      }).setView([40.7127, -74.0059], 16);
 
       // add an OpenStreetMap tile layer
       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {

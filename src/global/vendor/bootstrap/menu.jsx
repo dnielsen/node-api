@@ -98,7 +98,9 @@ var Menu = React.createClass({
     this.props.onHide();
     this.state.ul.display = 'none';
     this.setState(this.state, function() {
-      this.toggle.unpress();
+      try {
+        this.toggle.unpress();
+      } catch(e) {}
 
       if(cb) cb();
       this.props.onHidden();
@@ -130,7 +132,9 @@ var Menu = React.createClass({
       if(this.props.noTimer)
         return this.hide();
       this.timer = setTimeout(function() {
-        this.hide()
+        try {
+          this.hide();
+        } catch(e) {}
       }.bind(this), 500);
     }.bind(this));
   },
@@ -157,7 +161,7 @@ var Menu = React.createClass({
       this.hide();
       this.toggle.focus();
     } else if(e.key === 'Enter') { // return
-      this.props.onItemSelect(this.getActiveItem());
+      this.props.onItemSelect(this.getActiveItemProps(), this);
       $(e.target).find('>.div-b-tab').trigger('click');
     }
   },
