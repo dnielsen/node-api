@@ -146,3 +146,14 @@ a.btn {
 .input-group .form-control:focus {
   z-index: 3;
 }
+
+.btn.btn-icon {
+  line-height: 0;
+  font-size: 30px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 100px;
+  width: auto !important;
+  height: auto !important;
+  padding: 5px 10px !important;
+}

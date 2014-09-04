@@ -41,9 +41,9 @@ var Button = React.createClass({
       'active': this.props.active,
       'btn-block': this.props.block,
       'navbar-btn': this.props.navbar,
-      'btn-inverse': this.props.inverse,
+      'btn-inverse': (this.props.retainBackground ? true : false) || this.props.inverse,
       'btn-rounded': this.props.rounded,
-      'btn-outlined': this.props.outlined,
+      'btn-outlined': (this.props.inverse ? true : false) || (this.props.onlyOnHover ? true : false) || (this.props.retainBackground ? true : false) || this.props.outlined,
       'btn-onlyOnHover': this.props.onlyOnHover,
       'btn-retainBg': this.props.retainBackground
     };

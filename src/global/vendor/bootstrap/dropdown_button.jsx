@@ -4,6 +4,10 @@ var Button = require('./button.jsx');
 
 var classSet = React.addons.classSet;
 var DropdownButton = React.createClass({
+  propTypes: {
+    menu: React.PropTypes.string.isRequired,
+    container: React.PropTypes.object.isRequired
+  },
   getInitialState: function() {
     return {
       pressed: false

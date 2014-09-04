@@ -100,5 +100,6 @@ window.ReactBootstrap = {
   PricingTablePrice: require('./pricing_table.jsx').PricingTablePrice,
   PricingTableHeader: require('./pricing_table.jsx').PricingTableHeader,
   PricingTableContainer: require('./pricing_table.jsx').PricingTableContainer,
-  PricingButtonContainer: require('./pricing_table.jsx').PricingButtonContainer
+  PricingButtonContainer: require('./pricing_table.jsx').PricingButtonContainer,
+  Tag: require('./tag.jsx')
 };

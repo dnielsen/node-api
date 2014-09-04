@@ -105,16 +105,6 @@
       border-color: $color;
     }
   }
-  .border-hover-#{$name} {
-    &:hover {
-      border-color: $color;
-    }
-  }
-  .border-focus-#{$name} {
-    &:focus {
-      border-color: $color;
-    }
-  }
   .border-#{$name} {
     border-color: $color !important;
 
@@ -126,12 +116,22 @@
       border-color: $color;
     }
   }
+  .border-hover-#{$name} {
+    &:hover {
+      border-color: $color !important;
+    }
+  }
+  .border-focus-#{$name} {
+    &:focus {
+      border-color: $color !important;
+    }
+  }
 
-  .fg-focus-#{$name} {
+  .fg-focus-#{$name}:focus {
     color: $color;
   }
 
-  .fg-hover-#{$name} {
+  .fg-hover-#{$name}:hover {
     color: $color;
   }
 
@@ -152,7 +152,12 @@
       }
     }
   }
-
+  .bg-focus-#{$name}:focus {
+    background: $color;
+  }
+  .bg-hover-#{$name}:hover {
+    background: $color;
+  }
   .bg-#{$name} {
     background: $color;
 

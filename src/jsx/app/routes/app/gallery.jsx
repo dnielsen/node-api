@@ -4,16 +4,6 @@ var Header = require('../../common/header.jsx');
 var Sidebar = require('../../common/sidebar.jsx');
 var Footer = require('../../common/footer.jsx');
 
-var preloadImages = function() {
-  for (var i = 0; i < arguments.length; i++) {
-    $("<img />").attr("src", '/imgs/gallery/'+arguments[i]+'-thumb.jpg');
-  }
-}
-
-preloadImages(
-  'tumblr_n6es0tRk5w1st5lhmo1_1280', 'tumblr_n7fgnop0bz1st5lhmo1_1280', 'tumblr_n6eszmeQMR1st5lhmo1_1280', 'tumblr_n6rzkfxeOR1st5lhmo1_1280', 'tumblr_n6rztipoQy1st5lhmo1_1280', 'tumblr_n7fg2vYZ741st5lhmo1_1280', 'tumblr_n8gxs0oWZ21st5lhmo1_1280', 'tumblr_n9hyqfJavs1st5lhmo1_1280', 'tumblr_n7yhe1sTa41st5lhmo1_1280'
-);
-
 var GalleryItem = React.createClass({
   getInitialState: function() {
     return {

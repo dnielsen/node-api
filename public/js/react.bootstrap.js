@@ -146,7 +146,8 @@
 	  PricingTablePrice: __webpack_require__(43).PricingTablePrice,
 	  PricingTableHeader: __webpack_require__(43).PricingTableHeader,
 	  PricingTableContainer: __webpack_require__(43).PricingTableContainer,
-	  PricingButtonContainer: __webpack_require__(43).PricingButtonContainer
+	  PricingButtonContainer: __webpack_require__(43).PricingButtonContainer,
+	  Tag: __webpack_require__(44)
 	};
 
 
@@ -838,9 +839,9 @@
 	      'active': this.props.active,
 	      'btn-block': this.props.block,
 	      'navbar-btn': this.props.navbar,
-	      'btn-inverse': this.props.inverse,
+	      'btn-inverse': (this.props.retainBackground ? true : false) || this.props.inverse,
 	      'btn-rounded': this.props.rounded,
-	      'btn-outlined': this.props.outlined,
+	      'btn-outlined': (this.props.inverse ? true : false) || (this.props.onlyOnHover ? true : false) || (this.props.retainBackground ? true : false) || this.props.outlined,
 	      'btn-onlyOnHover': this.props.onlyOnHover,
 	      'btn-retainBg': this.props.retainBackground
 	    };
@@ -1093,6 +1094,10 @@
 
 	var classSet = React.addons.classSet;
 	var DropdownButton = React.createClass({displayName: 'DropdownButton',
+	  propTypes: {
+	    menu: React.PropTypes.string.isRequired,
+	    container: React.PropTypes.object.isRequired
+	  },
 	  getInitialState: function() {
 	    return {
 	      pressed: false
@@ -1273,7 +1278,9 @@
 	    this.props.onHide();
 	    this.state.ul.display = 'none';
 	    this.setState(this.state, function() {
-	      this.toggle.unpress();
+	      try {
+	        this.toggle.unpress();
+	      } catch(e) {}
 
 	      if(cb) cb();
 	      this.props.onHidden();
@@ -1305,7 +1312,9 @@
 	      if(this.props.noTimer)
 	        return this.hide();
 	      this.timer = setTimeout(function() {
-	        this.hide()
+	        try {
+	          this.hide();
+	        } catch(e) {}
 	      }.bind(this), 500);
 	    }.bind(this));
 	  },
@@ -1332,7 +1341,7 @@
 	      this.hide();
 	      this.toggle.focus();
 	    } else if(e.key === 'Enter') { // return
-	      this.props.onItemSelect(this.getActiveItem());
+	      this.props.onItemSelect(this.getActiveItemProps(), this);
 	      $(e.target).find('>.div-b-tab').trigger('click');
 	    }
 	  },
@@ -2498,6 +2507,24 @@
 	  }
 	});
 
+	var MediaObject = React.createClass({displayName: 'MediaObject',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.img({className: "media-object"})
+	    );
+	  }
+	});
+
+	var MediaHeading = React.createClass({displayName: 'MediaHeading',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.h4({className: "media-heading"}, 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
 	module.exports.Media = Media;
 	module.exports.MediaBody = MediaBody;
 	module.exports.MediaList = MediaList;
@@ -2806,7 +2833,8 @@
 	    gutterBottom: React.PropTypes.bool,
 	    collapseBottom: React.PropTypes.bool,
 	    controlStyles: React.PropTypes.string,
-	    containerStyles: React.PropTypes.string
+	    containerStyles: React.PropTypes.string,
+	    plain: React.PropTypes.bool
 	  },
 	  statics: {
 	    zIndex: 9999999,
@@ -2881,12 +2909,16 @@
 	      'rubix-panel-container': true,
 	      'bordered': this.props.bordered,
 	      'noOverflow': this.props.noOverflow,
+	      'panel-plain': this.props.plain,
 	      'panel-gutter-bottom': this.props.gutterBottom,
 	      'panel-collapse-bottom': this.props.collapseBottom,
 	    });
 
 	    if(this.props.containerClasses)
 	      containerClasses += ' ' + this.props.containerClasses;
+
+	    if(this.props.plain)
+	      this.props.noControls = true;
 
 	    if(!this.props.noControls) {
 	      controls = (
@@ -3607,6 +3639,29 @@
 	module.exports.PricingTableHeader = PricingTableHeader;
 	module.exports.PricingTableContainer = PricingTableContainer;
 	module.exports.PricingButtonContainer = PricingButtonContainer;
+
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Tag = React.createClass({displayName: 'Tag',
+	  getDefaultProps: function() {
+	    return {
+	      href: '#',
+	      color: 'darkgreen45'
+	    };
+	  },
+	  render: function() {
+	    return (
+	      RRouter.Link({href: this.props.href, className: 'left-tag border-hover-'+this.props.color+' bg-hover-'+this.props.color+' fg-hover-white bg-lightgray50 border-lightgray50 fg-text'}, this.props.children)
+	    );
+	  }
+	});
+
+	module.exports = Tag;
 
 
 /***/ }
