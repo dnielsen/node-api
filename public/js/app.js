@@ -397,11 +397,13 @@ var l20n=_RL20n_.l20n,
 	});
 
 	var InitializeRouter = function(View) {
+	  console.time('render');
 	  // cleanup
 	  if(window.Rubix) window.Rubix.Cleanup();
 	  Pace.restart();
 	  React.renderComponent(View(null), document.getElementById('app-container'), function() {
 	    // l20n initialized only after everything is rendered/updated
+	    console.timeEnd('render');
 	    l20n.ready();
 	    setTimeout(function() {
 	      $('body').removeClass('fade-out');
@@ -1636,7 +1638,11 @@ var l20n=_RL20n_.l20n,
 
 	var Inbox = React.createClass({displayName: 'Inbox',
 	  mixins: [Sidebar.SidebarMixin],
+	  componentDidMount: function() {
+	    console.timeEnd('inbox');
+	  },
 	  render: function() {
+	    console.time('inbox');
 	    var classes = classSet({
 	      'container-open': this.state.open
 	    });
@@ -21887,8 +21893,8 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var dropdownbasic = __webpack_require__(121);
-	var dropdownalign = __webpack_require__(122);
+	var dropdownbasic = __webpack_require__(119);
+	var dropdownalign = __webpack_require__(120);
 
 	var Body = React.createClass({displayName: 'Body',
 	  handleSelection: function(itemprops) {
@@ -23240,8 +23246,8 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var basictab = __webpack_require__(119);
-	var tabselect = __webpack_require__(120);
+	var basictab = __webpack_require__(121);
+	var tabselect = __webpack_require__(122);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -29943,25 +29949,25 @@ var l20n=_RL20n_.l20n,
 /* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelect: function(itemprops) {\n    alert(itemprops.pane);\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>\n        <Tab pane='tab1:home' active>Home</Tab>\n        <Tab pane='tab1:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu33'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu33' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab1:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
 
 /***/ },
 /* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function(itemprops) {\n    this.refs.tablist.selectTab('pane', 'tab2:profile');\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>\n        <Tab pane='tab2:home' active>Home</Tab>\n        <Tab pane='tab2:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu34'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu34' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab2:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
 
 /***/ },
 /* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  handleSelect: function(itemprops) {\n    alert(itemprops.pane);\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>\n        <Tab pane='tab1:home' active>Home</Tab>\n        <Tab pane='tab1:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu33'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu33' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab1:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
 
 /***/ },
 /* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function(itemprops) {\n    this.refs.tablist.selectTab('pane', 'tab2:profile');\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>\n        <Tab pane='tab2:home' active>Home</Tab>\n        <Tab pane='tab2:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu34'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu34' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab2:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
 
 /***/ },
 /* 123 */
@@ -30423,8 +30429,8 @@ var l20n=_RL20n_.l20n,
 /* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(129),
-	    Flux = __webpack_require__(130),
+	var Dispatcher = __webpack_require__(130),
+	    Flux = __webpack_require__(129),
 	    FluxMixin = __webpack_require__(131),
 	    FluxChildMixin = __webpack_require__(132),
 	    StoreWatchMixin = __webpack_require__(133),
@@ -30653,6 +30659,53 @@ var l20n=_RL20n_.l20n,
 /* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var Dispatcher = __webpack_require__(130);
+
+	function bindActions(target, actions, dispatchBinder) {
+	  for (var key in actions) {
+	    if (actions.hasOwnProperty(key)) {
+	      if (typeof actions[key] === "function") {
+	        target[key] = actions[key].bind(dispatchBinder);
+	      } else if (typeof actions[key] === "object") {
+	        target[key] = {};
+	        bindActions(target[key], actions[key], dispatchBinder);
+	      }
+	    }
+	  }
+	}
+
+	var Flux = function(stores, actions) {
+	  var dispatcher = new Dispatcher(stores),
+	      dispatchBinder = {
+	        dispatch: function(type, payload) {
+	          dispatcher.dispatch({type: type, payload: payload});
+	        }
+	      };
+
+	  this.dispatcher = dispatcher;
+	  this.actions = {};
+	  this.stores = stores;
+
+	  bindActions(this.actions, actions, dispatchBinder);
+
+	  for (var key in stores) {
+	    if (stores.hasOwnProperty(key)) {
+	      stores[key].flux = this;
+	    }
+	  }
+	};
+
+	Flux.prototype.store = function(name) {
+	  return this.stores[name];
+	};
+
+	module.exports = Flux;
+
+
+/***/ },
+/* 130 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var _clone = __webpack_require__(137),
 	    _mapValues = __webpack_require__(138),
 	    _forOwn = __webpack_require__(139),
@@ -30778,53 +30831,6 @@ var l20n=_RL20n_.l20n,
 	};
 
 	module.exports = Dispatcher;
-
-
-/***/ },
-/* 130 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(129);
-
-	function bindActions(target, actions, dispatchBinder) {
-	  for (var key in actions) {
-	    if (actions.hasOwnProperty(key)) {
-	      if (typeof actions[key] === "function") {
-	        target[key] = actions[key].bind(dispatchBinder);
-	      } else if (typeof actions[key] === "object") {
-	        target[key] = {};
-	        bindActions(target[key], actions[key], dispatchBinder);
-	      }
-	    }
-	  }
-	}
-
-	var Flux = function(stores, actions) {
-	  var dispatcher = new Dispatcher(stores),
-	      dispatchBinder = {
-	        dispatch: function(type, payload) {
-	          dispatcher.dispatch({type: type, payload: payload});
-	        }
-	      };
-
-	  this.dispatcher = dispatcher;
-	  this.actions = {};
-	  this.stores = stores;
-
-	  bindActions(this.actions, actions, dispatchBinder);
-
-	  for (var key in stores) {
-	    if (stores.hasOwnProperty(key)) {
-	      stores[key].flux = this;
-	    }
-	  }
-	};
-
-	Flux.prototype.store = function(name) {
-	  return this.stores[name];
-	};
-
-	module.exports = Flux;
 
 
 /***/ },

@@ -1144,9 +1144,8 @@
 	    e.preventDefault();
 	    e.stopPropagation();
 	    var menu = this.props.container.refs[this.props.menu];
-	    this.press(function() {
-	      menu.show();
-	    });
+	    this.press();
+	    menu.show();
 	  },
 	  componentDidMount: function() {
 	    this.props.container.refs[this.props.menu].setToggle(this);
@@ -1270,7 +1269,9 @@
 	      }
 	      if(cb) cb();
 	      this.props.onShown();
-	      $(window).trigger('rubix.redraw');
+	      setTimeout(function() {
+	        $(window).trigger('resize');
+	      }, 15);
 	    }.bind(this));
 	  },
 	  hide: function(cb) {
