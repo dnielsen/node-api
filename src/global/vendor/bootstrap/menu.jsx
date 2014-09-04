@@ -90,7 +90,9 @@ var Menu = React.createClass({
       }
       if(cb) cb();
       this.props.onShown();
-      $(window).trigger('rubix.redraw');
+      setTimeout(function() {
+        $(window).trigger('resize');
+      }, 15);
     }.bind(this));
   },
   hide: function(cb) {

@@ -397,11 +397,13 @@ var l20n=_RL20n_.l20n,
 	});
 
 	var InitializeRouter = function(View) {
+	  console.time('render');
 	  // cleanup
 	  if(window.Rubix) window.Rubix.Cleanup();
 	  Pace.restart();
 	  React.renderComponent(View(null), document.getElementById('app-container'), function() {
 	    // l20n initialized only after everything is rendered/updated
+	    console.timeEnd('render');
 	    l20n.ready();
 	    setTimeout(function() {
 	      $('body').removeClass('fade-out');
@@ -1636,7 +1638,11 @@ var l20n=_RL20n_.l20n,
 
 	var Inbox = React.createClass({displayName: 'Inbox',
 	  mixins: [Sidebar.SidebarMixin],
+	  componentDidMount: function() {
+	    console.timeEnd('inbox');
+	  },
 	  render: function() {
+	    console.time('inbox');
 	    var classes = classSet({
 	      'container-open': this.state.open
 	    });
@@ -21887,8 +21893,8 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var dropdownbasic = __webpack_require__(121);
-	var dropdownalign = __webpack_require__(122);
+	var dropdownbasic = __webpack_require__(119);
+	var dropdownalign = __webpack_require__(120);
 
 	var Body = React.createClass({displayName: 'Body',
 	  handleSelection: function(itemprops) {
@@ -23240,8 +23246,8 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var basictab = __webpack_require__(119);
-	var tabselect = __webpack_require__(120);
+	var basictab = __webpack_require__(121);
+	var tabselect = __webpack_require__(122);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -24339,7 +24345,7 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Fluxxor = __webpack_require__(125);
+	var Fluxxor = __webpack_require__(123);
 
 	var FluxMixin = Fluxxor.FluxMixin(React);
 	var FluxChildMixin = Fluxxor.FluxChildMixin(React);
@@ -25150,7 +25156,7 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var SidebarComponent = __webpack_require__(123);
+	var SidebarComponent = __webpack_require__(124);
 
 	var Sidebar = SidebarComponent.Sidebar,
 	    SidebarNav = SidebarComponent.SidebarNav,
@@ -25159,7 +25165,7 @@ var l20n=_RL20n_.l20n,
 	    SidebarControls = SidebarComponent.SidebarControls,
 	    SidebarControlBtn = SidebarComponent.SidebarControlBtn;
 
-	var ChatComponent = __webpack_require__(124)
+	var ChatComponent = __webpack_require__(125)
 
 	var ApplicationSidebar = React.createClass({displayName: 'ApplicationSidebar',
 	  render: function() {
@@ -29943,28 +29949,52 @@ var l20n=_RL20n_.l20n,
 /* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelect: function(itemprops) {\n    alert(itemprops.pane);\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>\n        <Tab pane='tab1:home' active>Home</Tab>\n        <Tab pane='tab1:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu33'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu33' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab1:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
 
 /***/ },
 /* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function(itemprops) {\n    this.refs.tablist.selectTab('pane', 'tab2:profile');\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>\n        <Tab pane='tab2:home' active>Home</Tab>\n        <Tab pane='tab2:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu34'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu34' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab2:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
 
 /***/ },
 /* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  handleSelect: function(itemprops) {\n    alert(itemprops.pane);\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>\n        <Tab pane='tab1:home' active>Home</Tab>\n        <Tab pane='tab1:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu33'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu33' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab1:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
 
 /***/ },
 /* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function(itemprops) {\n    this.refs.tablist.selectTab('pane', 'tab2:profile');\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>\n        <Tab pane='tab2:home' active>Home</Tab>\n        <Tab pane='tab2:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu34'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu34' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab2:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
 
 /***/ },
 /* 123 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(129),
+	    Flux = __webpack_require__(130),
+	    FluxMixin = __webpack_require__(131),
+	    FluxChildMixin = __webpack_require__(132),
+	    StoreWatchMixin = __webpack_require__(133),
+	    createStore = __webpack_require__(134);
+
+	var Fluxxor = {
+	  Dispatcher: Dispatcher,
+	  Flux: Flux,
+	  FluxMixin: FluxMixin,
+	  FluxChildMixin: FluxChildMixin,
+	  StoreWatchMixin: StoreWatchMixin,
+	  createStore: createStore,
+	  version: __webpack_require__(128).version
+	};
+
+	module.exports = Fluxxor;
+
+
+/***/ },
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30331,7 +30361,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30417,30 +30447,6 @@ var l20n=_RL20n_.l20n,
 	});
 
 	module.exports = Chat;
-
-
-/***/ },
-/* 125 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(129),
-	    Flux = __webpack_require__(130),
-	    FluxMixin = __webpack_require__(131),
-	    FluxChildMixin = __webpack_require__(132),
-	    StoreWatchMixin = __webpack_require__(133),
-	    createStore = __webpack_require__(134);
-
-	var Fluxxor = {
-	  Dispatcher: Dispatcher,
-	  Flux: Flux,
-	  FluxMixin: FluxMixin,
-	  FluxChildMixin: FluxChildMixin,
-	  StoreWatchMixin: StoreWatchMixin,
-	  createStore: createStore,
-	  version: __webpack_require__(128).version
-	};
-
-	module.exports = Fluxxor;
 
 
 /***/ },
@@ -32625,14 +32631,14 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var assign = __webpack_require__(168),
+	var assign = __webpack_require__(171),
 	    forEach = __webpack_require__(145),
 	    forOwn = __webpack_require__(139),
 	    getArray = __webpack_require__(160),
 	    isArray = __webpack_require__(156),
 	    isObject = __webpack_require__(148),
 	    releaseArray = __webpack_require__(162),
-	    slice = __webpack_require__(169);
+	    slice = __webpack_require__(172);
 
 	/** Used to match regexp flags from their coerced string values */
 	var reFlags = /\w*$/;
@@ -32783,10 +32789,10 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var bind = __webpack_require__(170),
+	var bind = __webpack_require__(168),
 	    identity = __webpack_require__(178),
-	    setBindData = __webpack_require__(171),
-	    support = __webpack_require__(172);
+	    setBindData = __webpack_require__(169),
+	    support = __webpack_require__(170);
 
 	/** Used to detected named functions */
 	var reFuncName = /^\s*function[ \n\r\t]+\w/;
@@ -33588,6 +33594,148 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
+	var createWrapper = __webpack_require__(182),
+	    slice = __webpack_require__(172);
+
+	/**
+	 * Creates a function that, when called, invokes `func` with the `this`
+	 * binding of `thisArg` and prepends any additional `bind` arguments to those
+	 * provided to the bound function.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Functions
+	 * @param {Function} func The function to bind.
+	 * @param {*} [thisArg] The `this` binding of `func`.
+	 * @param {...*} [arg] Arguments to be partially applied.
+	 * @returns {Function} Returns the new bound function.
+	 * @example
+	 *
+	 * var func = function(greeting) {
+	 *   return greeting + ' ' + this.name;
+	 * };
+	 *
+	 * func = _.bind(func, { 'name': 'fred' }, 'hi');
+	 * func();
+	 * // => 'hi fred'
+	 */
+	function bind(func, thisArg) {
+	  return arguments.length > 2
+	    ? createWrapper(func, 17, slice(arguments, 2), null, thisArg)
+	    : createWrapper(func, 1, null, null, thisArg);
+	}
+
+	module.exports = bind;
+
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var isNative = __webpack_require__(152),
+	    noop = __webpack_require__(183);
+
+	/** Used as the property descriptor for `__bindData__` */
+	var descriptor = {
+	  'configurable': false,
+	  'enumerable': false,
+	  'value': null,
+	  'writable': false
+	};
+
+	/** Used to set meta data on functions */
+	var defineProperty = (function() {
+	  // IE 8 only accepts DOM elements
+	  try {
+	    var o = {},
+	        func = isNative(func = Object.defineProperty) && func,
+	        result = func(o, o, o) && func;
+	  } catch(e) { }
+	  return result;
+	}());
+
+	/**
+	 * Sets `this` binding data on a given function.
+	 *
+	 * @private
+	 * @param {Function} func The function to set data on.
+	 * @param {Array} value The data array to set.
+	 */
+	var setBindData = !defineProperty ? noop : function(func, value) {
+	  descriptor.value = value;
+	  defineProperty(func, '__bindData__', descriptor);
+	};
+
+	module.exports = setBindData;
+
+
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var isNative = __webpack_require__(152);
+
+	/** Used to detect functions containing a `this` reference */
+	var reThis = /\bthis\b/;
+
+	/**
+	 * An object used to flag environments features.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Object
+	 */
+	var support = {};
+
+	/**
+	 * Detect if functions can be decompiled by `Function#toString`
+	 * (all but PS3 and older Opera mobile browsers & avoided in Windows 8 apps).
+	 *
+	 * @memberOf _.support
+	 * @type boolean
+	 */
+	support.funcDecomp = !isNative(global.WinRTError) && reThis.test(function() { return this; });
+
+	/**
+	 * Detect if `Function#name` is supported (all but IE).
+	 *
+	 * @memberOf _.support
+	 * @type boolean
+	 */
+	support.funcNames = typeof Function.name == 'string';
+
+	module.exports = support;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 171 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
 	var baseCreateCallback = __webpack_require__(150),
 	    keys = __webpack_require__(140),
 	    objectTypes = __webpack_require__(151);
@@ -33653,7 +33801,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 169 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33695,148 +33843,6 @@ var l20n=_RL20n_.l20n,
 
 	module.exports = slice;
 
-
-/***/ },
-/* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var createWrapper = __webpack_require__(182),
-	    slice = __webpack_require__(169);
-
-	/**
-	 * Creates a function that, when called, invokes `func` with the `this`
-	 * binding of `thisArg` and prepends any additional `bind` arguments to those
-	 * provided to the bound function.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Functions
-	 * @param {Function} func The function to bind.
-	 * @param {*} [thisArg] The `this` binding of `func`.
-	 * @param {...*} [arg] Arguments to be partially applied.
-	 * @returns {Function} Returns the new bound function.
-	 * @example
-	 *
-	 * var func = function(greeting) {
-	 *   return greeting + ' ' + this.name;
-	 * };
-	 *
-	 * func = _.bind(func, { 'name': 'fred' }, 'hi');
-	 * func();
-	 * // => 'hi fred'
-	 */
-	function bind(func, thisArg) {
-	  return arguments.length > 2
-	    ? createWrapper(func, 17, slice(arguments, 2), null, thisArg)
-	    : createWrapper(func, 1, null, null, thisArg);
-	}
-
-	module.exports = bind;
-
-
-/***/ },
-/* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var isNative = __webpack_require__(152),
-	    noop = __webpack_require__(183);
-
-	/** Used as the property descriptor for `__bindData__` */
-	var descriptor = {
-	  'configurable': false,
-	  'enumerable': false,
-	  'value': null,
-	  'writable': false
-	};
-
-	/** Used to set meta data on functions */
-	var defineProperty = (function() {
-	  // IE 8 only accepts DOM elements
-	  try {
-	    var o = {},
-	        func = isNative(func = Object.defineProperty) && func,
-	        result = func(o, o, o) && func;
-	  } catch(e) { }
-	  return result;
-	}());
-
-	/**
-	 * Sets `this` binding data on a given function.
-	 *
-	 * @private
-	 * @param {Function} func The function to set data on.
-	 * @param {Array} value The data array to set.
-	 */
-	var setBindData = !defineProperty ? noop : function(func, value) {
-	  descriptor.value = value;
-	  defineProperty(func, '__bindData__', descriptor);
-	};
-
-	module.exports = setBindData;
-
-
-/***/ },
-/* 172 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var isNative = __webpack_require__(152);
-
-	/** Used to detect functions containing a `this` reference */
-	var reThis = /\bthis\b/;
-
-	/**
-	 * An object used to flag environments features.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Object
-	 */
-	var support = {};
-
-	/**
-	 * Detect if functions can be decompiled by `Function#toString`
-	 * (all but PS3 and older Opera mobile browsers & avoided in Windows 8 apps).
-	 *
-	 * @memberOf _.support
-	 * @type boolean
-	 */
-	support.funcDecomp = !isNative(global.WinRTError) && reThis.test(function() { return this; });
-
-	/**
-	 * Detect if `Function#name` is supported (all but IE).
-	 *
-	 * @memberOf _.support
-	 * @type boolean
-	 */
-	support.funcNames = typeof Function.name == 'string';
-
-	module.exports = support;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 173 */
@@ -34309,7 +34315,7 @@ var l20n=_RL20n_.l20n,
 	var baseBind = __webpack_require__(186),
 	    baseCreateWrapper = __webpack_require__(187),
 	    isFunction = __webpack_require__(185),
-	    slice = __webpack_require__(169);
+	    slice = __webpack_require__(172);
 
 	/**
 	 * Used for `Array` method references.
@@ -34545,8 +34551,8 @@ var l20n=_RL20n_.l20n,
 	 */
 	var baseCreate = __webpack_require__(188),
 	    isObject = __webpack_require__(148),
-	    setBindData = __webpack_require__(171),
-	    slice = __webpack_require__(169);
+	    setBindData = __webpack_require__(169),
+	    slice = __webpack_require__(172);
 
 	/**
 	 * Used for `Array` method references.
@@ -34613,8 +34619,8 @@ var l20n=_RL20n_.l20n,
 	 */
 	var baseCreate = __webpack_require__(188),
 	    isObject = __webpack_require__(148),
-	    setBindData = __webpack_require__(171),
-	    slice = __webpack_require__(169);
+	    setBindData = __webpack_require__(169),
+	    slice = __webpack_require__(172);
 
 	/**
 	 * Used for `Array` method references.

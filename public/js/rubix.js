@@ -153,6 +153,8 @@ Rubix = function(id, opts) {
     this.xlabelcolor = 'steelblue';
     this.ylabelcolor = 'steelblue';
 
+    this.last_render = null;
+
     this.setup();
 };
 
@@ -165,6 +167,9 @@ Rubix.prototype.setup = function() {
 };
 
 Rubix.prototype.draw = function() {
+    if(this.last_render !== null)
+        if(Date.now() - this.last_render <= 150) return;
+    this.last_render = Date.now();
     if(!this.root_elem.is(':visible')) return;
     this._draw($(window).width(), $(window).height());
 };
