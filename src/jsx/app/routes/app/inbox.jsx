@@ -202,11 +202,7 @@ var Body = React.createClass({
 
 var Inbox = React.createClass({
   mixins: [Sidebar.SidebarMixin],
-  componentDidMount: function() {
-    console.timeEnd('inbox');
-  },
   render: function() {
-    console.time('inbox');
     var classes = classSet({
       'container-open': this.state.open
     });

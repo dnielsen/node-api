@@ -27,7 +27,7 @@ Rubix = function(id, opts) {
     this.root_elem.append('<div class="rubixcc-tooltip"></div>');
     this.root_elem.append('<div class="rubixcc-title"></div>');
     this.root_elem.append('<div class="rubixcc-subtitle"></div>');
-    this.root_elem.append('<div class="rubixcc-chart text-center">Loading...</div>');
+    this.root_elem.append('<div class="rubixcc-chart text-center"><div style="margin-top:5px">Loading...</div></div>');
     this.root_elem.append('<div class="rubixcc-legend"></div>');
 
     var width = opts.width || '100%';
@@ -155,7 +155,8 @@ Rubix = function(id, opts) {
 
     this.first_time = true;
     this.last_render = null;
-    this.realtime = this.opts.realtime || false;
+
+    this.data_changed = false;
 
     this.setup();
 };
@@ -169,11 +170,12 @@ Rubix.prototype.setup = function() {
 };
 
 Rubix.prototype.draw = function() {
-    if(!this.realtime) {
+    if(!this.data_changed) {
         if(this.last_render !== null)
-            if(Date.now() - this.last_render <= 150) return;
+            if(Date.now() - this.last_render < 300) return;
         this.last_render = Date.now();
     }
+    this.data_changed = false;
     if(!this.root_elem.is(':visible')) return;
     this._draw($(window).width(), $(window).height());
 };
@@ -2655,6 +2657,7 @@ Rubix.StackedAreaSeries.prototype.noRedraw = function(rubix) {
  * @param {Array|Object} data
  */
 Rubix.StackedAreaSeries.prototype.addData = function(data) {
+    this.rubix.data_changed = true;
     if(!(data instanceof Array)) {
         if(!(data instanceof Object)) {
             throw new Error("Data must be an array or object");
@@ -2900,6 +2903,7 @@ Rubix.StackedAreaSeries.prototype.removePoint = function(ref, noRedraw) {
  * @param {?Boolean} noRedraw
  */
 Rubix.StackedAreaSeries.prototype.addPoint = function(data, shift, noRedraw) {
+    this.rubix.data_changed = true;
     if(!(data instanceof Object) || (data instanceof Array)) {
         throw new Error("Object required for addPoint");
     }
@@ -3195,7 +3199,7 @@ Rubix.PieDonut = function(id, type, opts) {
     this.root_elem.append('<div class="rubixccnium-tooltip"></div>');
     this.root_elem.append('<div class="rubixccnium-title"></div>');
     this.root_elem.append('<div class="rubixccnium-subtitle"></div>');
-    this.root_elem.append('<div class="rubixccnium-chart"></div>');
+    this.root_elem.append('<div class="rubixccnium-chart"><div style="margin-top:5px">Loading...</div></div>');
     this.root_elem.append('<div class="rubixccnium-legend"></div>');
 
     var width = opts.width || '100%';
@@ -3285,6 +3289,8 @@ Rubix.PieDonut = function(id, type, opts) {
         return e;
     }
 
+    this.last_render = null;
+    this.data_changed = false;
     this.setup();
 };
 
@@ -3431,6 +3437,7 @@ Rubix.PieDonut.prototype._setSize = function() {
 
 /** @private */
 Rubix.PieDonut.prototype._setupCanvas = function() {
+    this.elem.html('');
     this.canvas = d3.select(this.elem.get(0)).append('svg');
     this.canvas.attr('width', this.outerWidth);
     this.canvas.attr('height', this.outerHeight);
@@ -3461,6 +3468,7 @@ Rubix.PieDonut.prototype.uid = function(type) {
 };
 
 Rubix.PieDonut.prototype.addData = function(data) {
+    this.data_changed = true;
     data.forEach(function(d) {
         d.value = +d.value;
     });
@@ -3540,6 +3548,12 @@ Rubix.PieDonut.prototype._setupLegend = function() {
 };
 
 Rubix.PieDonut.prototype.final_draw = function(animate) {
+    if(!this.data_changed) {
+        if(this.last_render !== null)
+            if(Date.now() - this.last_render < 15) return;
+        this.last_render = Date.now();
+    }
+    this.data_changed = false;
     var self = this;
     if(this.data.length) {
         this.canvas.select('.noData').style('display', 'none');
@@ -3711,6 +3725,7 @@ Rubix.PieDonut.prototype.updatePoint = function(data) {
 };
 
 Rubix.PieDonut.prototype.addPoint = function(data) {
+    this.data_changed = true;
     var updated = false;
     for(var i=0; i<this.data.length; i++) {
         if(this.data[i].name === data.name) {
@@ -3842,6 +3857,7 @@ Rubix.LineSeries.prototype.noRedraw = function(rubix) {
  * @param {Array|Object} data
  */
 Rubix.LineSeries.prototype.addData = function(data) {
+    this.rubix.data_changed = true;
     if(!(data instanceof Array)) {
         if(!(data instanceof Object)) {
             throw new Error("Data must be an array or object");
@@ -4081,6 +4097,7 @@ Rubix.LineSeries.prototype.removePoint = function(ref, noRedraw) {
  * @param {?Boolean} noRedraw
  */
 Rubix.LineSeries.prototype.addPoint = function(data, shift, noRedraw) {
+    this.rubix.data_changed = true;
     if(!(data instanceof Object) || (data instanceof Array)) {
         throw new Error("Object required for addPoint");
     }
@@ -4368,6 +4385,7 @@ Rubix.ColumnSeries.prototype.noRedraw = function(rubix) {
  * @param {Array|Object} data
  */
 Rubix.ColumnSeries.prototype.addData = function(data) {
+    this.rubix.data_changed = true;
     if(!(data instanceof Array)) {
         if(!(data instanceof Object)) {
             throw new Error("Data must be an array or object");
@@ -4517,7 +4535,7 @@ Rubix.ColumnSeries.prototype._createRect = function() {
                 return val;
             });
             rect.attr('y', function(d) {
-                return self.rubix.y(d.x);
+                return self.rubix.y(d.x) || 0;
             });
             rect.attr('class', function(d) {
                 return 'column-' + (self.rubix.y(d.x) + self.rubix.y.rangeBand()/2);
@@ -4800,6 +4818,7 @@ Rubix.ColumnSeries.prototype.removePoint = function(ref, noRedraw) {
  * @param {?Boolean} noRedraw
  */
 Rubix.ColumnSeries.prototype.addPoint = function(data, shift, noRedraw) {
+    this.rubix.data_changed = true;
     if(!(data instanceof Object) || (data instanceof Array)) {
         throw new Error("Object required for addPoint");
     }
@@ -5274,6 +5293,7 @@ Rubix.AreaSeries.prototype.noRedraw = function(rubix) {
  * @param {Array|Object} data
  */
 Rubix.AreaSeries.prototype.addData = function(data) {
+    this.rubix.data_changed = true;
     if(!(data instanceof Array)) {
         if(!(data instanceof Object)) {
             throw new Error("Data must be an array or object");
@@ -5422,6 +5442,7 @@ Rubix.AreaSeries.prototype.removePoint = function(ref, noRedraw) {
  * @param {?Boolean} noRedraw
  */
 Rubix.AreaSeries.prototype.addPoint = function(data, shift, noRedraw) {
+    this.rubix.data_changed = true;
     if(!(data instanceof Object) || (data instanceof Array)) {
         throw new Error("Object required for addPoint");
     }

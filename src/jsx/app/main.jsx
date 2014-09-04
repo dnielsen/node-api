@@ -232,13 +232,11 @@ Pace.once('hide', function() {
 });
 
 var InitializeRouter = function(View) {
-  console.time('render');
   // cleanup
   if(window.Rubix) window.Rubix.Cleanup();
   Pace.restart();
   React.renderComponent(<View />, document.getElementById('app-container'), function() {
     // l20n initialized only after everything is rendered/updated
-    console.timeEnd('render');
     l20n.ready();
     setTimeout(function() {
       $('body').removeClass('fade-out');

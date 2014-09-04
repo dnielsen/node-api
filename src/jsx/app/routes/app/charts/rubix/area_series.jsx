@@ -302,7 +302,6 @@ var Body = React.createClass({
       var chart = new Rubix('#realtime-stacked-chart', {
         width: '100%',
         height: 200,
-        realtime: true,
         title: 'Realtime Streamgraph (Silhouette + Monotone Interpolation)',
         subtitle: 'Interval-based, immediate shift',
         tooltip: {
