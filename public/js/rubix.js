@@ -3,7 +3,7 @@ window.Rubix = window.Rubix || {};
 var RubixListeners = [];
 
 var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
-var useTable = isSafari ? 'inline' : 'table';
+var useTable = isSafari ? 'table' : 'table';
 
 /**
  * @param {string} id
@@ -27,7 +27,7 @@ Rubix = function(id, opts) {
     this.root_elem.append('<div class="rubixcc-tooltip"></div>');
     this.root_elem.append('<div class="rubixcc-title"></div>');
     this.root_elem.append('<div class="rubixcc-subtitle"></div>');
-    this.root_elem.append('<div class="rubixcc-chart"></div>');
+    this.root_elem.append('<div class="rubixcc-chart text-center">Loading...</div>');
     this.root_elem.append('<div class="rubixcc-legend"></div>');
 
     var width = opts.width || '100%';
@@ -153,6 +153,7 @@ Rubix = function(id, opts) {
     this.xlabelcolor = 'steelblue';
     this.ylabelcolor = 'steelblue';
 
+    this.first_time = true;
     this.last_render = null;
 
     this.setup();
@@ -1493,6 +1494,7 @@ Rubix.prototype._setSize = function() {
 
 /** @private */
 Rubix.prototype._setupCanvas = function() {
+    this.elem.html('');
     this.canvas = d3.select(this.elem.get(0)).append('svg');
     this.canvas.attr('width', this.outerWidth);
     this.canvas.attr('height', this.outerHeight);
