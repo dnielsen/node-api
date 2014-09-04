@@ -1616,6 +1616,7 @@
 	    this.setState(this.state, function() {
 	      if(this.props.dropdown) {
 	        var node = $(this.refs.div.getDOMNode());
+	        node.parents('li.b-tab').addClass('active');
 	        node.parents('li[role=presentation]').addClass('active');
 	      }
 	      ReactBootstrap.Dispatcher.emit('tab:'+this.listName, this.paneName);
@@ -1634,6 +1635,7 @@
 	          var node = $(this.refs.li.getDOMNode());
 	          node.siblings('.active').removeClass('active');
 	        }
+	        ReactBootstrap.Dispatcher.emit('tab:_tabchange_', this.listName, this.props);
 	      }.bind(this));
 	    } else {
 	      this.setState({active: false});
@@ -1643,11 +1645,17 @@
 	      }
 	    }
 	  },
+	  selectTabListener: function(data) {
+	    if(this.props.hasOwnProperty(data.key) && this.props[data.key] === data.value)
+	      this.handleRawClick();
+	  },
 	  componentDidMount: function() {
 	    ReactBootstrap.Dispatcher.on('tab:'+this.listName, this.stateChangeCallback);
+	    ReactBootstrap.Dispatcher.on('tab:select_tab', this.selectTabListener);
 	  },
 	  componentWillUnmount: function() {
 	    ReactBootstrap.Dispatcher.off('tab:'+this.listName, this.stateChangeCallback);
+	    ReactBootstrap.Dispatcher.off('tab:select_tab', this.selectTabListener);
 	  },
 	  render: function() {
 	    if(this.props.hasOwnProperty('pane')) {
@@ -1685,12 +1693,39 @@
 	    pills: React.PropTypes.bool,
 	    stacked: React.PropTypes.bool,
 	    justified: React.PropTypes.bool,
-	    bsStyle: React.PropTypes.string
+	    bsStyle: React.PropTypes.string,
+	    onTabSelect: React.PropTypes.func,
+	    listName: React.PropTypes.string
 	  },
 	  getDefaultProps: function() {
 	    return {
-	      bsStyle: 'default'
+	      bsStyle: 'default',
+	      onTabSelect: function() {}
 	    };
+	  },
+	  onTabSelect: function(listName, child_props) {
+	    if(child_props.parent === this || this.props.listName === listName) {
+	      this.props.onTabSelect(child_props);
+	    }
+	  },
+	  componentWillMount: function() {
+	    var children = React.Children.map(this.props.children, function(child, i) {
+	      return React.withContext(this._descriptor._context, function() {
+	        return React.addons.cloneWithProps(child, {
+	          parent: this, key: i
+	        });
+	      }.bind(this));
+	    }, this);
+	    this.setState({
+	      children: children
+	    });
+	    ReactBootstrap.Dispatcher.on('tab:_tabchange_', this.onTabSelect);
+	  },
+	  componentWillUnmount: function() {
+	    ReactBootstrap.Dispatcher.off('tab:_tabchange_', this.onTabSelect);
+	  },
+	  selectTab: function(key, value) {
+	    ReactBootstrap.Dispatcher.emit('tab:select_tab', {key: key, value: value});
 	  },
 	  render: function() {
 	    var isPills = this.props.pills ? true : false;
@@ -1717,7 +1752,7 @@
 	    });
 	    return this.transferPropsTo(
 	      React.DOM.ul({className: classes, role: tablist}, 
-	        this.props.children
+	        this.state.children
 	      )
 	    );
 	  }

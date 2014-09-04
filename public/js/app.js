@@ -21887,8 +21887,8 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var dropdownbasic = __webpack_require__(119);
-	var dropdownalign = __webpack_require__(120);
+	var dropdownbasic = __webpack_require__(121);
+	var dropdownalign = __webpack_require__(122);
 
 	var Body = React.createClass({displayName: 'Body',
 	  handleSelection: function(itemprops) {
@@ -23240,54 +23240,303 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
+	var basictab = __webpack_require__(119);
+	var tabselect = __webpack_require__(120);
+
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
 	    Prism.highlightAll();
+	    this.refs.tablist.selectTab('pane', 'tab2:mdo');
+	  },
+	  handleSelect: function(tabprops) {
+	    alert(tabprops.pane);
 	  },
 	  render: function() {
 	    return (
 	      Container({id: "body"}, 
 	        DocContainer(null, 
-	          DocUnit({name: "Bootstrap: Navs"}, 
+	          DocUnit({name: "Bootstrap: Tabs"}, 
 	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
 	            React.DOM.p(null, 
-	              "Extend ", React.DOM.code(null, "Input"), " components by adding text or buttons before, after, or on both sides of any text-based input. Use ", React.DOM.code(null, "InputGroup"), " with an ", React.DOM.code(null, "InputGroupAddon"), " to prepend or append elements to a single ", React.DOM.code(null, "Input"), "."
+	              "Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus.", "."
 	            ), 
 	            Well({className: "bg-white"}, 
-	              InputGroup(null, 
-	                InputGroupAddon(null, "@"), 
-	                Input({type: "text", placeholder: "Username"})
-	              ), React.DOM.br(null), 
-	              InputGroup(null, 
-	                Input({type: "text"}), 
-	                InputGroupAddon(null, ".00")
-	              ), React.DOM.br(null), 
-	              InputGroup(null, 
-	                InputGroupAddon(null, "$"), 
-	                Input({type: "text"}), 
-	                InputGroupAddon(null, ".00")
+	              TabList({bsStyle: "orange75", onTabSelect: this.handleSelect, listName: "tab1"}, 
+	                Tab({pane: "tab1:home", active: true}, "Home"), 
+	                Tab({pane: "tab1:profile"}, "Profile"), 
+	                Tab(null, 
+	                  DropdownButton({tab: true, container: this, menu: "menu33"}, 
+	                    React.DOM.span(null, "Dropdown "), Caret(null)
+	                  ), 
+	                  Menu({autoHide: true, ref: "menu33", bsStyle: "orange75"}, 
+	                    MenuItem({href: "#"}, 
+	                      Tab({dropdown: true, pane: "tab1:fat"}, 
+	                        "@fat"
+	                      )
+	                    ), 
+	                    MenuItem({href: "#"}, 
+	                      Tab({dropdown: true, pane: "tab1:mdo"}, 
+	                        "@mdo"
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
+	              TabContent(null, 
+	                TabPane({ref: "tab1:home", active: true}, 
+	                  LoremIpsum({query: "5s"})
+	                ), 
+	                TabPane({ref: "tab1:profile"}, 
+	                  LoremIpsum({query: "5s"})
+	                ), 
+	                TabPane({ref: "tab1:fat"}, 
+	                  LoremIpsum({query: "5s"})
+	                ), 
+	                TabPane({ref: "tab1:mdo"}, 
+	                  LoremIpsum({query: "5s"})
+	                )
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  basictab
+	                )
+	              )
+	            )
+	          ), 
+	          DocUnit({name: "Bootstrap: Tabs API", docStyle: "bg-red fg-white"}, 
+	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "selectTab(key, value)")), 
+	            React.DOM.p(null, 
+	              "Select a tab programmatically by calling selectTab using a props key and value as a constraint", "."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              TabList({bsStyle: "orange75", ref: "tablist", listName: "tab2"}, 
+	                Tab({pane: "tab2:home", active: true}, "Home"), 
+	                Tab({pane: "tab2:profile"}, "Profile"), 
+	                Tab(null, 
+	                  DropdownButton({tab: true, container: this, menu: "menu34"}, 
+	                    React.DOM.span(null, "Dropdown "), Caret(null)
+	                  ), 
+	                  Menu({autoHide: true, ref: "menu34", bsStyle: "orange75"}, 
+	                    MenuItem({href: "#"}, 
+	                      Tab({dropdown: true, pane: "tab2:fat"}, 
+	                        "@fat"
+	                      )
+	                    ), 
+	                    MenuItem({href: "#"}, 
+	                      Tab({dropdown: true, pane: "tab2:mdo"}, 
+	                        "@mdo"
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
+	              TabContent(null, 
+	                TabPane({ref: "tab2:home", active: true}, 
+	                  LoremIpsum({query: "5s"})
+	                ), 
+	                TabPane({ref: "tab2:profile"}, 
+	                  LoremIpsum({query: "5s"})
+	                ), 
+	                TabPane({ref: "tab2:fat"}, 
+	                  LoremIpsum({query: "5s"})
+	                ), 
+	                TabPane({ref: "tab2:mdo"}, 
+	                  LoremIpsum({query: "5s"})
+	                )
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-javascript"}, 
+	                  tabselect
+	                )
+	              )
+	            )
+	          ), 
+	          DocUnit({name: "Bootstrap: Pills"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
+	            React.DOM.p(null, 
+	              "Similar markup to Tabs as above. Even the API is same as we reuse the same component.", "."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              React.DOM.div({style: {marginLeft: -12.5, marginRight: -12.5}}, 
+	                TabList({pills: true, bsStyle: "orange75", listName: "tab3"}, 
+	                  Tab({pane: "tab3:home", active: true}, "Home"), 
+	                  Tab({pane: "tab3:profile"}, "Profile"), 
+	                  Tab(null, 
+	                    DropdownButton({tab: true, container: this, menu: "menupills1"}, 
+	                      React.DOM.span(null, "Dropdown "), Caret(null)
+	                    ), 
+	                    Menu({autoHide: true, ref: "menupills1", bsStyle: "orange75"}, 
+	                      MenuItem({href: "#"}, 
+	                        Tab({dropdown: true, pane: "tab3:fat"}, 
+	                          "@fat"
+	                        )
+	                      ), 
+	                      MenuItem({href: "#"}, 
+	                        Tab({dropdown: true, pane: "tab3:mdo"}, 
+	                          "@mdo"
+	                        )
+	                      )
+	                    )
+	                  )
+	                ), 
+	                Grid(null, 
+	                  Row(null, 
+	                    Col({xs: 12}, 
+	                      TabContent({style: {marginTop: 12.5}}, 
+	                        TabPane({ref: "tab3:home", active: true}, 
+	                          LoremIpsum({query: "5s"})
+	                        ), 
+	                        TabPane({ref: "tab3:profile"}, 
+	                          LoremIpsum({query: "5s"})
+	                        ), 
+	                        TabPane({ref: "tab3:fat"}, 
+	                          LoremIpsum({query: "5s"})
+	                        ), 
+	                        TabPane({ref: "tab3:mdo"}, 
+	                          LoremIpsum({query: "5s"})
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
 	              )
 	            ), 
 	            React.DOM.div(null, 
 	              React.DOM.pre(null, 
 	                React.DOM.code({className: "language-markup"}, 
-	                  "<InputGroup>\n", 
-	                  "  <InputGroupAddon>@</InputGroupAddon>\n", 
-	                  "  <Input type='text' placeholder='Username'/>\n", 
-	                  "</InputGroup><br/>\n", 
-	                  "<InputGroup>\n", 
-	                  "  <Input type='text'/>\n", 
-	                  "  <InputGroupAddon>.00</InputGroupAddon>\n", 
-	                  "</InputGroup><br/>\n", 
-	                  "<InputGroup>\n", 
-	                  "  <InputGroupAddon>$</InputGroupAddon>\n", 
-	                  "  <Input type='text'/>\n", 
-	                  "  <InputGroupAddon>.00</InputGroupAddon>\n", 
-	                  "</InputGroup>\n"
+	                  "<TabList pills bsStyle='orange75' listName='tab3'>\n", 
+	                  "  <Tab pane='tab3:home' active>Home</Tab>\n", 
+	                  "  <Tab pane='tab3:profile'>Profile</Tab>\n", 
+	                  "  <Tab>\n", 
+	                  "    <DropdownButton tab container={this} menu='menupills1'>\n", 
+	                  "      <span>Dropdown </span><Caret/>\n", 
+	                  "    </DropdownButton>\n", 
+	                  "    <Menu autoHide ref='menupills1' bsStyle='orange75'>\n", 
+	                  "      <MenuItem href='#'>\n", 
+	                  "        <Tab dropdown pane='tab3:fat'>\n", 
+	                  "          @fat\n", 
+	                  "        </Tab>\n", 
+	                  "      </MenuItem>\n", 
+	                  "      <MenuItem href='#'>\n", 
+	                  "        <Tab dropdown pane='tab3:mdo'>\n", 
+	                  "          @mdo\n", 
+	                  "        </Tab>\n", 
+	                  "      </MenuItem>\n", 
+	                  "    </Menu>\n", 
+	                  "  </Tab>\n", 
+	                  "</TabList>\n", 
+	                  "<Grid>\n", 
+	                  "  <Row>\n", 
+	                  "    <Col xs={12}>\n", 
+	                  "      <TabContent>\n", 
+	                  "        <TabPane ref='tab3:home' active>\n", 
+	                  "          <p><LoremIpsum query='5s' /></p>\n", 
+	                  "        </TabPane>\n", 
+	                  "        <TabPane ref='tab3:profile'>\n", 
+	                  "          <p><LoremIpsum query='5s' /></p>\n", 
+	                  "        </TabPane>\n", 
+	                  "        <TabPane ref='tab3:fat'>\n", 
+	                  "          <p><LoremIpsum query='5s' /></p>\n", 
+	                  "        </TabPane>\n", 
+	                  "        <TabPane ref='tab3:mdo'>\n", 
+	                  "          <p><LoremIpsum query='5s' /></p>\n", 
+	                  "        </TabPane>\n", 
+	                  "      </TabContent>\n", 
+	                  "    </Col>\n", 
+	                  "  </Row>\n", 
+	                  "</Grid>\n"
 	                )
 	              )
 	            ), 
-	            React.DOM.hr(null)
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Justified pills"), 
+	            React.DOM.p(null, 
+	              "Easily make tabs or pills equal widths of their parent.", "."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              React.DOM.div({style: {marginLeft: -12.5, marginRight: -12.5}}, 
+	                TabList({pills: true, justified: true, bsStyle: "orange75", listName: "tab4"}, 
+	                  Tab({pane: "tab4:home", active: true}, "Home"), 
+	                  Tab({pane: "tab4:profile"}, "Profile"), 
+	                  Tab(null, 
+	                    DropdownButton({tab: true, container: this, menu: "menupills2"}, 
+	                      React.DOM.span(null, "Dropdown "), Caret(null)
+	                    ), 
+	                    Menu({autoHide: true, ref: "menupills2", bsStyle: "orange75"}, 
+	                      MenuItem({href: "#"}, 
+	                        Tab({dropdown: true, pane: "tab4:fat"}, 
+	                          "@fat"
+	                        )
+	                      ), 
+	                      MenuItem({href: "#"}, 
+	                        Tab({dropdown: true, pane: "tab4:mdo"}, 
+	                          "@mdo"
+	                        )
+	                      )
+	                    )
+	                  )
+	                ), 
+	                TabContent({style: {marginTop: 12.5}}, 
+	                  TabPane({ref: "tab4:home", active: true}, 
+	                    LoremIpsum({query: "5s"})
+	                  ), 
+	                  TabPane({ref: "tab4:profile"}, 
+	                    LoremIpsum({query: "5s"})
+	                  ), 
+	                  TabPane({ref: "tab4:fat"}, 
+	                    LoremIpsum({query: "5s"})
+	                  ), 
+	                  TabPane({ref: "tab4:mdo"}, 
+	                    LoremIpsum({query: "5s"})
+	                  )
+	                )
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<TabList pills bsStyle='orange75' listName='tab4'>\n", 
+	                  "  <Tab pane='tab4:home' active>Home</Tab>\n", 
+	                  "  <Tab pane='tab4:profile'>Profile</Tab>\n", 
+	                  "  <Tab>\n", 
+	                  "    <DropdownButton tab container={this} menu='menupills2'>\n", 
+	                  "      <span>Dropdown </span><Caret/>\n", 
+	                  "    </DropdownButton>\n", 
+	                  "    <Menu autoHide ref='menupills2' bsStyle='orange75'>\n", 
+	                  "      <MenuItem href='#'>\n", 
+	                  "        <Tab dropdown pane='tab4:fat'>\n", 
+	                  "          @fat\n", 
+	                  "        </Tab>\n", 
+	                  "      </MenuItem>\n", 
+	                  "      <MenuItem href='#'>\n", 
+	                  "        <Tab dropdown pane='tab4:mdo'>\n", 
+	                  "          @mdo\n", 
+	                  "        </Tab>\n", 
+	                  "      </MenuItem>\n", 
+	                  "    </Menu>\n", 
+	                  "  </Tab>\n", 
+	                  "</TabList>\n", 
+	                  "<TabContent>\n", 
+	                  "  <TabPane ref='tab4:home' active>\n", 
+	                  "    <p><LoremIpsum query='5s' /></p>\n", 
+	                  "  </TabPane>\n", 
+	                  "  <TabPane ref='tab4:profile'>\n", 
+	                  "    <p><LoremIpsum query='5s' /></p>\n", 
+	                  "  </TabPane>\n", 
+	                  "  <TabPane ref='tab4:fat'>\n", 
+	                  "    <p><LoremIpsum query='5s' /></p>\n", 
+	                  "  </TabPane>\n", 
+	                  "  <TabPane ref='tab4:mdo'>\n", 
+	                  "    <p><LoremIpsum query='5s' /></p>\n", 
+	                  "  </TabPane>\n", 
+	                  "</TabContent>\n"
+	                )
+	              )
+	            )
 	          )
 	        ), 
 	        this.props.children
@@ -24090,7 +24339,7 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Fluxxor = __webpack_require__(121);
+	var Fluxxor = __webpack_require__(125);
 
 	var FluxMixin = Fluxxor.FluxMixin(React);
 	var FluxChildMixin = Fluxxor.FluxChildMixin(React);
@@ -24901,7 +25150,7 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var SidebarComponent = __webpack_require__(122);
+	var SidebarComponent = __webpack_require__(123);
 
 	var Sidebar = SidebarComponent.Sidebar,
 	    SidebarNav = SidebarComponent.SidebarNav,
@@ -24910,7 +25159,7 @@ var l20n=_RL20n_.l20n,
 	    SidebarControls = SidebarComponent.SidebarControls,
 	    SidebarControlBtn = SidebarComponent.SidebarControlBtn;
 
-	var ChatComponent = __webpack_require__(123)
+	var ChatComponent = __webpack_require__(124)
 
 	var ApplicationSidebar = React.createClass({displayName: 'ApplicationSidebar',
 	  render: function() {
@@ -29437,8 +29686,8 @@ var l20n=_RL20n_.l20n,
 	 * @providesModule ReactStyle
 	 */
 
-	var ReactStyleRules = __webpack_require__(124);
-	var ReactStyleRulesManager = __webpack_require__(125);
+	var ReactStyleRules = __webpack_require__(126);
+	var ReactStyleRulesManager = __webpack_require__(127);
 
 	/**
 	 * @constructor
@@ -29694,40 +29943,28 @@ var l20n=_RL20n_.l20n,
 /* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  handleSelect: function(itemprops) {\n    alert(itemprops.pane);\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>\n        <Tab pane='tab1:home' active>Home</Tab>\n        <Tab pane='tab1:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu33'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu33' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab1:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
 
 /***/ },
 /* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function(itemprops) {\n    this.refs.tablist.selectTab('pane', 'tab2:profile');\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>\n        <Tab pane='tab2:home' active>Home</Tab>\n        <Tab pane='tab2:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu34'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu34' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab2:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
 
 /***/ },
 /* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(127),
-	    Flux = __webpack_require__(128),
-	    FluxMixin = __webpack_require__(129),
-	    FluxChildMixin = __webpack_require__(130),
-	    StoreWatchMixin = __webpack_require__(131),
-	    createStore = __webpack_require__(132);
-
-	var Fluxxor = {
-	  Dispatcher: Dispatcher,
-	  Flux: Flux,
-	  FluxMixin: FluxMixin,
-	  FluxChildMixin: FluxChildMixin,
-	  StoreWatchMixin: StoreWatchMixin,
-	  createStore: createStore,
-	  version: __webpack_require__(126).version
-	};
-
-	module.exports = Fluxxor;
-
+	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
 
 /***/ },
 /* 122 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+
+/***/ },
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30094,7 +30331,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 123 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30183,7 +30420,31 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 124 */
+/* 125 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(129),
+	    Flux = __webpack_require__(130),
+	    FluxMixin = __webpack_require__(131),
+	    FluxChildMixin = __webpack_require__(132),
+	    StoreWatchMixin = __webpack_require__(133),
+	    createStore = __webpack_require__(134);
+
+	var Fluxxor = {
+	  Dispatcher: Dispatcher,
+	  Flux: Flux,
+	  FluxMixin: FluxMixin,
+	  FluxChildMixin: FluxChildMixin,
+	  StoreWatchMixin: StoreWatchMixin,
+	  createStore: createStore,
+	  version: __webpack_require__(128).version
+	};
+
+	module.exports = Fluxxor;
+
+
+/***/ },
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30275,7 +30536,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 125 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30285,7 +30546,7 @@ var l20n=_RL20n_.l20n,
 
 	'use strict'
 
-	var ReactStyleRules = __webpack_require__(124);
+	var ReactStyleRules = __webpack_require__(126);
 
 	/**
 	 * @param {number} maxRulesLengthPerStyle
@@ -30383,25 +30644,25 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 126 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = {"name":"fluxxor","version":"1.3.2","description":"Flux architecture tools for React","repository":{"type":"git","url":"https://github.com/BinaryMuse/fluxxor.git"},"main":"index.js","scripts":{"test":"npm run jshint && mocha --recursive","jshint":"jsxhint lib/ test/","build":"./script/build-fluxxor && ./script/build-examples","preview-site":"wintersmith preview -C site","build-site":"wintersmith build -C site"},"keywords":["react","flux"],"author":"Brandon Tilley <brandon@brandontilley.com>","license":"MIT","devDependencies":{"chai":"^1.9.1","css-loader":"^0.6.12","envify":"^1.2.1","jsdom":"^0.10.5","json-loader":"^0.5.0","jsx-loader":"^0.10.2","jsxhint":"^0.4.9","less":"^1.7.0","less-loader":"^0.7.3","mocha":"^1.18.2","react":"^0.10.0","sinon":"^1.9.1","sinon-chai":"^2.5.0","style-loader":"^0.6.3","webpack":"^1.1.11","webpack-dev-server":"^1.2.7","wintersmith":"^2.0.10","wintersmith-ejs":"^0.1.4","wintersmith-less":"^0.2.2"},"dependencies":{"lodash-node":"^2.4.1"},"jshintConfig":{"camelcase":true,"curly":true,"eqeqeq":true,"forin":true,"latedef":true,"newcap":false,"undef":true,"unused":true,"trailing":true,"node":true,"browser":true,"predef":["it","describe","beforeEach","afterEach"]}}
 
 /***/ },
-/* 127 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _clone = __webpack_require__(135),
-	    _mapValues = __webpack_require__(136),
-	    _forOwn = __webpack_require__(137),
-	    _intersection = __webpack_require__(140),
-	    _keys = __webpack_require__(138),
-	    _map = __webpack_require__(142),
-	    _each = __webpack_require__(143),
-	    _size = __webpack_require__(144),
-	    _findKey = __webpack_require__(139),
-	    _uniq = __webpack_require__(141);
+	var _clone = __webpack_require__(137),
+	    _mapValues = __webpack_require__(138),
+	    _forOwn = __webpack_require__(139),
+	    _intersection = __webpack_require__(142),
+	    _keys = __webpack_require__(140),
+	    _map = __webpack_require__(144),
+	    _each = __webpack_require__(145),
+	    _size = __webpack_require__(146),
+	    _findKey = __webpack_require__(141),
+	    _uniq = __webpack_require__(143);
 
 	var Dispatcher = function(stores) {
 	  this.stores = stores;
@@ -30520,10 +30781,10 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 128 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(127);
+	var Dispatcher = __webpack_require__(129);
 
 	function bindActions(target, actions, dispatchBinder) {
 	  for (var key in actions) {
@@ -30567,7 +30828,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 129 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var FluxMixin = function(React) {
@@ -30601,7 +30862,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 130 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var FluxChildMixin = function(React) {
@@ -30625,10 +30886,10 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 131 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _each = __webpack_require__(143);
+	var _each = __webpack_require__(145);
 
 	var StoreWatchMixin = function() {
 	  var storeNames = Array.prototype.slice.call(arguments);
@@ -30669,12 +30930,12 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 132 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _each = __webpack_require__(143),
-	    Store = __webpack_require__(133),
-	    util = __webpack_require__(134);
+	var _each = __webpack_require__(145),
+	    Store = __webpack_require__(135),
+	    util = __webpack_require__(136);
 
 	var RESERVED_KEYS = ["flux", "waitFor"];
 
@@ -30714,11 +30975,11 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 133 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var EventEmitter = __webpack_require__(145).EventEmitter,
-	    util = __webpack_require__(134);
+	var EventEmitter = __webpack_require__(147).EventEmitter,
+	    util = __webpack_require__(136);
 
 	function Store(dispatcher) {
 	  this.dispatcher = dispatcher;
@@ -30761,7 +31022,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 134 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -31289,7 +31550,7 @@ var l20n=_RL20n_.l20n,
 	}
 	exports.isPrimitive = isPrimitive;
 
-	exports.isBuffer = __webpack_require__(147);
+	exports.isBuffer = __webpack_require__(165);
 
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -31333,7 +31594,7 @@ var l20n=_RL20n_.l20n,
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(165);
+	exports.inherits = __webpack_require__(167);
 
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -31351,10 +31612,10 @@ var l20n=_RL20n_.l20n,
 	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(164)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(166)))
 
 /***/ },
-/* 135 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31365,8 +31626,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseClone = __webpack_require__(148),
-	    baseCreateCallback = __webpack_require__(149);
+	var baseClone = __webpack_require__(149),
+	    baseCreateCallback = __webpack_require__(150);
 
 	/**
 	 * Creates a clone of `value`. If `isDeep` is `true` nested objects will also
@@ -31423,7 +31684,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 136 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31434,8 +31695,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(153),
-	    forOwn = __webpack_require__(137);
+	var createCallback = __webpack_require__(154),
+	    forOwn = __webpack_require__(139);
 
 	/**
 	 * Creates an object with the same keys as `object` and values generated by
@@ -31487,7 +31748,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 137 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31498,9 +31759,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreateCallback = __webpack_require__(149),
-	    keys = __webpack_require__(138),
-	    objectTypes = __webpack_require__(150);
+	var baseCreateCallback = __webpack_require__(150),
+	    keys = __webpack_require__(140),
+	    objectTypes = __webpack_require__(151);
 
 	/**
 	 * Iterates over own enumerable properties of an object, executing the callback
@@ -31543,7 +31804,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 138 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31554,9 +31815,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(151),
-	    isObject = __webpack_require__(146),
-	    shimKeys = __webpack_require__(152);
+	var isNative = __webpack_require__(152),
+	    isObject = __webpack_require__(148),
+	    shimKeys = __webpack_require__(153);
 
 	/* Native method shortcuts for methods with the same name as other `lodash` methods */
 	var nativeKeys = isNative(nativeKeys = Object.keys) && nativeKeys;
@@ -31585,7 +31846,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 139 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31596,8 +31857,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(153),
-	    forOwn = __webpack_require__(137);
+	var createCallback = __webpack_require__(154),
+	    forOwn = __webpack_require__(139);
 
 	/**
 	 * This method is like `_.findIndex` except that it returns the key of the
@@ -31656,7 +31917,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 140 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31667,15 +31928,15 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(156),
-	    cacheIndexOf = __webpack_require__(157),
-	    createCache = __webpack_require__(158),
-	    getArray = __webpack_require__(159),
-	    isArguments = __webpack_require__(154),
-	    isArray = __webpack_require__(155),
-	    largeArraySize = __webpack_require__(160),
-	    releaseArray = __webpack_require__(161),
-	    releaseObject = __webpack_require__(162);
+	var baseIndexOf = __webpack_require__(157),
+	    cacheIndexOf = __webpack_require__(158),
+	    createCache = __webpack_require__(159),
+	    getArray = __webpack_require__(160),
+	    isArguments = __webpack_require__(155),
+	    isArray = __webpack_require__(156),
+	    largeArraySize = __webpack_require__(161),
+	    releaseArray = __webpack_require__(162),
+	    releaseObject = __webpack_require__(163);
 
 	/**
 	 * Creates an array of unique values present in all provided arrays using
@@ -31745,7 +32006,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 141 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31756,8 +32017,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseUniq = __webpack_require__(163),
-	    createCallback = __webpack_require__(153);
+	var baseUniq = __webpack_require__(164),
+	    createCallback = __webpack_require__(154);
 
 	/**
 	 * Creates a duplicate-value-free version of an array using strict equality
@@ -31820,7 +32081,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 142 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31831,8 +32092,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(153),
-	    forOwn = __webpack_require__(137);
+	var createCallback = __webpack_require__(154),
+	    forOwn = __webpack_require__(139);
 
 	/**
 	 * Creates an array of values by running each element in the collection
@@ -31896,7 +32157,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 143 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31907,8 +32168,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreateCallback = __webpack_require__(149),
-	    forOwn = __webpack_require__(137);
+	var baseCreateCallback = __webpack_require__(150),
+	    forOwn = __webpack_require__(139);
 
 	/**
 	 * Iterates over elements of a collection, executing the callback for each
@@ -31957,7 +32218,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 144 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31968,7 +32229,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var keys = __webpack_require__(138);
+	var keys = __webpack_require__(140);
 
 	/**
 	 * Gets the size of the `collection` by returning `collection.length` for arrays
@@ -31999,7 +32260,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 145 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -32308,7 +32569,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 146 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32319,7 +32580,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectTypes = __webpack_require__(150);
+	var objectTypes = __webpack_require__(151);
 
 	/**
 	 * Checks if `value` is the language type of Object.
@@ -32353,18 +32614,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 147 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = function isBuffer(arg) {
-	  return arg && typeof arg === 'object'
-	    && typeof arg.copy === 'function'
-	    && typeof arg.fill === 'function'
-	    && typeof arg.readUInt8 === 'function';
-	}
-
-/***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32375,14 +32625,14 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var assign = __webpack_require__(166),
-	    forEach = __webpack_require__(143),
-	    forOwn = __webpack_require__(137),
-	    getArray = __webpack_require__(159),
-	    isArray = __webpack_require__(155),
-	    isObject = __webpack_require__(146),
-	    releaseArray = __webpack_require__(161),
-	    slice = __webpack_require__(167);
+	var assign = __webpack_require__(168),
+	    forEach = __webpack_require__(145),
+	    forOwn = __webpack_require__(139),
+	    getArray = __webpack_require__(160),
+	    isArray = __webpack_require__(156),
+	    isObject = __webpack_require__(148),
+	    releaseArray = __webpack_require__(162),
+	    slice = __webpack_require__(169);
 
 	/** Used to match regexp flags from their coerced string values */
 	var reFlags = /\w*$/;
@@ -32522,7 +32772,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32533,10 +32783,10 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var bind = __webpack_require__(168),
+	var bind = __webpack_require__(170),
 	    identity = __webpack_require__(178),
-	    setBindData = __webpack_require__(169),
-	    support = __webpack_require__(170);
+	    setBindData = __webpack_require__(171),
+	    support = __webpack_require__(172);
 
 	/** Used to detected named functions */
 	var reFuncName = /^\s*function[ \n\r\t]+\w/;
@@ -32608,7 +32858,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 150 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32634,7 +32884,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 151 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32674,7 +32924,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 152 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32685,7 +32935,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectTypes = __webpack_require__(150);
+	var objectTypes = __webpack_require__(151);
 
 	/** Used for native method references */
 	var objectProto = Object.prototype;
@@ -32718,7 +32968,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32729,10 +32979,10 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreateCallback = __webpack_require__(149),
-	    baseIsEqual = __webpack_require__(171),
-	    isObject = __webpack_require__(146),
-	    keys = __webpack_require__(138),
+	var baseCreateCallback = __webpack_require__(150),
+	    baseIsEqual = __webpack_require__(173),
+	    isObject = __webpack_require__(148),
+	    keys = __webpack_require__(140),
 	    property = __webpack_require__(179);
 
 	/**
@@ -32805,7 +33055,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32851,7 +33101,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 155 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32862,7 +33112,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(151);
+	var isNative = __webpack_require__(152);
 
 	/** `Object#toString` result shortcuts */
 	var arrayClass = '[object Array]';
@@ -32902,7 +33152,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 156 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32940,7 +33190,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32951,8 +33201,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(156),
-	    keyPrefix = __webpack_require__(172);
+	var baseIndexOf = __webpack_require__(157),
+	    keyPrefix = __webpack_require__(174);
 
 	/**
 	 * An implementation of `_.contains` for cache objects that mimics the return
@@ -32985,7 +33235,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32996,9 +33246,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var cachePush = __webpack_require__(173),
-	    getObject = __webpack_require__(174),
-	    releaseObject = __webpack_require__(162);
+	var cachePush = __webpack_require__(175),
+	    getObject = __webpack_require__(176),
+	    releaseObject = __webpack_require__(163);
 
 	/**
 	 * Creates a cache object to optimize linear searches of large arrays.
@@ -33036,7 +33286,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33047,7 +33297,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var arrayPool = __webpack_require__(175);
+	var arrayPool = __webpack_require__(177);
 
 	/**
 	 * Gets an array from the array pool or creates a new one if the pool is empty.
@@ -33063,7 +33313,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33082,7 +33332,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33093,8 +33343,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var arrayPool = __webpack_require__(175),
-	    maxPoolSize = __webpack_require__(176);
+	var arrayPool = __webpack_require__(177),
+	    maxPoolSize = __webpack_require__(180);
 
 	/**
 	 * Releases the given array back to the array pool.
@@ -33113,7 +33363,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33124,8 +33374,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var maxPoolSize = __webpack_require__(176),
-	    objectPool = __webpack_require__(177);
+	var maxPoolSize = __webpack_require__(180),
+	    objectPool = __webpack_require__(181);
 
 	/**
 	 * Releases the given object back to the object pool.
@@ -33148,7 +33398,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33159,13 +33409,13 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(156),
-	    cacheIndexOf = __webpack_require__(157),
-	    createCache = __webpack_require__(158),
-	    getArray = __webpack_require__(159),
-	    largeArraySize = __webpack_require__(160),
-	    releaseArray = __webpack_require__(161),
-	    releaseObject = __webpack_require__(162);
+	var baseIndexOf = __webpack_require__(157),
+	    cacheIndexOf = __webpack_require__(158),
+	    createCache = __webpack_require__(159),
+	    getArray = __webpack_require__(160),
+	    largeArraySize = __webpack_require__(161),
+	    releaseArray = __webpack_require__(162),
+	    releaseObject = __webpack_require__(163);
 
 	/**
 	 * The base implementation of `_.uniq` without support for callback shorthands
@@ -33218,7 +33468,18 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 164 */
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = function isBuffer(arg) {
+	  return arg && typeof arg === 'object'
+	    && typeof arg.copy === 'function'
+	    && typeof arg.fill === 'function'
+	    && typeof arg.readUInt8 === 'function';
+	}
+
+/***/ },
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// shim for using process in browser
@@ -33287,7 +33548,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 165 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	if (typeof Object.create === 'function') {
@@ -33316,7 +33577,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 166 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33327,9 +33588,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreateCallback = __webpack_require__(149),
-	    keys = __webpack_require__(138),
-	    objectTypes = __webpack_require__(150);
+	var baseCreateCallback = __webpack_require__(150),
+	    keys = __webpack_require__(140),
+	    objectTypes = __webpack_require__(151);
 
 	/**
 	 * Assigns own enumerable properties of source object(s) to the destination
@@ -33392,7 +33653,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 167 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33436,7 +33697,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 168 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33447,8 +33708,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createWrapper = __webpack_require__(180),
-	    slice = __webpack_require__(167);
+	var createWrapper = __webpack_require__(182),
+	    slice = __webpack_require__(169);
 
 	/**
 	 * Creates a function that, when called, invokes `func` with the `this`
@@ -33482,7 +33743,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 169 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33493,8 +33754,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(151),
-	    noop = __webpack_require__(181);
+	var isNative = __webpack_require__(152),
+	    noop = __webpack_require__(183);
 
 	/** Used as the property descriptor for `__bindData__` */
 	var descriptor = {
@@ -33531,7 +33792,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 170 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -33542,7 +33803,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(151);
+	var isNative = __webpack_require__(152);
 
 	/** Used to detect functions containing a `this` reference */
 	var reThis = /\bthis\b/;
@@ -33578,7 +33839,7 @@ var l20n=_RL20n_.l20n,
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 171 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33589,11 +33850,11 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var forIn = __webpack_require__(182),
-	    getArray = __webpack_require__(159),
-	    isFunction = __webpack_require__(183),
-	    objectTypes = __webpack_require__(150),
-	    releaseArray = __webpack_require__(161);
+	var forIn = __webpack_require__(184),
+	    getArray = __webpack_require__(160),
+	    isFunction = __webpack_require__(185),
+	    objectTypes = __webpack_require__(151),
+	    releaseArray = __webpack_require__(162);
 
 	/** `Object#toString` result shortcuts */
 	var argsClass = '[object Arguments]',
@@ -33793,7 +34054,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 172 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33812,7 +34073,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 173 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33823,7 +34084,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var keyPrefix = __webpack_require__(172);
+	var keyPrefix = __webpack_require__(174);
 
 	/**
 	 * Adds a given value to the corresponding cache object.
@@ -33856,7 +34117,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 174 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33867,7 +34128,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectPool = __webpack_require__(177);
+	var objectPool = __webpack_require__(181);
 
 	/**
 	 * Gets an object from the object pool or creates a new one if the pool is empty.
@@ -33897,7 +34158,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 175 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33913,44 +34174,6 @@ var l20n=_RL20n_.l20n,
 	var arrayPool = [];
 
 	module.exports = arrayPool;
-
-
-/***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/** Used as the max size of the `arrayPool` and `objectPool` */
-	var maxPoolSize = 40;
-
-	module.exports = maxPoolSize;
-
-
-/***/ },
-/* 177 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/** Used to pool arrays and objects used internally */
-	var objectPool = [];
-
-	module.exports = objectPool;
 
 
 /***/ },
@@ -34045,10 +34268,48 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseBind = __webpack_require__(184),
-	    baseCreateWrapper = __webpack_require__(185),
-	    isFunction = __webpack_require__(183),
-	    slice = __webpack_require__(167);
+
+	/** Used as the max size of the `arrayPool` and `objectPool` */
+	var maxPoolSize = 40;
+
+	module.exports = maxPoolSize;
+
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/** Used to pool arrays and objects used internally */
+	var objectPool = [];
+
+	module.exports = objectPool;
+
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var baseBind = __webpack_require__(186),
+	    baseCreateWrapper = __webpack_require__(187),
+	    isFunction = __webpack_require__(185),
+	    slice = __webpack_require__(169);
 
 	/**
 	 * Used for `Array` method references.
@@ -34146,7 +34407,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 181 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34178,7 +34439,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 182 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34189,8 +34450,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreateCallback = __webpack_require__(149),
-	    objectTypes = __webpack_require__(150);
+	var baseCreateCallback = __webpack_require__(150),
+	    objectTypes = __webpack_require__(151);
 
 	/**
 	 * Iterates over own and inherited enumerable properties of an object,
@@ -34238,7 +34499,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 183 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34271,7 +34532,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 184 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34282,10 +34543,10 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreate = __webpack_require__(186),
-	    isObject = __webpack_require__(146),
-	    setBindData = __webpack_require__(169),
-	    slice = __webpack_require__(167);
+	var baseCreate = __webpack_require__(188),
+	    isObject = __webpack_require__(148),
+	    setBindData = __webpack_require__(171),
+	    slice = __webpack_require__(169);
 
 	/**
 	 * Used for `Array` method references.
@@ -34339,7 +34600,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 185 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34350,10 +34611,10 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreate = __webpack_require__(186),
-	    isObject = __webpack_require__(146),
-	    setBindData = __webpack_require__(169),
-	    slice = __webpack_require__(167);
+	var baseCreate = __webpack_require__(188),
+	    isObject = __webpack_require__(148),
+	    setBindData = __webpack_require__(171),
+	    slice = __webpack_require__(169);
 
 	/**
 	 * Used for `Array` method references.
@@ -34423,7 +34684,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 186 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -34434,9 +34695,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(151),
-	    isObject = __webpack_require__(146),
-	    noop = __webpack_require__(181);
+	var isNative = __webpack_require__(152),
+	    isObject = __webpack_require__(148),
+	    noop = __webpack_require__(183);
 
 	/* Native method shortcuts for methods with the same name as other `lodash` methods */
 	var nativeCreate = isNative(nativeCreate = Object.create) && nativeCreate;
