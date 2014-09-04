@@ -30423,9 +30423,9 @@ var l20n=_RL20n_.l20n,
 /* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(130),
+	var Dispatcher = __webpack_require__(131),
 	    Flux = __webpack_require__(129),
-	    FluxMixin = __webpack_require__(131),
+	    FluxMixin = __webpack_require__(130),
 	    FluxChildMixin = __webpack_require__(132),
 	    StoreWatchMixin = __webpack_require__(133),
 	    createStore = __webpack_require__(134);
@@ -30653,7 +30653,7 @@ var l20n=_RL20n_.l20n,
 /* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(130);
+	var Dispatcher = __webpack_require__(131);
 
 	function bindActions(target, actions, dispatchBinder) {
 	  for (var key in actions) {
@@ -30700,14 +30700,48 @@ var l20n=_RL20n_.l20n,
 /* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var FluxMixin = function(React) {
+	  return {
+	    propTypes: {
+	      flux: React.PropTypes.object.isRequired
+	    },
+
+	    childContextTypes: {
+	      flux: React.PropTypes.object
+	    },
+
+	    getChildContext: function() {
+	      return {
+	        flux: this.props.flux
+	      };
+	    },
+
+	    getFlux: function() {
+	      return this.props.flux;
+	    }
+	  };
+	};
+
+	FluxMixin.componentWillMount = function() {
+	  throw new Error("Fluxxor.FluxMixin is a function that takes React as a " +
+	    "parameter and returns the mixin, e.g.: mixins[Fluxxor.FluxMixin(React)]");
+	};
+
+	module.exports = FluxMixin;
+
+
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var _clone = __webpack_require__(139),
 	    _mapValues = __webpack_require__(137),
 	    _forOwn = __webpack_require__(138),
 	    _intersection = __webpack_require__(142),
 	    _keys = __webpack_require__(140),
-	    _map = __webpack_require__(146),
+	    _map = __webpack_require__(145),
 	    _each = __webpack_require__(144),
-	    _size = __webpack_require__(145),
+	    _size = __webpack_require__(146),
 	    _findKey = __webpack_require__(141),
 	    _uniq = __webpack_require__(143);
 
@@ -30825,40 +30859,6 @@ var l20n=_RL20n_.l20n,
 	};
 
 	module.exports = Dispatcher;
-
-
-/***/ },
-/* 131 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var FluxMixin = function(React) {
-	  return {
-	    propTypes: {
-	      flux: React.PropTypes.object.isRequired
-	    },
-
-	    childContextTypes: {
-	      flux: React.PropTypes.object
-	    },
-
-	    getChildContext: function() {
-	      return {
-	        flux: this.props.flux
-	      };
-	    },
-
-	    getFlux: function() {
-	      return this.props.flux;
-	    }
-	  };
-	};
-
-	FluxMixin.componentWillMount = function() {
-	  throw new Error("Fluxxor.FluxMixin is a function that takes React as a " +
-	    "parameter and returns the mixin, e.g.: mixins[Fluxxor.FluxMixin(React)]");
-	};
-
-	module.exports = FluxMixin;
 
 
 /***/ },
@@ -32153,48 +32153,6 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var keys = __webpack_require__(140);
-
-	/**
-	 * Gets the size of the `collection` by returning `collection.length` for arrays
-	 * and array-like objects or the number of own enumerable properties for objects.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Collections
-	 * @param {Array|Object|string} collection The collection to inspect.
-	 * @returns {number} Returns `collection.length` or number of own enumerable properties.
-	 * @example
-	 *
-	 * _.size([1, 2]);
-	 * // => 2
-	 *
-	 * _.size({ 'one': 1, 'two': 2, 'three': 3 });
-	 * // => 3
-	 *
-	 * _.size('pebbles');
-	 * // => 7
-	 */
-	function size(collection) {
-	  var length = collection ? collection.length : 0;
-	  return typeof length == 'number' ? length : keys(collection).length;
-	}
-
-	module.exports = size;
-
-
-/***/ },
-/* 146 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
 	var createCallback = __webpack_require__(149),
 	    forOwn = __webpack_require__(138);
 
@@ -32257,6 +32215,48 @@ var l20n=_RL20n_.l20n,
 	}
 
 	module.exports = map;
+
+
+/***/ },
+/* 146 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var keys = __webpack_require__(140);
+
+	/**
+	 * Gets the size of the `collection` by returning `collection.length` for arrays
+	 * and array-like objects or the number of own enumerable properties for objects.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Collections
+	 * @param {Array|Object|string} collection The collection to inspect.
+	 * @returns {number} Returns `collection.length` or number of own enumerable properties.
+	 * @example
+	 *
+	 * _.size([1, 2]);
+	 * // => 2
+	 *
+	 * _.size({ 'one': 1, 'two': 2, 'three': 3 });
+	 * // => 3
+	 *
+	 * _.size('pebbles');
+	 * // => 7
+	 */
+	function size(collection) {
+	  var length = collection ? collection.length : 0;
+	  return typeof length == 'number' ? length : keys(collection).length;
+	}
+
+	module.exports = size;
 
 
 /***/ },

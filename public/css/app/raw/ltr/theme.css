@@ -1336,12 +1336,6 @@ html .sidebar-nav > li > a > .toggle-button {
           -ms-transform: rotate(90deg);
               transform: rotate(90deg); }
 
-html.touch #sidebar, html.touch #body, html.touch #footer {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
-  html.touch #sidebar *, html.touch #body *, html.touch #footer * {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
 html.touch #sidebar {
   overflow: hidden; }
   html.touch #sidebar .sidebar-container > .sidebar {
@@ -2099,12 +2093,6 @@ html .sidebar-nav > li > a > .toggle-button {
           -ms-transform: rotate(90deg);
               transform: rotate(90deg); }
 
-html.touch #sidebar, html.touch #body, html.touch #footer {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
-  html.touch #sidebar *, html.touch #body *, html.touch #footer * {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
 html.touch #sidebar {
   overflow: hidden; }
   html.touch #sidebar .sidebar-container > .sidebar {
@@ -2862,12 +2850,6 @@ html .sidebar-nav > li > a > .toggle-button {
           -ms-transform: rotate(90deg);
               transform: rotate(90deg); }
 
-html.touch #sidebar, html.touch #body, html.touch #footer {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
-  html.touch #sidebar *, html.touch #body *, html.touch #footer * {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
 html.touch #sidebar {
   overflow: hidden; }
   html.touch #sidebar .sidebar-container > .sidebar {
@@ -3625,12 +3607,6 @@ html .sidebar-nav > li > a > .toggle-button {
           -ms-transform: rotate(90deg);
               transform: rotate(90deg); }
 
-html.touch #sidebar, html.touch #body, html.touch #footer {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
-  html.touch #sidebar *, html.touch #body *, html.touch #footer * {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
 html.touch #sidebar {
   overflow: hidden; }
   html.touch #sidebar .sidebar-container > .sidebar {
@@ -4388,12 +4364,6 @@ html .sidebar-nav > li > a > .toggle-button {
           -ms-transform: rotate(90deg);
               transform: rotate(90deg); }
 
-html.touch #sidebar, html.touch #body, html.touch #footer {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
-  html.touch #sidebar *, html.touch #body *, html.touch #footer * {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
 html.touch #sidebar {
   overflow: hidden; }
   html.touch #sidebar .sidebar-container > .sidebar {
@@ -5151,12 +5121,6 @@ html .sidebar-nav > li > a > .toggle-button {
           -ms-transform: rotate(90deg);
               transform: rotate(90deg); }
 
-html.touch #sidebar, html.touch #body, html.touch #footer {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
-  html.touch #sidebar *, html.touch #body *, html.touch #footer * {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
 html.touch #sidebar {
   overflow: hidden; }
   html.touch #sidebar .sidebar-container > .sidebar {
