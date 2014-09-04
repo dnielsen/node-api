@@ -155,6 +155,7 @@ Rubix = function(id, opts) {
 
     this.first_time = true;
     this.last_render = null;
+    this.realtime = this.opts.realtime || false;
 
     this.setup();
 };
@@ -168,9 +169,11 @@ Rubix.prototype.setup = function() {
 };
 
 Rubix.prototype.draw = function() {
-    if(this.last_render !== null)
-        if(Date.now() - this.last_render <= 150) return;
-    this.last_render = Date.now();
+    if(!this.realtime) {
+        if(this.last_render !== null)
+            if(Date.now() - this.last_render <= 150) return;
+        this.last_render = Date.now();
+    }
     if(!this.root_elem.is(':visible')) return;
     this._draw($(window).width(), $(window).height());
 };
