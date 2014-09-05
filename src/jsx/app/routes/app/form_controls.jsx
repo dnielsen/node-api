@@ -486,7 +486,7 @@ var Body = React.createClass({
                             <FormGroup>
                               <Label control sm={3}>Email</Label>
                               <Col sm={9}>
-                                <Static>admin@sketchpixy.com</Static>
+                                <Static>support@sketchpixy.com</Static>
                               </Col>
                             </FormGroup>
                             <FormGroup>

@@ -51,3 +51,5 @@ var MediaHeading = React.createClass({
 module.exports.Media = Media;
 module.exports.MediaBody = MediaBody;
 module.exports.MediaList = MediaList;
+module.exports.MediaObject = MediaObject;
+module.exports.MediaHeading = MediaHeading;

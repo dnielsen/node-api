@@ -108,6 +108,8 @@
 	  Media: __webpack_require__(34).Media,
 	  MediaBody: __webpack_require__(34).MediaBody,
 	  MediaList: __webpack_require__(34).MediaList,
+	  MediaObject: __webpack_require__(34).MediaObject,
+	  MediaHeading: __webpack_require__(34).MediaHeading,
 	  ListGroup: __webpack_require__(35).ListGroup,
 	  ListGroupItem: __webpack_require__(35).ListGroupItem,
 	  Well: __webpack_require__(36),
@@ -2272,6 +2274,8 @@
 	      children = React.DOM.span(null, this.props.children, " →")
 	    } else if(this.props.previous) {
 	      children = React.DOM.span(null, "← ", this.props.children)
+	    } else if(this.props.active) {
+	      children = React.DOM.span(null, this.props.children, React.DOM.span({className: "sr-only"}, "(current)"))
 	    } else {
 	      children = this.props.children
 	    }
@@ -2331,6 +2335,11 @@
 	  propTypes: {
 	    bsStyle: React.PropTypes.string
 	  },
+	  getDefaultProps: function() {
+	    return {
+	      bsStyle: 'default'
+	    };
+	  },
 	  preRender: function(classesObj, type) {
 	    var classes = null;
 
@@ -2389,7 +2398,7 @@
 	  }
 	});
 
-	module.exports = Jumbotron
+	module.exports = Jumbotron;
 
 
 /***/ },
@@ -2564,6 +2573,8 @@
 	module.exports.Media = Media;
 	module.exports.MediaBody = MediaBody;
 	module.exports.MediaList = MediaList;
+	module.exports.MediaObject = MediaObject;
+	module.exports.MediaHeading = MediaHeading;
 
 
 /***/ },

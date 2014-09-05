@@ -301,7 +301,7 @@ var Body = React.createClass({
 
               <address>
                 <strong>Full Name</strong><br/>
-                <a href='mailto:admin@sketchpixy.com'>admin@sketchpixy.com</a>
+                <a href='mailto:support@sketchpixy.com'>support@sketchpixy.com</a>
               </address>
             </Well>
             <div>
@@ -316,7 +316,7 @@ var Body = React.createClass({
 
                   {"<address>\n"}
                   {"  <strong>Full Name</strong><br/>\n"}
-                  {"  <a href='mailto:admin@sketchpixy.com'>admin@sketchpixy.com</a>\n"}
+                  {"  <a href='mailto:support@sketchpixy.com'>support@sketchpixy.com</a>\n"}
                   {"</address>\n"}
                 </code>
               </pre>

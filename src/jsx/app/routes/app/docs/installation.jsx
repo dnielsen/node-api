@@ -32,7 +32,7 @@ var Body = React.createClass({
                       <Row>
                         <Col xs={12}>
                           <p>Rubix only utilizes Node.JS for dependency resolution (CommonJS) and compiling/uglifying assets. You can always plug in any backend in the language of your choice (which includes PHP/ASP.NET etc).</p>
-                          <p>Remember that support is always available at : <a target='_blank' href='mailto:admin@sketchpixy.com'>admin@sketchpixy.com</a></p>
+                          <p>Remember that support is always available at : <a target='_blank' href='mailto:support@sketchpixy.com'>support@sketchpixy.com</a></p>
                         </Col>
                       </Row>
                     </Grid>

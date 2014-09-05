@@ -166,6 +166,11 @@ var ApplicationSidebar = React.createClass({
                           <SidebarNavItem name='Button Groups' href='/app/docs/bootstrap/components/button_groups' />
                           <SidebarNavItem name='Input Groups' href='/app/docs/bootstrap/components/input_groups' />
                           <SidebarNavItem name='Navs' href='/app/docs/bootstrap/components/navs' />
+                          <SidebarNavItem name='Navbar' href='/app/docs/bootstrap/components/navbar' />
+                          <SidebarNavItem name='Breadcrumbs' href='/app/docs/bootstrap/components/breadcrumbs' />
+                          <SidebarNavItem name='Pagination' href='/app/docs/bootstrap/components/pagination' />
+                          <SidebarNavItem name='Labels &amp; Badges' href='/app/docs/bootstrap/components/labels_and_badges' />
+                          <SidebarNavItem name='Jumbotron' href='/app/docs/bootstrap/components/jumbotron' />
                         </SidebarNav>
                       </SidebarNavItem>
                     </SidebarNav>

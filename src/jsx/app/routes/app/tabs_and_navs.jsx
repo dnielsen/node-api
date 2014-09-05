@@ -562,10 +562,7 @@ var Body = React.createClass({
               <h3>Pagination</h3>
               <Pagination>
                 <Page begin disabled />
-                <Page active href='#'>
-                  <span>1</span>
-                  <span className='sr-only'>(current)</span>
-                </Page>
+                <Page active href='#'>1</Page>
                 <Page href='#'>2</Page>
                 <Page href='#'>3</Page>
                 <Page href='#'>4</Page>

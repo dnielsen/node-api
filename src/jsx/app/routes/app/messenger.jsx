@@ -28,7 +28,7 @@ var Body = React.createClass({
       id: 'info',
       type: 'info',
       singleton: true,
-      message: 'Just send us a mail at <a href="mailto:admin@sketchpixy.com">admin@sketchpixy.com</a> if you have any queries!',
+      message: 'Just send us a mail at <a href="mailto:support@sketchpixy.com">support@sketchpixy.com</a> if you have any queries!',
       showCloseButton: true
     });
   },

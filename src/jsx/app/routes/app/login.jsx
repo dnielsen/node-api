@@ -53,7 +53,7 @@ var Body = React.createClass({
                                   <InputGroupAddon>
                                     <Icon glyph='icon-fontello-mail' />
                                   </InputGroupAddon>
-                                  <Input autoFocus type='email' id='emailaddress' className='border-focus-blue' placeholder='admin@sketchpixy.com' />
+                                  <Input autoFocus type='email' id='emailaddress' className='border-focus-blue' placeholder='support@sketchpixy.com' />
                                 </InputGroup>
                               </FormGroup>
                               <FormGroup>

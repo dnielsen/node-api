@@ -23,7 +23,7 @@ var Body = React.createClass({
                             123 Folsom Ave, Suite 600<br/>
                             San Francisco, CA 94107<br/>
                             <abbr title='Phone'>P:</abbr> (123) 456-7890<br/>
-                            <div className='hidden-print'><abbr title='Email'>E:</abbr>{' '}<a href='mailto:admin@sketchpixy.com'>admin@sketchpixy.com</a></div>
+                            <div className='hidden-print'><abbr title='Email'>E:</abbr>{' '}<a href='mailto:support@sketchpixy.com'>support@sketchpixy.com</a></div>
                           </address>
                         </Col>
                         <Col xs={6} className='text-right' style={{paddingTop: 25}}>

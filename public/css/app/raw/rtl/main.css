@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! rubix - v0.1.0 - 2014-09-05 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
+/*! rubix - v0.1.0 - 2014-09-05 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 
 code[class*="language-"],
 pre[class*="language-"] {
@@ -8489,6 +8489,11 @@ input[type="file"] {
 .navbar-form {
   margin-top: 25px;
   margin-bottom: 0;
+}
+
+.navbar-toggle .icon-bar {
+  top: -3px;
+  position: relative;
 }
 
 .navbar-default .navbar-toggle {
@@ -20703,6 +20708,7 @@ html.boxed #homepage-container {
 
 #demo-btn {
   left: 0;
+  z-index: 3;
   height: auto;
   opacity: 0.6;
   position: fixed;
@@ -20757,6 +20763,12 @@ html.boxed #homepage-container {
   font-size: 20px;
   line-height: 28px;
   letter-spacing: 0.8px;
+}
+
+.subtle-bottom-shadow {
+  z-index: 1;
+  position: relative;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
 }
 
 .dashboard #dash-btn-toolbar {

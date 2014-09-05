@@ -34,6 +34,8 @@ var Page = React.createClass({
       children = <span>{this.props.children} →</span>
     } else if(this.props.previous) {
       children = <span>← {this.props.children}</span>
+    } else if(this.props.active) {
+      children = <span>{this.props.children}<span className='sr-only'>(current)</span></span>
     } else {
       children = this.props.children
     }

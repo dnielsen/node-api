@@ -2,7 +2,7 @@
   "name": "rubix",
   "version": "0.1.0",
   "private": true,
-  "copyright": "SketchPixy LLP, email: admin@sketchpixy.com",
+  "copyright": "SketchPixy LLP, email: support@sketchpixy.com",
   "devDependencies": {
     "compression": "^1.0.8",
     "css-flip": "^0.5.0",
@@ -12,7 +12,6 @@
     "gulp": "^3.8.7",
     "gulp-autoprefixer": "0.0.8",
     "gulp-bless": "^1.0.2",
-    "gulp-compressor": "^0.1.0",
     "gulp-concat": "^2.2.0",
     "gulp-cssfont64": "0.0.1",
     "gulp-insert": "^0.4.0",

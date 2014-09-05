@@ -62,6 +62,8 @@ window.ReactBootstrap = {
   Media: require('./media.jsx').Media,
   MediaBody: require('./media.jsx').MediaBody,
   MediaList: require('./media.jsx').MediaList,
+  MediaObject: require('./media.jsx').MediaObject,
+  MediaHeading: require('./media.jsx').MediaHeading,
   ListGroup: require('./list_group.jsx').ListGroup,
   ListGroupItem: require('./list_group.jsx').ListGroupItem,
   Well: require('./well.jsx'),

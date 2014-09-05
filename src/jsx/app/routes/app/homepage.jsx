@@ -133,7 +133,7 @@ var Homepage = React.createClass({
             {"Rubix Panels empowers developers to create complex layouts in addition to the awesome Grid provided by Twitter Bootstrap. Pretty much every example page showcased in the demo makes use of Panels for layout."}
           </p>
         </Hero>
-        <Hero>
+        <Hero style={{position: 'relative', zIndex: 2}}>
           <HeroHeader>{"The Asset Pipeline"}</HeroHeader>
           <HeroHeader2>{"Gulp, Flip and Bless!"}</HeroHeader2>
           <div className='text-center' style={{marginTop: 25, marginBottom: 25}}>
@@ -151,7 +151,7 @@ var Homepage = React.createClass({
             {"Rubix's Asset Pipeline depends entirely on Gulp as its backbone. "}<strong>{"Everything is automated"}</strong>{": be it compiling JSX, SASS or even WebFonts! We make use of Twitter's "}<strong>{"css-flip"}</strong>{" for RTL support and the awesome "}<strong>{"blesscss"}</strong>{" library for fixing IE9 selectors and stylesheet bug."}
           </p>
         </Hero>
-        <Hero>
+        <Hero className='subtle-bottom-shadow'>
           <HeroHeader>{"One Last Thing"}</HeroHeader>
           <HeroHeader2>{"Fanatical Support!"}</HeroHeader2>
           <div className='text-center' style={{marginTop: 25, marginBottom: 25}}>
@@ -161,6 +161,17 @@ var Homepage = React.createClass({
             {"We have already provided extensive documentation on using/implementing Rubix. However, we take this a step further by ensuring version releases (which includes bug fixes, new features etc) every week (excluding time taken for review process) for the next 6 months and general support for 1 year."}
           </p>
         </Hero>
+        <div>
+          <Hero className='text-center' style={{height: 215, backgroundImage: 'url(/imgs/homepage/background.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', overflow: 'hidden', backgroundPosition: '0% 100%'}}>
+            <mq minWidth={550}>
+              <h1 className='fg-white' style={{marginTop: 0, marginBottom: 25, fontWeight: 100}}>So what are you waiting for?</h1>
+            </mq>
+            <mq maxWidth={549}>
+              <h3 className='fg-white' style={{marginTop: 0, marginBottom: 25, fontWeight: 100}}>So what are you waiting for?</h3>
+            </mq>
+            <Button lg outlined inverse retainBackground bsStyle='red' onClick={this.handleNavigation}>Click here to View Demo</Button>
+          </Hero>
+        </div>
       </Container>
     );
   }

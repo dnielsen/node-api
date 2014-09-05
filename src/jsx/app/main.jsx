@@ -95,6 +95,11 @@ var dropdowndocs = require('./routes/app/docs/bootstrap/dropdowns.jsx');
 var buttongroupdocs = require('./routes/app/docs/bootstrap/button_groups.jsx');
 var inputgroupdocs = require('./routes/app/docs/bootstrap/input_groups.jsx');
 var navdocs = require('./routes/app/docs/bootstrap/navs.jsx');
+var navbardocs = require('./routes/app/docs/bootstrap/navbar.jsx');
+var breadcrumbdocs = require('./routes/app/docs/bootstrap/breadcrumbs.jsx');
+var paginationdocs = require('./routes/app/docs/bootstrap/pagination.jsx');
+var labelsbadgesdocs = require('./routes/app/docs/bootstrap/labels_and_badges.jsx');
+var jumbodocs = require('./routes/app/docs/bootstrap/jumbotron.jsx');
 
 /* EXPERIMENTAL PAGES */
 var panel_tests = require('./routes/expt/panel-tests.jsx');
@@ -211,6 +216,11 @@ var routes = (
               <Route name='button_groups' path='button_groups' view={buttongroupdocs} />
               <Route name='input_groups' path='input_groups' view={inputgroupdocs} />
               <Route name='navs' path='navs' view={navdocs} />
+              <Route name='navbar' path='navbar' view={navbardocs} />
+              <Route name='breadcrumbs' path='breadcrumbs' view={breadcrumbdocs} />
+              <Route name='pagination' path='pagination' view={paginationdocs} />
+              <Route name='labels_and_badges' path='labels_and_badges' view={labelsbadgesdocs} />
+              <Route name='jumbotron' path='jumbotron' view={jumbodocs} />
             </Route>
 
           </Route>
