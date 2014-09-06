@@ -1,4 +1,4 @@
-/*! rubix - v0.1.0 - 2014-09-05 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v0.1.0 - 2014-09-06 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -68,12 +68,15 @@ var Container=_RB32_.Container,
     Progress=_RB32_.Progress,
     ProgressGroup=_RB32_.ProgressGroup,
     Media=_RB32_.Media,
+    MediaDiv=_RB32_.MediaDiv,
     MediaBody=_RB32_.MediaBody,
     MediaList=_RB32_.MediaList,
     MediaObject=_RB32_.MediaObject,
     MediaHeading=_RB32_.MediaHeading,
     ListGroup=_RB32_.ListGroup,
     ListGroupItem=_RB32_.ListGroupItem,
+    ListGroupItemText=_RB32_.ListGroupItemText,
+    ListGroupItemHeading=_RB32_.ListGroupItemHeading,
     Well=_RB32_.Well,
     Modal=_RB32_.Modal,
     ModalBody=_RB32_.ModalBody,
@@ -111,7 +114,16 @@ var Container=_RB32_.Container,
     PricingTableHeader=_RB32_.PricingTableHeader,
     PricingTableContainer=_RB32_.PricingTableContainer,
     PricingButtonContainer=_RB32_.PricingButtonContainer,
+    Alert=_RB32_.Alert,
+    AlertLink=_RB32_.AlertLink,
     Tag=_RB32_.Tag,
+    Sidebar=_RB32_.Sidebar,
+    SidebarNav=_RB32_.SidebarNav,
+    SidebarBtn=_RB32_.SidebarBtn,
+    SidebarMixin=_RB32_.SidebarMixin,
+    SidebarNavItem=_RB32_.SidebarNavItem,
+    SidebarControls=_RB32_.SidebarControls,
+    SidebarControlBtn=_RB32_.SidebarControlBtn,
     TransitionEndEvent='webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
 
 /*L20N*/
@@ -248,29 +260,34 @@ var l20n=_RL20n_.l20n,
 	var gulpfilejsx = __webpack_require__(54);
 	var gulpfilewebfont = __webpack_require__(55);
 	var reactdoc = __webpack_require__(56);
-	var bootstrapgrid = __webpack_require__(57);
-	var typography = __webpack_require__(58);
-	var code = __webpack_require__(59);
-	var tables = __webpack_require__(60);
-	var forms = __webpack_require__(61);
-	var inputsdocs = __webpack_require__(62);
-	var textareadocs = __webpack_require__(63);
-	var checkradio = __webpack_require__(64);
-	var selectdocs = __webpack_require__(65);
-	var buttondocs = __webpack_require__(66);
-	var dropdowndocs = __webpack_require__(67);
-	var buttongroupdocs = __webpack_require__(68);
-	var inputgroupdocs = __webpack_require__(69);
-	var navdocs = __webpack_require__(70);
-	var navbardocs = __webpack_require__(71);
-	var breadcrumbdocs = __webpack_require__(72);
-	var paginationdocs = __webpack_require__(73);
-	var labelsbadgesdocs = __webpack_require__(74);
-	var jumbodocs = __webpack_require__(75);
+	var rubixheaderdoc = __webpack_require__(57);
+	var bootstrapgrid = __webpack_require__(58);
+	var typography = __webpack_require__(59);
+	var code = __webpack_require__(60);
+	var tables = __webpack_require__(61);
+	var forms = __webpack_require__(62);
+	var inputsdocs = __webpack_require__(63);
+	var textareadocs = __webpack_require__(64);
+	var checkradio = __webpack_require__(65);
+	var selectdocs = __webpack_require__(66);
+	var buttondocs = __webpack_require__(67);
+	var dropdowndocs = __webpack_require__(68);
+	var buttongroupdocs = __webpack_require__(69);
+	var inputgroupdocs = __webpack_require__(70);
+	var navdocs = __webpack_require__(71);
+	var navbardocs = __webpack_require__(72);
+	var breadcrumbdocs = __webpack_require__(73);
+	var paginationdocs = __webpack_require__(74);
+	var labelsbadgesdocs = __webpack_require__(75);
+	var jumbodocs = __webpack_require__(76);
+	var alertdocs = __webpack_require__(77);
+	var progressdocs = __webpack_require__(78);
+	var mediadocs = __webpack_require__(79);
+	var listgroupdocs = __webpack_require__(80);
 
 	/* EXPERIMENTAL PAGES */
-	var panel_tests = __webpack_require__(76);
-	var fluxxor_tests = __webpack_require__(77);
+	var panel_tests = __webpack_require__(81);
+	var fluxxor_tests = __webpack_require__(82);
 
 	/* ROUTES */
 	var routes = (
@@ -362,7 +379,11 @@ var l20n=_RL20n_.l20n,
 	            Route({name: "webfonts", path: "webfonts", view: gulpfilewebfont})
 	          ), 
 
-	          Route({name: "react", path: "react", view: reactdoc}), 
+	          Route({name: "react", path: "react"}, 
+	            Route({name: "introduction", path: "introduction", view: reactdoc}), 
+	            Route({name: "rubix-header", path: "rubix-header", view: rubixheaderdoc})
+	          ), 
+
 	          Route({name: "bootstrap", path: "bootstrap"}, 
 	            Route({name: "grid", path: "grid", view: bootstrapgrid}), 
 	            Route({name: "typography", path: "typography", view: typography}), 
@@ -387,7 +408,11 @@ var l20n=_RL20n_.l20n,
 	              Route({name: "breadcrumbs", path: "breadcrumbs", view: breadcrumbdocs}), 
 	              Route({name: "pagination", path: "pagination", view: paginationdocs}), 
 	              Route({name: "labels_and_badges", path: "labels_and_badges", view: labelsbadgesdocs}), 
-	              Route({name: "jumbotron", path: "jumbotron", view: jumbodocs})
+	              Route({name: "jumbotron", path: "jumbotron", view: jumbodocs}), 
+	              Route({name: "alerts", path: "alerts", view: alertdocs}), 
+	              Route({name: "progress-bars", path: "progress-bars", view: progressdocs}), 
+	              Route({name: "media", path: "media", view: mediadocs}), 
+	              Route({name: "list-group", path: "list-group", view: listgroupdocs})
 	            )
 
 	          )
@@ -412,6 +437,12 @@ var l20n=_RL20n_.l20n,
 	  // cleanup
 	  if(window.Rubix) window.Rubix.Cleanup();
 	  Pace.restart();
+	  if(window.hasOwnProperty('ga') && typeof window.ga === 'function') {
+	    window.ga('send', 'pageview', {
+	     'page': window.location.pathname + window.location.search  + window.location.hash
+	    });
+	  }
+
 	  React.renderComponent(View(null), document.getElementById('app-container'), function() {
 	    // l20n initialized only after everything is rendered/updated
 	    l20n.ready();
@@ -421,28 +452,7 @@ var l20n=_RL20n_.l20n,
 	  });
 	};
 
-	/**
-	 * Default: Hash based navigation
-	 * IMPORTANT: comment the following if you are using the HTML5 history
-	 *            + Hash based routing method mentioned below
-	 */
 	RRouter.routing = RRouter.HashRouting.start(routes, InitializeRouter);
-
-	/*
-	 * Uncomment following if you would like to use HTML5 history API
-	 * when supported and fallback to Hash based routing (IE9)
-	 */
-	// if(Modernizr.history) {
-	//   if(window.location.pathname === '/' && window.location.hash.length) {
-	//     window.location.href = window.location.href.replace(/#(\/*)/gi, '');
-	//   } else {
-	//     RRouter.routing = RRouter.start(routes, InitializeRouter);
-	//   }
-	// } else {
-	//   if(!window.location.hash.length)
-	//     window.location.hash += '#/';
-	//   RRouter.routing = RRouter.HashRouting.start(routes, InitializeRouter);
-	// }
 
 
 /***/ },
@@ -481,9 +491,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -731,9 +741,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -1457,9 +1467,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var classSet = React.addons.classSet;
 	var InboxNavItem = React.createClass({displayName: 'InboxNavItem',
@@ -1684,9 +1694,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var classSet = React.addons.classSet;
 	var Body = React.createClass({displayName: 'Body',
@@ -1825,9 +1835,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var classSet = React.addons.classSet;
 	var Body = React.createClass({displayName: 'Body',
@@ -2018,9 +2028,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var GalleryItem = React.createClass({displayName: 'GalleryItem',
 	  getInitialState: function() {
@@ -2156,9 +2166,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var SocialBanner = React.createClass({displayName: 'SocialBanner',
 	  getInitialState: function() {
@@ -2480,9 +2490,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -3193,9 +3203,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -3450,11 +3460,11 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var dataObject = JSON.parse(__webpack_require__(98));
+	var dataObject = JSON.parse(__webpack_require__(103));
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -3530,9 +3540,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var MapContainer = React.createClass({displayName: 'MapContainer',
 	  render: function() {
@@ -3901,9 +3911,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -3973,62 +3983,62 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var fonts = [{
 	  name: 'climacon',
 	  color: 'brown',
-	  fonts: __webpack_require__(82)
+	  fonts: __webpack_require__(87)
 	}, {
 	  name: 'mfizz',
 	  color: 'darkblue',
-	  fonts: __webpack_require__(83)
+	  fonts: __webpack_require__(88)
 	}, {
 	  name: 'devicon',
 	  color: 'darkgreen45',
-	  fonts: __webpack_require__(84)
+	  fonts: __webpack_require__(89)
 	}, {
 	  name: 'stroke-gap-icons',
 	  color: 'pink',
-	  fonts: __webpack_require__(85)
+	  fonts: __webpack_require__(90)
 	}, {
 	  name: 'simple-line-icons',
 	  color: 'brown',
-	  fonts: __webpack_require__(86)
+	  fonts: __webpack_require__(91)
 	}, {
 	  name: 'pixelvicon',
 	  color: 'purple',
-	  fonts: __webpack_require__(87)
+	  fonts: __webpack_require__(92)
 	}, {
 	  name: 'nargela',
 	  color: 'paleblue',
-	  fonts: __webpack_require__(88)
+	  fonts: __webpack_require__(93)
 	}, {
 	  name: 'flatline',
 	  color: 'desaturateddarkblue',
-	  fonts: __webpack_require__(89)
+	  fonts: __webpack_require__(94)
 	}, {
 	  name: 'feather',
 	  color: 'darkcyan',
-	  fonts: __webpack_require__(90)
+	  fonts: __webpack_require__(95)
 	}, {
 	  name: 'dripicons',
 	  color: 'deepred',
-	  fonts: __webpack_require__(91)
+	  fonts: __webpack_require__(96)
 	}, {
 	  name: 'outlined',
 	  color: 'blue',
-	  fonts: __webpack_require__(92)
+	  fonts: __webpack_require__(97)
 	},{
 	  name: 'ikons',
 	  color: 'paleorange',
-	  fonts: __webpack_require__(93)
+	  fonts: __webpack_require__(98)
 	}, {
 	  name: 'fontello',
 	  color: 'green',
-	  fonts: __webpack_require__(94)
+	  fonts: __webpack_require__(99)
 	}];
 
 	var Body = React.createClass({displayName: 'Body',
@@ -4110,11 +4120,11 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var colors = __webpack_require__(95);
+	var colors = __webpack_require__(100);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -4917,11 +4927,11 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var colors = __webpack_require__(95);
+	var colors = __webpack_require__(100);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -5577,9 +5587,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -6239,11 +6249,11 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var ReactStyle = __webpack_require__(97);
+	var ReactStyle = __webpack_require__(102);
 
 	var Body = React.createClass({displayName: 'Body',
 	  getInitialState: function() {
@@ -6623,9 +6633,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -6830,9 +6840,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  destroyPlanet: function() {
@@ -7184,9 +7194,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -7517,9 +7527,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -8264,9 +8274,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  mixins: [RoutingContextMixin],
@@ -8582,11 +8592,11 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var ReactStyle = __webpack_require__(97);
+	var ReactStyle = __webpack_require__(102);
 
 	var Body = React.createClass({displayName: 'Body',
 	  createStep: function(e) {
@@ -8923,9 +8933,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -9376,9 +9386,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -9927,9 +9937,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -10709,9 +10719,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -10920,9 +10930,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11142,9 +11152,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11240,9 +11250,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11325,9 +11335,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11772,9 +11782,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  back: function(e) {
@@ -11888,9 +11898,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  back: function(e) {
@@ -12016,9 +12026,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  interval: null,
@@ -12102,9 +12112,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -12259,9 +12269,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -12449,9 +12459,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var PostSummary = React.createClass({displayName: 'PostSummary',
 	  render: function() {
@@ -12764,9 +12774,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Post = React.createClass({displayName: 'Post',
 	  render: function() {
@@ -12872,8 +12882,12 @@ var l20n=_RL20n_.l20n,
 	                    LoremIpsum({query: "3s"})
 	                  ), 
 	                  React.DOM.p(null, LoremIpsum({query: "7s"})), 
-	                  React.DOM.div(null, 
-	                    React.DOM.span(null, React.DOM.strong(null, "Tagged: ")), Link({href: "/app/blog/posts"}, "Entertainment")
+	                  React.DOM.div({className: "text-uppercase"}, 
+	                    React.DOM.small(null, 
+	                      React.DOM.span(null, React.DOM.strong(null, "Tagged in: ")), Link({href: "/app/blog/posts"}, "Entertainment"), 
+	                      React.DOM.span(null, " • "), 
+	                      Link({href: "#"}, "No comments")
+	                    )
 	                  )
 	                )
 	              )
@@ -12914,9 +12928,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -13167,9 +13181,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -13520,9 +13534,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -13662,9 +13676,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14009,9 +14023,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14421,9 +14435,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14930,9 +14944,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -15260,9 +15274,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -15432,7 +15446,7 @@ var l20n=_RL20n_.l20n,
 
 	'use strict';
 
-	var Navigation = __webpack_require__(96);
+	var Navigation = __webpack_require__(101);
 
 	var CSS = React.createClass({displayName: 'CSS',
 	  mixins: [RoutingContextMixin, React.addons.LinkedStateMixin],
@@ -16743,7 +16757,7 @@ var l20n=_RL20n_.l20n,
 
 	'use strict';
 
-	var Navigation = __webpack_require__(96);
+	var Navigation = __webpack_require__(101);
 
 	var Components = React.createClass({displayName: 'Components',
 	  mixins: [RoutingContextMixin],
@@ -18250,11 +18264,11 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var package_snippet = __webpack_require__(99);
+	var package_snippet = __webpack_require__(104);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -18572,9 +18586,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -18730,9 +18744,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -18866,9 +18880,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -18994,9 +19008,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -19072,9 +19086,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -19149,27 +19163,117 @@ var l20n=_RL20n_.l20n,
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
+	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var gridbasic = __webpack_require__(100);
-	var gridsnippet = __webpack_require__(101);
-	var gridfixedwidth = __webpack_require__(102);
-	var gridzeropadding = __webpack_require__(103);
-	var gridgutter = __webpack_require__(104);
-	var griddir = __webpack_require__(105);
-	var gridnest = __webpack_require__(106);
-	var rowsyntax = __webpack_require__(107);
-	var colsyntax = __webpack_require__(108);
-	var colclearfix = __webpack_require__(109);
-	var colhiddenvisible = __webpack_require__(110);
-	var coloffsets = __webpack_require__(111);
-	var colpushpull = __webpack_require__(112);
-	var colcollapse = __webpack_require__(113);
+	var Doc = __webpack_require__(83);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
 
-	var Doc = __webpack_require__(78);
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Rubix: Header Documentation"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
+	            React.DOM.p(null, 
+	              "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
+	            ), 
+	            Well(null, 
+	              Alert({success: true}, 
+	                React.DOM.strong(null, "Well done!"), " You successfully read this important alert message."
+	              ), 
+	              Alert({info: true}, 
+	                React.DOM.strong(null, "Heads up!"), " This alert needs your attention, but it's not super important."
+	              ), 
+	              Alert({warning: true}, 
+	                React.DOM.strong(null, "Warning!"), " Better check yourself, you're not looking too good."
+	              ), 
+	              Alert({danger: true, collapseBottom: true}, 
+	                React.DOM.strong(null, "Oh snap!"), " Change a few things up and try submitting again."
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Alert success>\n", 
+	                  "  <strong>Well done!</strong> You successfully read this important alert message.\n", 
+	                  "</Alert>\n", 
+	                  "<Alert info>\n", 
+	                  "  <strong>Heads up!</strong>{\" This alert needs your attention, but it's not super important.\"}\n", 
+	                  "</Alert>\n", 
+	                  "<Alert warning>\n", 
+	                  "  <strong>Warning!</strong>{\" Better check yourself, you're not looking too good.\"}\n", 
+	                  "</Alert>\n", 
+	                  "<Alert danger collapseBottom>\n", 
+	                  "  <strong>Oh snap!</strong>Change a few things up and try submitting again.\n", 
+	                  "</Alert>\n"
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var RubixHeaderDocs = React.createClass({displayName: 'RubixHeaderDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = RubixHeaderDocs;
+
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
+
+	var gridbasic = __webpack_require__(105);
+	var gridsnippet = __webpack_require__(106);
+	var gridfixedwidth = __webpack_require__(107);
+	var gridzeropadding = __webpack_require__(108);
+	var gridgutter = __webpack_require__(109);
+	var griddir = __webpack_require__(110);
+	var gridnest = __webpack_require__(111);
+	var rowsyntax = __webpack_require__(112);
+	var colsyntax = __webpack_require__(113);
+	var colclearfix = __webpack_require__(114);
+	var colhiddenvisible = __webpack_require__(115);
+	var coloffsets = __webpack_require__(116);
+	var colpushpull = __webpack_require__(117);
+	var colcollapse = __webpack_require__(118);
+
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -19441,16 +19545,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -20081,16 +20185,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -20214,16 +20318,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -20773,16 +20877,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -21062,23 +21166,23 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var inputgetdomnode = __webpack_require__(114);
-	var inputgetchecked = __webpack_require__(115);
-	var inputsetchecked = __webpack_require__(116);
-	var inputgetvalue = __webpack_require__(117);
+	var inputgetdomnode = __webpack_require__(119);
+	var inputgetchecked = __webpack_require__(120);
+	var inputsetchecked = __webpack_require__(121);
+	var inputgetvalue = __webpack_require__(122);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -21233,21 +21337,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var textareadomnode = __webpack_require__(118);
-	var textareagetvalue = __webpack_require__(119);
+	var textareadomnode = __webpack_require__(123);
+	var textareagetvalue = __webpack_require__(124);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -21327,23 +21431,23 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var rccheckedstate = __webpack_require__(120);
-	var setrccheckedstate = __webpack_require__(121);
-	var isrccheckedstate = __webpack_require__(122);
-	var rcgetvalue = __webpack_require__(123);
+	var rccheckedstate = __webpack_require__(125);
+	var setrccheckedstate = __webpack_require__(126);
+	var isrccheckedstate = __webpack_require__(127);
+	var rcgetvalue = __webpack_require__(128);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -21496,23 +21600,23 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var rccheckedstate = __webpack_require__(120);
-	var setrccheckedstate = __webpack_require__(121);
-	var isrccheckedstate = __webpack_require__(122);
-	var rcgetvalue = __webpack_require__(123);
+	var rccheckedstate = __webpack_require__(125);
+	var setrccheckedstate = __webpack_require__(126);
+	var isrccheckedstate = __webpack_require__(127);
+	var rcgetvalue = __webpack_require__(128);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -21636,23 +21740,23 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var rccheckedstate = __webpack_require__(120);
-	var setrccheckedstate = __webpack_require__(121);
-	var isrccheckedstate = __webpack_require__(122);
-	var rcgetvalue = __webpack_require__(123);
+	var rccheckedstate = __webpack_require__(125);
+	var setrccheckedstate = __webpack_require__(126);
+	var isrccheckedstate = __webpack_require__(127);
+	var rcgetvalue = __webpack_require__(128);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -21898,21 +22002,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var dropdownbasic = __webpack_require__(124);
-	var dropdownalign = __webpack_require__(125);
+	var dropdownbasic = __webpack_require__(129);
+	var dropdownalign = __webpack_require__(130);
 
 	var Body = React.createClass({displayName: 'Body',
 	  handleSelection: function(itemprops) {
@@ -22482,16 +22586,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -22860,16 +22964,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -23251,21 +23355,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 70 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var basictab = __webpack_require__(126);
-	var tabselect = __webpack_require__(127);
+	var basictab = __webpack_require__(131);
+	var tabselect = __webpack_require__(132);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -23282,7 +23386,7 @@ var l20n=_RL20n_.l20n,
 	          DocUnit({name: "Bootstrap: Tabs"}, 
 	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
 	            React.DOM.p(null, 
-	              "Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus.", "."
+	              "Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus."
 	            ), 
 	            Well({className: "bg-white"}, 
 	              TabList({bsStyle: "orange75", onTabSelect: this.handleSelect, listName: "tab1"}, 
@@ -23332,7 +23436,7 @@ var l20n=_RL20n_.l20n,
 	          DocUnit({name: "Bootstrap: Tabs API", docStyle: "bg-red fg-white"}, 
 	            React.DOM.h4({className: "fg-black50"}, React.DOM.code(null, "selectTab(key, value)")), 
 	            React.DOM.p(null, 
-	              "Select a tab programmatically by calling selectTab using a props key and value as a constraint", "."
+	              "Select a tab programmatically by calling selectTab using a props key and value as a constraint."
 	            ), 
 	            Well({className: "bg-white"}, 
 	              TabList({bsStyle: "orange75", ref: "tablist", listName: "tab2"}, 
@@ -23382,7 +23486,7 @@ var l20n=_RL20n_.l20n,
 	          DocUnit({name: "Bootstrap: Pills"}, 
 	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
 	            React.DOM.p(null, 
-	              "Similar markup to Tabs as above. Even the API is same as we reuse the same component.", "."
+	              "Similar markup to Tabs as above. Even the API is same as we reuse the same component."
 	            ), 
 	            Well({className: "bg-white"}, 
 	              React.DOM.div({style: {marginLeft: -12.5, marginRight: -12.5}}, 
@@ -23479,7 +23583,7 @@ var l20n=_RL20n_.l20n,
 	            React.DOM.hr(null), 
 	            React.DOM.h4({className: "fg-black50"}, "Justified pills"), 
 	            React.DOM.p(null, 
-	              "Easily make tabs or pills equal widths of their parent.", "."
+	              "Easily make tabs or pills equal widths of their parent."
 	            ), 
 	            Well({className: "bg-white"}, 
 	              React.DOM.div({style: {marginLeft: -12.5, marginRight: -12.5}}, 
@@ -23592,16 +23696,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 71 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -23616,7 +23720,7 @@ var l20n=_RL20n_.l20n,
 	          DocUnit({name: "Bootstrap: NavBar"}, 
 	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
 	            React.DOM.p(null, 
-	              "Navbars are responsive meta components that serve as navigation headers for your application or site.", "."
+	              "Navbars are responsive meta components that serve as navigation headers for your application or site."
 	            ), 
 	            Well(null, 
 	              NavBar(null, 
@@ -23711,7 +23815,7 @@ var l20n=_RL20n_.l20n,
 	            React.DOM.hr(null), 
 	            React.DOM.h4({className: "fg-black50"}, "Forms"), 
 	            React.DOM.p(null, 
-	              "Place form content within NavForm for proper vertical alignment and collapsed behavior in narrow viewports.", "."
+	              "Place form content within NavForm for proper vertical alignment and collapsed behavior in narrow viewports."
 	            ), 
 	            Well(null, 
 	              NavBar(null, 
@@ -23814,16 +23918,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 72 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -23838,7 +23942,7 @@ var l20n=_RL20n_.l20n,
 	          DocUnit({name: "Bootstrap: Breadcrumbs"}, 
 	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
 	            React.DOM.p(null, 
-	              "Indicate the current page's location within a navigational hierarchy.", "."
+	              "Indicate the current page's location within a navigational hierarchy."
 	            ), 
 	            Well(null, 
 	              Breadcrumb(null, 
@@ -23903,16 +24007,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 73 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -23927,7 +24031,7 @@ var l20n=_RL20n_.l20n,
 	          DocUnit({name: "Bootstrap: Pagination"}, 
 	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
 	            React.DOM.p(null, 
-	              "Provide pagination links for your site or app with the multi-page pagination component, or the simpler pager alternative.", "."
+	              "Provide pagination links for your site or app with the multi-page pagination component, or the simpler pager alternative."
 	            ), 
 	            Well({className: "text-center"}, 
 	              Pagination({style: {margin: 0}}, 
@@ -24099,16 +24203,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 74 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -24213,16 +24317,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 75 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(79);
-	var Sidebar = __webpack_require__(80);
-	var Footer = __webpack_require__(81);
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
 
-	var Doc = __webpack_require__(78);
+	var Doc = __webpack_require__(83);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -24293,7 +24397,725 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 76 */
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
+
+	var Doc = __webpack_require__(83);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: Alerts"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
+	            React.DOM.p(null, 
+	              "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
+	            ), 
+	            Well(null, 
+	              Alert({success: true}, 
+	                React.DOM.strong(null, "Well done!"), " You successfully read this important alert message."
+	              ), 
+	              Alert({info: true}, 
+	                React.DOM.strong(null, "Heads up!"), " This alert needs your attention, but it's not super important."
+	              ), 
+	              Alert({warning: true}, 
+	                React.DOM.strong(null, "Warning!"), " Better check yourself, you're not looking too good."
+	              ), 
+	              Alert({danger: true, collapseBottom: true}, 
+	                React.DOM.strong(null, "Oh snap!"), " Change a few things up and try submitting again."
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Alert success>\n", 
+	                  "  <strong>Well done!</strong> You successfully read this important alert message.\n", 
+	                  "</Alert>\n", 
+	                  "<Alert info>\n", 
+	                  "  <strong>Heads up!</strong>{\" This alert needs your attention, but it's not super important.\"}\n", 
+	                  "</Alert>\n", 
+	                  "<Alert warning>\n", 
+	                  "  <strong>Warning!</strong>{\" Better check yourself, you're not looking too good.\"}\n", 
+	                  "</Alert>\n", 
+	                  "<Alert danger collapseBottom>\n", 
+	                  "  <strong>Oh snap!</strong>Change a few things up and try submitting again.\n", 
+	                  "</Alert>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Dismissible alerts"), 
+	            React.DOM.p(null, 
+	              "Build on any alert by adding an optional ", React.DOM.code(null, "dismissible"), " property."
+	            ), 
+	            Well(null, 
+	              Alert({warning: true, dismissible: true, collapseBottom: true}, 
+	                React.DOM.strong(null, "Warning!"), " Better check yourself, you're not looking too good."
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Alert warning dismissible collapseBottom>\n", 
+	                  "  <strong>Warning!</strong>{\" Better check yourself, you're not looking too good.\"}\n", 
+	                  "</Alert>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Links in Alerts"), 
+	            React.DOM.p(null, 
+	              "Use the ", React.DOM.code(null, "AlertLink"), " component to quickly provide matching colored links within any alert."
+	            ), 
+	            Well(null, 
+	              Alert({success: true}, 
+	                React.DOM.strong(null, "Well done!"), " You successfully read ", AlertLink({href: "#"}, "this important alert message"), "."
+	              ), 
+	              Alert({info: true}, 
+	                React.DOM.strong(null, "Heads up!"), " This ", AlertLink({href: "#"}, "alert needs your attention"), ", but it's not super important."
+	              ), 
+	              Alert({warning: true}, 
+	                React.DOM.strong(null, "Warning!"), " Better check yourself, you're ", AlertLink({href: "#"}, "not looking too good.")
+	              ), 
+	              Alert({danger: true, collapseBottom: true}, 
+	                React.DOM.strong(null, "Oh snap!"), " ", AlertLink({href: "#"}, "Change a few things up"), " and try submitting again."
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Alert success>\n", 
+	                  "  <strong>Well done!</strong> You successfully read <AlertLink href='#'>this important alert message</AlertLink>.\n", 
+	                  "</Alert>\n", 
+	                  "<Alert info>\n", 
+	                  "  <strong>Heads up!</strong> This <AlertLink href='#'>alert needs your attention</AlertLink>{\", but it's not super important.\"}", 
+	                  "</Alert>\n", 
+	                  "<Alert warning>\n", 
+	                  "  <strong>Warning!</strong>{\" Better check yourself, you're \"}<AlertLink href='#'>not looking too good.</AlertLink>\n", 
+	                  "</Alert>\n", 
+	                  "<Alert danger collapseBottom>\n", 
+	                  "  <strong>Oh snap!</strong> <AlertLink href='#'>Change a few things up</AlertLink> and try submitting again.\n", 
+	                  "</Alert>\n"
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var AlertDocs = React.createClass({displayName: 'AlertDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = AlertDocs;
+
+
+/***/ },
+/* 78 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
+
+	var Doc = __webpack_require__(83);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: Progress bars"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Basic Example"), 
+	            React.DOM.p(null, 
+	              "Provide up-to-date feedback on the progress of a workflow or action with simple yet flexible progress bars."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              Progress({collapseBottom: true, value: 60, min: 0, max: 100})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Progress value={60} min={0} max={100} />\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "With label"), 
+	            Well({className: "bg-white"}, 
+	              Progress({withLabel: true, collapseBottom: true, value: 60, min: 0, max: 100})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Progress withLabel value={60} min={0} max={100} />\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Contextual alternatives"), 
+	            React.DOM.p(null, "Progress bars use some of the same button and alert classes for consistent styles."), 
+	            Well({className: "bg-white"}, 
+	              Progress({success: true, value: 40, min: 0, max: 100}), 
+	              Progress({info: true, value: 20, min: 0, max: 100}), 
+	              Progress({warning: true, value: 60, min: 0, max: 100}), 
+	              Progress({danger: true, collapseBottom: true, value: 80, min: 0, max: 100})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Progress success value={40} min={0} max={100} />\n", 
+	                  "<Progress info value={20} min={0} max={100} />\n", 
+	                  "<Progress warning value={60} min={0} max={100} />\n", 
+	                  "<Progress danger value={80} min={0} max={100} />\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Striped"), 
+	            React.DOM.p(null, "Uses a gradient to create a striped effect."), 
+	            Well({className: "bg-white"}, 
+	              Progress({striped: true, success: true, value: 40, min: 0, max: 100}), 
+	              Progress({striped: true, info: true, value: 20, min: 0, max: 100}), 
+	              Progress({striped: true, warning: true, value: 60, min: 0, max: 100}), 
+	              Progress({striped: true, danger: true, collapseBottom: true, value: 80, min: 0, max: 100})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Progress striped success value={40} min={0} max={100} />\n", 
+	                  "<Progress striped info value={20} min={0} max={100} />\n", 
+	                  "<Progress striped warning value={60} min={0} max={100} />\n", 
+	                  "<Progress striped danger value={80} min={0} max={100} />\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Animated"), 
+	            React.DOM.p(null, "Add active to animate the stripes right to left."), 
+	            Well({className: "bg-white"}, 
+	              Progress({striped: true, active: true, success: true, value: 40, min: 0, max: 100}), 
+	              Progress({striped: true, active: true, info: true, value: 20, min: 0, max: 100}), 
+	              Progress({striped: true, active: true, warning: true, value: 60, min: 0, max: 100}), 
+	              Progress({striped: true, active: true, danger: true, collapseBottom: true, value: 80, min: 0, max: 100})
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<Progress striped active success value={40} min={0} max={100} />\n", 
+	                  "<Progress striped active info value={20} min={0} max={100} />\n", 
+	                  "<Progress striped active warning value={60} min={0} max={100} />\n", 
+	                  "<Progress striped active danger value={80} min={0} max={100} />\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Stacked"), 
+	            React.DOM.p(null, "Place multiple progress bars by stacking them in a ProgressGroup."), 
+	            Well({className: "bg-white"}, 
+	              ProgressGroup({collapseBottom: true}, 
+	                Progress({active: true, striped: true, info: true, withLabel: true, value: 35, min: 0, max: 100}), 
+	                Progress({active: true, striped: true, danger: true, withLabel: true, value: 20, min: 0, max: 100}), 
+	                Progress({active: true, striped: true, warning: true, withLabel: true, value: 20, min: 0, max: 100}), 
+	                Progress({active: true, striped: true, success: true, withLabel: true, value: 10, min: 0, max: 100})
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<ProgressGroup collapseBottom>\n", 
+	                  "  <Progress active striped info withLabel value={35} min={0} max={100} />\n", 
+	                  "  <Progress active striped danger withLabel value={20} min={0} max={100} />\n", 
+	                  "  <Progress active striped warning withLabel value={20} min={0} max={100} />\n", 
+	                  "  <Progress active striped success withLabel value={10} min={0} max={100} />\n", 
+	                  "</ProgressGroup>\n"
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var ProgressDocs = React.createClass({displayName: 'ProgressDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ProgressDocs;
+
+
+/***/ },
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
+
+	var Doc = __webpack_require__(83);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	    Holder.run();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: Progress bars"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Media Object"), 
+	            React.DOM.p(null, 
+	              "Abstract object styles for building various types of components (like blog comments, Tweets, etc) that feature a left- or right-aligned image alongside textual content."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              MediaList(null, 
+	                Media(null, 
+	                  Link({className: "pull-left", href: "#"}, 
+	                    MediaObject({'data-src': "holder.js/64x64/random", alt: "64x64"})
+	                  ), 
+	                  MediaBody(null, 
+	                    MediaHeading(null, "Media Heading"), 
+	                    LoremIpsum({query: "4s"}), 
+	                    MediaDiv(null, 
+	                      Link({className: "pull-left", href: "#"}, 
+	                        MediaObject({'data-src': "holder.js/64x64/random", alt: "64x64"})
+	                      ), 
+	                      MediaBody(null, 
+	                        MediaHeading(null, "Nested Media Heading"), 
+	                        LoremIpsum({query: "4s"}), 
+	                        MediaDiv(null, 
+	                          Link({className: "pull-left", href: "#"}, 
+	                            MediaObject({'data-src': "holder.js/64x64/random", alt: "64x64"})
+	                          ), 
+	                          MediaBody(null, 
+	                            MediaHeading(null, "Nested Media Heading"), 
+	                            LoremIpsum({query: "4s"})
+	                          )
+	                        )
+	                      ), 
+	                      MediaDiv(null, 
+	                        Link({className: "pull-left", href: "#"}, 
+	                          MediaObject({'data-src': "holder.js/64x64/random", alt: "64x64"})
+	                        ), 
+	                        MediaBody(null, 
+	                          MediaHeading(null, "Nested Media Heading"), 
+	                          LoremIpsum({query: "4s"})
+	                        )
+	                      )
+	                    )
+	                  )
+	                ), 
+	                Media(null, 
+	                  Link({className: "pull-left", href: "#"}, 
+	                    MediaObject({'data-src': "holder.js/64x64/random", alt: "64x64"})
+	                  ), 
+	                  MediaBody(null, 
+	                    MediaHeading(null, "Media Heading"), 
+	                    LoremIpsum({query: "4s"})
+	                  )
+	                )
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<MediaList>\n", 
+	                  "  <Media>\n", 
+	                  "    <Link className='pull-left' href='#'>\n", 
+	                  "      <MediaObject data-src='holder.js/64x64/random' alt='64x64' />\n", 
+	                  "    </Link>\n", 
+	                  "    <MediaBody>\n", 
+	                  "      <MediaHeading>Media Heading</MediaHeading>\n", 
+	                  "      <LoremIpsum query='4s' />\n", 
+	                  "      <MediaDiv>\n", 
+	                  "        <Link className='pull-left' href='#'>\n", 
+	                  "          <MediaObject data-src='holder.js/64x64/random' alt='64x64' />\n", 
+	                  "        </Link>\n", 
+	                  "        <MediaBody>\n", 
+	                  "          <MediaHeading>Nested Media Heading</MediaHeading>\n", 
+	                  "          <LoremIpsum query='4s' />\n", 
+	                  "          <MediaDiv>\n", 
+	                  "            <Link className='pull-left' href='#'>\n", 
+	                  "              <MediaObject data-src='holder.js/64x64/random' alt='64x64' />\n", 
+	                  "            </Link>\n", 
+	                  "            <MediaBody>\n", 
+	                  "              <MediaHeading>Nested Media Heading</MediaHeading>\n", 
+	                  "              <LoremIpsum query='4s' />\n", 
+	                  "            </MediaBody>\n", 
+	                  "          </MediaDiv>\n", 
+	                  "        </MediaBody>\n", 
+	                  "        <MediaDiv>\n", 
+	                  "          <Link className='pull-left' href='#'>\n", 
+	                  "            <MediaObject data-src='holder.js/64x64/random' alt='64x64' />\n", 
+	                  "          </Link>\n", 
+	                  "          <MediaBody>\n", 
+	                  "            <MediaHeading>Nested Media Heading</MediaHeading>\n", 
+	                  "            <LoremIpsum query='4s' />\n", 
+	                  "          </MediaBody>\n", 
+	                  "        </MediaDiv>\n", 
+	                  "      </MediaDiv>\n", 
+	                  "    </MediaBody>\n", 
+	                  "  </Media>\n", 
+	                  "  <Media>\n", 
+	                  "    <Link className='pull-left' href='#'>\n", 
+	                  "      <MediaObject data-src='holder.js/64x64/random' alt='64x64' />\n", 
+	                  "    </Link>\n", 
+	                  "    <MediaBody>\n", 
+	                  "      <MediaHeading>Media Heading</MediaHeading>\n", 
+	                  "      <LoremIpsum query='4s' />\n", 
+	                  "    </MediaBody>\n", 
+	                  "  </Media>\n", 
+	                  "</MediaList>\n"
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var MediaDocs = React.createClass({displayName: 'MediaDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = MediaDocs;
+
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(84);
+	var Sidebar = __webpack_require__(85);
+	var Footer = __webpack_require__(86);
+
+	var Doc = __webpack_require__(83);
+	var DocUnit = Doc.DocUnit;
+	var DocContainer = Doc.DocContainer;
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        DocContainer(null, 
+	          DocUnit({name: "Bootstrap: List Groups"}, 
+	            React.DOM.h4({className: "fg-black50"}, "Basic example"), 
+	            React.DOM.p(null, 
+	              "List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              ListGroup(null, 
+	                ListGroupItem(null, LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, LoremIpsum({query: "3w"}))
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<ListGroup>\n", 
+	                  "  <ListGroupItem><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "</ListGroup>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Badges"), 
+	            React.DOM.p(null, 
+	              "Add the badges component to any list group item and it will automatically be positioned on the right."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              ListGroup(null, 
+	                ListGroupItem(null, Badge(null, "14"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "2"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "3"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "4"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "5"), LoremIpsum({query: "3w"}))
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<ListGroup>\n", 
+	                  "  <ListGroupItem><Badge>14</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>2</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>3</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>4</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>5</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "</ListGroup>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Linked items"), 
+	            React.DOM.p(null, 
+	              "Linkify list group items."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              ListGroup(null, 
+	                ListGroupItem({active: true}, Badge(null, "14"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "2"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "3"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "4"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "5"), LoremIpsum({query: "3w"}))
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<ListGroup>\n", 
+	                  "  <ListGroupItem active><Badge>14</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>2</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>3</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>4</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>5</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "</ListGroup>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Disabled items"), 
+	            React.DOM.p(null, 
+	              "Add disabled to a ListGroupItem to gray it out to appear disabled."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              ListGroup(null, 
+	                ListGroupItem({disabled: true}, Badge(null, "14"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "2"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "3"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "4"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem(null, Badge(null, "5"), LoremIpsum({query: "3w"}))
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<ListGroup>\n", 
+	                  "  <ListGroupItem disabled><Badge>14</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>2</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>3</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>4</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem><Badge>5</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "</ListGroup>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Contextual items"), 
+	            React.DOM.p(null, 
+	              "Use contextual classes to style list items, default or linked. Also includes active state."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              ListGroup(null, 
+	                ListGroupItem({success: true}, Badge(null, "14"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem({info: true}, Badge(null, "2"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem({warning: true}, Badge(null, "3"), LoremIpsum({query: "3w"})), 
+	                ListGroupItem({danger: true}, Badge(null, "4"), LoremIpsum({query: "3w"}))
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<ListGroup>\n", 
+	                  "  <ListGroupItem success><Badge>14</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem info><Badge>2</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem warning><Badge>3</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "  <ListGroupItem danger><Badge>4</Badge><LoremIpsum query='3w'/></ListGroupItem>\n", 
+	                  "</ListGroup>\n"
+	                )
+	              )
+	            ), 
+	            React.DOM.hr(null), 
+	            React.DOM.h4({className: "fg-black50"}, "Custom content"), 
+	            React.DOM.p(null, 
+	              "Add nearly any HTML within, even for linked list groups like the one below."
+	            ), 
+	            Well({className: "bg-white"}, 
+	              ListGroup(null, 
+	                ListGroupItem({active: true}, 
+	                  ListGroupItemHeading(null, "List group item heading"), 
+	                  ListGroupItemText(null, 
+	                    LoremIpsum({query: "2s"})
+	                  )
+	                ), 
+	                ListGroupItem(null, 
+	                  ListGroupItemHeading(null, "List group item heading"), 
+	                  ListGroupItemText(null, 
+	                    LoremIpsum({query: "2s"})
+	                  )
+	                ), 
+	                ListGroupItem(null, 
+	                  ListGroupItemHeading(null, "List group item heading"), 
+	                  ListGroupItemText(null, 
+	                    LoremIpsum({query: "2s"})
+	                  )
+	                ), 
+	                ListGroupItem(null, 
+	                  ListGroupItemHeading(null, "List group item heading"), 
+	                  ListGroupItemText(null, 
+	                    LoremIpsum({query: "2s"})
+	                  )
+	                )
+	              )
+	            ), 
+	            React.DOM.div(null, 
+	              React.DOM.pre(null, 
+	                React.DOM.code({className: "language-markup"}, 
+	                  "<ListGroup>\n", 
+	                  "  <ListGroupItem active>\n", 
+	                  "    <ListGroupItemHeading>List group item heading</ListGroupItemHeading>\n", 
+	                  "    <ListGroupItemText>\n", 
+	                  "      <LoremIpsum query='2s'/>\n", 
+	                  "    </ListGroupItemText>\n", 
+	                  "  </ListGroupItem>\n", 
+	                  "  <ListGroupItem>\n", 
+	                  "    <ListGroupItemHeading>List group item heading</ListGroupItemHeading>\n", 
+	                  "    <ListGroupItemText>\n", 
+	                  "      <LoremIpsum query='2s'/>\n", 
+	                  "    </ListGroupItemText>\n", 
+	                  "  </ListGroupItem>\n", 
+	                  "  <ListGroupItem>\n", 
+	                  "    <ListGroupItemHeading>List group item heading</ListGroupItemHeading>\n", 
+	                  "    <ListGroupItemText>\n", 
+	                  "      <LoremIpsum query='2s'/>\n", 
+	                  "    </ListGroupItemText>\n", 
+	                  "  </ListGroupItem>\n", 
+	                  "  <ListGroupItem>\n", 
+	                  "    <ListGroupItemHeading>List group item heading</ListGroupItemHeading>\n", 
+	                  "    <ListGroupItemText>\n", 
+	                  "      <LoremIpsum query='2s'/>\n", 
+	                  "    </ListGroupItemText>\n", 
+	                  "  </ListGroupItem>\n", 
+	                  "</ListGroup>\n"
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var ListGroupDocs = React.createClass({displayName: 'ListGroupDocs',
+	  mixins: [Sidebar.SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ListGroupDocs;
+
+
+/***/ },
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -25059,12 +25881,12 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 77 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Fluxxor = __webpack_require__(128);
+	var Fluxxor = __webpack_require__(133);
 
 	var FluxMixin = Fluxxor.FluxMixin(React);
 	var FluxChildMixin = Fluxxor.FluxChildMixin(React);
@@ -25201,7 +26023,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 78 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -25255,35 +26077,10 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 79 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
-
-	var SidebarBtn = React.createClass({displayName: 'SidebarBtn',
-	  handleSidebarStateChange: function(props) {
-	    if(props['data-id'] === 'sidebar-btn') {
-	      ReactBootstrap.Dispatcher.emit('sidebar');
-	    }
-	  },
-	  componentDidMount: function() {
-	    if(!Modernizr.touch) {
-	      var isOpen = localStorage.getItem('sidebar-open-state');
-	      ReactBootstrap.Dispatcher.emit('sidebar', isOpen === 'true');      
-	    }
-	  },
-	  render: function() {
-	    return this.transferPropsTo(
-	      NavContent({className: "pull-left visible-xs-inline-block"}, 
-	        Nav({onItemSelect: this.handleSidebarStateChange}, 
-	          NavItem({'data-id': "sidebar-btn", className: "sidebar-btn", href: "/"}, 
-	            Icon({bundle: "fontello", glyph: "th-list-5"})
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
 
 	var Brand = React.createClass({displayName: 'Brand',
 	  render: function() {
@@ -25870,21 +26667,12 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 80 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var SidebarComponent = __webpack_require__(129);
-
-	var Sidebar = SidebarComponent.Sidebar,
-	    SidebarNav = SidebarComponent.SidebarNav,
-	    SidebarMixin = SidebarComponent.SidebarMixin,
-	    SidebarNavItem = SidebarComponent.SidebarNavItem,
-	    SidebarControls = SidebarComponent.SidebarControls,
-	    SidebarControlBtn = SidebarComponent.SidebarControlBtn;
-
-	var ChatComponent = __webpack_require__(130)
+	var ChatComponent = __webpack_require__(134)
 
 	var ApplicationSidebar = React.createClass({displayName: 'ApplicationSidebar',
 	  render: function() {
@@ -26018,7 +26806,12 @@ var l20n=_RL20n_.l20n,
 	                      SidebarNavItem({name: "WebFonts", href: "/app/docs/gulpfile/webfonts"})
 	                    )
 	                  ), 
-	                  SidebarNavItem({glyph: "icon-fontello-looped-square-interest", name: "React", href: "/app/docs/react"}), 
+	                  SidebarNavItem({glyph: "icon-fontello-looped-square-interest", name: "React"}, 
+	                    SidebarNav(null, 
+	                      SidebarNavItem({name: "Introduction", href: "/app/docs/react/introduction"}), 
+	                      SidebarNavItem({name: "Rubix Header", href: "/app/docs/react/rubix-header"})
+	                    )
+	                  ), 
 	                  SidebarNavItem({glyph: "devicon-bootstrap-plain", name: React.DOM.span(null, "Bootstrap ", BLabel({className: "bg-darkblue fg-white"}, "4"))}, 
 	                    SidebarNav(null, 
 	                      SidebarNavItem({name: "Grid", href: "/app/docs/bootstrap/grid"}), 
@@ -26045,7 +26838,11 @@ var l20n=_RL20n_.l20n,
 	                          SidebarNavItem({name: "Breadcrumbs", href: "/app/docs/bootstrap/components/breadcrumbs"}), 
 	                          SidebarNavItem({name: "Pagination", href: "/app/docs/bootstrap/components/pagination"}), 
 	                          SidebarNavItem({name: "Labels & Badges", href: "/app/docs/bootstrap/components/labels_and_badges"}), 
-	                          SidebarNavItem({name: "Jumbotron", href: "/app/docs/bootstrap/components/jumbotron"})
+	                          SidebarNavItem({name: "Jumbotron", href: "/app/docs/bootstrap/components/jumbotron"}), 
+	                          SidebarNavItem({name: "Alerts", href: "/app/docs/bootstrap/components/alerts"}), 
+	                          SidebarNavItem({name: "Progress bars", href: "/app/docs/bootstrap/components/progress-bars"}), 
+	                          SidebarNavItem({name: "Media", href: "/app/docs/bootstrap/components/media"}), 
+	                          SidebarNavItem({name: "List Group", href: "/app/docs/bootstrap/components/list-group"})
 	                        )
 	                      )
 	                    )
@@ -26542,7 +27339,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 81 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26568,7 +27365,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 82 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26708,7 +27505,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 83 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26809,7 +27606,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 84 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26899,7 +27696,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 85 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27109,7 +27906,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 86 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27281,7 +28078,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 87 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27371,7 +28168,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 88 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27461,7 +28258,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 89 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27521,7 +28318,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 90 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27661,7 +28458,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 91 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27766,7 +28563,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 92 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27926,7 +28723,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 93 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -28236,7 +29033,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 94 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30294,7 +31091,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 95 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30363,7 +31160,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 96 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30409,15 +31206,15 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 97 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * @providesModule ReactStyle
 	 */
 
-	var ReactStyleRules = __webpack_require__(131);
-	var ReactStyleRulesManager = __webpack_require__(132);
+	var ReactStyleRules = __webpack_require__(135);
+	var ReactStyleRulesManager = __webpack_require__(136);
 
 	/**
 	 * @constructor
@@ -30514,195 +31311,195 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 98 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "\n{\n    \"timeline\":  \n    {\n        \"headline\":\"Revolutionary User Interfaces\",\n    \"startDate\":\"1600\",\n        \"text\":\"<p>The human computer interface helps to define computing at any one time. As computers have become more mainstream the interfaces have become more intimate. This is the journey of computer technology and how it has come to touch all of our lives.</p>\",\n        \"type\":\"default\",\n    \"asset\":\n        {\n            \"media\":\"/imgs/timeline/user-interface/input.png\",\n            \"credit\":\"credit: Arjuna Soriano\",\n            \"caption\":\"From punch cards to multi touch.\"\n    },\n    \"date\": [\n            {\n                \"startDate\":\"1600\",\n                \"headline\":\"The Antikythera\",\n                \"text\":\"In the year 1900, sponge divers discovered the Antikythera Mechanism, a remarkable mechanical computer used to track the cycles of the solar system dated to as early as 89 B.C. There was no input however. All computations were carried out by the intricate system of clockwork like plates and wheels..\",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/DiQSHiAYt98\",\n                    \"credit\":\"credit: <a href=\\\"http://www.nature.com/nature/videoarchive/index.html\\\">Nature Video Channel</a>\",\n                    \"caption\":\"\"\n                }\n            },\n        {\n                \"startDate\":\"1642\",\n                \"headline\":\"Pascal's Calculator\",\n                \"text\":\"<p>Blaise Pascal invented this calculator to help his father reorganize the French tax system. It could add and subtract in one step and multiply and divide by repetition.</p><p>Input was achieved by spinning the little wheels: inspiration for the iPod click wheel?</p>\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/pascaline.jpg\",\n                    \"credit\":\"credit: Â© 2005 <a href=\\\"http://commons.wikimedia.org/wiki/User:David.Monniaux\\\">David Monniaux</a>  \",\n                    \"caption\":\"This piece is on display at MusÃ©e des Arts et MÃ©tiers, Paris.\"\n                }\n            },\n        {\n                \"startDate\":\"1820\",\n                \"headline\":\"Thomas Arithometer\",\n                \"text\":\"This is the first mass-produced calculator that could add, subtract, multiply and divide. Numbers were  input with all of the little knobs and dials and then the handle was twisted to perform the calculation.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/59/Arithmometre.jpg\",\n                    \"credit\":\"credit: By <a href=\\\"http://commons.wikimedia.org/wiki/File%3AArithmometre.jpg\\\">Ezrdr</a>, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1801\",\n                \"headline\":\"Jacquard Loom\",\n                \"text\":\"A loom is not a computer. It is the first machine however to use punch-cards as a means of input into a machine. By changing the arrangement of the holes in the card, the loom would weave different patterns. \",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/2ypE4ZJF7qY\",\n                    \"credit\":\"credit: <a href='http://www.youtube.com/user/FiberMusings'>FiberMusings</a>\",\n                    \"caption\":\"The Jacquard loom is still in use today in modern factories. The punch-cards can be clearly seen being pulled to the top of the loom.\"\n                }\n            },\n            {\n                \"startDate\":\"1833\",\n                \"headline\":\"The Analytical Engine\",\n                \"text\":\"Charles Babbage designed but was never able to produce a working model but it is significant in that it relied upon punched cards for data and programs and would employ a language similar to modern assembly language complete with loops and conditional branching (for the nerds out there).\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/a/a4/Analytical_Engine_%282290032530%29.jpg\",\n                    \"credit\":\"credit: By <a href='http://commons.wikimedia.org/wiki/File%3AAnalytical_Engine_(2290032530).jpg'>Marcin Wichary</a> via Wikimedia Commons\",\n                    \"caption\":\"This modern model of the Analytical Engine is housed at the Science Museum in London.\"\n                }\n            },\n            {\n                \"startDate\":\"1868\",\n                \"headline\":\"The Typewriter\",\n                \"text\":\"Again, not a computer but an important step forward in user interfaces. Invented by Christopher Sholes, An American engineer, the typewriter was layed out in the familiar QWERTY style.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/9/9a/Sholes_typewriter.jpg\",\n                    \"credit\":\"credit:By George Iles, via Wikimedia Commons\",\n                    \"caption\":\"A prototype of the typewriter with the QWERTY layout clearly visible.\"\n                }\n            },\n            {\n                \"startDate\":\"1890\",\n                \"headline\":\"Herman Hollerith\",\n                \"text\":\"In 1890, Hollerith introduced his tabulating machine to be used in the census. He also later invented a key punch, a machine that punched the holes into cards operated by a keyboard. His company was one of the companies that later merged to form IBM.\",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/UZVEp78b0XI?t=1m54s\",\n                    \"credit\":\"credit:<a href=\\\"http://www.youtube.com/user/clipcafe\\\">clipcafe</a>\",\n                    \"caption\":\"A history of early IBM punch card machines and featuring a Pascal calculator.\"\n                }\n            },\n            {\n                \"startDate\":\"1940\",\n                \"headline\":\"Remote Access Computing\",\n                \"text\":\"George Stibitz demonstrated the Complex Number Calculator (CNC) at Dartmouth College. The astonishing part was that the CNC was in New York City.\",\n                \"asset\":\n                {\n                    \"media\":\"\",\n                    \"credit\":\"\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1946\",\n                \"headline\":\"ENIAC\",\n                \"text\":\"Weighing 30 tons, and containing over 18,000 vacuum tubes, the ENIAC was the first truly modern computer. It could be programmed for many complex programs and used an early keyboard as its input.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/1/16/Classic_shot_of_the_ENIAC.jpg\",\n                    \"credit\":\"credit: U.S. Army photo\",\n                    \"caption\":\"\\\"Cpl. Irwin Goldstein (foreground) sets the switches on one of the ENIAC's function tables at the Moore School of Electrical Engineering.\\\" (Caption via Wikimedia)\"\n                }\n            },\n            {\n                \"startDate\":\"1951\",\n                \"headline\":\"UNICVAC I\",\n                \"text\":\"The Universal Automatic Computer I weighed in at 13 tons and sold for over one million dollars. It was the first mass produced computer, selling 46 units. The massive cockpit of a console featured a keyboard\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/55/Museum_of_Science%2C_Boston%2C_MA_-_IMG_3163.JPG\",\n                    \"credit\":\"credit: By Daderot (Own work) [Public domain], via Wikimedia Commons\",\n                    \"caption\":\"Input for the UNIVAC I was via keyboard in this massive input console.\"\n                }\n            },\n            {\n                \"startDate\":\"1964\",\n                \"headline\":\"Multics\",\n                \"text\":\"A collaboration between MIT, Bell Laboratories and General Electric created the Multics system. It was a multi-user, time sharing system that spurred along the use of a new interface, a monitor.\",\n                \"asset\":\n                {\n                    \"media\":\"\",\n                    \"credit\":\"\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1968\",\n                \"headline\":\"Minicomputer\",\n                \"text\":\"Data General introduces the Nova Minicomputer which served as an inspiration for Steve Wozniak's design of the Apple I.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/7/7f/Data_General_Nova_SN_1.agr.JPG\",\n                    \"credit\":\"credit: By Arnold Reinhold, via Wikimedia Commons\",\n                    \"caption\":\"The first Data General Nova minicomputer displayed at the Computer History Museum in Silicon Valley.\"\n                }\n            },\n            {\n                \"startDate\":\"1968,12,9\",\n                \"headline\":\"The Mouse\",\n                \"text\":\"Douglas C. Engelbart and his team demonstrated an online system featuring a mouse, hypertext and the first graphical user interface, a \\\"windows\\\" system. The mouse was encased in a wood body and had only one button.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/f/f0/SRI_Douglas_Engelbart_2008.jpg\",\n                    \"credit\":\"credit: By SRI International, via Wikimedia Commons\",\n                    \"caption\":\"Douglas Engelbart with the first computer mouse prototype.\"\n                }\n            },\n            {\n                \"startDate\":\"1974\",\n                \"headline\":\"Xerox Alto\",\n                \"text\":\"The Xerox Alto was the first workstation with a built in mouse with three buttons.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/5e/Xerox_Alto_mit_Rechner.JPG\",\n                    \"credit\":\"credit: By Joho345, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1976\",\n                \"headline\":\"Apple I\",\n                \"text\":\"Steve Wozniak designed the Apple I, a single-board computer that he and Steve Jobs sold for $500 each. Thus began Apple Inc. and the Personal Computer.\",\n                \"asset\":\n                {\n                    \"media\":\"http://www.flickr.com/photos/euthman/281712899/\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/euthman/281712899/'>Ed Uthman</a> via Flickr\",\n                    \"caption\":\"An Apple I computer on display at the Smithsonian.\"\n                }\n            },\n            {\n                \"startDate\":\"1976\",\n                \"headline\":\"The Osborne I\",\n                \"text\":\"Weighing 24 pounds and costing under $2,000, the Osborne I was the first portable computer, although you probably couldn't use it in your lap for too long.\",\n                \"asset\":\n                {\n                    \"media\":\"http://www.flickr.com/photos/mightyohm/5333827381/\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/mightyohm/5333827381/'>Jeff Keyzer</a> via Flickr\",\n                    \"caption\":\"An Apple I computer on display at the Smithsonian.\"\n                }\n            },\n            {\n                \"startDate\":\"1982\",\n                \"headline\":\"Windows 1.0\",\n                \"text\":\"Microsoft unveils what will become the dominant operating system for the next several decades.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/a/a9/Microsoft_Windows_1.0_page1.jpg\",\n                    \"credit\":\"credit: By Microsoft, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1984\",\n                \"headline\":\"The Macintosh\",\n                \"text\":\"Apple introduced the Macintosh which was the first commercially successful computer with a mouse and a Graphical User Interface. Apple's Think Different Superbowl commercial also plays this year.\",\n                \"asset\":\n                {\n                    \"media\":\"https://farm3.staticflickr.com/2077/2179402603_bd8f1fcbe6_b.jpg\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/mwichary/2179402603/'>Marcin Wichary</a> via Flickr\",\n                    \"caption\":\"The Original Macintosh with extra external floppy drive.\"\n                }\n            },\n            {\n                \"startDate\":\"1997\",\n                \"headline\":\"The Stylus\",\n                \"text\":\"Personal digital assistants introduce the touch screen with the use of a stylus. Handwriting recognition was hit or miss but some companies developed simplified alphabet input strokes to improve recognition.\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/palm.png\",\n                    \"credit\":\"credit: <a href='http://en.wikipedia.org/wiki/File:Palmpilot5000_eu.png'>Channel R</a> via Wikimedia Commons\",\n                    \"caption\":\"A Palm Pilot.\"\n                }\n            },\n            {\n                \"startDate\":\"2001,10,23\",\n                \"headline\":\"Continuous Scrolling\",\n                \"text\":\"The first iPod introduces the wheel as a user interface. It allowed users to continuously scroll through thousands of songs seemlessly. This interface helped Apple dominate the music player business and eventually the music content business through its iTunes ecosystem.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/3/35/Ipod_1G.png\",\n                    \"credit\":\"credit: By Rjcflyer@aol.com at en.wikipedia via Wikimedia Commons\",\n                    \"caption\":\"The Original iPod with click wheel user interface.\"\n                }\n            },\n            {\n                \"startDate\":\"2007\",\n                \"headline\":\"Multi Touch\",\n                \"text\":\"Steve Jobs unveils the iPhone and the multi touch interface.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/4/49/IPhone_at_Macworld_%28angled_view%29.jpg\",\n                    \"credit\":\"credit: By blakeburris, via <a href='http://commons.wikimedia.org/wiki/File:IPhone_at_Macworld_(angled_view).jpg'>Wikimedia Commons</a>\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"2012\",\n                \"headline\":\"Speech Recognition\",\n                \"text\":\"<p>Speech recognition has been tested and improved upon for years in military cockpits in the U.S. France and U.K. In fact, Siri, the speech recognition engine used in the iPhone 4S was developed first by DARPA, the Defense Advanced Research Projects Agency.</p>\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/4s.jpg\",\n                    \"credit\":\"credit: Apple Inc.\",\n                    \"caption\":\"\"\n                }\n            }\n        ]\n    }\n}\n"
 
 /***/ },
-/* 99 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"copyright\": \"SketchPixy LLP, email: support@sketchpixy.com\",\n  \"devDependencies\": {\n    \"compression\": \"^1.0.8\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"map-stream\": \"^0.1.0\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"run-sequence\": \"^0.3.6\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
 
 /***/ },
-/* 100 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid>\n</Grid>\n"
 
 /***/ },
-/* 101 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid>\n  <Row>\n    <Col sm={6} md={6} lg={6} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4}>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop gutterBottom>\n  <Row>\n    <Col md={2} lg={2} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:2)</Well>\n    </Col>\n    <Col md={4} lg={4} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
-/* 102 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid fixed>\n</Grid>\n"
 
 /***/ },
-/* 103 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid collapse>\n</Grid>\n"
 
 /***/ },
-/* 104 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid gutter>\n</Grid>\n"
 
 /***/ },
-/* 105 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid gutterTop gutterLeft gutterRight gutterBottom>\n</Grid>\n"
 
 /***/ },
-/* 106 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid>\n  <Row>\n    <Col xs={12}>\n      <Grid fixed gutter>\n        <Row>\n          <Col xs={6} sm={3} md={4} lg={2}></Col>\n        </Row>\n      </Grid>\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
-/* 107 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Row>\n</Row>\n"
 
 /***/ },
-/* 108 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Col xs={12} sm={12} md={12} lg={12}>\n</Col>\n"
 
 /***/ },
-/* 109 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Col clearfix>\n</Col>\n"
 
 /***/ },
-/* 110 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Col xs={6} md={3} lg={4} sm={12} hidden='xs, md, lg, print' visible='sm'>\n</Col>\n"
 
 /***/ },
-/* 111 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid>\n  <Row>\n    <Col md={4}>\n      Col(md:4)\n    </Col>\n    <Col md={4} mdOffset={4}>\n      Col(md:4,mdOffset:4)\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
-/* 112 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid>\n  <Row>\n    <Col md={9} mdPush={3}>\n      Col(md:9, mdPush:3)\n    </Col>\n    <Col md={3} mdPull={9}>\n      Col(md:3, mdPull:9)\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
-/* 113 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<Grid>\n  <Row>\n    <Col xs={6} collapseRight>\n    </Col>\n    <Col xs={6} collapseLeft>\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
-/* 114 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var node = this.refs.inputelement.getInputDOMNode();\n    console.log(node.value === 'Default text');\n  },\n  render: function() {\n    return (\n      <Input type='text' ref='inputelement' defaultValue='Default text' />\n    );\n  }  \n});\n"
 
 /***/ },
-/* 115 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var checked = this.refs.checkboxelement.getChecked();\n    console.log(checked === true);\n  },\n  render: function() {\n    return (\n      <Input type='checkbox' ref='checkboxelement' defaultChecked />\n    );\n  }  \n});\n"
 
 /***/ },
-/* 116 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    this.refs.checkboxelement.setChecked(false);\n    var checked = this.refs.checkboxelement.getChecked();\n    console.log(checked === false);\n  },\n  render: function() {\n    return (\n      <Input type='checkbox' ref='checkboxelement' defaultChecked />\n    );\n  }  \n});\n"
 
 /***/ },
-/* 117 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.inputelement.getValue();\n    console.log(value === 'Default Value');\n  },\n  render: function() {\n    return (\n      <Input type='text' ref='inputelement' defaultValue='Default Value' />\n    );\n  }  \n});\n"
 
 /***/ },
-/* 118 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var node = this.refs.textareaelement.getInputDOMNode();\n    console.log(node.getAttribute('rows') === 3);\n  },\n  render: function() {\n    return (\n      <Textarea ref='textareaelement' rows='3' />\n    );\n  }  \n});\n"
 
 /***/ },
-/* 119 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.textareaelement.getValue();\n    console.log(value === 'Default Value');\n  },\n  render: function() {\n    return (\n      <Textarea ref='textareaelement' rows='3' defaultValue='Default Value' />\n    );\n  }  \n});\n"
 
 /***/ },
-/* 120 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var checkedState = this.refs.check.getChecked();\n    console.log(checkedState === true);\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
 
 /***/ },
-/* 121 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    this.refs.check.setChecked(false);\n    console.log(checkedState === false);\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
 
 /***/ },
-/* 122 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    if(this.refs.check.isChecked())\n      console.log('Checkbox is checked');\n    else\n      console.log('Checkbox is unchecked');\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
 
 /***/ },
-/* 123 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.check.getValue();\n    console.log(value === 'Should be checked');\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
 
 /***/ },
-/* 124 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
 
 /***/ },
-/* 125 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
 
 /***/ },
-/* 126 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  handleSelect: function(itemprops) {\n    alert(itemprops.pane);\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>\n        <Tab pane='tab1:home' active>Home</Tab>\n        <Tab pane='tab1:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu33'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu33' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab1:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
 
 /***/ },
-/* 127 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "var demo = React.createClass({\n  componentDidMount: function(itemprops) {\n    this.refs.tablist.selectTab('pane', 'tab2:profile');\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>\n        <Tab pane='tab2:home' active>Home</Tab>\n        <Tab pane='tab2:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu34'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu34' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab2:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
 
 /***/ },
-/* 128 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(135),
-	    Flux = __webpack_require__(134),
-	    FluxMixin = __webpack_require__(136),
-	    FluxChildMixin = __webpack_require__(139),
-	    StoreWatchMixin = __webpack_require__(137),
-	    createStore = __webpack_require__(138);
+	var Dispatcher = __webpack_require__(138),
+	    Flux = __webpack_require__(139),
+	    FluxMixin = __webpack_require__(140),
+	    FluxChildMixin = __webpack_require__(141),
+	    StoreWatchMixin = __webpack_require__(142),
+	    createStore = __webpack_require__(143);
 
 	var Fluxxor = {
 	  Dispatcher: Dispatcher,
@@ -30711,381 +31508,14 @@ var l20n=_RL20n_.l20n,
 	  FluxChildMixin: FluxChildMixin,
 	  StoreWatchMixin: StoreWatchMixin,
 	  createStore: createStore,
-	  version: __webpack_require__(133).version
+	  version: __webpack_require__(137).version
 	};
 
 	module.exports = Fluxxor;
 
 
 /***/ },
-/* 129 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx React.DOM */
-
-	var classSet = React.addons.classSet;
-
-	var SidebarMixin = {
-	  getInitialState: function() {
-	    return {
-	      open: false
-	    };
-	  },
-	  sidebarStateChangeCallback: function(open) {
-	    var openState = null;
-	    if(open !== undefined)
-	      openState = open;
-	    else
-	      openState = !this.state.open;
-	    this.setState({
-	      open: openState // toggle sidebar
-	    });
-	    localStorage.setItem('sidebar-open-state', openState);
-	  },
-	  componentWillMount: function() {
-	    ReactBootstrap.Dispatcher.on('sidebar', this.sidebarStateChangeCallback);
-	  },
-	  componentWillUnmount: function() {
-	    ReactBootstrap.Dispatcher.off('sidebar', this.sidebarStateChangeCallback);
-	  }
-	};
-
-	var SidebarControlBtn = React.createClass({displayName: 'SidebarControlBtn',
-	  propTypes: {
-	    key: React.PropTypes.number.isRequired
-	  },
-	  getInitialState: function() {
-	    return {
-	      active: this.props.active || false
-	    };
-	  },
-	  handleClick: function(e) {
-	    e.preventDefault();
-	    e.stopPropagation();
-	    ReactBootstrap.Dispatcher.emit('sidebar:controlbtn', this.props);
-	    ReactBootstrap.Dispatcher.emit('sidebar:keychange', this.props.key);
-	  },
-	  handleState: function(props) {
-	    if(props.hasOwnProperty('key')) {
-	      if(props.key === this.props.key) {
-	        this.setState({active: true});
-	      } else {
-	        this.setState({active: false}); 
-	      }
-	    }
-	  },
-	  componentDidMount: function() {
-	    ReactBootstrap.Dispatcher.on('sidebar:controlbtn', this.handleState);
-	    $('body, #body').scrollTop(0);
-	  },
-	  componentWillUnmount: function() {
-	    ReactBootstrap.Dispatcher.off('sidebar:controlbtn', this.handleState);
-	  },
-	  render: function() {
-	    var classes = classSet({
-	      'sidebar-control-btn': true,
-	      'active': this.state.active
-	    });
-	    return this.transferPropsTo(
-	      React.DOM.li({className: classes.trim(), onClick: this.handleClick, tabIndex: "-1"}, 
-	        React.DOM.a({href: "#", tabIndex: "-1"}, 
-	          Icon({bundle: this.props.bundle, glyph: this.props.glyph})
-	        )
-	      )
-	    );
-	  }
-	});
-
-	var SidebarControls = React.createClass({displayName: 'SidebarControls',
-	  render: function() {
-	    return this.transferPropsTo(
-	      React.DOM.div({className: "sidebar-controls-container", dir: "ltr"}, 
-	        React.DOM.div({className: "sidebar-controls", tabIndex: "-1"}, 
-	          this.props.children
-	        )
-	      )
-	    );
-	  }
-	});
-
-	var Sidebar = React.createClass({displayName: 'Sidebar',
-	  propTypes: {
-	    active: React.PropTypes.bool,
-	    key: React.PropTypes.number.isRequired
-	  },
-	  timer: null,
-	  getInitialState: function() {
-	    return {
-	      left: ((this.props.key * 100) + '%'),
-	      visibility: (this.props.key === 0) ? 'visible' : 'hidden'
-	    };
-	  },
-	  handleKeyChange: function(key) {
-	    var newLeft = ((this.props.key*100) - (key*100))+'%';
-	    var styles = {left: newLeft};
-	    styles.visibility = 'visible';
-	    this.setState(styles, function() {
-	      if(newLeft !== '0%') {
-	        setTimeout(function() {
-	          this.setState({visibility: 'hidden'});
-	        }.bind(this), 300);
-	      } else if(newLeft === '0%') {
-	        var height = $(this.refs.innersidebar.getDOMNode()).height();
-	        if($('html').hasClass('static')) {
-	          $('#body').css('min-height', height+400);
-	        } else {
-	          $('#body').css('min-height', '');
-	        }
-	      }
-	    }.bind(this));
-	  },
-	  updateScrollbar: function() {
-	    if(!Modernizr.touch) {
-	      $(this.refs.sidebar.getDOMNode()).perfectScrollbar('update');
-	    }
-	  },
-	  repositionScrollbar: function(child_node, top, height) {
-	    clearTimeout(this.timer);
-	    var node = $(this.refs.sidebar.getDOMNode());
-	    var scrollTo = top - node.offset().top + node.scrollTop();
-	    if(node.find(child_node).length) {
-	      if(scrollTo > ($(window).height() / 2)) {
-	        this.timer = setTimeout(function() {
-	          node.scrollTop(scrollTo - ($(window).height() / 2) + 100);
-	        }, 15);
-	      }
-	    }
-	    if(!Modernizr.touch)
-	      this.updateScrollbar()
-	  },
-	  destroyScrollbar: function() {
-	    $(this.refs.sidebar.getDOMNode()).perfectScrollbar('destroy');
-	  },
-	  initializeScrollbar: function() {
-	    $(this.refs.sidebar.getDOMNode()).perfectScrollbar({
-	      suppressScrollX: true
-	    });
-	  },
-	  componentWillMount: function() {
-	    ReactBootstrap.Dispatcher.on('sidebar:reinitialize', this.initializeScrollbar);
-	    ReactBootstrap.Dispatcher.on('sidebar:destroy', this.destroyScrollbar);
-	    ReactBootstrap.Dispatcher.on('sidebar:update', this.updateScrollbar);
-	    ReactBootstrap.Dispatcher.on('sidebar:reposition', this.repositionScrollbar);
-	    ReactBootstrap.Dispatcher.on('sidebar:keychange', this.handleKeyChange);
-	  },
-	  componentWillUnmount: function() {
-	    ReactBootstrap.Dispatcher.off('sidebar:reinitialize', this.initializeScrollbar);
-	    ReactBootstrap.Dispatcher.off('sidebar:destroy', this.destroyScrollbar);
-	    ReactBootstrap.Dispatcher.off('sidebar:update', this.updateScrollbar);
-	    ReactBootstrap.Dispatcher.off('sidebar:reposition', this.repositionScrollbar);
-	    ReactBootstrap.Dispatcher.off('sidebar:keychange', this.handleKeyChange);
-	  },
-	  componentDidMount: function() {
-	    if(!Modernizr.touch) {
-	      this.initializeScrollbar();
-	    }
-
-	    if(this.props.active) {
-	      setTimeout(function() {
-	        ReactBootstrap.Dispatcher.emit('sidebar:controlbtn', {key: this.props.key});
-	        ReactBootstrap.Dispatcher.emit('sidebar:keychange', this.props.key);
-	      }.bind(this), 15);
-	    }
-	  },
-	  render: function() {
-	    return this.transferPropsTo(
-	      React.DOM.div({ref: "sidebar", className: "sidebar", style: {
-	        left: this.state.left,
-	        visibility: this.state.visibility,
-	        'transition': 'all 0.3s ease',
-	        '-o-transition': 'all 0.3s ease',
-	        '-ms-transition': 'all 0.3s ease',
-	        '-moz-transition': 'all 0.3s ease',
-	        '-webkit-transition': 'all 0.3s ease'
-	      }}, 
-	        React.DOM.div({ref: "innersidebar"}, this.props.children)
-	      )
-	    );
-	  }
-	});
-
-	var SidebarNavItem = React.createClass({displayName: 'SidebarNavItem',
-	  mixins: [RoutingContextMixin],
-	  propTypes: {
-	    open: React.PropTypes.bool,
-	    active: React.PropTypes.bool,
-	    href: React.PropTypes.string,
-	    autoHeight: React.PropTypes.bool
-	  },
-	  getInitialState: function() {
-	    return {
-	      open: this.props.open || false,
-	      active: this.props.active || false,
-	      toggleOpen: this.props.open || false,
-	      dir: $('html').attr('dir') === 'ltr' ? 'left' : 'right',
-	      opposite: $('html').attr('dir') === 'ltr' ? false : true
-	    };
-	  },
-	  emitOpen: function(open) {
-	    var node = this.refs.node.getDOMNode();
-	    if(open)
-	      ReactBootstrap.Dispatcher.emit('sidebar:openstate', node, open);
-	    else
-	      ReactBootstrap.Dispatcher.emit('sidebar:openstate', node);
-	  },
-	  handleClick: function(e) {
-	    if(!this.props.href)
-	      e.preventDefault();
-	      e.stopPropagation();
-	    this.emitOpen();
-	  },
-	  collapse: function(node, cb) {
-	    this.setState({
-	      toggleOpen: false
-	    }, function() {
-	      var height = $(node).height();
-	      $(node).css('height', height).animate({
-	        height: '45px'
-	      }, 125, 'easeInOutSine', function() {
-	        $(node).css('height', '');
-	        this.setState({
-	          open: false,
-	          toggleOpen: false
-	        }, function() {
-	          if(cb) cb();
-	        });
-	      }.bind(this));
-	    }.bind(this));
-	  },
-	  expand: function(node, cb) {
-	    this.setState({
-	      toggleOpen: true
-	    }, function() {
-	      var height = $(node).addClass('open').height();
-	      $(node).removeClass('open');
-	      $(node).css('height', '45px').animate({
-	        height: height
-	      }, 125, 'easeInOutSine', function() {
-	        $(node).css('height', '');
-	        this.setState({
-	          open: true
-	        }, function() {
-	          if(cb) cb();
-	        });
-	      }.bind(this));      
-	    }.bind(this));
-	  },
-	  handleOpenState: function(child_node, open) {
-	    if(this.props.children) {
-	      var node = this.refs.node.getDOMNode();
-	      if(open) {
-	        if($(node).find(child_node).length) {
-	          this.setState({
-	            open: true,
-	            toggleOpen: true
-	          });
-	        }
-	        return;
-	      }
-	      if($(node).is(child_node)) {
-	        if(this.state.open) {
-	          this.collapse(node, function() {
-	            ReactBootstrap.Dispatcher.emit('sidebar:update');
-	          });
-	        } else {
-	          this.expand(node, function() {
-	            ReactBootstrap.Dispatcher.emit('sidebar:update');
-	          });
-	        }
-	        return;
-	      }
-	      if(!($(node).find(child_node).length)) {
-	        if(this.state.open)
-	          this.collapse(node);
-	      }
-	    }
-	  },
-	  handleLayoutDirChange: function(dir) {
-	    this.setState({
-	      dir: dir === 'ltr' ? 'left' : 'right',
-	      opposite: dir === 'ltr' ? false : true
-	    });
-	  },
-	  componentWillMount: function() {
-	    ReactBootstrap.Dispatcher.on('layout:dir', this.handleLayoutDirChange);
-	    ReactBootstrap.Dispatcher.on('sidebar:openstate', this.handleOpenState);
-	  },
-	  componentWillUnmount: function() {
-	    ReactBootstrap.Dispatcher.off('layout:dir', this.handleLayoutDirChange);
-	    ReactBootstrap.Dispatcher.off('sidebar:openstate', this.handleOpenState);
-	  },
-	  componentDidMount: function() {
-	    var active = (this.getRouting().getPath() === this.props.href) || this.props.active;
-
-	    if(active) {
-	      this.setState({active: true});
-	      this.emitOpen(true);
-	      var node = this.refs.node.getDOMNode();
-	      var height = $(node).height();
-	      var top = $(node).offset().top;
-	      ReactBootstrap.Dispatcher.emit('sidebar:reposition', node, top, height);
-	    }
-	  },
-	  render: function() {
-	    var classes = classSet({
-	      'open': this.state.open,
-	      'active': this.state.active
-	    });
-	    var toggleClasses = classSet({
-	      'toggle-button': true,
-	      'open': this.state.toggleOpen,
-	      'opposite': this.state.opposite
-	    });
-	    var icon=null, toggleButton = null;
-	    if(this.props.children) {
-	      toggleButton = Icon({className: toggleClasses.trim(), bundle: "fontello", glyph: this.state.dir+'-open-3'});
-	    }
-	    if(this.props.glyph || this.props.bundle) {
-	      icon = Icon({bundle: this.props.bundle, glyph: this.props.glyph});
-	    }
-	    var style = {height: this.props.autoHeight ? 'auto' : ''};
-	    var componentClass = React.DOM.a;
-	    if(this.props.href) componentClass = Link;
-	    return this.transferPropsTo(
-	      React.DOM.li({ref: "node", className: classes, style: style, name: null, tabIndex: "-1"}, 
-	        componentClass({href: this.props.href || '#', onClick: this.handleClick, name: null, tabIndex: "-1", style: style}, 
-	          icon, 
-	          React.DOM.span({className: "name"}, this.props.name), 
-	          toggleButton
-	        ), 
-	        this.props.children
-	      )
-	    );
-	  }
-	});
-
-	var SidebarNav = React.createClass({displayName: 'SidebarNav',
-	  render: function() {
-	    return this.transferPropsTo(
-	      React.DOM.ul({className: "sidebar-nav"}, 
-	        this.props.children
-	      )
-	    );
-	  }
-	});
-
-	module.exports = {
-	  Sidebar: Sidebar,
-	  SidebarNav: SidebarNav,
-	  SidebarMixin: SidebarMixin,
-	  SidebarNavItem: SidebarNavItem,
-	  SidebarControls: SidebarControls,
-	  SidebarControlBtn: SidebarControlBtn
-	};
-
-
-/***/ },
-/* 130 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -31174,7 +31604,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 131 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31266,7 +31696,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 132 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31276,7 +31706,7 @@ var l20n=_RL20n_.l20n,
 
 	'use strict'
 
-	var ReactStyleRules = __webpack_require__(131);
+	var ReactStyleRules = __webpack_require__(135);
 
 	/**
 	 * @param {number} maxRulesLengthPerStyle
@@ -31374,72 +31804,25 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 133 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = {"name":"fluxxor","version":"1.3.2","description":"Flux architecture tools for React","repository":{"type":"git","url":"https://github.com/BinaryMuse/fluxxor.git"},"main":"index.js","scripts":{"test":"npm run jshint && mocha --recursive","jshint":"jsxhint lib/ test/","build":"./script/build-fluxxor && ./script/build-examples","preview-site":"wintersmith preview -C site","build-site":"wintersmith build -C site"},"keywords":["react","flux"],"author":"Brandon Tilley <brandon@brandontilley.com>","license":"MIT","devDependencies":{"chai":"^1.9.1","css-loader":"^0.6.12","envify":"^1.2.1","jsdom":"^0.10.5","json-loader":"^0.5.0","jsx-loader":"^0.10.2","jsxhint":"^0.4.9","less":"^1.7.0","less-loader":"^0.7.3","mocha":"^1.18.2","react":"^0.10.0","sinon":"^1.9.1","sinon-chai":"^2.5.0","style-loader":"^0.6.3","webpack":"^1.1.11","webpack-dev-server":"^1.2.7","wintersmith":"^2.0.10","wintersmith-ejs":"^0.1.4","wintersmith-less":"^0.2.2"},"dependencies":{"lodash-node":"^2.4.1"},"jshintConfig":{"camelcase":true,"curly":true,"eqeqeq":true,"forin":true,"latedef":true,"newcap":false,"undef":true,"unused":true,"trailing":true,"node":true,"browser":true,"predef":["it","describe","beforeEach","afterEach"]}}
 
 /***/ },
-/* 134 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(135);
-
-	function bindActions(target, actions, dispatchBinder) {
-	  for (var key in actions) {
-	    if (actions.hasOwnProperty(key)) {
-	      if (typeof actions[key] === "function") {
-	        target[key] = actions[key].bind(dispatchBinder);
-	      } else if (typeof actions[key] === "object") {
-	        target[key] = {};
-	        bindActions(target[key], actions[key], dispatchBinder);
-	      }
-	    }
-	  }
-	}
-
-	var Flux = function(stores, actions) {
-	  var dispatcher = new Dispatcher(stores),
-	      dispatchBinder = {
-	        dispatch: function(type, payload) {
-	          dispatcher.dispatch({type: type, payload: payload});
-	        }
-	      };
-
-	  this.dispatcher = dispatcher;
-	  this.actions = {};
-	  this.stores = stores;
-
-	  bindActions(this.actions, actions, dispatchBinder);
-
-	  for (var key in stores) {
-	    if (stores.hasOwnProperty(key)) {
-	      stores[key].flux = this;
-	    }
-	  }
-	};
-
-	Flux.prototype.store = function(name) {
-	  return this.stores[name];
-	};
-
-	module.exports = Flux;
-
-
-/***/ },
-/* 135 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _clone = __webpack_require__(144),
-	    _mapValues = __webpack_require__(142),
-	    _forOwn = __webpack_require__(143),
-	    _intersection = __webpack_require__(147),
-	    _keys = __webpack_require__(145),
-	    _map = __webpack_require__(149),
-	    _each = __webpack_require__(150),
-	    _size = __webpack_require__(151),
-	    _findKey = __webpack_require__(146),
-	    _uniq = __webpack_require__(148);
+	var _clone = __webpack_require__(146),
+	    _mapValues = __webpack_require__(147),
+	    _forOwn = __webpack_require__(148),
+	    _intersection = __webpack_require__(151),
+	    _keys = __webpack_require__(149),
+	    _map = __webpack_require__(153),
+	    _each = __webpack_require__(154),
+	    _size = __webpack_require__(155),
+	    _findKey = __webpack_require__(150),
+	    _uniq = __webpack_require__(152);
 
 	var Dispatcher = function(stores) {
 	  this.stores = stores;
@@ -31558,7 +31941,54 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 136 */
+/* 139 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(138);
+
+	function bindActions(target, actions, dispatchBinder) {
+	  for (var key in actions) {
+	    if (actions.hasOwnProperty(key)) {
+	      if (typeof actions[key] === "function") {
+	        target[key] = actions[key].bind(dispatchBinder);
+	      } else if (typeof actions[key] === "object") {
+	        target[key] = {};
+	        bindActions(target[key], actions[key], dispatchBinder);
+	      }
+	    }
+	  }
+	}
+
+	var Flux = function(stores, actions) {
+	  var dispatcher = new Dispatcher(stores),
+	      dispatchBinder = {
+	        dispatch: function(type, payload) {
+	          dispatcher.dispatch({type: type, payload: payload});
+	        }
+	      };
+
+	  this.dispatcher = dispatcher;
+	  this.actions = {};
+	  this.stores = stores;
+
+	  bindActions(this.actions, actions, dispatchBinder);
+
+	  for (var key in stores) {
+	    if (stores.hasOwnProperty(key)) {
+	      stores[key].flux = this;
+	    }
+	  }
+	};
+
+	Flux.prototype.store = function(name) {
+	  return this.stores[name];
+	};
+
+	module.exports = Flux;
+
+
+/***/ },
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var FluxMixin = function(React) {
@@ -31592,10 +32022,34 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 137 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _each = __webpack_require__(150);
+	var FluxChildMixin = function(React) {
+	  return {
+	    contextTypes: {
+	      flux: React.PropTypes.object
+	    },
+
+	    getFlux: function() {
+	      return this.context.flux;
+	    }
+	  };
+	};
+
+	FluxChildMixin.componentWillMount = function() {
+	  throw new Error("Fluxxor.FluxChildMixin is a function that takes React as a " +
+	    "parameter and returns the mixin, e.g.: mixins[Fluxxor.FluxChildMixin(React)]");
+	};
+
+	module.exports = FluxChildMixin;
+
+
+/***/ },
+/* 142 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var _each = __webpack_require__(154);
 
 	var StoreWatchMixin = function() {
 	  var storeNames = Array.prototype.slice.call(arguments);
@@ -31636,12 +32090,12 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 138 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _each = __webpack_require__(150),
-	    Store = __webpack_require__(140),
-	    util = __webpack_require__(141);
+	var _each = __webpack_require__(154),
+	    Store = __webpack_require__(144),
+	    util = __webpack_require__(145);
 
 	var RESERVED_KEYS = ["flux", "waitFor"];
 
@@ -31681,35 +32135,11 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 139 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var FluxChildMixin = function(React) {
-	  return {
-	    contextTypes: {
-	      flux: React.PropTypes.object
-	    },
-
-	    getFlux: function() {
-	      return this.context.flux;
-	    }
-	  };
-	};
-
-	FluxChildMixin.componentWillMount = function() {
-	  throw new Error("Fluxxor.FluxChildMixin is a function that takes React as a " +
-	    "parameter and returns the mixin, e.g.: mixins[Fluxxor.FluxChildMixin(React)]");
-	};
-
-	module.exports = FluxChildMixin;
-
-
-/***/ },
-/* 140 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var EventEmitter = __webpack_require__(152).EventEmitter,
-	    util = __webpack_require__(141);
+	var EventEmitter = __webpack_require__(156).EventEmitter,
+	    util = __webpack_require__(145);
 
 	function Store(dispatcher) {
 	  this.dispatcher = dispatcher;
@@ -31752,7 +32182,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 141 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -32280,7 +32710,7 @@ var l20n=_RL20n_.l20n,
 	}
 	exports.isPrimitive = isPrimitive;
 
-	exports.isBuffer = __webpack_require__(153);
+	exports.isBuffer = __webpack_require__(157);
 
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -32324,7 +32754,7 @@ var l20n=_RL20n_.l20n,
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(172);
+	exports.inherits = __webpack_require__(176);
 
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -32342,10 +32772,10 @@ var l20n=_RL20n_.l20n,
 	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(155)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(159)))
 
 /***/ },
-/* 142 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32356,128 +32786,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(156),
-	    forOwn = __webpack_require__(143);
-
-	/**
-	 * Creates an object with the same keys as `object` and values generated by
-	 * running each own enumerable property of `object` through the callback.
-	 * The callback is bound to `thisArg` and invoked with three arguments;
-	 * (value, key, object).
-	 *
-	 * If a property name is provided for `callback` the created "_.pluck" style
-	 * callback will return the property value of the given element.
-	 *
-	 * If an object is provided for `callback` the created "_.where" style callback
-	 * will return `true` for elements that have the properties of the given object,
-	 * else `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Objects
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function|Object|string} [callback=identity] The function called
-	 *  per iteration. If a property name or object is provided it will be used
-	 *  to create a "_.pluck" or "_.where" style callback, respectively.
-	 * @param {*} [thisArg] The `this` binding of `callback`.
-	 * @returns {Array} Returns a new object with values of the results of each `callback` execution.
-	 * @example
-	 *
-	 * _.mapValues({ 'a': 1, 'b': 2, 'c': 3} , function(num) { return num * 3; });
-	 * // => { 'a': 3, 'b': 6, 'c': 9 }
-	 *
-	 * var characters = {
-	 *   'fred': { 'name': 'fred', 'age': 40 },
-	 *   'pebbles': { 'name': 'pebbles', 'age': 1 }
-	 * };
-	 *
-	 * // using "_.pluck" callback shorthand
-	 * _.mapValues(characters, 'age');
-	 * // => { 'fred': 40, 'pebbles': 1 }
-	 */
-	function mapValues(object, callback, thisArg) {
-	  var result = {};
-	  callback = createCallback(callback, thisArg, 3);
-
-	  forOwn(object, function(value, key, object) {
-	    result[key] = callback(value, key, object);
-	  });
-	  return result;
-	}
-
-	module.exports = mapValues;
-
-
-/***/ },
-/* 143 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseCreateCallback = __webpack_require__(157),
-	    keys = __webpack_require__(145),
-	    objectTypes = __webpack_require__(158);
-
-	/**
-	 * Iterates over own enumerable properties of an object, executing the callback
-	 * for each property. The callback is bound to `thisArg` and invoked with three
-	 * arguments; (value, key, object). Callbacks may exit iteration early by
-	 * explicitly returning `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Function
-	 * @category Objects
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} [callback=identity] The function called per iteration.
-	 * @param {*} [thisArg] The `this` binding of `callback`.
-	 * @returns {Object} Returns `object`.
-	 * @example
-	 *
-	 * _.forOwn({ '0': 'zero', '1': 'one', 'length': 2 }, function(num, key) {
-	 *   console.log(key);
-	 * });
-	 * // => logs '0', '1', and 'length' (property order is not guaranteed across environments)
-	 */
-	var forOwn = function(collection, callback, thisArg) {
-	  var index, iterable = collection, result = iterable;
-	  if (!iterable) return result;
-	  if (!objectTypes[typeof iterable]) return result;
-	  callback = callback && typeof thisArg == 'undefined' ? callback : baseCreateCallback(callback, thisArg, 3);
-	    var ownIndex = -1,
-	        ownProps = objectTypes[typeof iterable] && keys(iterable),
-	        length = ownProps ? ownProps.length : 0;
-
-	    while (++ownIndex < length) {
-	      index = ownProps[ownIndex];
-	      if (callback(iterable[index], index, collection) === false) return result;
-	    }
-	  return result
-	};
-
-	module.exports = forOwn;
-
-
-/***/ },
-/* 144 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseClone = __webpack_require__(159),
-	    baseCreateCallback = __webpack_require__(157);
+	var baseClone = __webpack_require__(160),
+	    baseCreateCallback = __webpack_require__(161);
 
 	/**
 	 * Creates a clone of `value`. If `isDeep` is `true` nested objects will also
@@ -32534,7 +32844,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 145 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32545,9 +32855,129 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(160),
-	    isObject = __webpack_require__(154),
-	    shimKeys = __webpack_require__(161);
+	var createCallback = __webpack_require__(165),
+	    forOwn = __webpack_require__(148);
+
+	/**
+	 * Creates an object with the same keys as `object` and values generated by
+	 * running each own enumerable property of `object` through the callback.
+	 * The callback is bound to `thisArg` and invoked with three arguments;
+	 * (value, key, object).
+	 *
+	 * If a property name is provided for `callback` the created "_.pluck" style
+	 * callback will return the property value of the given element.
+	 *
+	 * If an object is provided for `callback` the created "_.where" style callback
+	 * will return `true` for elements that have the properties of the given object,
+	 * else `false`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Objects
+	 * @param {Object} object The object to iterate over.
+	 * @param {Function|Object|string} [callback=identity] The function called
+	 *  per iteration. If a property name or object is provided it will be used
+	 *  to create a "_.pluck" or "_.where" style callback, respectively.
+	 * @param {*} [thisArg] The `this` binding of `callback`.
+	 * @returns {Array} Returns a new object with values of the results of each `callback` execution.
+	 * @example
+	 *
+	 * _.mapValues({ 'a': 1, 'b': 2, 'c': 3} , function(num) { return num * 3; });
+	 * // => { 'a': 3, 'b': 6, 'c': 9 }
+	 *
+	 * var characters = {
+	 *   'fred': { 'name': 'fred', 'age': 40 },
+	 *   'pebbles': { 'name': 'pebbles', 'age': 1 }
+	 * };
+	 *
+	 * // using "_.pluck" callback shorthand
+	 * _.mapValues(characters, 'age');
+	 * // => { 'fred': 40, 'pebbles': 1 }
+	 */
+	function mapValues(object, callback, thisArg) {
+	  var result = {};
+	  callback = createCallback(callback, thisArg, 3);
+
+	  forOwn(object, function(value, key, object) {
+	    result[key] = callback(value, key, object);
+	  });
+	  return result;
+	}
+
+	module.exports = mapValues;
+
+
+/***/ },
+/* 148 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var baseCreateCallback = __webpack_require__(161),
+	    keys = __webpack_require__(149),
+	    objectTypes = __webpack_require__(162);
+
+	/**
+	 * Iterates over own enumerable properties of an object, executing the callback
+	 * for each property. The callback is bound to `thisArg` and invoked with three
+	 * arguments; (value, key, object). Callbacks may exit iteration early by
+	 * explicitly returning `false`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Function
+	 * @category Objects
+	 * @param {Object} object The object to iterate over.
+	 * @param {Function} [callback=identity] The function called per iteration.
+	 * @param {*} [thisArg] The `this` binding of `callback`.
+	 * @returns {Object} Returns `object`.
+	 * @example
+	 *
+	 * _.forOwn({ '0': 'zero', '1': 'one', 'length': 2 }, function(num, key) {
+	 *   console.log(key);
+	 * });
+	 * // => logs '0', '1', and 'length' (property order is not guaranteed across environments)
+	 */
+	var forOwn = function(collection, callback, thisArg) {
+	  var index, iterable = collection, result = iterable;
+	  if (!iterable) return result;
+	  if (!objectTypes[typeof iterable]) return result;
+	  callback = callback && typeof thisArg == 'undefined' ? callback : baseCreateCallback(callback, thisArg, 3);
+	    var ownIndex = -1,
+	        ownProps = objectTypes[typeof iterable] && keys(iterable),
+	        length = ownProps ? ownProps.length : 0;
+
+	    while (++ownIndex < length) {
+	      index = ownProps[ownIndex];
+	      if (callback(iterable[index], index, collection) === false) return result;
+	    }
+	  return result
+	};
+
+	module.exports = forOwn;
+
+
+/***/ },
+/* 149 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var isNative = __webpack_require__(163),
+	    isObject = __webpack_require__(158),
+	    shimKeys = __webpack_require__(164);
 
 	/* Native method shortcuts for methods with the same name as other `lodash` methods */
 	var nativeKeys = isNative(nativeKeys = Object.keys) && nativeKeys;
@@ -32576,7 +33006,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 146 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32587,8 +33017,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(156),
-	    forOwn = __webpack_require__(143);
+	var createCallback = __webpack_require__(165),
+	    forOwn = __webpack_require__(148);
 
 	/**
 	 * This method is like `_.findIndex` except that it returns the key of the
@@ -32647,7 +33077,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 147 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32658,15 +33088,15 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(164),
-	    cacheIndexOf = __webpack_require__(165),
-	    createCache = __webpack_require__(166),
-	    getArray = __webpack_require__(167),
-	    isArguments = __webpack_require__(162),
-	    isArray = __webpack_require__(163),
-	    largeArraySize = __webpack_require__(168),
-	    releaseArray = __webpack_require__(169),
-	    releaseObject = __webpack_require__(170);
+	var baseIndexOf = __webpack_require__(168),
+	    cacheIndexOf = __webpack_require__(169),
+	    createCache = __webpack_require__(170),
+	    getArray = __webpack_require__(171),
+	    isArguments = __webpack_require__(166),
+	    isArray = __webpack_require__(167),
+	    largeArraySize = __webpack_require__(172),
+	    releaseArray = __webpack_require__(173),
+	    releaseObject = __webpack_require__(174);
 
 	/**
 	 * Creates an array of unique values present in all provided arrays using
@@ -32736,7 +33166,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 148 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32747,8 +33177,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseUniq = __webpack_require__(171),
-	    createCallback = __webpack_require__(156);
+	var baseUniq = __webpack_require__(175),
+	    createCallback = __webpack_require__(165);
 
 	/**
 	 * Creates a duplicate-value-free version of an array using strict equality
@@ -32811,7 +33241,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 149 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32822,8 +33252,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createCallback = __webpack_require__(156),
-	    forOwn = __webpack_require__(143);
+	var createCallback = __webpack_require__(165),
+	    forOwn = __webpack_require__(148);
 
 	/**
 	 * Creates an array of values by running each element in the collection
@@ -32887,7 +33317,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 150 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32898,8 +33328,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreateCallback = __webpack_require__(157),
-	    forOwn = __webpack_require__(143);
+	var baseCreateCallback = __webpack_require__(161),
+	    forOwn = __webpack_require__(148);
 
 	/**
 	 * Iterates over elements of a collection, executing the callback for each
@@ -32948,7 +33378,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 151 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32959,7 +33389,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var keys = __webpack_require__(145);
+	var keys = __webpack_require__(149);
 
 	/**
 	 * Gets the size of the `collection` by returning `collection.length` for arrays
@@ -32990,7 +33420,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 152 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -33299,7 +33729,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 153 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function isBuffer(arg) {
@@ -33310,7 +33740,7 @@ var l20n=_RL20n_.l20n,
 	}
 
 /***/ },
-/* 154 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33321,7 +33751,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectTypes = __webpack_require__(158);
+	var objectTypes = __webpack_require__(162);
 
 	/**
 	 * Checks if `value` is the language type of Object.
@@ -33355,7 +33785,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 155 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// shim for using process in browser
@@ -33424,206 +33854,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 156 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseCreateCallback = __webpack_require__(157),
-	    baseIsEqual = __webpack_require__(173),
-	    isObject = __webpack_require__(154),
-	    keys = __webpack_require__(145),
-	    property = __webpack_require__(185);
-
-	/**
-	 * Produces a callback bound to an optional `thisArg`. If `func` is a property
-	 * name the created callback will return the property value for a given element.
-	 * If `func` is an object the created callback will return `true` for elements
-	 * that contain the equivalent object properties, otherwise it will return `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Utilities
-	 * @param {*} [func=identity] The value to convert to a callback.
-	 * @param {*} [thisArg] The `this` binding of the created callback.
-	 * @param {number} [argCount] The number of arguments the callback accepts.
-	 * @returns {Function} Returns a callback function.
-	 * @example
-	 *
-	 * var characters = [
-	 *   { 'name': 'barney', 'age': 36 },
-	 *   { 'name': 'fred',   'age': 40 }
-	 * ];
-	 *
-	 * // wrap to create custom callback shorthands
-	 * _.createCallback = _.wrap(_.createCallback, function(func, callback, thisArg) {
-	 *   var match = /^(.+?)__([gl]t)(.+)$/.exec(callback);
-	 *   return !match ? func(callback, thisArg) : function(object) {
-	 *     return match[2] == 'gt' ? object[match[1]] > match[3] : object[match[1]] < match[3];
-	 *   };
-	 * });
-	 *
-	 * _.filter(characters, 'age__gt38');
-	 * // => [{ 'name': 'fred', 'age': 40 }]
-	 */
-	function createCallback(func, thisArg, argCount) {
-	  var type = typeof func;
-	  if (func == null || type == 'function') {
-	    return baseCreateCallback(func, thisArg, argCount);
-	  }
-	  // handle "_.pluck" style callback shorthands
-	  if (type != 'object') {
-	    return property(func);
-	  }
-	  var props = keys(func),
-	      key = props[0],
-	      a = func[key];
-
-	  // handle "_.where" style callback shorthands
-	  if (props.length == 1 && a === a && !isObject(a)) {
-	    // fast path the common case of providing an object with a single
-	    // property containing a primitive value
-	    return function(object) {
-	      var b = object[key];
-	      return a === b && (a !== 0 || (1 / a == 1 / b));
-	    };
-	  }
-	  return function(object) {
-	    var length = props.length,
-	        result = false;
-
-	    while (length--) {
-	      if (!(result = baseIsEqual(object[props[length]], func[props[length]], null, true))) {
-	        break;
-	      }
-	    }
-	    return result;
-	  };
-	}
-
-	module.exports = createCallback;
-
-
-/***/ },
-/* 157 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var bind = __webpack_require__(174),
-	    identity = __webpack_require__(186),
-	    setBindData = __webpack_require__(175),
-	    support = __webpack_require__(176);
-
-	/** Used to detected named functions */
-	var reFuncName = /^\s*function[ \n\r\t]+\w/;
-
-	/** Used to detect functions containing a `this` reference */
-	var reThis = /\bthis\b/;
-
-	/** Native method shortcuts */
-	var fnToString = Function.prototype.toString;
-
-	/**
-	 * The base implementation of `_.createCallback` without support for creating
-	 * "_.pluck" or "_.where" style callbacks.
-	 *
-	 * @private
-	 * @param {*} [func=identity] The value to convert to a callback.
-	 * @param {*} [thisArg] The `this` binding of the created callback.
-	 * @param {number} [argCount] The number of arguments the callback accepts.
-	 * @returns {Function} Returns a callback function.
-	 */
-	function baseCreateCallback(func, thisArg, argCount) {
-	  if (typeof func != 'function') {
-	    return identity;
-	  }
-	  // exit early for no `thisArg` or already bound by `Function#bind`
-	  if (typeof thisArg == 'undefined' || !('prototype' in func)) {
-	    return func;
-	  }
-	  var bindData = func.__bindData__;
-	  if (typeof bindData == 'undefined') {
-	    if (support.funcNames) {
-	      bindData = !func.name;
-	    }
-	    bindData = bindData || !support.funcDecomp;
-	    if (!bindData) {
-	      var source = fnToString.call(func);
-	      if (!support.funcNames) {
-	        bindData = !reFuncName.test(source);
-	      }
-	      if (!bindData) {
-	        // checks if `func` references the `this` keyword and stores the result
-	        bindData = reThis.test(source);
-	        setBindData(func, bindData);
-	      }
-	    }
-	  }
-	  // exit early if there are no `this` references or `func` is bound
-	  if (bindData === false || (bindData !== true && bindData[1] & 1)) {
-	    return func;
-	  }
-	  switch (argCount) {
-	    case 1: return function(value) {
-	      return func.call(thisArg, value);
-	    };
-	    case 2: return function(a, b) {
-	      return func.call(thisArg, a, b);
-	    };
-	    case 3: return function(value, index, collection) {
-	      return func.call(thisArg, value, index, collection);
-	    };
-	    case 4: return function(accumulator, value, index, collection) {
-	      return func.call(thisArg, accumulator, value, index, collection);
-	    };
-	  }
-	  return bind(func, thisArg);
-	}
-
-	module.exports = baseCreateCallback;
-
-
-/***/ },
-/* 158 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/** Used to determine if values are of the language type Object */
-	var objectTypes = {
-	  'boolean': false,
-	  'function': true,
-	  'object': true,
-	  'number': false,
-	  'string': false,
-	  'undefined': false
-	};
-
-	module.exports = objectTypes;
-
-
-/***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33635,12 +33866,12 @@ var l20n=_RL20n_.l20n,
 	 * Available under MIT license <http://lodash.com/license>
 	 */
 	var assign = __webpack_require__(177),
-	    forEach = __webpack_require__(150),
-	    forOwn = __webpack_require__(143),
-	    getArray = __webpack_require__(167),
-	    isArray = __webpack_require__(163),
-	    isObject = __webpack_require__(154),
-	    releaseArray = __webpack_require__(169),
+	    forEach = __webpack_require__(154),
+	    forOwn = __webpack_require__(148),
+	    getArray = __webpack_require__(171),
+	    isArray = __webpack_require__(167),
+	    isObject = __webpack_require__(158),
+	    releaseArray = __webpack_require__(173),
 	    slice = __webpack_require__(178);
 
 	/** Used to match regexp flags from their coerced string values */
@@ -33781,7 +34012,119 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 160 */
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var bind = __webpack_require__(179),
+	    identity = __webpack_require__(189),
+	    setBindData = __webpack_require__(180),
+	    support = __webpack_require__(181);
+
+	/** Used to detected named functions */
+	var reFuncName = /^\s*function[ \n\r\t]+\w/;
+
+	/** Used to detect functions containing a `this` reference */
+	var reThis = /\bthis\b/;
+
+	/** Native method shortcuts */
+	var fnToString = Function.prototype.toString;
+
+	/**
+	 * The base implementation of `_.createCallback` without support for creating
+	 * "_.pluck" or "_.where" style callbacks.
+	 *
+	 * @private
+	 * @param {*} [func=identity] The value to convert to a callback.
+	 * @param {*} [thisArg] The `this` binding of the created callback.
+	 * @param {number} [argCount] The number of arguments the callback accepts.
+	 * @returns {Function} Returns a callback function.
+	 */
+	function baseCreateCallback(func, thisArg, argCount) {
+	  if (typeof func != 'function') {
+	    return identity;
+	  }
+	  // exit early for no `thisArg` or already bound by `Function#bind`
+	  if (typeof thisArg == 'undefined' || !('prototype' in func)) {
+	    return func;
+	  }
+	  var bindData = func.__bindData__;
+	  if (typeof bindData == 'undefined') {
+	    if (support.funcNames) {
+	      bindData = !func.name;
+	    }
+	    bindData = bindData || !support.funcDecomp;
+	    if (!bindData) {
+	      var source = fnToString.call(func);
+	      if (!support.funcNames) {
+	        bindData = !reFuncName.test(source);
+	      }
+	      if (!bindData) {
+	        // checks if `func` references the `this` keyword and stores the result
+	        bindData = reThis.test(source);
+	        setBindData(func, bindData);
+	      }
+	    }
+	  }
+	  // exit early if there are no `this` references or `func` is bound
+	  if (bindData === false || (bindData !== true && bindData[1] & 1)) {
+	    return func;
+	  }
+	  switch (argCount) {
+	    case 1: return function(value) {
+	      return func.call(thisArg, value);
+	    };
+	    case 2: return function(a, b) {
+	      return func.call(thisArg, a, b);
+	    };
+	    case 3: return function(value, index, collection) {
+	      return func.call(thisArg, value, index, collection);
+	    };
+	    case 4: return function(accumulator, value, index, collection) {
+	      return func.call(thisArg, accumulator, value, index, collection);
+	    };
+	  }
+	  return bind(func, thisArg);
+	}
+
+	module.exports = baseCreateCallback;
+
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/** Used to determine if values are of the language type Object */
+	var objectTypes = {
+	  'boolean': false,
+	  'function': true,
+	  'object': true,
+	  'number': false,
+	  'string': false,
+	  'undefined': false
+	};
+
+	module.exports = objectTypes;
+
+
+/***/ },
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33821,7 +34164,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 161 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33832,7 +34175,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectTypes = __webpack_require__(158);
+	var objectTypes = __webpack_require__(162);
 
 	/** Used for native method references */
 	var objectProto = Object.prototype;
@@ -33865,7 +34208,94 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 162 */
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var baseCreateCallback = __webpack_require__(161),
+	    baseIsEqual = __webpack_require__(182),
+	    isObject = __webpack_require__(158),
+	    keys = __webpack_require__(149),
+	    property = __webpack_require__(190);
+
+	/**
+	 * Produces a callback bound to an optional `thisArg`. If `func` is a property
+	 * name the created callback will return the property value for a given element.
+	 * If `func` is an object the created callback will return `true` for elements
+	 * that contain the equivalent object properties, otherwise it will return `false`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Utilities
+	 * @param {*} [func=identity] The value to convert to a callback.
+	 * @param {*} [thisArg] The `this` binding of the created callback.
+	 * @param {number} [argCount] The number of arguments the callback accepts.
+	 * @returns {Function} Returns a callback function.
+	 * @example
+	 *
+	 * var characters = [
+	 *   { 'name': 'barney', 'age': 36 },
+	 *   { 'name': 'fred',   'age': 40 }
+	 * ];
+	 *
+	 * // wrap to create custom callback shorthands
+	 * _.createCallback = _.wrap(_.createCallback, function(func, callback, thisArg) {
+	 *   var match = /^(.+?)__([gl]t)(.+)$/.exec(callback);
+	 *   return !match ? func(callback, thisArg) : function(object) {
+	 *     return match[2] == 'gt' ? object[match[1]] > match[3] : object[match[1]] < match[3];
+	 *   };
+	 * });
+	 *
+	 * _.filter(characters, 'age__gt38');
+	 * // => [{ 'name': 'fred', 'age': 40 }]
+	 */
+	function createCallback(func, thisArg, argCount) {
+	  var type = typeof func;
+	  if (func == null || type == 'function') {
+	    return baseCreateCallback(func, thisArg, argCount);
+	  }
+	  // handle "_.pluck" style callback shorthands
+	  if (type != 'object') {
+	    return property(func);
+	  }
+	  var props = keys(func),
+	      key = props[0],
+	      a = func[key];
+
+	  // handle "_.where" style callback shorthands
+	  if (props.length == 1 && a === a && !isObject(a)) {
+	    // fast path the common case of providing an object with a single
+	    // property containing a primitive value
+	    return function(object) {
+	      var b = object[key];
+	      return a === b && (a !== 0 || (1 / a == 1 / b));
+	    };
+	  }
+	  return function(object) {
+	    var length = props.length,
+	        result = false;
+
+	    while (length--) {
+	      if (!(result = baseIsEqual(object[props[length]], func[props[length]], null, true))) {
+	        break;
+	      }
+	    }
+	    return result;
+	  };
+	}
+
+	module.exports = createCallback;
+
+
+/***/ },
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33911,7 +34341,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 163 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33922,7 +34352,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(160);
+	var isNative = __webpack_require__(163);
 
 	/** `Object#toString` result shortcuts */
 	var arrayClass = '[object Array]';
@@ -33962,7 +34392,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 164 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34000,7 +34430,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 165 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34011,8 +34441,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(164),
-	    keyPrefix = __webpack_require__(179);
+	var baseIndexOf = __webpack_require__(168),
+	    keyPrefix = __webpack_require__(186);
 
 	/**
 	 * An implementation of `_.contains` for cache objects that mimics the return
@@ -34045,7 +34475,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 166 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34056,9 +34486,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var cachePush = __webpack_require__(180),
-	    getObject = __webpack_require__(181),
-	    releaseObject = __webpack_require__(170);
+	var cachePush = __webpack_require__(183),
+	    getObject = __webpack_require__(184),
+	    releaseObject = __webpack_require__(174);
 
 	/**
 	 * Creates a cache object to optimize linear searches of large arrays.
@@ -34096,7 +34526,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 167 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34107,7 +34537,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var arrayPool = __webpack_require__(182);
+	var arrayPool = __webpack_require__(185);
 
 	/**
 	 * Gets an array from the array pool or creates a new one if the pool is empty.
@@ -34123,7 +34553,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 168 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34142,7 +34572,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 169 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34153,8 +34583,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var arrayPool = __webpack_require__(182),
-	    maxPoolSize = __webpack_require__(183);
+	var arrayPool = __webpack_require__(185),
+	    maxPoolSize = __webpack_require__(187);
 
 	/**
 	 * Releases the given array back to the array pool.
@@ -34173,7 +34603,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 170 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34184,8 +34614,8 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var maxPoolSize = __webpack_require__(183),
-	    objectPool = __webpack_require__(184);
+	var maxPoolSize = __webpack_require__(187),
+	    objectPool = __webpack_require__(188);
 
 	/**
 	 * Releases the given object back to the object pool.
@@ -34208,7 +34638,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 171 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34219,13 +34649,13 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(164),
-	    cacheIndexOf = __webpack_require__(165),
-	    createCache = __webpack_require__(166),
-	    getArray = __webpack_require__(167),
-	    largeArraySize = __webpack_require__(168),
-	    releaseArray = __webpack_require__(169),
-	    releaseObject = __webpack_require__(170);
+	var baseIndexOf = __webpack_require__(168),
+	    cacheIndexOf = __webpack_require__(169),
+	    createCache = __webpack_require__(170),
+	    getArray = __webpack_require__(171),
+	    largeArraySize = __webpack_require__(172),
+	    releaseArray = __webpack_require__(173),
+	    releaseObject = __webpack_require__(174);
 
 	/**
 	 * The base implementation of `_.uniq` without support for callback shorthands
@@ -34278,7 +34708,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 172 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	if (typeof Object.create === 'function') {
@@ -34307,7 +34737,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 173 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34318,11 +34748,273 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var forIn = __webpack_require__(187),
-	    getArray = __webpack_require__(167),
-	    isFunction = __webpack_require__(188),
-	    objectTypes = __webpack_require__(158),
-	    releaseArray = __webpack_require__(169);
+	var baseCreateCallback = __webpack_require__(161),
+	    keys = __webpack_require__(149),
+	    objectTypes = __webpack_require__(162);
+
+	/**
+	 * Assigns own enumerable properties of source object(s) to the destination
+	 * object. Subsequent sources will overwrite property assignments of previous
+	 * sources. If a callback is provided it will be executed to produce the
+	 * assigned values. The callback is bound to `thisArg` and invoked with two
+	 * arguments; (objectValue, sourceValue).
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Function
+	 * @alias extend
+	 * @category Objects
+	 * @param {Object} object The destination object.
+	 * @param {...Object} [source] The source objects.
+	 * @param {Function} [callback] The function to customize assigning values.
+	 * @param {*} [thisArg] The `this` binding of `callback`.
+	 * @returns {Object} Returns the destination object.
+	 * @example
+	 *
+	 * _.assign({ 'name': 'fred' }, { 'employer': 'slate' });
+	 * // => { 'name': 'fred', 'employer': 'slate' }
+	 *
+	 * var defaults = _.partialRight(_.assign, function(a, b) {
+	 *   return typeof a == 'undefined' ? b : a;
+	 * });
+	 *
+	 * var object = { 'name': 'barney' };
+	 * defaults(object, { 'name': 'fred', 'employer': 'slate' });
+	 * // => { 'name': 'barney', 'employer': 'slate' }
+	 */
+	var assign = function(object, source, guard) {
+	  var index, iterable = object, result = iterable;
+	  if (!iterable) return result;
+	  var args = arguments,
+	      argsIndex = 0,
+	      argsLength = typeof guard == 'number' ? 2 : args.length;
+	  if (argsLength > 3 && typeof args[argsLength - 2] == 'function') {
+	    var callback = baseCreateCallback(args[--argsLength - 1], args[argsLength--], 2);
+	  } else if (argsLength > 2 && typeof args[argsLength - 1] == 'function') {
+	    callback = args[--argsLength];
+	  }
+	  while (++argsIndex < argsLength) {
+	    iterable = args[argsIndex];
+	    if (iterable && objectTypes[typeof iterable]) {
+	    var ownIndex = -1,
+	        ownProps = objectTypes[typeof iterable] && keys(iterable),
+	        length = ownProps ? ownProps.length : 0;
+
+	    while (++ownIndex < length) {
+	      index = ownProps[ownIndex];
+	      result[index] = callback ? callback(result[index], iterable[index]) : iterable[index];
+	    }
+	    }
+	  }
+	  return result
+	};
+
+	module.exports = assign;
+
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/**
+	 * Slices the `collection` from the `start` index up to, but not including,
+	 * the `end` index.
+	 *
+	 * Note: This function is used instead of `Array#slice` to support node lists
+	 * in IE < 9 and to ensure dense arrays are returned.
+	 *
+	 * @private
+	 * @param {Array|Object|string} collection The collection to slice.
+	 * @param {number} start The start index.
+	 * @param {number} end The end index.
+	 * @returns {Array} Returns the new array.
+	 */
+	function slice(array, start, end) {
+	  start || (start = 0);
+	  if (typeof end == 'undefined') {
+	    end = array ? array.length : 0;
+	  }
+	  var index = -1,
+	      length = end - start || 0,
+	      result = Array(length < 0 ? 0 : length);
+
+	  while (++index < length) {
+	    result[index] = array[start + index];
+	  }
+	  return result;
+	}
+
+	module.exports = slice;
+
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var createWrapper = __webpack_require__(191),
+	    slice = __webpack_require__(178);
+
+	/**
+	 * Creates a function that, when called, invokes `func` with the `this`
+	 * binding of `thisArg` and prepends any additional `bind` arguments to those
+	 * provided to the bound function.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Functions
+	 * @param {Function} func The function to bind.
+	 * @param {*} [thisArg] The `this` binding of `func`.
+	 * @param {...*} [arg] Arguments to be partially applied.
+	 * @returns {Function} Returns the new bound function.
+	 * @example
+	 *
+	 * var func = function(greeting) {
+	 *   return greeting + ' ' + this.name;
+	 * };
+	 *
+	 * func = _.bind(func, { 'name': 'fred' }, 'hi');
+	 * func();
+	 * // => 'hi fred'
+	 */
+	function bind(func, thisArg) {
+	  return arguments.length > 2
+	    ? createWrapper(func, 17, slice(arguments, 2), null, thisArg)
+	    : createWrapper(func, 1, null, null, thisArg);
+	}
+
+	module.exports = bind;
+
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var isNative = __webpack_require__(163),
+	    noop = __webpack_require__(192);
+
+	/** Used as the property descriptor for `__bindData__` */
+	var descriptor = {
+	  'configurable': false,
+	  'enumerable': false,
+	  'value': null,
+	  'writable': false
+	};
+
+	/** Used to set meta data on functions */
+	var defineProperty = (function() {
+	  // IE 8 only accepts DOM elements
+	  try {
+	    var o = {},
+	        func = isNative(func = Object.defineProperty) && func,
+	        result = func(o, o, o) && func;
+	  } catch(e) { }
+	  return result;
+	}());
+
+	/**
+	 * Sets `this` binding data on a given function.
+	 *
+	 * @private
+	 * @param {Function} func The function to set data on.
+	 * @param {Array} value The data array to set.
+	 */
+	var setBindData = !defineProperty ? noop : function(func, value) {
+	  descriptor.value = value;
+	  defineProperty(func, '__bindData__', descriptor);
+	};
+
+	module.exports = setBindData;
+
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var isNative = __webpack_require__(163);
+
+	/** Used to detect functions containing a `this` reference */
+	var reThis = /\bthis\b/;
+
+	/**
+	 * An object used to flag environments features.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Object
+	 */
+	var support = {};
+
+	/**
+	 * Detect if functions can be decompiled by `Function#toString`
+	 * (all but PS3 and older Opera mobile browsers & avoided in Windows 8 apps).
+	 *
+	 * @memberOf _.support
+	 * @type boolean
+	 */
+	support.funcDecomp = !isNative(global.WinRTError) && reThis.test(function() { return this; });
+
+	/**
+	 * Detect if `Function#name` is supported (all but IE).
+	 *
+	 * @memberOf _.support
+	 * @type boolean
+	 */
+	support.funcNames = typeof Function.name == 'string';
+
+	module.exports = support;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var forIn = __webpack_require__(193),
+	    getArray = __webpack_require__(171),
+	    isFunction = __webpack_require__(194),
+	    objectTypes = __webpack_require__(162),
+	    releaseArray = __webpack_require__(173);
 
 	/** `Object#toString` result shortcuts */
 	var argsClass = '[object Arguments]',
@@ -34522,7 +35214,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 174 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34533,288 +35225,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var createWrapper = __webpack_require__(189),
-	    slice = __webpack_require__(178);
-
-	/**
-	 * Creates a function that, when called, invokes `func` with the `this`
-	 * binding of `thisArg` and prepends any additional `bind` arguments to those
-	 * provided to the bound function.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Functions
-	 * @param {Function} func The function to bind.
-	 * @param {*} [thisArg] The `this` binding of `func`.
-	 * @param {...*} [arg] Arguments to be partially applied.
-	 * @returns {Function} Returns the new bound function.
-	 * @example
-	 *
-	 * var func = function(greeting) {
-	 *   return greeting + ' ' + this.name;
-	 * };
-	 *
-	 * func = _.bind(func, { 'name': 'fred' }, 'hi');
-	 * func();
-	 * // => 'hi fred'
-	 */
-	function bind(func, thisArg) {
-	  return arguments.length > 2
-	    ? createWrapper(func, 17, slice(arguments, 2), null, thisArg)
-	    : createWrapper(func, 1, null, null, thisArg);
-	}
-
-	module.exports = bind;
-
-
-/***/ },
-/* 175 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var isNative = __webpack_require__(160),
-	    noop = __webpack_require__(190);
-
-	/** Used as the property descriptor for `__bindData__` */
-	var descriptor = {
-	  'configurable': false,
-	  'enumerable': false,
-	  'value': null,
-	  'writable': false
-	};
-
-	/** Used to set meta data on functions */
-	var defineProperty = (function() {
-	  // IE 8 only accepts DOM elements
-	  try {
-	    var o = {},
-	        func = isNative(func = Object.defineProperty) && func,
-	        result = func(o, o, o) && func;
-	  } catch(e) { }
-	  return result;
-	}());
-
-	/**
-	 * Sets `this` binding data on a given function.
-	 *
-	 * @private
-	 * @param {Function} func The function to set data on.
-	 * @param {Array} value The data array to set.
-	 */
-	var setBindData = !defineProperty ? noop : function(func, value) {
-	  descriptor.value = value;
-	  defineProperty(func, '__bindData__', descriptor);
-	};
-
-	module.exports = setBindData;
-
-
-/***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var isNative = __webpack_require__(160);
-
-	/** Used to detect functions containing a `this` reference */
-	var reThis = /\bthis\b/;
-
-	/**
-	 * An object used to flag environments features.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Object
-	 */
-	var support = {};
-
-	/**
-	 * Detect if functions can be decompiled by `Function#toString`
-	 * (all but PS3 and older Opera mobile browsers & avoided in Windows 8 apps).
-	 *
-	 * @memberOf _.support
-	 * @type boolean
-	 */
-	support.funcDecomp = !isNative(global.WinRTError) && reThis.test(function() { return this; });
-
-	/**
-	 * Detect if `Function#name` is supported (all but IE).
-	 *
-	 * @memberOf _.support
-	 * @type boolean
-	 */
-	support.funcNames = typeof Function.name == 'string';
-
-	module.exports = support;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 177 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseCreateCallback = __webpack_require__(157),
-	    keys = __webpack_require__(145),
-	    objectTypes = __webpack_require__(158);
-
-	/**
-	 * Assigns own enumerable properties of source object(s) to the destination
-	 * object. Subsequent sources will overwrite property assignments of previous
-	 * sources. If a callback is provided it will be executed to produce the
-	 * assigned values. The callback is bound to `thisArg` and invoked with two
-	 * arguments; (objectValue, sourceValue).
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Function
-	 * @alias extend
-	 * @category Objects
-	 * @param {Object} object The destination object.
-	 * @param {...Object} [source] The source objects.
-	 * @param {Function} [callback] The function to customize assigning values.
-	 * @param {*} [thisArg] The `this` binding of `callback`.
-	 * @returns {Object} Returns the destination object.
-	 * @example
-	 *
-	 * _.assign({ 'name': 'fred' }, { 'employer': 'slate' });
-	 * // => { 'name': 'fred', 'employer': 'slate' }
-	 *
-	 * var defaults = _.partialRight(_.assign, function(a, b) {
-	 *   return typeof a == 'undefined' ? b : a;
-	 * });
-	 *
-	 * var object = { 'name': 'barney' };
-	 * defaults(object, { 'name': 'fred', 'employer': 'slate' });
-	 * // => { 'name': 'barney', 'employer': 'slate' }
-	 */
-	var assign = function(object, source, guard) {
-	  var index, iterable = object, result = iterable;
-	  if (!iterable) return result;
-	  var args = arguments,
-	      argsIndex = 0,
-	      argsLength = typeof guard == 'number' ? 2 : args.length;
-	  if (argsLength > 3 && typeof args[argsLength - 2] == 'function') {
-	    var callback = baseCreateCallback(args[--argsLength - 1], args[argsLength--], 2);
-	  } else if (argsLength > 2 && typeof args[argsLength - 1] == 'function') {
-	    callback = args[--argsLength];
-	  }
-	  while (++argsIndex < argsLength) {
-	    iterable = args[argsIndex];
-	    if (iterable && objectTypes[typeof iterable]) {
-	    var ownIndex = -1,
-	        ownProps = objectTypes[typeof iterable] && keys(iterable),
-	        length = ownProps ? ownProps.length : 0;
-
-	    while (++ownIndex < length) {
-	      index = ownProps[ownIndex];
-	      result[index] = callback ? callback(result[index], iterable[index]) : iterable[index];
-	    }
-	    }
-	  }
-	  return result
-	};
-
-	module.exports = assign;
-
-
-/***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/**
-	 * Slices the `collection` from the `start` index up to, but not including,
-	 * the `end` index.
-	 *
-	 * Note: This function is used instead of `Array#slice` to support node lists
-	 * in IE < 9 and to ensure dense arrays are returned.
-	 *
-	 * @private
-	 * @param {Array|Object|string} collection The collection to slice.
-	 * @param {number} start The start index.
-	 * @param {number} end The end index.
-	 * @returns {Array} Returns the new array.
-	 */
-	function slice(array, start, end) {
-	  start || (start = 0);
-	  if (typeof end == 'undefined') {
-	    end = array ? array.length : 0;
-	  }
-	  var index = -1,
-	      length = end - start || 0,
-	      result = Array(length < 0 ? 0 : length);
-
-	  while (++index < length) {
-	    result[index] = array[start + index];
-	  }
-	  return result;
-	}
-
-	module.exports = slice;
-
-
-/***/ },
-/* 179 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/** Used to prefix keys to avoid issues with `__proto__` and properties on `Object.prototype` */
-	var keyPrefix = +new Date + '';
-
-	module.exports = keyPrefix;
-
-
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var keyPrefix = __webpack_require__(179);
+	var keyPrefix = __webpack_require__(186);
 
 	/**
 	 * Adds a given value to the corresponding cache object.
@@ -34847,7 +35258,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 181 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34858,7 +35269,7 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var objectPool = __webpack_require__(184);
+	var objectPool = __webpack_require__(188);
 
 	/**
 	 * Gets an object from the object pool or creates a new one if the pool is empty.
@@ -34888,7 +35299,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 182 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34907,7 +35318,26 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 183 */
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/** Used to prefix keys to avoid issues with `__proto__` and properties on `Object.prototype` */
+	var keyPrefix = +new Date + '';
+
+	module.exports = keyPrefix;
+
+
+/***/ },
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34926,7 +35356,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 184 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34945,7 +35375,41 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 185 */
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/**
+	 * This method returns the first argument provided to it.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Utilities
+	 * @param {*} value Any value.
+	 * @returns {*} Returns `value`.
+	 * @example
+	 *
+	 * var object = { 'name': 'fred' };
+	 * _.identity(object) === object;
+	 * // => true
+	 */
+	function identity(value) {
+	  return value;
+	}
+
+	module.exports = identity;
+
+
+/***/ },
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34991,7 +35455,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 186 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -35002,136 +35466,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-
-	/**
-	 * This method returns the first argument provided to it.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Utilities
-	 * @param {*} value Any value.
-	 * @returns {*} Returns `value`.
-	 * @example
-	 *
-	 * var object = { 'name': 'fred' };
-	 * _.identity(object) === object;
-	 * // => true
-	 */
-	function identity(value) {
-	  return value;
-	}
-
-	module.exports = identity;
-
-
-/***/ },
-/* 187 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseCreateCallback = __webpack_require__(157),
-	    objectTypes = __webpack_require__(158);
-
-	/**
-	 * Iterates over own and inherited enumerable properties of an object,
-	 * executing the callback for each property. The callback is bound to `thisArg`
-	 * and invoked with three arguments; (value, key, object). Callbacks may exit
-	 * iteration early by explicitly returning `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @type Function
-	 * @category Objects
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} [callback=identity] The function called per iteration.
-	 * @param {*} [thisArg] The `this` binding of `callback`.
-	 * @returns {Object} Returns `object`.
-	 * @example
-	 *
-	 * function Shape() {
-	 *   this.x = 0;
-	 *   this.y = 0;
-	 * }
-	 *
-	 * Shape.prototype.move = function(x, y) {
-	 *   this.x += x;
-	 *   this.y += y;
-	 * };
-	 *
-	 * _.forIn(new Shape, function(value, key) {
-	 *   console.log(key);
-	 * });
-	 * // => logs 'x', 'y', and 'move' (property order is not guaranteed across environments)
-	 */
-	var forIn = function(collection, callback, thisArg) {
-	  var index, iterable = collection, result = iterable;
-	  if (!iterable) return result;
-	  if (!objectTypes[typeof iterable]) return result;
-	  callback = callback && typeof thisArg == 'undefined' ? callback : baseCreateCallback(callback, thisArg, 3);
-	    for (index in iterable) {
-	      if (callback(iterable[index], index, collection) === false) return result;
-	    }
-	  return result
-	};
-
-	module.exports = forIn;
-
-
-/***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-
-	/**
-	 * Checks if `value` is a function.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Objects
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if the `value` is a function, else `false`.
-	 * @example
-	 *
-	 * _.isFunction(_);
-	 * // => true
-	 */
-	function isFunction(value) {
-	  return typeof value == 'function';
-	}
-
-	module.exports = isFunction;
-
-
-/***/ },
-/* 189 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
-	 * Build: `lodash modularize modern exports="node" -o ./modern/`
-	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <http://lodash.com/license>
-	 */
-	var baseBind = __webpack_require__(191),
-	    baseCreateWrapper = __webpack_require__(192),
-	    isFunction = __webpack_require__(188),
+	var baseBind = __webpack_require__(195),
+	    baseCreateWrapper = __webpack_require__(196),
+	    isFunction = __webpack_require__(194),
 	    slice = __webpack_require__(178);
 
 	/**
@@ -35230,7 +35567,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 190 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -35262,7 +35599,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 191 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -35273,9 +35610,102 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreate = __webpack_require__(193),
-	    isObject = __webpack_require__(154),
-	    setBindData = __webpack_require__(175),
+	var baseCreateCallback = __webpack_require__(161),
+	    objectTypes = __webpack_require__(162);
+
+	/**
+	 * Iterates over own and inherited enumerable properties of an object,
+	 * executing the callback for each property. The callback is bound to `thisArg`
+	 * and invoked with three arguments; (value, key, object). Callbacks may exit
+	 * iteration early by explicitly returning `false`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @type Function
+	 * @category Objects
+	 * @param {Object} object The object to iterate over.
+	 * @param {Function} [callback=identity] The function called per iteration.
+	 * @param {*} [thisArg] The `this` binding of `callback`.
+	 * @returns {Object} Returns `object`.
+	 * @example
+	 *
+	 * function Shape() {
+	 *   this.x = 0;
+	 *   this.y = 0;
+	 * }
+	 *
+	 * Shape.prototype.move = function(x, y) {
+	 *   this.x += x;
+	 *   this.y += y;
+	 * };
+	 *
+	 * _.forIn(new Shape, function(value, key) {
+	 *   console.log(key);
+	 * });
+	 * // => logs 'x', 'y', and 'move' (property order is not guaranteed across environments)
+	 */
+	var forIn = function(collection, callback, thisArg) {
+	  var index, iterable = collection, result = iterable;
+	  if (!iterable) return result;
+	  if (!objectTypes[typeof iterable]) return result;
+	  callback = callback && typeof thisArg == 'undefined' ? callback : baseCreateCallback(callback, thisArg, 3);
+	    for (index in iterable) {
+	      if (callback(iterable[index], index, collection) === false) return result;
+	    }
+	  return result
+	};
+
+	module.exports = forIn;
+
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/**
+	 * Checks if `value` is a function.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Objects
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if the `value` is a function, else `false`.
+	 * @example
+	 *
+	 * _.isFunction(_);
+	 * // => true
+	 */
+	function isFunction(value) {
+	  return typeof value == 'function';
+	}
+
+	module.exports = isFunction;
+
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var baseCreate = __webpack_require__(197),
+	    isObject = __webpack_require__(158),
+	    setBindData = __webpack_require__(180),
 	    slice = __webpack_require__(178);
 
 	/**
@@ -35330,7 +35760,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 192 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -35341,9 +35771,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var baseCreate = __webpack_require__(193),
-	    isObject = __webpack_require__(154),
-	    setBindData = __webpack_require__(175),
+	var baseCreate = __webpack_require__(197),
+	    isObject = __webpack_require__(158),
+	    setBindData = __webpack_require__(180),
 	    slice = __webpack_require__(178);
 
 	/**
@@ -35414,7 +35844,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 193 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -35425,9 +35855,9 @@ var l20n=_RL20n_.l20n,
 	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <http://lodash.com/license>
 	 */
-	var isNative = __webpack_require__(160),
-	    isObject = __webpack_require__(154),
-	    noop = __webpack_require__(190);
+	var isNative = __webpack_require__(163),
+	    isObject = __webpack_require__(158),
+	    noop = __webpack_require__(192);
 
 	/* Native method shortcuts for methods with the same name as other `lodash` methods */
 	var nativeCreate = isNative(nativeCreate = Object.create) && nativeCreate;

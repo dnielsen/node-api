@@ -1,30 +1,5 @@
 /** @jsx React.DOM */
 
-var SidebarBtn = React.createClass({
-  handleSidebarStateChange: function(props) {
-    if(props['data-id'] === 'sidebar-btn') {
-      ReactBootstrap.Dispatcher.emit('sidebar');
-    }
-  },
-  componentDidMount: function() {
-    if(!Modernizr.touch) {
-      var isOpen = localStorage.getItem('sidebar-open-state');
-      ReactBootstrap.Dispatcher.emit('sidebar', isOpen === 'true');      
-    }
-  },
-  render: function() {
-    return this.transferPropsTo(
-      <NavContent className='pull-left visible-xs-inline-block'>
-        <Nav onItemSelect={this.handleSidebarStateChange}>
-          <NavItem data-id='sidebar-btn' className='sidebar-btn' href='/'>
-            <Icon bundle='fontello' glyph='th-list-5' />
-          </NavItem>
-        </Nav>
-      </NavContent>
-    );
-  }
-});
-
 var Brand = React.createClass({
   render: function() {
     return this.transferPropsTo(

@@ -106,12 +106,15 @@
 	  Progress: __webpack_require__(33).Progress,
 	  ProgressGroup: __webpack_require__(33).ProgressGroup,
 	  Media: __webpack_require__(34).Media,
+	  MediaDiv: __webpack_require__(34).MediaDiv,
 	  MediaBody: __webpack_require__(34).MediaBody,
 	  MediaList: __webpack_require__(34).MediaList,
 	  MediaObject: __webpack_require__(34).MediaObject,
 	  MediaHeading: __webpack_require__(34).MediaHeading,
 	  ListGroup: __webpack_require__(35).ListGroup,
 	  ListGroupItem: __webpack_require__(35).ListGroupItem,
+	  ListGroupItemText: __webpack_require__(35).ListGroupItemText,
+	  ListGroupItemHeading: __webpack_require__(35).ListGroupItemHeading,
 	  Well: __webpack_require__(36),
 	  Modal: __webpack_require__(37).Modal,
 	  ModalBody: __webpack_require__(37).ModalBody,
@@ -149,7 +152,16 @@
 	  PricingTableHeader: __webpack_require__(43).PricingTableHeader,
 	  PricingTableContainer: __webpack_require__(43).PricingTableContainer,
 	  PricingButtonContainer: __webpack_require__(43).PricingButtonContainer,
-	  Tag: __webpack_require__(44)
+	  Alert: __webpack_require__(44).Alert,
+	  AlertLink: __webpack_require__(44).AlertLink,
+	  Tag: __webpack_require__(45),
+	  Sidebar: __webpack_require__(46).Sidebar,
+	  SidebarNav: __webpack_require__(46).SidebarNav,
+	  SidebarBtn: __webpack_require__(46).SidebarBtn,
+	  SidebarMixin: __webpack_require__(46).SidebarMixin,
+	  SidebarNavItem: __webpack_require__(46).SidebarNavItem,
+	  SidebarControls: __webpack_require__(46).SidebarControls,
+	  SidebarControlBtn: __webpack_require__(46).SidebarControlBtn,
 	};
 
 
@@ -1633,7 +1645,7 @@
 	  stateChangeCallback: function(paneName) {
 	    if(this.paneName === paneName) {
 	      this.setState({active: true}, function() {
-	        $(window).trigger('rubix.redraw');
+	        setTimeout(function() { $(window).trigger('resize'), 15});
 	        if(!this.props.dropdown) {
 	          var node = $(this.refs.li.getDOMNode());
 	          node.siblings('.active').removeClass('active');
@@ -2410,10 +2422,32 @@
 	var classSet = React.addons.classSet;
 
 	var ProgressGroup = React.createClass({displayName: 'ProgressGroup',
+	  propTypes: {
+	    collapseBottom: React.PropTypes.bool
+	  },
+	  componentWillMount: function() {
+	    var children = this.props.children;
+
+	    if(Array.isArray(children)) {
+	      children = React.Children.map(this.props.children, function(child, i) {
+	        return React.addons.cloneWithProps(child, {
+	          stack: true, key: child.props.key
+	        });
+	      }, this);
+	    }
+
+	    this.setState({
+	      children: children
+	    });
+	  },
 	  render: function() {
+	    var classes = React.addons.classSet({
+	      'progress': true,
+	      'progress-collapse-bottom': this.props.collapseBottom
+	    });
 	    return this.transferPropsTo(
-	      React.DOM.div({className: "progress", style: {background: this.props.background || null}}, 
-	        this.props.children
+	      React.DOM.div({className: classes.trim(), style: {background: this.props.background || null}}, 
+	        this.state.children
 	      )
 	    );
 	  }
@@ -2436,7 +2470,8 @@
 	    withLabel: React.PropTypes.bool,
 
 	    color: React.PropTypes.string,
-	    background: React.PropTypes.string
+	    background: React.PropTypes.string,
+	    collapseBottom: React.PropTypes.bool
 	  },
 	  getInitialState: function() {
 	    return {
@@ -2474,7 +2509,8 @@
 	      'progress-bar-danger': this.props.danger,
 	      'progress-bar-success': this.props.success,
 	      'progress-bar-warning': this.props.warning,
-	      'progress-bar-striped': this.props.striped
+	      'progress-bar-striped': this.props.striped,
+	      'progress-collapse-bottom': this.props.collapseBottom && this.props.stack
 	    });
 
 	    var suffix = '';
@@ -2542,6 +2578,17 @@
 	  }
 	});
 
+
+	var MediaDiv = React.createClass({displayName: 'MediaDiv',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.div({className: "media"}, 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
 	var MediaList = React.createClass({displayName: 'MediaList',
 	  render: function() {
 	    return this.transferPropsTo(
@@ -2563,7 +2610,7 @@
 	var MediaHeading = React.createClass({displayName: 'MediaHeading',
 	  render: function() {
 	    return this.transferPropsTo(
-	      React.DOM.h4({className: "media-heading"}, 
+	      React.DOM.h4({className: "media-heading fg-black50"}, 
 	        this.props.children
 	      )
 	    );
@@ -2571,6 +2618,7 @@
 	});
 
 	module.exports.Media = Media;
+	module.exports.MediaDiv = MediaDiv;
 	module.exports.MediaBody = MediaBody;
 	module.exports.MediaList = MediaList;
 	module.exports.MediaObject = MediaObject;
@@ -2584,17 +2632,43 @@
 	/** @jsx React.DOM */
 
 	var classSet = React.addons.classSet;
+
+	var ListGroupItemText = React.createClass({displayName: 'ListGroupItemText',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.p({className: "list-group-item-text"}, this.props.children)
+	    );
+	  }
+	});
+
+	var ListGroupItemHeading = React.createClass({displayName: 'ListGroupItemHeading',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.h4({className: "list-group-item-heading"}, this.props.children)
+	    );
+	  }
+	});
+
 	var ListGroupItem = React.createClass({displayName: 'ListGroupItem',
 	  propTypes: {
 	    active: React.PropTypes.bool,
 	    disabled: React.PropTypes.bool,
-	    bsStyle: React.PropTypes.string
+	    bsStyle: React.PropTypes.string,
+
+	    info: React.PropTypes.bool,
+	    danger: React.PropTypes.bool,
+	    warning: React.PropTypes.bool,
+	    success: React.PropTypes.bool
 	  },
 	  render: function() {
 	    var classesObj = {
 	      'list-group-item': true,
 	      'active': this.props.active,
-	      'disabled': this.props.disabled
+	      'disabled': this.props.disabled,
+	      'list-group-item-info': this.props.info,
+	      'list-group-item-danger': this.props.danger,
+	      'list-group-item-warning': this.props.warning,
+	      'list-group-item-success': this.props.success
 	    };
 
 	    if(this.props.bsStyle) {
@@ -2626,6 +2700,8 @@
 
 	module.exports.ListGroup = ListGroup;
 	module.exports.ListGroupItem = ListGroupItem;
+	module.exports.ListGroupItemText = ListGroupItemText;
+	module.exports.ListGroupItemHeading = ListGroupItemHeading;
 
 
 /***/ },
@@ -2765,8 +2841,15 @@
 	      'modal-sm': this.props.sm
 	    });
 
+	    var modalClasses = classSet({
+	      'modal': true,
+	      'fade': true,
+	      'in': this.state.styles.display === 'block' ? true : false,
+	      'out': this.state.styles.display === 'none' ? true : false
+	    });
+
 	    return this.transferPropsTo(
-	      React.DOM.div({ref: "modal", className: "modal", tabIndex: "-1", role: "dialog", style: this.state.styles}, 
+	      React.DOM.div({ref: "modal", className: modalClasses.trim(), tabIndex: "-1", role: "dialog", style: this.state.styles}, 
 	        React.DOM.div({className: modalDialogClasses.trim()}, 
 	          React.DOM.div({className: "modal-content"}, 
 	            this.props.children
@@ -2991,8 +3074,10 @@
 	      );
 	    }
 
+	    if(this.state.removed) return null;
+
 	    return this.transferPropsTo(
-	      React.DOM.div({className: 'rubix-panel-container-with-controls '  + (this.state.collapsed ? 'active ': ' ') + (this.state.removed ? 'hidden ' : ''), style: {zIndex: PanelContainer.getZIndex()}}, 
+	      React.DOM.div({className: 'rubix-panel-container-with-controls '  + (this.state.collapsed ? 'active ': ' '), style: {zIndex: PanelContainer.getZIndex()}}, 
 	        controls, 
 	        React.DOM.div({ref: "container", className: containerClasses.trim()}, 
 	          this.props.children
@@ -3694,6 +3779,79 @@
 
 	/** @jsx React.DOM */
 
+	var Button = __webpack_require__(13);
+
+	var Alert = React.createClass({displayName: 'Alert',
+	  propTypes: {
+	    info: React.PropTypes.bool,
+	    danger: React.PropTypes.bool,
+	    success: React.PropTypes.bool,
+	    warning: React.PropTypes.bool,
+	    dismissible: React.PropTypes.bool,
+
+	    collapseBottom: React.PropTypes.bool
+	  },
+	  getInitialState: function() {
+	    return {
+	      hidden: false
+	    };
+	  },
+	  handleClose: function() {
+	    this.setState({hidden: true});
+	  },
+	  render: function() {
+	    var classes = React.addons.classSet({
+	      'alert': true,
+	      'hidden': this.state.hidden,
+	      'alert-info': this.props.info,
+	      'alert-danger': this.props.danger,
+	      'alert-success': this.props.success,
+	      'alert-warning': this.props.warning,
+	      'alert-dismissible': this.props.dismissible
+	    });
+
+	    var children = this.props.children;
+
+	    if(this.props.dismissible) {
+	      children = (
+	        React.DOM.div(null, 
+	          Button({close: true, onClick: this.handleClose}, 
+	            React.DOM.span({'aria-hidden': "true"}, "×"), 
+	            React.DOM.span({className: "sr-only"}, "Close")
+	          ), 
+	          this.props.children
+	        )
+	      );
+	    }
+
+	    return this.transferPropsTo(
+	      React.DOM.div({className: classes.trim(), role: "alert", style: {marginBottom: this.props.collapseBottom ? 0 : null}}, 
+	        children
+	      )
+	    );
+	  }
+	});
+
+	var AlertLink = React.createClass({displayName: 'AlertLink',
+	  render: function() {
+	    return this.transferPropsTo(
+	      RRouter.Link({href: "#", className: "alert-link"}, 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	module.exports.Alert = Alert;
+	module.exports.AlertLink = AlertLink;
+
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
 	var Tag = React.createClass({displayName: 'Tag',
 	  getDefaultProps: function() {
 	    return {
@@ -3709,6 +3867,394 @@
 	});
 
 	module.exports = Tag;
+
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var classSet = React.addons.classSet;
+
+	var openState = (!Modernizr.touch) ? (localStorage.getItem('sidebar-open-state') === 'true' ? true : false) : false;
+	var SidebarMixin = {
+	  getInitialState: function() {
+	    return {
+	      open: openState
+	    };
+	  },
+	  sidebarStateChangeCallback: function(open) {
+	    if(this.state.open === open) return;
+	    if(open !== undefined)
+	      openState = open;
+	    else
+	      openState = !this.state.open;
+	    this.setState({
+	      open: openState // toggle sidebar
+	    });
+	    localStorage.setItem('sidebar-open-state', openState);
+	  },
+	  componentWillMount: function() {
+	    ReactBootstrap.Dispatcher.on('sidebar', this.sidebarStateChangeCallback);
+	  },
+	  componentWillUnmount: function() {
+	    ReactBootstrap.Dispatcher.off('sidebar', this.sidebarStateChangeCallback);
+	  }
+	};
+
+	var SidebarControlBtn = React.createClass({displayName: 'SidebarControlBtn',
+	  propTypes: {
+	    key: React.PropTypes.number.isRequired
+	  },
+	  getInitialState: function() {
+	    return {
+	      active: this.props.active || false
+	    };
+	  },
+	  handleClick: function(e) {
+	    e.preventDefault();
+	    e.stopPropagation();
+	    ReactBootstrap.Dispatcher.emit('sidebar:controlbtn', this.props);
+	    ReactBootstrap.Dispatcher.emit('sidebar:keychange', this.props.key);
+	  },
+	  handleState: function(props) {
+	    if(props.hasOwnProperty('key')) {
+	      if(props.key === this.props.key) {
+	        this.setState({active: true});
+	      } else {
+	        this.setState({active: false}); 
+	      }
+	    }
+	  },
+	  componentDidMount: function() {
+	    ReactBootstrap.Dispatcher.on('sidebar:controlbtn', this.handleState);
+	    $('body, #body').scrollTop(0);
+	  },
+	  componentWillUnmount: function() {
+	    ReactBootstrap.Dispatcher.off('sidebar:controlbtn', this.handleState);
+	  },
+	  render: function() {
+	    var classes = classSet({
+	      'sidebar-control-btn': true,
+	      'active': this.state.active
+	    });
+	    return this.transferPropsTo(
+	      React.DOM.li({className: classes.trim(), onClick: this.handleClick, tabIndex: "-1"}, 
+	        React.DOM.a({href: "#", tabIndex: "-1"}, 
+	          ReactBootstrap.Icon({bundle: this.props.bundle, glyph: this.props.glyph})
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var SidebarControls = React.createClass({displayName: 'SidebarControls',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.div({className: "sidebar-controls-container", dir: "ltr"}, 
+	        React.DOM.div({className: "sidebar-controls", tabIndex: "-1"}, 
+	          this.props.children
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var Sidebar = React.createClass({displayName: 'Sidebar',
+	  propTypes: {
+	    active: React.PropTypes.bool,
+	    key: React.PropTypes.number.isRequired
+	  },
+	  timer: null,
+	  getInitialState: function() {
+	    return {
+	      left: ((this.props.key * 100) + '%'),
+	      visibility: (this.props.key === 0) ? 'visible' : 'hidden'
+	    };
+	  },
+	  handleKeyChange: function(key) {
+	    var newLeft = ((this.props.key*100) - (key*100))+'%';
+	    var styles = {left: newLeft};
+	    styles.visibility = 'visible';
+	    this.setState(styles, function() {
+	      if(newLeft !== '0%') {
+	        setTimeout(function() {
+	          this.setState({visibility: 'hidden'});
+	        }.bind(this), 300);
+	      } else if(newLeft === '0%') {
+	        var height = $(this.refs.innersidebar.getDOMNode()).height();
+	        if($('html').hasClass('static')) {
+	          $('#body').css('min-height', height+400);
+	        } else {
+	          $('#body').css('min-height', '');
+	        }
+	      }
+	    }.bind(this));
+	  },
+	  updateScrollbar: function() {
+	    if(!Modernizr.touch) {
+	      $(this.refs.sidebar.getDOMNode()).perfectScrollbar('update');
+	    }
+	  },
+	  repositionScrollbar: function(child_node, top, height) {
+	    clearTimeout(this.timer);
+	    var node = $(this.refs.sidebar.getDOMNode());
+	    var scrollTo = top - node.offset().top + node.scrollTop();
+	    if(node.find(child_node).length) {
+	      if(scrollTo > ($(window).height() / 2)) {
+	        this.timer = setTimeout(function() {
+	          node.scrollTop(scrollTo - ($(window).height() / 2) + 100);
+	        }, 15);
+	      }
+	    }
+	    if(!Modernizr.touch)
+	      this.updateScrollbar()
+	  },
+	  destroyScrollbar: function() {
+	    $(this.refs.sidebar.getDOMNode()).perfectScrollbar('destroy');
+	  },
+	  initializeScrollbar: function() {
+	    $(this.refs.sidebar.getDOMNode()).perfectScrollbar({
+	      suppressScrollX: true
+	    });
+	  },
+	  componentWillMount: function() {
+	    ReactBootstrap.Dispatcher.on('sidebar:reinitialize', this.initializeScrollbar);
+	    ReactBootstrap.Dispatcher.on('sidebar:destroy', this.destroyScrollbar);
+	    ReactBootstrap.Dispatcher.on('sidebar:update', this.updateScrollbar);
+	    ReactBootstrap.Dispatcher.on('sidebar:reposition', this.repositionScrollbar);
+	    ReactBootstrap.Dispatcher.on('sidebar:keychange', this.handleKeyChange);
+	  },
+	  componentWillUnmount: function() {
+	    ReactBootstrap.Dispatcher.off('sidebar:reinitialize', this.initializeScrollbar);
+	    ReactBootstrap.Dispatcher.off('sidebar:destroy', this.destroyScrollbar);
+	    ReactBootstrap.Dispatcher.off('sidebar:update', this.updateScrollbar);
+	    ReactBootstrap.Dispatcher.off('sidebar:reposition', this.repositionScrollbar);
+	    ReactBootstrap.Dispatcher.off('sidebar:keychange', this.handleKeyChange);
+	  },
+	  componentDidMount: function() {
+	    if(!Modernizr.touch) {
+	      this.initializeScrollbar();
+	    }
+
+	    if(this.props.active) {
+	      setTimeout(function() {
+	        ReactBootstrap.Dispatcher.emit('sidebar:controlbtn', {key: this.props.key});
+	        ReactBootstrap.Dispatcher.emit('sidebar:keychange', this.props.key);
+	      }.bind(this), 15);
+	    }
+	  },
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.div({ref: "sidebar", className: "sidebar", style: {
+	        left: this.state.left,
+	        visibility: this.state.visibility,
+	        'transition': 'all 0.3s ease',
+	        '-o-transition': 'all 0.3s ease',
+	        '-ms-transition': 'all 0.3s ease',
+	        '-moz-transition': 'all 0.3s ease',
+	        '-webkit-transition': 'all 0.3s ease'
+	      }}, 
+	        React.DOM.div({ref: "innersidebar"}, this.props.children)
+	      )
+	    );
+	  }
+	});
+
+	var SidebarNavItem = React.createClass({displayName: 'SidebarNavItem',
+	  mixins: [RRouter.RoutingContextMixin],
+	  propTypes: {
+	    open: React.PropTypes.bool,
+	    active: React.PropTypes.bool,
+	    href: React.PropTypes.string,
+	    autoHeight: React.PropTypes.bool
+	  },
+	  getInitialState: function() {
+	    return {
+	      open: this.props.open || false,
+	      active: this.props.active || false,
+	      toggleOpen: this.props.open || false,
+	      dir: $('html').attr('dir') === 'ltr' ? 'left' : 'right',
+	      opposite: $('html').attr('dir') === 'ltr' ? false : true
+	    };
+	  },
+	  emitOpen: function(open) {
+	    var node = this.refs.node.getDOMNode();
+	    if(open)
+	      ReactBootstrap.Dispatcher.emit('sidebar:openstate', node, open);
+	    else
+	      ReactBootstrap.Dispatcher.emit('sidebar:openstate', node);
+	  },
+	  handleClick: function(e) {
+	    if(!this.props.href)
+	      e.preventDefault();
+	      e.stopPropagation();
+	    this.emitOpen();
+	  },
+	  collapse: function(node, cb) {
+	    this.setState({
+	      toggleOpen: false
+	    }, function() {
+	      var height = $(node).height();
+	      $(node).css('height', height).animate({
+	        height: '45px'
+	      }, 125, 'easeInOutSine', function() {
+	        $(node).css('height', '');
+	        this.setState({
+	          open: false,
+	          toggleOpen: false
+	        }, function() {
+	          if(cb) cb();
+	        });
+	      }.bind(this));
+	    }.bind(this));
+	  },
+	  expand: function(node, cb) {
+	    this.setState({
+	      toggleOpen: true
+	    }, function() {
+	      var height = $(node).addClass('open').height();
+	      $(node).removeClass('open');
+	      $(node).css('height', '45px').animate({
+	        height: height
+	      }, 125, 'easeInOutSine', function() {
+	        $(node).css('height', '');
+	        this.setState({
+	          open: true
+	        }, function() {
+	          if(cb) cb();
+	        });
+	      }.bind(this));      
+	    }.bind(this));
+	  },
+	  handleOpenState: function(child_node, open) {
+	    if(this.props.children) {
+	      var node = this.refs.node.getDOMNode();
+	      if(open) {
+	        if($(node).find(child_node).length) {
+	          this.setState({
+	            open: true,
+	            toggleOpen: true
+	          });
+	        }
+	        return;
+	      }
+	      if($(node).is(child_node)) {
+	        if(this.state.open) {
+	          this.collapse(node, function() {
+	            ReactBootstrap.Dispatcher.emit('sidebar:update');
+	          });
+	        } else {
+	          this.expand(node, function() {
+	            ReactBootstrap.Dispatcher.emit('sidebar:update');
+	          });
+	        }
+	        return;
+	      }
+	      if(!($(node).find(child_node).length)) {
+	        if(this.state.open)
+	          this.collapse(node);
+	      }
+	    }
+	  },
+	  handleLayoutDirChange: function(dir) {
+	    this.setState({
+	      dir: dir === 'ltr' ? 'left' : 'right',
+	      opposite: dir === 'ltr' ? false : true
+	    });
+	  },
+	  componentWillMount: function() {
+	    ReactBootstrap.Dispatcher.on('layout:dir', this.handleLayoutDirChange);
+	    ReactBootstrap.Dispatcher.on('sidebar:openstate', this.handleOpenState);
+	  },
+	  componentWillUnmount: function() {
+	    ReactBootstrap.Dispatcher.off('layout:dir', this.handleLayoutDirChange);
+	    ReactBootstrap.Dispatcher.off('sidebar:openstate', this.handleOpenState);
+	  },
+	  componentDidMount: function() {
+	    var active = (this.getRouting().getPath() === this.props.href) || this.props.active;
+
+	    if(active) {
+	      this.setState({active: true});
+	      this.emitOpen(true);
+	      var node = this.refs.node.getDOMNode();
+	      var height = $(node).height();
+	      var top = $(node).offset().top;
+	      ReactBootstrap.Dispatcher.emit('sidebar:reposition', node, top, height);
+	    }
+	  },
+	  render: function() {
+	    var classes = classSet({
+	      'open': this.state.open,
+	      'active': this.state.active
+	    });
+	    var toggleClasses = classSet({
+	      'toggle-button': true,
+	      'open': this.state.toggleOpen,
+	      'opposite': this.state.opposite
+	    });
+	    var icon=null, toggleButton = null;
+	    if(this.props.children) {
+	      toggleButton = ReactBootstrap.Icon({className: toggleClasses.trim(), bundle: "fontello", glyph: this.state.dir+'-open-3'});
+	    }
+	    if(this.props.glyph || this.props.bundle) {
+	      icon = ReactBootstrap.Icon({bundle: this.props.bundle, glyph: this.props.glyph});
+	    }
+	    var style = {height: this.props.autoHeight ? 'auto' : ''};
+	    var componentClass = React.DOM.a;
+	    if(this.props.href) componentClass = RRouter.Link;
+	    return this.transferPropsTo(
+	      React.DOM.li({ref: "node", className: classes, style: style, name: null, tabIndex: "-1"}, 
+	        componentClass({href: this.props.href || '#', onClick: this.handleClick, name: null, tabIndex: "-1", style: style}, 
+	          icon, 
+	          React.DOM.span({className: "name"}, this.props.name), 
+	          toggleButton
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var SidebarNav = React.createClass({displayName: 'SidebarNav',
+	  render: function() {
+	    return this.transferPropsTo(
+	      React.DOM.ul({className: "sidebar-nav"}, 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var SidebarBtn = React.createClass({displayName: 'SidebarBtn',
+	  handleSidebarStateChange: function(props) {
+	    if(props['data-id'] === 'sidebar-btn') {
+	      ReactBootstrap.Dispatcher.emit('sidebar');
+	    }
+	  },
+	  render: function() {
+	    return this.transferPropsTo(
+	      ReactBootstrap.NavContent({className: "pull-left visible-xs-inline-block"}, 
+	        ReactBootstrap.Nav({onItemSelect: this.handleSidebarStateChange}, 
+	          ReactBootstrap.NavItem({'data-id': "sidebar-btn", className: "sidebar-btn", href: "/"}, 
+	            ReactBootstrap.Icon({bundle: "fontello", glyph: "th-list-5"})
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = {
+	  Sidebar: Sidebar,
+	  SidebarNav: SidebarNav,
+	  SidebarBtn: SidebarBtn,
+	  SidebarMixin: SidebarMixin,
+	  SidebarNavItem: SidebarNavItem,
+	  SidebarControls: SidebarControls,
+	  SidebarControlBtn: SidebarControlBtn
+	};
 
 
 /***/ }

@@ -20,6 +20,17 @@ var Media = React.createClass({
   }
 });
 
+
+var MediaDiv = React.createClass({
+  render: function() {
+    return this.transferPropsTo(
+      <div className='media'>
+        {this.props.children}
+      </div>
+    );
+  }
+});
+
 var MediaList = React.createClass({
   render: function() {
     return this.transferPropsTo(
@@ -41,7 +52,7 @@ var MediaObject = React.createClass({
 var MediaHeading = React.createClass({
   render: function() {
     return this.transferPropsTo(
-      <h4 className='media-heading'>
+      <h4 className='media-heading fg-black50'>
         {this.props.children}
       </h4>
     );
@@ -49,6 +60,7 @@ var MediaHeading = React.createClass({
 });
 
 module.exports.Media = Media;
+module.exports.MediaDiv = MediaDiv;
 module.exports.MediaBody = MediaBody;
 module.exports.MediaList = MediaList;
 module.exports.MediaObject = MediaObject;

@@ -90,7 +90,7 @@ var Tab = React.createClass({
   stateChangeCallback: function(paneName) {
     if(this.paneName === paneName) {
       this.setState({active: true}, function() {
-        $(window).trigger('rubix.redraw');
+        setTimeout(function() { $(window).trigger('resize'), 15});
         if(!this.props.dropdown) {
           var node = $(this.refs.li.getDOMNode());
           node.siblings('.active').removeClass('active');

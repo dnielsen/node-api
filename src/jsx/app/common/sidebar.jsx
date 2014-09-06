@@ -1,14 +1,5 @@
 /** @jsx React.DOM */
 
-var SidebarComponent = require('./sidebar_component.jsx');
-
-var Sidebar = SidebarComponent.Sidebar,
-    SidebarNav = SidebarComponent.SidebarNav,
-    SidebarMixin = SidebarComponent.SidebarMixin,
-    SidebarNavItem = SidebarComponent.SidebarNavItem,
-    SidebarControls = SidebarComponent.SidebarControls,
-    SidebarControlBtn = SidebarComponent.SidebarControlBtn;
-
 var ChatComponent = require('./chat.jsx')
 
 var ApplicationSidebar = React.createClass({
@@ -143,7 +134,12 @@ var ApplicationSidebar = React.createClass({
                       <SidebarNavItem name='WebFonts' href='/app/docs/gulpfile/webfonts' />
                     </SidebarNav>
                   </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-fontello-looped-square-interest' name='React' href='/app/docs/react' />
+                  <SidebarNavItem glyph='icon-fontello-looped-square-interest' name='React'>
+                    <SidebarNav>
+                      <SidebarNavItem name='Introduction' href='/app/docs/react/introduction' />
+                      <SidebarNavItem name='Rubix Header' href='/app/docs/react/rubix-header' />
+                    </SidebarNav>
+                  </SidebarNavItem>
                   <SidebarNavItem glyph='devicon-bootstrap-plain' name={<span>Bootstrap <BLabel className='bg-darkblue fg-white'>4</BLabel></span>}>
                     <SidebarNav>
                       <SidebarNavItem name='Grid' href='/app/docs/bootstrap/grid' />
@@ -171,6 +167,10 @@ var ApplicationSidebar = React.createClass({
                           <SidebarNavItem name='Pagination' href='/app/docs/bootstrap/components/pagination' />
                           <SidebarNavItem name='Labels &amp; Badges' href='/app/docs/bootstrap/components/labels_and_badges' />
                           <SidebarNavItem name='Jumbotron' href='/app/docs/bootstrap/components/jumbotron' />
+                          <SidebarNavItem name='Alerts' href='/app/docs/bootstrap/components/alerts' />
+                          <SidebarNavItem name='Progress bars' href='/app/docs/bootstrap/components/progress-bars' />
+                          <SidebarNavItem name='Media' href='/app/docs/bootstrap/components/media' />
+                          <SidebarNavItem name='List Group' href='/app/docs/bootstrap/components/list-group' />
                         </SidebarNav>
                       </SidebarNavItem>
                     </SidebarNav>

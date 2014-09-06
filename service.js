@@ -14,30 +14,6 @@ var html = fs.readFileSync(path.join(process.cwd(), 'src', 'jsx', defaultAppName
   encoding: 'utf8'
 });
 
-/*
- * Uncomment following if you would like to use HTML5 history API
- * when supported and fallback to Hash based navigation (IE9)
- */
-// app.all('*', function(req, res, next) {
-//   var r = parse(req.headers['user-agent']);
-//   if(r.ua.family === 'IE' && r.ua.major === '9') {
-//     if(req.accepts('text/html')) {
-//       if(req.path !== '/') {
-//         res.redirect('/#'+req.path);
-//         return;
-//       }
-//       res.send(html);
-//     } else next();  
-//     return;
-//   }
-//   if(req.accepts('text/html'))
-//     res.send(html);
-//   else next();
-// });
-
-/**
- * IMPORTANT: comment the following if you uncomment above block
- */
 var createStyleTag = function(file, media) {
   media = media || 'screen';
   return "    <link media='"+media+"' rel='stylesheet' type='text/css' href='"+file+"'>\n";
@@ -58,7 +34,10 @@ if(process.env.NODE_ENV === 'development') {
   stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/font-faces.css');
 }
 
-html = minify(html.replace('{stylesheets}', stylesheets), {
+html = html.replace('{app}', defaultAppName);
+html = html.replace('{stylesheets}', stylesheets);
+
+html = minify(html, {
   collapseWhitespace: true
 });
 

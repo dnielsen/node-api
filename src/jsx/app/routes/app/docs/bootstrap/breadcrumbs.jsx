@@ -19,7 +19,7 @@ var Body = React.createClass({
           <DocUnit name='Bootstrap: Breadcrumbs'>
             <h4 className='fg-black50'>Basic Example</h4>
             <p>
-              {"Indicate the current page's location within a navigational hierarchy."}.
+              {"Indicate the current page's location within a navigational hierarchy."}
             </p>
             <Well>
               <Breadcrumb>

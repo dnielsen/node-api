@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! rubix - v0.1.0 - 2014-09-05 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v0.1.0 - 2014-09-06 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 
 code[class*="language-"],
 pre[class*="language-"] {
@@ -7756,6 +7756,26 @@ td > .tab-content > .tab-pane {
   border-width: 12px 12px 12px 0;
 }
 
+.alert-success .alert-link {
+  border-color: #2B542B;
+}
+
+.alert-info .alert-link {
+  border-color: #245369;
+}
+
+.alert-warning .alert-link {
+  border-color: #66502C;
+}
+
+.alert-danger .alert-link {
+  border-color: #843534;
+}
+
+.media > a {
+  border: none;
+}
+
 .rubix-panel-container-with-controls {
   position: relative;
 }
@@ -8714,6 +8734,10 @@ a.btn:focus {
   width: auto !important;
   height: auto !important;
   padding: 5px 10px !important;
+}
+
+.progress-collapse-bottom {
+  margin-bottom: 0;
 }
 
 .dropdown-menu > li > a {

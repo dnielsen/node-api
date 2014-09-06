@@ -81,6 +81,7 @@ var gulpfilesass = require('./routes/app/docs/gulpfilesass.jsx');
 var gulpfilejsx = require('./routes/app/docs/gulpfilejsx.jsx');
 var gulpfilewebfont = require('./routes/app/docs/gulpfilewebfont.jsx');
 var reactdoc = require('./routes/app/docs/reactdoc.jsx');
+var rubixheaderdoc = require('./routes/app/docs/rubixheaderdoc.jsx');
 var bootstrapgrid = require('./routes/app/docs/bootstrap/grid.jsx');
 var typography = require('./routes/app/docs/bootstrap/typography.jsx');
 var code = require('./routes/app/docs/bootstrap/code.jsx');
@@ -100,6 +101,10 @@ var breadcrumbdocs = require('./routes/app/docs/bootstrap/breadcrumbs.jsx');
 var paginationdocs = require('./routes/app/docs/bootstrap/pagination.jsx');
 var labelsbadgesdocs = require('./routes/app/docs/bootstrap/labels_and_badges.jsx');
 var jumbodocs = require('./routes/app/docs/bootstrap/jumbotron.jsx');
+var alertdocs = require('./routes/app/docs/bootstrap/alerts.jsx');
+var progressdocs = require('./routes/app/docs/bootstrap/progress.jsx');
+var mediadocs = require('./routes/app/docs/bootstrap/media.jsx');
+var listgroupdocs = require('./routes/app/docs/bootstrap/list_group.jsx');
 
 /* EXPERIMENTAL PAGES */
 var panel_tests = require('./routes/expt/panel-tests.jsx');
@@ -195,7 +200,11 @@ var routes = (
             <Route name='webfonts' path='webfonts' view={gulpfilewebfont} />
           </Route>
 
-          <Route name='react' path='react' view={reactdoc} />
+          <Route name='react' path='react'>
+            <Route name='introduction' path='introduction' view={reactdoc} />
+            <Route name='rubix-header' path='rubix-header' view={rubixheaderdoc} />
+          </Route>
+
           <Route name='bootstrap' path='bootstrap'>
             <Route name='grid' path='grid' view={bootstrapgrid} />
             <Route name='typography' path='typography' view={typography} />
@@ -221,6 +230,10 @@ var routes = (
               <Route name='pagination' path='pagination' view={paginationdocs} />
               <Route name='labels_and_badges' path='labels_and_badges' view={labelsbadgesdocs} />
               <Route name='jumbotron' path='jumbotron' view={jumbodocs} />
+              <Route name='alerts' path='alerts' view={alertdocs} />
+              <Route name='progress-bars' path='progress-bars' view={progressdocs} />
+              <Route name='media' path='media' view={mediadocs} />
+              <Route name='list-group' path='list-group' view={listgroupdocs} />
             </Route>
 
           </Route>
@@ -245,6 +258,12 @@ var InitializeRouter = function(View) {
   // cleanup
   if(window.Rubix) window.Rubix.Cleanup();
   Pace.restart();
+  if(window.hasOwnProperty('ga') && typeof window.ga === 'function') {
+    window.ga('send', 'pageview', {
+     'page': window.location.pathname + window.location.search  + window.location.hash
+    });
+  }
+
   React.renderComponent(<View />, document.getElementById('app-container'), function() {
     // l20n initialized only after everything is rendered/updated
     l20n.ready();
@@ -254,25 +273,4 @@ var InitializeRouter = function(View) {
   });
 };
 
-/**
- * Default: Hash based navigation
- * IMPORTANT: comment the following if you are using the HTML5 history
- *            + Hash based routing method mentioned below
- */
 RRouter.routing = RRouter.HashRouting.start(routes, InitializeRouter);
-
-/*
- * Uncomment following if you would like to use HTML5 history API
- * when supported and fallback to Hash based routing (IE9)
- */
-// if(Modernizr.history) {
-//   if(window.location.pathname === '/' && window.location.hash.length) {
-//     window.location.href = window.location.href.replace(/#(\/*)/gi, '');
-//   } else {
-//     RRouter.routing = RRouter.start(routes, InitializeRouter);
-//   }
-// } else {
-//   if(!window.location.hash.length)
-//     window.location.hash += '#/';
-//   RRouter.routing = RRouter.HashRouting.start(routes, InitializeRouter);
-// }

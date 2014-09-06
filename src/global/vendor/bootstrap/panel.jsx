@@ -189,8 +189,10 @@ var PanelContainer = React.createClass({
       );
     }
 
+    if(this.state.removed) return null;
+
     return this.transferPropsTo(
-      <div className={'rubix-panel-container-with-controls '  + (this.state.collapsed ? 'active ': ' ') + (this.state.removed ? 'hidden ' : '')} style={{zIndex: PanelContainer.getZIndex()}}>
+      <div className={'rubix-panel-container-with-controls '  + (this.state.collapsed ? 'active ': ' ')} style={{zIndex: PanelContainer.getZIndex()}}>
         {controls}
         <div ref='container' className={containerClasses.trim()}>
           {this.props.children}

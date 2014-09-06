@@ -3,10 +3,32 @@
 var classSet = React.addons.classSet;
 
 var ProgressGroup = React.createClass({
+  propTypes: {
+    collapseBottom: React.PropTypes.bool
+  },
+  componentWillMount: function() {
+    var children = this.props.children;
+
+    if(Array.isArray(children)) {
+      children = React.Children.map(this.props.children, function(child, i) {
+        return React.addons.cloneWithProps(child, {
+          stack: true, key: child.props.key
+        });
+      }, this);
+    }
+
+    this.setState({
+      children: children
+    });
+  },
   render: function() {
+    var classes = React.addons.classSet({
+      'progress': true,
+      'progress-collapse-bottom': this.props.collapseBottom
+    });
     return this.transferPropsTo(
-      <div className='progress' style={{background: this.props.background || null}}>
-        {this.props.children}
+      <div className={classes.trim()} style={{background: this.props.background || null}}>
+        {this.state.children}
       </div>
     );
   }
@@ -29,7 +51,8 @@ var Progress = React.createClass({
     withLabel: React.PropTypes.bool,
 
     color: React.PropTypes.string,
-    background: React.PropTypes.string
+    background: React.PropTypes.string,
+    collapseBottom: React.PropTypes.bool
   },
   getInitialState: function() {
     return {
@@ -67,7 +90,8 @@ var Progress = React.createClass({
       'progress-bar-danger': this.props.danger,
       'progress-bar-success': this.props.success,
       'progress-bar-warning': this.props.warning,
-      'progress-bar-striped': this.props.striped
+      'progress-bar-striped': this.props.striped,
+      'progress-collapse-bottom': this.props.collapseBottom && this.props.stack
     });
 
     var suffix = '';

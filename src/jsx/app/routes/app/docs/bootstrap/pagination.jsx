@@ -19,7 +19,7 @@ var Body = React.createClass({
           <DocUnit name='Bootstrap: Pagination'>
             <h4 className='fg-black50'>Basic Example</h4>
             <p>
-              {"Provide pagination links for your site or app with the multi-page pagination component, or the simpler pager alternative."}.
+              {"Provide pagination links for your site or app with the multi-page pagination component, or the simpler pager alternative."}
             </p>
             <Well className='text-center'>
               <Pagination style={{margin: 0}}>

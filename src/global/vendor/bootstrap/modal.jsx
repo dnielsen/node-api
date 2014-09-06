@@ -100,8 +100,15 @@ var Modal = React.createClass({
       'modal-sm': this.props.sm
     });
 
+    var modalClasses = classSet({
+      'modal': true,
+      'fade': true,
+      'in': this.state.styles.display === 'block' ? true : false,
+      'out': this.state.styles.display === 'none' ? true : false
+    });
+
     return this.transferPropsTo(
-      <div ref='modal' className='modal' tabIndex='-1' role='dialog' style={this.state.styles}>
+      <div ref='modal' className={modalClasses.trim()} tabIndex='-1' role='dialog' style={this.state.styles}>
         <div className={modalDialogClasses.trim()}>
           <div className='modal-content'>
             {this.props.children}

@@ -2,14 +2,15 @@
 
 var classSet = React.addons.classSet;
 
+var openState = (!Modernizr.touch) ? (localStorage.getItem('sidebar-open-state') === 'true' ? true : false) : false;
 var SidebarMixin = {
   getInitialState: function() {
     return {
-      open: false
+      open: openState
     };
   },
   sidebarStateChangeCallback: function(open) {
-    var openState = null;
+    if(this.state.open === open) return;
     if(open !== undefined)
       openState = open;
     else
@@ -66,7 +67,7 @@ var SidebarControlBtn = React.createClass({
     return this.transferPropsTo(
       <li className={classes.trim()} onClick={this.handleClick} tabIndex='-1'>
         <a href='#' tabIndex='-1'>
-          <Icon bundle={this.props.bundle} glyph={this.props.glyph}/>
+          <ReactBootstrap.Icon bundle={this.props.bundle} glyph={this.props.glyph}/>
         </a>
       </li>
     );
@@ -187,7 +188,7 @@ var Sidebar = React.createClass({
 });
 
 var SidebarNavItem = React.createClass({
-  mixins: [RoutingContextMixin],
+  mixins: [RRouter.RoutingContextMixin],
   propTypes: {
     open: React.PropTypes.bool,
     active: React.PropTypes.bool,
@@ -320,14 +321,14 @@ var SidebarNavItem = React.createClass({
     });
     var icon=null, toggleButton = null;
     if(this.props.children) {
-      toggleButton = <Icon className={toggleClasses.trim()} bundle='fontello' glyph={this.state.dir+'-open-3'} />;
+      toggleButton = <ReactBootstrap.Icon className={toggleClasses.trim()} bundle='fontello' glyph={this.state.dir+'-open-3'} />;
     }
     if(this.props.glyph || this.props.bundle) {
-      icon = <Icon bundle={this.props.bundle} glyph={this.props.glyph} />;
+      icon = <ReactBootstrap.Icon bundle={this.props.bundle} glyph={this.props.glyph} />;
     }
     var style = {height: this.props.autoHeight ? 'auto' : ''};
     var componentClass = React.DOM.a;
-    if(this.props.href) componentClass = Link;
+    if(this.props.href) componentClass = RRouter.Link;
     return this.transferPropsTo(
       <li ref='node' className={classes} style={style} name={null} tabIndex='-1'>
         <componentClass href={this.props.href || '#'} onClick={this.handleClick} name={null} tabIndex='-1' style={style}>
@@ -351,9 +352,29 @@ var SidebarNav = React.createClass({
   }
 });
 
+var SidebarBtn = React.createClass({
+  handleSidebarStateChange: function(props) {
+    if(props['data-id'] === 'sidebar-btn') {
+      ReactBootstrap.Dispatcher.emit('sidebar');
+    }
+  },
+  render: function() {
+    return this.transferPropsTo(
+      <ReactBootstrap.NavContent className='pull-left visible-xs-inline-block'>
+        <ReactBootstrap.Nav onItemSelect={this.handleSidebarStateChange}>
+          <ReactBootstrap.NavItem data-id='sidebar-btn' className='sidebar-btn' href='/'>
+            <ReactBootstrap.Icon bundle='fontello' glyph='th-list-5' />
+          </ReactBootstrap.NavItem>
+        </ReactBootstrap.Nav>
+      </ReactBootstrap.NavContent>
+    );
+  }
+});
+
 module.exports = {
   Sidebar: Sidebar,
   SidebarNav: SidebarNav,
+  SidebarBtn: SidebarBtn,
   SidebarMixin: SidebarMixin,
   SidebarNavItem: SidebarNavItem,
   SidebarControls: SidebarControls,

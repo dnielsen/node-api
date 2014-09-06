@@ -26,7 +26,7 @@ var Body = React.createClass({
           <DocUnit name='Bootstrap: Tabs'>
             <h4 className='fg-black50'>Basic Example</h4>
             <p>
-              {"Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus."}.
+              {"Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus."}
             </p>
             <Well className='bg-white'>
               <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>
@@ -76,7 +76,7 @@ var Body = React.createClass({
           <DocUnit name='Bootstrap: Tabs API' docStyle='bg-red fg-white'>
             <h4 className='fg-black50'><code>selectTab(key, value)</code></h4>
             <p>
-              {"Select a tab programmatically by calling selectTab using a props key and value as a constraint"}.
+              {"Select a tab programmatically by calling selectTab using a props key and value as a constraint."}
             </p>
             <Well className='bg-white'>
               <TabList bsStyle='orange75' ref='tablist' listName='tab2'>
@@ -126,7 +126,7 @@ var Body = React.createClass({
           <DocUnit name='Bootstrap: Pills'>
             <h4 className='fg-black50'>Basic Example</h4>
             <p>
-              {"Similar markup to Tabs as above. Even the API is same as we reuse the same component."}.
+              {"Similar markup to Tabs as above. Even the API is same as we reuse the same component."}
             </p>
             <Well className='bg-white'>
               <div style={{marginLeft: -12.5, marginRight: -12.5}}>
@@ -223,7 +223,7 @@ var Body = React.createClass({
             <hr/>
             <h4 className='fg-black50'>Justified pills</h4>
             <p>
-              {"Easily make tabs or pills equal widths of their parent."}.
+              {"Easily make tabs or pills equal widths of their parent."}
             </p>
             <Well className='bg-white'>
               <div style={{marginLeft: -12.5, marginRight: -12.5}}>

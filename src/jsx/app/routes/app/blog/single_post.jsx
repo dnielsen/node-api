@@ -108,8 +108,12 @@ var Body = React.createClass({
                     <LoremIpsum query='3s' />
                   </blockquote>
                   <p><LoremIpsum query='7s' /></p>
-                  <div>
-                    <span><strong>Tagged: </strong></span><Link href='/app/blog/posts'>Entertainment</Link>
+                  <div className='text-uppercase'>
+                    <small>
+                      <span><strong>Tagged in: </strong></span><Link href='/app/blog/posts'>Entertainment</Link>
+                      <span> • </span>
+                      <Link href='#'>No comments</Link>
+                    </small>
                   </div>
                 </div>
               </Post>

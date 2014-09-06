@@ -19,7 +19,7 @@ var Body = React.createClass({
           <DocUnit name='Bootstrap: NavBar'>
             <h4 className='fg-black50'>Basic Example</h4>
             <p>
-              {"Navbars are responsive meta components that serve as navigation headers for your application or site."}.
+              {"Navbars are responsive meta components that serve as navigation headers for your application or site."}
             </p>
             <Well>
               <NavBar>
@@ -114,7 +114,7 @@ var Body = React.createClass({
             <hr/>
             <h4 className='fg-black50'>Forms</h4>
             <p>
-              {"Place form content within NavForm for proper vertical alignment and collapsed behavior in narrow viewports."}.
+              {"Place form content within NavForm for proper vertical alignment and collapsed behavior in narrow viewports."}
             </p>
             <Well>
               <NavBar>
