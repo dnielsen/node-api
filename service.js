@@ -9,6 +9,8 @@ var app = express();
 app.use(compression());
 app.use(express.static(path.join(process.cwd(), 'public')));
 
+var package = require('./package.json');
+
 var defaultAppName = process.env.APP ? process.env.APP : 'app';
 var html = fs.readFileSync(path.join(process.cwd(), 'src', 'jsx', defaultAppName, 'index.html'), {
   encoding: 'utf8'
@@ -34,8 +36,9 @@ if(process.env.NODE_ENV === 'development') {
   stylesheets += createStyleTag('/css/'+defaultAppName+'/blessed/{dir}/font-faces.css');
 }
 
-html = html.replace('{app}', defaultAppName);
-html = html.replace('{stylesheets}', stylesheets);
+html = html.replace(new RegExp('{app}', 'g'), defaultAppName);
+html = html.replace(new RegExp('{stylesheets}', 'g'), stylesheets);
+html = html.replace(new RegExp('{version}', 'g'), package.version);
 
 html = minify(html, {
   collapseWhitespace: true

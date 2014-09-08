@@ -1,0 +1,336 @@
+/* REQUIRED: DO NOT REMOVE */
+@import "../../global/sass/rubix/overrides/variables";
+@import "../../global/sass/vendor/bootstrap/bootstrap";
+@import "../../global/sass/vendor/sass-list-maps/sass-list-maps";
+
+@import "../../global/sass/rubix/base/base";
+@import "../../global/sass/rubix/layout/layout";
+@import "../../global/sass/rubix/module/module";
+
+/* THIRD-PARTY PLUGINS (CAN BE REMOVED) */
+@import "../../global/sass/vendor/prism/prism";
+@import "../../global/sass/vendor/ion/tabs";
+@import "../../global/sass/vendor/ion/rangeSlider";
+@import "../../global/sass/vendor/hubspot/vex";
+@import "../../global/sass/vendor/hubspot/messenger";
+@import "../../global/sass/vendor/timeline/timeline";
+@import "../../global/sass/vendor/bootstrap-slider/bootstrap-slider";
+@import "../../global/sass/vendor/xeditable/xeditable";
+@import "../../global/sass/vendor/typeahead/typeahead";
+@import "../../global/sass/vendor/select2/select2";
+@import "../../global/sass/vendor/jquery-steps/jquery-steps";
+@import "../../global/sass/vendor/tablesaw/tablesaw";
+@import "../../global/sass/vendor/datatables/datatables";
+@import "../../global/sass/vendor/fullcalendar/fullcalendar";
+@import "../../global/sass/vendor/fullcalendar/fullcalendar-print";
+@import "../../global/sass/vendor/nestable/nestable";
+@import "../../global/sass/vendor/dropzone/dropzone";
+@import "../../global/sass/vendor/jcrop/jcrop";
+@import "../../global/sass/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker";
+@import "../../global/sass/vendor/c3js/c3js";
+@import "../../global/sass/vendor/leaflet/leaflet";
+@import "../../global/sass/vendor/blueimp-gallery/blueimp-gallery";
+@import "../../global/sass/vendor/trumbowyg/trumbowyg";
+
+/* IMPORT PAGE STYLES */
+@import "pages/pages";
+/* IMPORT PRINT STYLES */
+@import "print/print";
+
+html[dir='rtl'] {
+  [class^="icon-"].float-right-rtl,
+  [class*=" icon-"].float-right-rtl {
+    position: relative;
+    /*@noflip*/float: right;
+  }
+}
+
+body {
+  opacity: 1;
+  transition: all 0.7s ease;
+
+  &.fade-out {
+    transition: all 0.25s ease;
+    opacity: 0;
+  }
+}
+
+#app-preloader > .preloader {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background: #E9EDF2;
+  z-index: 99999999999;
+}
+#app-preloader > .preloader > img {
+  margin: auto;
+  display: block;
+  margin-top: 150px;
+  position: relative;
+}
+
+
+/* DEMO STUFF - SAFE TO REMOVE */
+#sidebar {
+  .rubix-timeline-view {
+    .rubix-timeline-title {
+      background: none;
+      padding: 4px 0px;
+    }
+    .rubix-timeline-body li:before {
+      box-shadow: 0px 0px 0px 6px #273135;
+    }    
+  }
+}
+
+#c3js-1 .c3-event-rect {
+  stroke: #fff;
+  fill-opacity: 1;
+  fill: rgba(0, 0, 0, 0.02);
+}
+
+#external-events {
+  width: 150px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  background: #eee;
+  text-align: left;
+  position: absolute;
+}
+  
+#external-events h4 {
+  font-size: 16px;
+  margin-top: 0;
+  padding-top: 1em;
+}
+  
+.external-event { /* try to mimick the look of a real event */
+  margin: 10px 0;
+  padding: 2px 4px;
+  background: #3366CC;
+  color: #fff;
+  font-size: .85em;
+  cursor: pointer;
+}
+  
+#external-events p {
+  margin: 1.5em 0;
+  font-size: 11px;
+  color: #666;
+}
+  
+#external-events p input {
+  margin: 0;
+  vertical-align: middle;
+}
+
+#external-calendar {
+  padding-left: 175px;
+}
+
+.gallery-view {
+  padding-right: $line-height-computed;
+}
+
+.gallery-item {
+  .black-wrapper {
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    background: #000;
+    left: 0; right: 0;
+    position: absolute;
+    transition: all 0.25s ease;
+
+    td {
+      vertical-align: middle;
+    }
+
+    .rubix-icon {
+      color: white;
+      display: block;
+    }
+  }
+}
+
+.gallery-item-link {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  padding: 0 !important;
+  border: none !important;
+
+  &:hover, &:focus {
+    .black-wrapper {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.fav-btn {
+  >.rubix-icon {
+    font-size: 20px !important;
+    line-height: 20px !important;    
+  }
+
+  >.counts {
+    top: -6px;
+    line-height: 0;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle !important;
+  }
+}
+
+.inbox-toolbar {
+  top: 5px;
+  position: relative;
+  display: inline-block;
+
+  @media (min-width: $screen-md-min) {
+    top: 10px;   
+  }
+}
+
+.inbox-avatar {
+  padding-top: 12.5px;
+  padding-bottom: 12.5px;
+}
+
+.inbox-avatar-name {
+  text-align: left;
+  padding-left: 12.5px;
+  display: inline-block;
+  vertical-align: middle;
+
+  >div:first-child {
+    top: 5px;
+    position: relative;
+  }
+
+  >div:last-child > small {
+    top: -5px;
+    position: relative;
+  }
+}
+
+.inbox-nav {
+  border-right: 1px solid #EEE;
+}
+
+.inbox-nav .badge {
+  width: 10px;
+  height: 14px;
+  margin-top: -3px;
+  margin-right: 10px;
+  border-radius: 100px; 
+  vertical-align: middle;
+}
+
+.inbox-nav .list-group-item {
+  border: none;
+  border-radius: 0;
+  padding: 10px 25px;
+  margin: - $line-height-computed;
+  margin-top: 0;
+  margin-bottom: 5px;
+
+  &:hover, &:focus {
+    border: none !important;
+  }
+}
+
+.inbox-nav hr {
+  margin-top: -5px;
+}
+
+.inbox-nav .list-group-item .inbox-item-icon {
+  float: left;
+  font-size: 18px;
+  position: relative;
+  vertical-align: baseline;
+  margin-right: $line-height-computed / 2;
+
+  & ~ span {
+    top: 5px;
+    position: relative;
+  }
+}
+
+.inbox-item {
+  color: inherit;
+  display: block;
+  padding-bottom: 0 !important;
+  margin-left: - $line-height-computed;
+  margin-right: - $line-height-computed;
+  padding-left: $line-height-computed;
+  padding-right: $line-height-computed;
+  border-bottom: 1px solid #eee !important;
+  background: #f9f9f9;
+
+  &:last-child {
+    border-bottom: none !important;
+  }
+
+  &.unread {
+    background: white;
+  }
+
+  &:hover, &:focus {
+    color: inherit;
+    background: rgba(255, 255, 102, 0.2);
+  }
+
+  img {
+    padding: 2px;
+    border-radius: 100px;
+    border: 2px solid #eee;
+  }
+  .inbox-avatar-name > div:first-child {
+    top: 2px;
+  }
+}
+
+.inbox-date {
+  float: right;
+}
+
+.inbox-attachments > .rubix-icon {
+  float: left;
+  line-height: 1;
+
+  & ~ span {
+    top: -2px;
+    left: 10px;
+    position: relative;
+  }
+}
+
+.inbox-attachment-download {
+  float: right;
+}
+
+#body.social {
+  background: #fff !important;
+
+  .rubix-panel-container {
+    border: 2px solid #EAEDF1;
+  }
+
+  .rubix-panel-controls {
+    border: 2px solid #EAEDF1;
+    border-bottom: none;
+    >button {
+      top: -5px;
+    }
+  }
+}
+html.social body .sidebar-nav > li.active:after {
+  display: none !important;
+}

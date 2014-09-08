@@ -1,6 +1,6 @@
 {
   "name": "rubix",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "copyright": "SketchPixy LLP, email: support@sketchpixy.com",
   "devDependencies": {

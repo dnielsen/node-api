@@ -56,9 +56,9 @@ var Alert = React.createClass({
 var AlertLink = React.createClass({
   render: function() {
     return this.transferPropsTo(
-      <RRouter.Link href='#' className='alert-link'>
+      <a href={this.props.href} className='alert-link'>
         {this.props.children}
-      </RRouter.Link>
+      </a>
     );
   }
 });
