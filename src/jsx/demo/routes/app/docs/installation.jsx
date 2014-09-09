@@ -90,7 +90,7 @@ var Body = React.createClass({
                       <Row>
                         <Col xs={12}>
                           <p>
-                            {"Change directory to root of Rubix and run the following command depending on your OS environment:"}
+                            {"Change directory to root of Rubix and run the following command (this launches the 'app' starter project) depending on your OS environment:"}
                           </p>
                           <p>
                             <span><strong>Windows:</strong></span>
@@ -101,10 +101,26 @@ var Body = React.createClass({
                             </pre>
                           </p>
                           <p>
+                            <span>To launch the <strong>demo</strong> run this command instead:</span>
+                            <pre>
+                              <code className='language-bash'>
+                                {"> gulp --rtl --name demo"}
+                              </code>
+                            </pre>
+                          </p>
+                          <p>
                             <span><strong>MacOSX/Linux:</strong></span>
                             <pre>
                               <code className='language-bash'>
                                 {"$ cd path/to/rubix\n$ npm install .\n$ npm install -g gulp\n$ gulp"}
+                              </code>
+                            </pre>
+                          </p>
+                          <p>
+                            <span>To launch the <strong>demo</strong> run this command instead:</span>
+                            <pre>
+                              <code className='language-bash'>
+                                {"$ gulp --rtl --name demo"}
                               </code>
                             </pre>
                           </p>
@@ -189,7 +205,7 @@ var Body = React.createClass({
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td><strong><a target='_blank' href='http://sass-lang.com/'>Sass</a>, <a target='_blank' href='https://www.npmjs.org/package/gulp-sass'>gulp-sass</a>, <a target='_blank' href='https://www.npmjs.org/package/gulp-minify-css'>gulp-minify-css</a>, <a target='_blank' href='https://www.npmjs.org/package/css-flip'>css-flip</a></strong></td>
+                                  <td><strong><a target='_blank' href='http://sass-lang.com/'>Sass</a>, <a target='_blank' href='https://www.npmjs.org/package/gulp-sass'>gulp-sass</a>, <a target='_blank' href='https://www.npmjs.org/package/gulp-minify-css'>gulp-minify-css</a>, <a target='_blank' href='https://www.npmjs.org/package/css-flip'>css-flip</a>, <a target='_blank' href='https://www.npmjs.org/package/gulp-autoprefixer'>gulp-autoprefixer</a>, <a target='_blank' href='https://www.npmjs.org/package/gulp-bless'>gulp-bless</a></strong></td>
                                   <td>
                                     <div>
                                       <div><strong><em>Sass:</em></strong></div>
@@ -213,6 +229,18 @@ var Body = React.createClass({
                                       <div><strong><em>css-flip:</em></strong></div>
                                       <p>
                                         A module maintained by Twitter to flip CSS stylesheets from LTR to RTL and vice-versa.
+                                      </p>
+                                    </div>
+                                    <div>
+                                      <div><strong><em>gulp-autoprefixer:</em></strong></div>
+                                      <p>
+                                        {"Don't use mixins for generating vendor prefixes for shadows/gradients etc. Write standard code and use gulp-autoprefixer instead to add vendor prefixes."}
+                                      </p>
+                                    </div>
+                                    <div>
+                                      <div><strong><em>gulp-bless:</em></strong></div>
+                                      <p>
+                                        {"We use gulp-bless to split up the resulting CSS output from SASS to ensure that the maximum selectors limit bug in IE9 is not hit. See this link: "}<a href='http://blesscss.com/' target='_blank'>blesscss</a>{" for more information on the bug."}
                                       </p>
                                     </div>
                                   </td>

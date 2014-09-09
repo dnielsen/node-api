@@ -49,6 +49,7 @@ var Body = React.createClass({
   componentDidMount: function() {
     (function() {
       new GMaps({
+        scrollwheel: false,
         div: '#basic-map',
         lat: -12.043333,
         lng: -77.028333
@@ -57,6 +58,7 @@ var Body = React.createClass({
 
     (function() {
       new GMaps({
+        scrollwheel: false,
         div: '#map-events',
         zoom: 16,
         lat: -12.043333,
@@ -72,6 +74,7 @@ var Body = React.createClass({
 
     (function() {
       var map = new GMaps({
+        scrollwheel: false,
         div: '#markers',
         zoom: 16,
         lat: -12.043333,
@@ -99,6 +102,7 @@ var Body = React.createClass({
 
     (function() {
       this.geocode = new GMaps({
+        scrollwheel: false,
         div: '#geocode',
         zoom: 16,
         lat: -12.043333,
@@ -109,6 +113,7 @@ var Body = React.createClass({
 
     (function() {
       var map = new GMaps({
+        scrollwheel: false,
         div: '#polyline',
         zoom: 12,
         lat: -12.043333,
@@ -127,6 +132,7 @@ var Body = React.createClass({
 
     (function() {
       var map = new GMaps({
+        scrollwheel: false,
         div: '#overlays',
         zoom: 18,
         lat: 40.7638435,
@@ -142,6 +148,7 @@ var Body = React.createClass({
 
     (function() {
       var map = new GMaps({
+        scrollwheel: false,
         div: '#polygon',
         lat: -12.043333,
         lng: -77.028333
@@ -161,6 +168,7 @@ var Body = React.createClass({
 
     (function() {
       var map = new GMaps({
+        scrollwheel: false,
         div: '#geojson',
         lat: 39.743296277167325,
         lng: -105.00517845153809
@@ -221,6 +229,7 @@ var Body = React.createClass({
 
     (function() {
       this.routingmap = new GMaps({
+        scrollwheel: false,
         div: '#routingmap',
         lat: -12.043333,
         lng: -77.028333

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! rubix - v0.1.0 - 2014-09-07 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.0 - 2014-09-08 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 @keyframes vex-flipin-horizontal {
   0% {
     opacity: 0;
@@ -1107,28 +1107,28 @@ html.default {
       @media (min-width: 990px) {
         html.default body #sidebar {
           left: 0; } }
-      html.default body #sidebar .avatar {
+      html.default body #sidebar #avatar {
         height: 75px;
         background: #FA7252; }
-        html.default body #sidebar .avatar img {
+        html.default body #sidebar #avatar img {
           top: 17px;
           position: relative; }
-      html.default body #sidebar .avatar-col {
+      html.default body #sidebar #avatar-col {
         margin-left: -5px; }
-        html.default body #sidebar .avatar-col .demo-progress {
-          margin: 0;
-          top: 30px;
-          height: 4px;
-          width: 115px;
-          border-radius: 0;
-          position: relative;
-          background: #DE5939; }
-        html.default body #sidebar .avatar-col .demo-icon {
-          top: 3px;
-          float: right;
-          font-size: 18px;
-          position: relative;
-          color: #DE5939; }
+      html.default body #sidebar #demo-progress {
+        margin: 0;
+        top: 30px;
+        height: 4px;
+        width: 115px;
+        border-radius: 0;
+        position: relative;
+        background: #DE5939; }
+      html.default body #sidebar #demo-icon {
+        top: 3px;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        color: #DE5939; }
       html.default body #sidebar .sidebar-controls-container {
         width: 250px;
         height: 35px;
@@ -1161,13 +1161,13 @@ html.default {
       html.default body #sidebar .sidebar-item {
         height: 35px;
         background: #1F282D; }
-      html.default body #sidebar .sidebar-container {
+      html.default body #sidebar #sidebar-container {
         bottom: 0;
         width: 250px;
         overflow: hidden;
         position: absolute;
         top: 110px; }
-        html.default body #sidebar .sidebar-container > .sidebar {
+        html.default body #sidebar #sidebar-container > .sidebar {
           top: 0;
           bottom: 0;
           width: 250px;
@@ -1328,7 +1328,7 @@ html .sidebar-nav > li > a > .toggle-button {
 
 html.touch #sidebar {
   overflow: hidden; }
-  html.touch #sidebar .sidebar-container > .sidebar {
+  html.touch #sidebar #sidebar-container > .sidebar {
     overflow-x: hidden;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch;
@@ -1354,7 +1354,7 @@ html.static {
     margin-right: -25px; }
   html.static #sidebar {
     overflow: visible !important; }
-    html.static #sidebar .sidebar-container, html.static #sidebar .sidebar {
+    html.static #sidebar #sidebar-container, html.static #sidebar .sidebar {
       overflow: visible !important; }
   @media (min-width: 990px) {
     html.static #rubix-nav-header {
@@ -1854,28 +1854,28 @@ html.green {
       @media (min-width: 990px) {
         html.green body #sidebar {
           left: 0; } }
-      html.green body #sidebar .avatar {
+      html.green body #sidebar #avatar {
         height: 75px;
         background: #56B596; }
-        html.green body #sidebar .avatar img {
+        html.green body #sidebar #avatar img {
           top: 17px;
           position: relative; }
-      html.green body #sidebar .avatar-col {
+      html.green body #sidebar #avatar-col {
         margin-left: -5px; }
-        html.green body #sidebar .avatar-col .demo-progress {
-          margin: 0;
-          top: 30px;
-          height: 4px;
-          width: 115px;
-          border-radius: 0;
-          position: relative;
-          background: #279982; }
-        html.green body #sidebar .avatar-col .demo-icon {
-          top: 3px;
-          float: right;
-          font-size: 18px;
-          position: relative;
-          color: #279982; }
+      html.green body #sidebar #demo-progress {
+        margin: 0;
+        top: 30px;
+        height: 4px;
+        width: 115px;
+        border-radius: 0;
+        position: relative;
+        background: #279982; }
+      html.green body #sidebar #demo-icon {
+        top: 3px;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        color: #279982; }
       html.green body #sidebar .sidebar-controls-container {
         width: 250px;
         height: 35px;
@@ -1908,13 +1908,13 @@ html.green {
       html.green body #sidebar .sidebar-item {
         height: 35px;
         background: #1F282D; }
-      html.green body #sidebar .sidebar-container {
+      html.green body #sidebar #sidebar-container {
         bottom: 0;
         width: 250px;
         overflow: hidden;
         position: absolute;
         top: 110px; }
-        html.green body #sidebar .sidebar-container > .sidebar {
+        html.green body #sidebar #sidebar-container > .sidebar {
           top: 0;
           bottom: 0;
           width: 250px;
@@ -2075,7 +2075,7 @@ html .sidebar-nav > li > a > .toggle-button {
 
 html.touch #sidebar {
   overflow: hidden; }
-  html.touch #sidebar .sidebar-container > .sidebar {
+  html.touch #sidebar #sidebar-container > .sidebar {
     overflow-x: hidden;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch;
@@ -2101,7 +2101,7 @@ html.static {
     margin-right: -25px; }
   html.static #sidebar {
     overflow: visible !important; }
-    html.static #sidebar .sidebar-container, html.static #sidebar .sidebar {
+    html.static #sidebar #sidebar-container, html.static #sidebar .sidebar {
       overflow: visible !important; }
   @media (min-width: 990px) {
     html.static #rubix-nav-header {
@@ -2601,28 +2601,28 @@ html.blue {
       @media (min-width: 990px) {
         html.blue body #sidebar {
           left: 0; } }
-      html.blue body #sidebar .avatar {
+      html.blue body #sidebar #avatar {
         height: 75px;
         background: #80BAF9; }
-        html.blue body #sidebar .avatar img {
+        html.blue body #sidebar #avatar img {
           top: 17px;
           position: relative; }
-      html.blue body #sidebar .avatar-col {
+      html.blue body #sidebar #avatar-col {
         margin-left: -5px; }
-        html.blue body #sidebar .avatar-col .demo-progress {
-          margin: 0;
-          top: 30px;
-          height: 4px;
-          width: 115px;
-          border-radius: 0;
-          position: relative;
-          background: #6FA2D9; }
-        html.blue body #sidebar .avatar-col .demo-icon {
-          top: 3px;
-          float: right;
-          font-size: 18px;
-          position: relative;
-          color: #6FA2D9; }
+      html.blue body #sidebar #demo-progress {
+        margin: 0;
+        top: 30px;
+        height: 4px;
+        width: 115px;
+        border-radius: 0;
+        position: relative;
+        background: #6FA2D9; }
+      html.blue body #sidebar #demo-icon {
+        top: 3px;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        color: #6FA2D9; }
       html.blue body #sidebar .sidebar-controls-container {
         width: 250px;
         height: 35px;
@@ -2655,13 +2655,13 @@ html.blue {
       html.blue body #sidebar .sidebar-item {
         height: 35px;
         background: #1F282D; }
-      html.blue body #sidebar .sidebar-container {
+      html.blue body #sidebar #sidebar-container {
         bottom: 0;
         width: 250px;
         overflow: hidden;
         position: absolute;
         top: 110px; }
-        html.blue body #sidebar .sidebar-container > .sidebar {
+        html.blue body #sidebar #sidebar-container > .sidebar {
           top: 0;
           bottom: 0;
           width: 250px;
@@ -2822,7 +2822,7 @@ html .sidebar-nav > li > a > .toggle-button {
 
 html.touch #sidebar {
   overflow: hidden; }
-  html.touch #sidebar .sidebar-container > .sidebar {
+  html.touch #sidebar #sidebar-container > .sidebar {
     overflow-x: hidden;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch;
@@ -2848,7 +2848,7 @@ html.static {
     margin-right: -25px; }
   html.static #sidebar {
     overflow: visible !important; }
-    html.static #sidebar .sidebar-container, html.static #sidebar .sidebar {
+    html.static #sidebar #sidebar-container, html.static #sidebar .sidebar {
       overflow: visible !important; }
   @media (min-width: 990px) {
     html.static #rubix-nav-header {
@@ -3348,28 +3348,28 @@ html.purple {
       @media (min-width: 990px) {
         html.purple body #sidebar {
           left: 0; } }
-      html.purple body #sidebar .avatar {
+      html.purple body #sidebar #avatar {
         height: 75px;
         background: #BEAAEA; }
-        html.purple body #sidebar .avatar img {
+        html.purple body #sidebar #avatar img {
           top: 17px;
           position: relative; }
-      html.purple body #sidebar .avatar-col {
+      html.purple body #sidebar #avatar-col {
         margin-left: -5px; }
-        html.purple body #sidebar .avatar-col .demo-progress {
-          margin: 0;
-          top: 30px;
-          height: 4px;
-          width: 115px;
-          border-radius: 0;
-          position: relative;
-          background: #A593CA; }
-        html.purple body #sidebar .avatar-col .demo-icon {
-          top: 3px;
-          float: right;
-          font-size: 18px;
-          position: relative;
-          color: #A593CA; }
+      html.purple body #sidebar #demo-progress {
+        margin: 0;
+        top: 30px;
+        height: 4px;
+        width: 115px;
+        border-radius: 0;
+        position: relative;
+        background: #A593CA; }
+      html.purple body #sidebar #demo-icon {
+        top: 3px;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        color: #A593CA; }
       html.purple body #sidebar .sidebar-controls-container {
         width: 250px;
         height: 35px;
@@ -3402,13 +3402,13 @@ html.purple {
       html.purple body #sidebar .sidebar-item {
         height: 35px;
         background: #1F282D; }
-      html.purple body #sidebar .sidebar-container {
+      html.purple body #sidebar #sidebar-container {
         bottom: 0;
         width: 250px;
         overflow: hidden;
         position: absolute;
         top: 110px; }
-        html.purple body #sidebar .sidebar-container > .sidebar {
+        html.purple body #sidebar #sidebar-container > .sidebar {
           top: 0;
           bottom: 0;
           width: 250px;
@@ -3569,7 +3569,7 @@ html .sidebar-nav > li > a > .toggle-button {
 
 html.touch #sidebar {
   overflow: hidden; }
-  html.touch #sidebar .sidebar-container > .sidebar {
+  html.touch #sidebar #sidebar-container > .sidebar {
     overflow-x: hidden;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch;
@@ -3595,7 +3595,7 @@ html.static {
     margin-right: -25px; }
   html.static #sidebar {
     overflow: visible !important; }
-    html.static #sidebar .sidebar-container, html.static #sidebar .sidebar {
+    html.static #sidebar #sidebar-container, html.static #sidebar .sidebar {
       overflow: visible !important; }
   @media (min-width: 990px) {
     html.static #rubix-nav-header {
@@ -4095,28 +4095,28 @@ html.brown {
       @media (min-width: 990px) {
         html.brown body #sidebar {
           left: 0; } }
-      html.brown body #sidebar .avatar {
+      html.brown body #sidebar #avatar {
         height: 75px;
         background: #B55B3E; }
-        html.brown body #sidebar .avatar img {
+        html.brown body #sidebar #avatar img {
           top: 17px;
           position: relative; }
-      html.brown body #sidebar .avatar-col {
+      html.brown body #sidebar #avatar-col {
         margin-left: -5px; }
-        html.brown body #sidebar .avatar-col .demo-progress {
-          margin: 0;
-          top: 30px;
-          height: 4px;
-          width: 115px;
-          border-radius: 0;
-          position: relative;
-          background: #954B33; }
-        html.brown body #sidebar .avatar-col .demo-icon {
-          top: 3px;
-          float: right;
-          font-size: 18px;
-          position: relative;
-          color: #954B33; }
+      html.brown body #sidebar #demo-progress {
+        margin: 0;
+        top: 30px;
+        height: 4px;
+        width: 115px;
+        border-radius: 0;
+        position: relative;
+        background: #954B33; }
+      html.brown body #sidebar #demo-icon {
+        top: 3px;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        color: #954B33; }
       html.brown body #sidebar .sidebar-controls-container {
         width: 250px;
         height: 35px;
@@ -4149,13 +4149,13 @@ html.brown {
       html.brown body #sidebar .sidebar-item {
         height: 35px;
         background: #1F282D; }
-      html.brown body #sidebar .sidebar-container {
+      html.brown body #sidebar #sidebar-container {
         bottom: 0;
         width: 250px;
         overflow: hidden;
         position: absolute;
         top: 110px; }
-        html.brown body #sidebar .sidebar-container > .sidebar {
+        html.brown body #sidebar #sidebar-container > .sidebar {
           top: 0;
           bottom: 0;
           width: 250px;
@@ -4316,7 +4316,7 @@ html .sidebar-nav > li > a > .toggle-button {
 
 html.touch #sidebar {
   overflow: hidden; }
-  html.touch #sidebar .sidebar-container > .sidebar {
+  html.touch #sidebar #sidebar-container > .sidebar {
     overflow-x: hidden;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch;
@@ -4342,7 +4342,7 @@ html.static {
     margin-right: -25px; }
   html.static #sidebar {
     overflow: visible !important; }
-    html.static #sidebar .sidebar-container, html.static #sidebar .sidebar {
+    html.static #sidebar #sidebar-container, html.static #sidebar .sidebar {
       overflow: visible !important; }
   @media (min-width: 990px) {
     html.static #rubix-nav-header {
@@ -4842,28 +4842,28 @@ html.cyan {
       @media (min-width: 990px) {
         html.cyan body #sidebar {
           left: 0; } }
-      html.cyan body #sidebar .avatar {
+      html.cyan body #sidebar #avatar {
         height: 75px;
         background: #70ACB2; }
-        html.cyan body #sidebar .avatar img {
+        html.cyan body #sidebar #avatar img {
           top: 17px;
           position: relative; }
-      html.cyan body #sidebar .avatar-col {
+      html.cyan body #sidebar #avatar-col {
         margin-left: -5px; }
-        html.cyan body #sidebar .avatar-col .demo-progress {
-          margin: 0;
-          top: 30px;
-          height: 4px;
-          width: 115px;
-          border-radius: 0;
-          position: relative;
-          background: #5C8E92; }
-        html.cyan body #sidebar .avatar-col .demo-icon {
-          top: 3px;
-          float: right;
-          font-size: 18px;
-          position: relative;
-          color: #5C8E92; }
+      html.cyan body #sidebar #demo-progress {
+        margin: 0;
+        top: 30px;
+        height: 4px;
+        width: 115px;
+        border-radius: 0;
+        position: relative;
+        background: #5C8E92; }
+      html.cyan body #sidebar #demo-icon {
+        top: 3px;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        color: #5C8E92; }
       html.cyan body #sidebar .sidebar-controls-container {
         width: 250px;
         height: 35px;
@@ -4896,13 +4896,13 @@ html.cyan {
       html.cyan body #sidebar .sidebar-item {
         height: 35px;
         background: #1F282D; }
-      html.cyan body #sidebar .sidebar-container {
+      html.cyan body #sidebar #sidebar-container {
         bottom: 0;
         width: 250px;
         overflow: hidden;
         position: absolute;
         top: 110px; }
-        html.cyan body #sidebar .sidebar-container > .sidebar {
+        html.cyan body #sidebar #sidebar-container > .sidebar {
           top: 0;
           bottom: 0;
           width: 250px;
@@ -5063,7 +5063,7 @@ html .sidebar-nav > li > a > .toggle-button {
 
 html.touch #sidebar {
   overflow: hidden; }
-  html.touch #sidebar .sidebar-container > .sidebar {
+  html.touch #sidebar #sidebar-container > .sidebar {
     overflow-x: hidden;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch;
@@ -5089,7 +5089,7 @@ html.static {
     margin-right: -25px; }
   html.static #sidebar {
     overflow: visible !important; }
-    html.static #sidebar .sidebar-container, html.static #sidebar .sidebar {
+    html.static #sidebar #sidebar-container, html.static #sidebar .sidebar {
       overflow: visible !important; }
   @media (min-width: 990px) {
     html.static #rubix-nav-header {

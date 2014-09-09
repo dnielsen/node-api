@@ -43,6 +43,7 @@ var morrisjs = require('./routes/app/charts/morris.jsx');
 
 var timeline = require('./routes/app/timeline.jsx');
 var interactivetimeline = require('./routes/app/interactive-timeline.jsx');
+var codemirror = require('./routes/app/codemirror.jsx');
 var maps = require('./routes/app/maps.jsx');
 var editor = require('./routes/app/editor.jsx');
 var fonts = require('./routes/app/fonts.jsx');
@@ -80,6 +81,8 @@ var gulpfilebasics = require('./routes/app/docs/gulpfilebasics.jsx');
 var gulpfilesass = require('./routes/app/docs/gulpfilesass.jsx');
 var gulpfilejsx = require('./routes/app/docs/gulpfilejsx.jsx');
 var gulpfilewebfont = require('./routes/app/docs/gulpfilewebfont.jsx');
+var gulpfilescaffolding = require('./routes/app/docs/gulpfilescaffolding.jsx');
+var gulpfileexternalplugins = require('./routes/app/docs/gulpfileexternalplugins.jsx');
 var reactdoc = require('./routes/app/docs/reactdoc.jsx');
 var rubixdoc = require('./routes/app/docs/rubix.jsx');
 var rubixsassdoc = require('./routes/app/docs/rubixsass.jsx');
@@ -146,6 +149,7 @@ var routes = (
         <Route name='fonts' path='fonts' view={fonts} />
         <Route name='timeline' path='timeline' view={timeline} />
         <Route name='interactive-timeline' path='interactive-timeline' view={interactivetimeline} />
+        <Route name='codemirror' path='codemirror' view={codemirror} />
         <Route name='maps' path='maps' view={maps} />
         <Route name='editor' path='editor' view={editor} />
 
@@ -196,6 +200,8 @@ var routes = (
             <Route name='sass' path='sass' view={gulpfilesass} />
             <Route name='jsx' path='jsx' view={gulpfilejsx} />
             <Route name='webfonts' path='webfonts' view={gulpfilewebfont} />
+            <Route name='scaffolding' path='scaffolding' view={gulpfilescaffolding} />
+            <Route name='externalplugins' path='externalplugins' view={gulpfileexternalplugins} />
           </Route>
 
           <Route name='rubix' path='rubix'>

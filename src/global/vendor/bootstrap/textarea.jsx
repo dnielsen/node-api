@@ -9,7 +9,7 @@ var TextArea = React.createClass({
   },
   render: function() {
     return this.transferPropsTo(
-      <textarea ref='textarea' className='form-control' value={this.props.children} />
+      <textarea ref='textarea' className='form-control' defaultValue={this.props.children} />
     );
   }
 });

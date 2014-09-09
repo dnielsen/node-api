@@ -33,7 +33,7 @@ var Body = React.createClass({
                             Assuming that your project name is <strong><em>app</em></strong> your webfont folder should be located at <code>public/fonts/dropbox/app</code>. We have simplified the process of including webfonts in your project. All you have to do is drop a TTF file of your favorite font into the above folder and let gulp take care of the rest.
                           </p>
                           <p>
-                            Behind the scenes gulp converts the TTF file to WOFF format and then base64 encodes the binary output and concatenates it with the other fonts and writes it to <code>public/fonts/app/fonts.css</code>{". This is the preferred way of including web fonts in your project. You'll notice performance improvements immediately and you needn't worry about maintaining and serving 5 different font types."}
+                            Behind the scenes gulp converts the TTF file to WOFF format and then base64 encodes the binary output and concatenates it with the other fonts and writes it to <code>public/css/fonts/app/fonts.css</code>{". This is the preferred way of including web fonts in your project. You'll notice performance improvements immediately and you needn't worry about maintaining and serving 5 different font types."}
                           </p>
                         </Col>
                       </Row>

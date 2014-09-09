@@ -32,8 +32,8 @@ var SocialBanner = React.createClass({
       <div style={{height: 350, marginTop: -25, backgroundImage: 'url(/imgs/shots/Blick_auf_Manhattan.JPG)', backgroundSize: 'cover', position: 'relative', marginBottom: 25, backgroundPosition: 'center'}}>
         <div className='social-cover' style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)'}}>
         </div>
-        <div className='social-desc' style={{position: 'absolute', left: 0, right: 300, top: 0, bottom: 0}}>
-          <div style={{marginLeft: '10%', marginTop: 100}}>
+        <div className='social-desc'>
+          <div>
             <h1 className='fg-white'>Empire State, NY, USA</h1>
             <h5 className='fg-white' style={{opacity: 0.8}}>- Aug 20th, 2014</h5>
             <div style={{marginTop: 50}}>
@@ -41,12 +41,12 @@ var SocialBanner = React.createClass({
                 <Button id='likeCount' retainBackground rounded bsStyle='orange75' active={this.state.likeActive} onClick={this.handleLike}>
                   <Icon glyph='icon-fontello-heart-1' />
                 </Button>
-                <Label htmlFor='likeCount' style={{cursor: 'pointer', display: 'inline-block'}}><span className={this.state.likeTextStyle} style={{marginLeft: 25}}>{this.state.likeCount} likes</span></Label>
+                <Label className='social-like-count' htmlFor='likeCount'><span className={this.state.likeTextStyle}>{this.state.likeCount} likes</span></Label>
               </div>
             </div>
           </div>
         </div>
-        <div className='social-avatar' style={{position: 'absolute', top: 0, right: 0, bottom: 0, width: 300, background: '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%)'}}>
+        <div className='social-avatar'>
           <Img src='/imgs/avatars/avatar.jpg' height='100' width='100' style={{display: 'block', borderRadius: 100, border: '2px solid #fff', margin: 'auto', marginTop: 50}} />
           <h4 className='fg-white text-center'>Anna Sanchez</h4>
           <h5 className='fg-white text-center' style={{opacity: 0.8}}>DevOps Engineer, NY</h5>
@@ -146,7 +146,7 @@ var Body = React.createClass({
                 </PanelFooter>
                 <PanelFooter style={{padding: 25, paddingTop: 0, paddingBottom: 0}}>
                   <div className='inbox-avatar' style={{borderBottom: '1px solid #EAEDF1'}}>
-                    <img src='/imgs/anna_sanchez.png' width='30' height='30' style={{verticalAlign: 'top', top: 10, position: 'relative'}} />
+                    <img src='/imgs/avatars/avatar0.png' width='30' height='30' style={{verticalAlign: 'top', top: 10, position: 'relative'}} />
                     <div className='inbox-avatar-name'>
                       <div className='fg-darkgrayishblue75'>Anna Sanchez</div>
                       <div className='fg-text'><small>Nice!</small></div>
@@ -261,7 +261,7 @@ var Body = React.createClass({
                 </PanelFooter>
                 <PanelFooter style={{padding: 25, paddingTop: 0, paddingBottom: 0}}>
                   <div className='inbox-avatar' style={{borderBottom: '1px solid #EAEDF1'}}>
-                    <img src='/imgs/anna_sanchez.png' width='30' height='30' style={{verticalAlign: 'top', top: 10, position: 'relative'}} />
+                    <img src='/imgs/avatars/avatar0.png' width='30' height='30' style={{verticalAlign: 'top', top: 10, position: 'relative'}} />
                     <div className='inbox-avatar-name'>
                       <div className='fg-darkgrayishblue75'>Anna Sanchez</div>
                       <div className='fg-text'><small>Love this! It also features the Superbowl ad</small></div>

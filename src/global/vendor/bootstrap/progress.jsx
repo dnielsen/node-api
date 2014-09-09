@@ -48,9 +48,10 @@ var Progress = React.createClass({
     success: React.PropTypes.bool,
     warning: React.PropTypes.bool,
     striped: React.PropTypes.bool,
-    withLabel: React.PropTypes.bool,
+    withLabel: React.PropTypes.string,
 
     color: React.PropTypes.string,
+    fgColor: React.PropTypes.string,
     background: React.PropTypes.string,
     collapseBottom: React.PropTypes.bool
   },
@@ -110,7 +111,7 @@ var Progress = React.createClass({
 
     var child = <span className='sr-only'>{this.state.value}% Complete{suffix}</span>;
     if(this.props.withLabel)
-      child = <span>{this.state.value}%</span>;
+      child = <span style={{color: this.props.fgColor}}>{this.props.withLabel || this.state.value+'%'}</span>;
 
     var bar = (
       <div className={classes} role='progressbar' aria-valuenow={this.state.value} aria-valuemin={this.state.min} aria-valuemax={this.state.max} style={{width: this.state.value+'%', background: this.props.color || null, minWidth: this.props.minWidth}}>

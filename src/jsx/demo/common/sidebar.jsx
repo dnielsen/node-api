@@ -59,6 +59,7 @@ var ApplicationSidebar = React.createClass({
                   </SidebarNavItem>
                   <SidebarNavItem href='/app/timeline' glyph='icon-ikons-time' name='Static Timeline' />
                   <SidebarNavItem href='/app/interactive-timeline' glyph='icon-fontello-back-in-time' name='Interactive Timeline' />
+                  <SidebarNavItem href='/app/codemirror' glyph='icon-dripicons-code' name='Codemirror' />
                   <SidebarNavItem href='/app/maps' glyph='icon-ikons-pin-2' name='Maps' />
                   <SidebarNavItem href='/app/editor' glyph='icon-simple-line-icons-note' name='Editor' />
                   <SidebarNavItem glyph='icon-feather-toggle' name={<span>UI Elements <BLabel className='bg-deepred fg-white'>7</BLabel></span>}>
@@ -126,15 +127,17 @@ var ApplicationSidebar = React.createClass({
               <div className='sidebar-nav-container'>
                 <SidebarNav style={{marginBottom: 0}}>
                   <SidebarNavItem glyph='icon-fontello-install' name='Installation' href='/app/docs/installation' />
-                  <SidebarNavItem glyph='devicon-gulp-plain' name={<span>Gulpfile.js <BLabel className='bg-red fg-white'>4</BLabel></span>}>
+                  <SidebarNavItem glyph='devicon-gulp-plain' name={<span>Gulpfile.js <BLabel className='bg-red fg-white'>6</BLabel></span>}>
                     <SidebarNav>
                       <SidebarNavItem name='Basics' href='/app/docs/gulpfile/basics' />
                       <SidebarNavItem name='Sass to CSS' href='/app/docs/gulpfile/sass' />
                       <SidebarNavItem name='JSX to JS' href='/app/docs/gulpfile/jsx' />
                       <SidebarNavItem name='WebFonts' href='/app/docs/gulpfile/webfonts' />
+                      <SidebarNavItem name='Scaffolding' href='/app/docs/gulpfile/scaffolding' />
+                      <SidebarNavItem name='External Plugins' href='/app/docs/gulpfile/externalplugins' />
                     </SidebarNav>
                   </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-fontello-looped-square-interest' name={<span>Rubix <BLabel className='bg-darkgreen45 fg-white'>2</BLabel></span>}>
+                  <SidebarNavItem glyph='icon-fontello-looped-square-interest' name={<span>Rubix <BLabel className='bg-darkgreen45 fg-white'>3</BLabel></span>}>
                     <SidebarNav>
                       <SidebarNavItem name='React' href='/app/docs/rubix/react' />
                       <SidebarNavItem name='Rubix - JSX' href='/app/docs/rubix/rubix-jsx' />
@@ -622,7 +625,7 @@ var SidebarSection = React.createClass({
           <Grid>
             <Row className='fg-white'>
               <Col xs={4} collapseRight>
-                <img src='/imgs/anna_sanchez.png' width='40' height='40' />
+                <img src='/imgs/avatars/avatar0.png' width='40' height='40' />
               </Col>
               <Col xs={8} collapseLeft id='avatar-col'>
                 <div style={{top: 23, fontSize: 16, lineHeight: 1, position: 'relative'}}>Anna Sanchez</div>

@@ -43,7 +43,7 @@ var Body = React.createClass({
                                 </td>
                                 <td>
                                   <p>
-                                    The first task compiles the React core library (<code>react.js</code>). The second task minifies the core library (<code>react.min.js</code>) and finally the third task cleans up any temporary files that were created during this process. All output is written to <code>public/js</code>
+                                    The first task compiles the React core library (<code>react.js</code>). The second task minifies the core library (<code>react.min.js</code>) and finally the third task cleans up any temporary files that were created during this process. All output is written to <code>public/js/common/react</code>
                                   </p>
                                   <p>
                                     The first and third task is run only on startup. The second task is run only when a <strong>--production</strong> flag is passed to gulp command.
@@ -56,7 +56,7 @@ var Body = React.createClass({
                                 </td>
                                 <td>
                                   <p>
-                                    The fourth task is run once during startup and everytime there is a change to respective files. These files should not be modified as any modification might conflict with future updates. It compiles L20n react bindings (<code>react.l20n.js</code>). The fifth task is run only when a <strong>--production</strong> flag is passed to gulp command. It minifies the compiled file from previous task (<code>react.l20n.min.js</code>). All output is written to <code>public/js</code>
+                                    The fourth task is run once during startup and everytime there is a change to respective files. These files should not be modified as any modification might conflict with future updates. It compiles L20n react bindings (<code>react-l20n.js</code>). The fifth task is run only when a <strong>--production</strong> flag is passed to gulp command. It minifies the compiled file from previous task (<code>react-l20n.min.js</code>). All output is written to <code>public/js/common/react-l20n</code>
                                   </p>
                                 </td>
                               </tr>
@@ -66,7 +66,7 @@ var Body = React.createClass({
                                 </td>
                                 <td>
                                   <p>
-                                    The sixth task is run once during startup and everytime there is a change to respective files. These files should not be modified as any modification might conflict with future updates. It compiles Bootstrap react bindings (<code>react.bootstrap.js</code>). The seventh task is run only when a <strong>--production</strong> flag is passed to gulp command. It minifies the compiled file from previous task (<code>react.bootstrap.min.js</code>). All output is written to <code>public/js</code>
+                                    The sixth task is run once during startup and everytime there is a change to respective files. These files should not be modified as any modification might conflict with future updates. It compiles Bootstrap react bindings (<code>react-bootstrap.js</code>). The seventh task is run only when a <strong>--production</strong> flag is passed to gulp command. It minifies the compiled file from previous task (<code>react-bootstrap.min.js</code>). All output is written to <code>public/js/common/react-bootstrap</code>
                                   </p>
                                 </td>
                               </tr>
@@ -76,10 +76,10 @@ var Body = React.createClass({
                                 </td>
                                 <td>
                                   <p>
-                                    The eighth and ninth tasks look for changes to <code>src/jsx/app</code> directory and compiles the JSX files to JS (<code>app.js</code>). NOTE: The starting point of your project is located at <code>src/jsx/app/main.jsx</code> (assuming <code>app</code> is your project name). All output is written to <code>public/js</code>
+                                    The eighth and ninth tasks look for changes to <code>src/jsx/app</code> directory and compiles the JSX files to JS (<code>app.js</code>). NOTE: The starting point of your project is located at <code>src/jsx/app/main.jsx</code> (assuming <code>app</code> is your project name). All output is written to <code>public/js/app</code>
                                   </p>
                                   <p>
-                                    The final task is run only when a <strong>--production</strong> flag is passed to gulp command. It minifies the compiled file from previous task (<code>app.min.js</code>). All output is written to <code>public/js</code>
+                                    The final task is run only when a <strong>--production</strong> flag is passed to gulp command. It minifies the compiled file from previous task (<code>app.min.js</code>). All output is written to <code>public/js/app</code>
                                   </p>
                                 </td>
                               </tr>

@@ -3548,12 +3548,6 @@ Rubix.PieDonut.prototype._setupLegend = function() {
 };
 
 Rubix.PieDonut.prototype.final_draw = function(animate) {
-    if(!this.data_changed) {
-        if(this.last_render !== null)
-            if(Date.now() - this.last_render < 15) return;
-        this.last_render = Date.now();
-    }
-    this.data_changed = false;
     var self = this;
     if(this.data.length) {
         this.canvas.select('.noData').style('display', 'none');

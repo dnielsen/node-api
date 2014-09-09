@@ -1,4 +1,4 @@
-/*! rubix - v0.1.0 - 2014-09-07 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.0 - 2014-09-08 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -396,17 +396,17 @@ var l20n=_RL20n_.l20n,
 	  render: function() {
 	    return this.transferPropsTo(
 	      React.DOM.div({id: "sidebar"}, 
-	        React.DOM.div({className: "avatar"}, 
+	        React.DOM.div({id: "avatar"}, 
 	          Grid(null, 
 	            Row({className: "fg-white"}, 
 	              Col({xs: 4, collapseRight: true}, 
 	                React.DOM.img({src: "/imgs/anna_sanchez.png", width: "40", height: "40"})
 	              ), 
-	              Col({xs: 8, collapseLeft: true, className: "avatar-col"}, 
+	              Col({xs: 8, collapseLeft: true, id: "avatar-col"}, 
 	                React.DOM.div({style: {top: 23, fontSize: 16, lineHeight: 1, position: 'relative'}}, "Anna Sanchez"), 
 	                React.DOM.div(null, 
-	                  Progress({className: "demo-progress", value: 30, min: 0, max: 100, color: "#ffffff"}), 
-	                  Link({href: "#"}, Icon({className: "demo-icon", bundle: "fontello", glyph: "lock-5"}))
+	                  Progress({id: "demo-progress", value: 30, min: 0, max: 100, color: "#ffffff"}), 
+	                  Link({href: "#"}, Icon({id: "demo-icon", bundle: "fontello", glyph: "lock-5"}))
 	                )
 	              )
 	            )
@@ -419,7 +419,7 @@ var l20n=_RL20n_.l20n,
 	          SidebarControlBtn({bundle: "fontello", glyph: "th-list-2", key: 3}), 
 	          SidebarControlBtn({bundle: "fontello", glyph: "bell-5", key: 4})
 	        ), 
-	        React.DOM.div({className: "sidebar-container"}, 
+	        React.DOM.div({id: "sidebar-container"}, 
 	          Sidebar({key: 0, active: true}, 
 	            ApplicationSidebar(null)
 	          ), 
@@ -451,6 +451,16 @@ var l20n=_RL20n_.l20n,
 	/** @jsx React.DOM */
 
 	var Footer = React.createClass({displayName: 'Footer',
+	  getInitialState: function() {
+	    return {
+	      version: 0
+	    };
+	  },
+	  componentDidMount: function() {
+	    this.setState({
+	      version: document.getElementsByTagName('body')[0].getAttribute('data-version')
+	    });
+	  },
 	  render: function() {
 	    return (
 	      React.DOM.div(null, 
@@ -458,7 +468,7 @@ var l20n=_RL20n_.l20n,
 	        Grid({id: "footer", className: "text-center"}, 
 	          Row(null, 
 	            Col({xs: 12}, 
-	              React.DOM.div(null, "© 2014 Your Company Name Here")
+	              React.DOM.div(null, "© 2014 Your Company Name Here - v", this.state.version)
 	            )
 	          )
 	        )

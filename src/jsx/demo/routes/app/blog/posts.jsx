@@ -160,7 +160,7 @@ var Body = React.createClass({
                           </Grid>
                         </PanelLeft>
                         <PanelRight className='bg-yellow' style={{verticalAlign: 'middle', padding: 12.5, width: 80}}>
-                          <div className='text-center'><Img src='/imgs/anna_sanchez.png' width='40' height='40' style={{borderRadius: 100}} /></div>
+                          <div className='text-center'><Img src='/imgs/avatars/avatar0.png' width='40' height='40' style={{borderRadius: 100}} /></div>
                         </PanelRight>
                       </Panel>
                     </PanelContainer>

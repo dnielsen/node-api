@@ -112,7 +112,7 @@ var Body = React.createClass({
                         </Col>
                         <Col xs={4} className='text-right'>
                           <div className='inbox-avatar'>
-                            <img src='/imgs/anna_sanchez.png' width='40' height='40' />
+                            <img src='/imgs/avatars/avatar0.png' width='40' height='40' />
                             <div className='inbox-avatar-name hidden-xs hidden-sm'>
                               <div>Anna Sanchez</div>
                               <div><small>Mailbox</small></div>

@@ -37,7 +37,7 @@ var Body = React.createClass({
                   <Grid>
                     <Row>
                       <Col xs={12}>
-                        <div id='my-timeline'></div>
+                        <div id='my-timeline' dir='ltr'></div>
                       </Col>
                     </Row>
                   </Grid>

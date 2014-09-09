@@ -367,7 +367,7 @@ var Navigation = React.createClass({
                 <Grid>
                   <Row>
                     <Col xs={2} className='avatar-container' collapseRight>
-                      <div><img src='/imgs/sarah_patchett.png' width='40' height='40' alt='sarah_patchett' /></div>
+                      <div><img src='/imgs/avatars/avatar22.png' width='40' height='40' alt='sarah_patchett' /></div>
                       <div className='text-center'>
                         <BLabel bsStyle='info'>NEW</BLabel>
                       </div>
@@ -390,7 +390,7 @@ var Navigation = React.createClass({
                 <Grid>
                   <Row>
                     <Col xs={2} className='avatar-container' collapseRight>
-                      <img src='/imgs/john_young.png' width='40' height='40' alt='john_young' />
+                      <img src='/imgs/avatars/avatar21.png' width='40' height='40' alt='john_young' />
                     </Col>
                     <Col xs={10} className='notification-container' collapseLeft collapseRight>
                       <div className='time'>

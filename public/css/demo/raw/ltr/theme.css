@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! rubix - v1.0.0 - 2014-09-08 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.0 - 2014-09-09 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 @keyframes vex-flipin-horizontal {
   0% {
     opacity: 0;
@@ -1294,6 +1294,8 @@ html.default {
     html.default body #sidebar + #body {
       margin-top: 0;
       padding-top: 25px; }
+    html.default body .external-event {
+      background: #E76049; }
     html.default body #footer {
       left: 0;
       right: 0;
@@ -2041,6 +2043,8 @@ html.green {
     html.green body #sidebar + #body {
       margin-top: 0;
       padding-top: 25px; }
+    html.green body .external-event {
+      background: #2EB398; }
     html.green body #footer {
       left: 0;
       right: 0;
@@ -2788,6 +2792,8 @@ html.blue {
     html.blue body #sidebar + #body {
       margin-top: 0;
       padding-top: 25px; }
+    html.blue body .external-event {
+      background: #79B0EC; }
     html.blue body #footer {
       left: 0;
       right: 0;
@@ -3535,6 +3541,8 @@ html.purple {
     html.purple body #sidebar + #body {
       margin-top: 0;
       padding-top: 25px; }
+    html.purple body .external-event {
+      background: #B4A1DD; }
     html.purple body #footer {
       left: 0;
       right: 0;
@@ -4282,6 +4290,8 @@ html.brown {
     html.brown body #sidebar + #body {
       margin-top: 0;
       padding-top: 25px; }
+    html.brown body .external-event {
+      background: #A8553A; }
     html.brown body #footer {
       left: 0;
       right: 0;
@@ -5029,6 +5039,8 @@ html.cyan {
     html.cyan body #sidebar + #body {
       margin-top: 0;
       padding-top: 25px; }
+    html.cyan body .external-event {
+      background: #68A0A5; }
     html.cyan body #footer {
       left: 0;
       right: 0;

@@ -26,4 +26,8 @@
     margin-top: 0;
     padding-top: $line-height-computed;
   }
+
+  .external-event {
+    background: get($list, theme, bg);
+  }
 }

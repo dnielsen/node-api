@@ -4,6 +4,40 @@ var Header = require('../../common/header.jsx');
 var Sidebar = require('../../common/sidebar.jsx');
 var Footer = require('../../common/footer.jsx');
 
+var Contact = React.createClass({
+  getInitialState: function() {
+    return {
+      invited: this.props.invited ? true : false,
+      invitedText: this.props.invited ? 'invited' : 'invite'
+    };
+  },
+  handleClick: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({
+      invited: !this.state.invited,
+      invitedText: (!this.state.invited) ? 'invited': 'invite'
+    });
+  },
+  render: function() {
+    return (
+      <tr>
+        <td style={{verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}}>
+          <img src={'/imgs/avatars/'+this.props.avatar+'.png'} />
+        </td>
+        <td style={{verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}}>
+          {this.props.name}
+        </td>
+        <td style={{verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}} className='text-right'>
+          <Button onlyOnHover bsStyle='orange' active={this.state.invited} onClick={this.handleClick}>
+            {this.state.invitedText}
+          </Button>
+        </td>
+      </tr>
+    );
+  }
+});
+
 var Body = React.createClass({
   componentDidMount: function() {
     (function() {
@@ -265,7 +299,7 @@ var Body = React.createClass({
         subtitle: 'by agents',
         titleColor: '#EBA068',
         subtitleColor: '#EBA068',
-        hideLegend: true,
+        hideLegend: false,
         height: 300,
         tooltip: {
           color: '#EBA068'
@@ -343,20 +377,50 @@ var Body = React.createClass({
       });
     })();
     (function() {
-      // create a map in the "map" div, set the view to a given place and zoom
-      var map = L.map('map', {
-        scrollWheelZoom: false
-      }).setView([38.889221, -77.050176], 16);
+      var map = new GMaps({
+        div: '#routingmap',
+        lat: 38.890792,
+        lng: -77.048518,
+        scrollwheel: false,
+        zoom: 16
+      });
+      var list = [];
+      map.travelRoute({
+        origin: [38.892428, -77.048454],
+        destination: [38.889497, -77.050181],
+        travelMode: 'walking',
+        step: function(e){
+          list.push({
+            instructions: e.instructions,
+            lat: e.end_location.lat(),
+            lng: e.end_location.lng(),
+            path: e.path
+          });
+        }.bind(this),
+        end: function(e) {
+          var lat, lng, path;
+          var processList = function(i) {
+            if(list.length === i) return;
+            lat = list[i].lat;
+            lng = list[i].lng;
+            path = list[i].path;
+            map.drawPolyline({
+              path: path,
+              strokeColor: '#FF6FCF',
+              strokeWeight: 8
+            });
+            processList(i+1);
+          }.bind(this);
+          processList(0);
+        }.bind(this)
+      });
+    })();
+    (function() {
+      var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
-      // add an OpenStreetMap tile layer
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-
-      // add a marker in the given location, attach some popup content to it and open the popup
-      L.marker([38.889221, -77.050176]).addTo(map)
-          .bindPopup('<div><strong>Lincoln Memorial:</strong></div><div><small>The Lincoln Memorial is an American national monument built to honor the 16th President of the United States, Abraham Lincoln.</small></div>')
-          .openPopup();
+      elems.forEach(function(html) {
+        var switchery = new Switchery(html);
+      });
     })();
   },
   render: function() {
@@ -375,14 +439,14 @@ var Body = React.createClass({
                   <PanelLeft className='bg-red fg-white tabs panel-sm-1'>
                     <TabContainer className='plain'>
                       <TabList>
-                        <Tab pane='panel_tab_panel_combined_plain:home' active>
-                          <Icon bundle='fontello' glyph='home'/>
+                        <Tab pane='panel_tab_panel_combined_plain:bar' active>
+                          <Icon bundle='fontello' glyph='chart-bar-5'/>
                         </Tab>
-                        <Tab pane='panel_tab_panel_combined_plain:profile'>
-                          <Icon bundle='fontello' glyph='user'/>
+                        <Tab pane='panel_tab_panel_combined_plain:switches'>
+                          <Icon glyph='icon-feather-toggle'/>
                         </Tab>
-                        <Tab pane='panel_tab_panel_combined_plain:settings'>
-                          <Icon bundle='fontello' glyph='cog'/>
+                        <Tab pane='panel_tab_panel_combined_plain:note'>
+                          <Icon glyph='icon-fontello-note-1'/>
                         </Tab>
                       </TabList>
                     </TabContainer>
@@ -392,16 +456,57 @@ var Body = React.createClass({
                       <Row>
                         <Col xs={12} collapseLeft collapseRight>
                           <TabContent>
-                            <TabPane ref='panel_tab_panel_combined_plain:home' active style={{padding: 0}}>
+                            <TabPane ref='panel_tab_panel_combined_plain:bar' active style={{padding: 0}}>
                               <div id='male-female-chart'></div>
                             </TabPane>
-                            <TabPane ref='panel_tab_panel_combined_plain:profile'>
-                              <h4>Left Panel</h4>
-                              <p><LoremIpsum query='2s'/></p>
+                            <TabPane ref='panel_tab_panel_combined_plain:switches'>
+                              <Table className='panel-switches' collapsed>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <Icon glyph='icon-fontello-twitter' className='fg-blue' /><span className='text-uppercase panel-switches-text'>twitter</span>
+                                    </td>
+                                    <td className='panel-switches-holder'><input type='checkbox' className='js-switch' defaultChecked /></td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <Icon glyph='icon-fontello-facebook' className='fg-darkblue' /><span className='text-uppercase panel-switches-text'>facebook</span>
+                                    </td>
+                                    <td className='panel-switches-holder'><input type='checkbox' className='js-switch' /></td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <Icon glyph='icon-fontello-gplus' className='fg-deepred' /><span className='text-uppercase panel-switches-text'>google+</span>
+                                    </td>
+                                    <td className='panel-switches-holder'><input type='checkbox' className='js-switch' /></td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <Icon glyph='icon-fontello-linkedin' className='fg-deepred' /><span className='text-uppercase panel-switches-text'>linkedin</span>
+                                    </td>
+                                    <td className='panel-switches-holder'><input type='checkbox' className='js-switch' defaultChecked /></td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <Icon glyph='icon-fontello-instagram' className='fg-deepred' /><span className='text-uppercase panel-switches-text'>instagram</span>
+                                    </td>
+                                    <td className='panel-switches-holder'>
+                                      <Button bsStyle='primary'>connect</Button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </Table>
                             </TabPane>
-                            <TabPane ref='panel_tab_panel_combined_plain:settings'>
-                              <h4>Left Panel</h4>
-                              <p><LoremIpsum query='2s'/></p>
+                            <TabPane ref='panel_tab_panel_combined_plain:note'>
+                              <Grid>
+                                <Row>
+                                  <Col xs={12} style={{padding: 50, paddingTop: 12.5, paddingBottom: 25}} className='text-center'>
+                                    <h3 className='fg-black50'>NOTE</h3>
+                                    <hr/>
+                                    <p><LoremIpsum query='3s'/></p>
+                                  </Col>
+                                </Row>
+                              </Grid>
                             </TabPane>
                           </TabContent>
                         </Col>
@@ -460,8 +565,48 @@ var Body = React.createClass({
                   <PanelBody style={{padding: 0}}>
                     <Grid>
                       <Row>
-                        <Col xs={12} collapseLeft collapseRight className='text-center'>
-                          <canvas id='chartjs-1' height='200' width='200'></canvas>
+                        <Col xs={12} className='text-center' style={{padding: 25}}>
+                          <canvas id='chartjs-1' height='250' width='250'></canvas>
+                          <Table striped collapsed>
+                            <tbody>
+                              <tr>
+                                <td className='text-left'>Bounce Rate:</td>
+                                <td className='text-center'>
+                                  <BLabel className='bg-red fg-white'>+46%</BLabel>
+                                </td>
+                                <td className='text-right'>
+                                  <div className='line-EA7882' sparkBarColor='#EA7882'>2,3,7,5,4,4,3,2,3,4,3,2,4,3,4,3,2,5</div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td className='text-left'>New visits:</td>
+                                <td className='text-center'>
+                                  <BLabel className='bg-darkgreen45 fg-white'>+23%</BLabel>
+                                </td>
+                                <td className='text-right'>
+                                  <div className='line-2EB398' sparkBarColor='#2EB398'>7,7,7,7,7,7,6,7,4,7,7,7,7,5,7,7,7,9</div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td className='text-left'>Transactions:</td>
+                                <td className='text-center'>
+                                  <BLabel className='bg-blue fg-white'>43,000 (+50%)</BLabel>
+                                </td>
+                                <td className='text-right'>
+                                  <div className='line-79B0EC' sparkBarColor='#79B0EC'>4,6,7,7,4,3,2,1,4,9,3,2,3,5,2,4,3,1</div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td className='text-left'>Conversions:</td>
+                                <td className='text-center'>
+                                  <BLabel className='bg-orange fg-white'>2000 (+75%)</BLabel>
+                                </td>
+                                <td className='text-right'>
+                                  <div className='line-FFC497' sparkBarColor='#FFC497'>3,2,4,6,7,4,5,7,4,3,2,1,4,6,7,8,2,8</div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </Table>
                         </Col>
                       </Row>
                     </Grid>
@@ -476,11 +621,11 @@ var Body = React.createClass({
                         <Tab pane='panel-middle-left:orders' active>
                           <Icon className='icon-1-and-quarter-x' bundle='feather' glyph='bar-graph-2'/>
                         </Tab>
+                        <Tab pane='panel-middle-left:people'>
+                          <Icon className='icon-1-and-quarter-x' glyph='icon-simple-line-icons-users'/>
+                        </Tab>
                         <Tab pane='panel-middle-left:tickets'>
                           <Icon className='icon-1-and-quarter-x' bundle='feather' glyph='pie-graph'/>
-                        </Tab>
-                        <Tab pane='panel-middle-left:maps'>
-                          <Icon className='icon-1-and-quarter-x' bundle='feather' glyph='map'/>
                         </Tab>
                       </TabList>
                     </TabContainer>
@@ -542,12 +687,84 @@ var Body = React.createClass({
                           </Row>
                         </Grid>
                       </TabPane>
+                      <TabPane ref='panel-middle-left:people'>
+                        <Grid>
+                          <Row>
+                            <Col xs={12}>
+                              <Form>
+                                <FormGroup>
+                                  <InputGroup>
+                                    <Input type='text' placeholder='Type a name here...' className='border-orange border-focus-darkorange'/>
+                                    <InputGroupButton><Button bsStyle='orange'><Icon glyph='icon-fontello-search'/></Button></InputGroupButton>
+                                  </InputGroup>
+                                </FormGroup>
+                              </Form>
+                              <div className='text-center'>
+                                <Checkbox>Invite all friends</Checkbox>
+                              </div>
+                              <div>
+                                <Table>
+                                  <tbody>
+                                    <Contact name='Jordyn Ouellet' avatar='avatar5' noBorder />
+                                    <Contact name='Ava Perry' avatar='avatar9' />
+                                    <Contact name='Angelina Mills' avatar='avatar10' invited />
+                                    <Contact name='Crystal Ford' avatar='avatar11' />
+                                    <Contact name='Toby King' avatar='avatar7' />
+                                    <Contact name='Ju Lan' avatar='avatar13' invited />
+                                    <Contact name='Alexandra Mordin' avatar='avatar20' />
+                                  </tbody>
+                                </Table>
+                              </div>
+                            </Col>
+                          </Row>
+                        </Grid>
+                      </TabPane>
                       <TabPane ref='panel-middle-left:tickets'>
                         <div id='tickets-cleared'></div>
-                      </TabPane>
-                      <TabPane ref='panel-middle-left:maps'>
-                        <h4>Left Panel</h4>
-                        <p><LoremIpsum query='2s'/></p>
+                        <Table collapsed>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <Progress collapseBottom withLabel='Karl Pohl' value={57} color='#FA824F' min={0} max={100} />
+                              </td>
+                              <td className='text-right'>
+                                <BLabel>57</BLabel>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <Progress collapseBottom withLabel='Gamze Erdoğan' value={35} color='#EBA068' min={0} max={100} />
+                              </td>
+                              <td className='text-right'>
+                                <BLabel>33</BLabel>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <Progress collapseBottom withLabel='Leyla Cəlilli' value={30} color='#FFC497' fgColor='#B86A2D' min={0} max={100} />
+                              </td>
+                              <td className='text-right'>
+                                <BLabel>23</BLabel>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <Progress collapseBottom withLabel='Nadir Üzeyirzadə' value={41} color='#FFC9A0' fgColor='#B86A2D' min={0} max={100} />
+                              </td>
+                              <td className='text-right'>
+                                <BLabel>11</BLabel>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <Progress collapseBottom withLabel='Anna Sanchez' value={66} color='#FFD3B1' fgColor='#B86A2D' min={0} max={100} />
+                              </td>
+                              <td className='text-right'>
+                                <BLabel>7</BLabel>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </Table>
                       </TabPane>
                     </TabContent>
                   </PanelBody>
@@ -555,91 +772,6 @@ var Body = React.createClass({
               </PanelContainer>
             </Col>
             <Col sm={7}>
-              <PanelContainer>
-                <Panel horizontal className='force-collapse'>
-                  <PanelBody className='panel-sm-10' style={{padding: 0}}>
-                    <Grid>
-                      <Row>
-                        <Col xs={12} collapseLeft collapseRight>
-                          <TabContent>
-                            <TabPane ref='complex_stats_table_panel:complex_statistics' active>
-                              <Grid>
-                                <Row>
-                                  <Col xs={12} style={{padding: 25}}>
-                                    <Table striped style={{margin: 0}}>
-                                      <tbody>
-                                        <tr>
-                                          <td>Bounce Rate:</td>
-                                          <td>
-                                            <BLabel className='bg-red fg-white'>+46%</BLabel>
-                                          </td>
-                                          <td>
-                                            <div className='line-EA7882' sparkBarColor='#EA7882'>2,3,7,5,4,4,3,2,3,4,3,2,4,3,4,3,2,5</div>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td>New visits:</td>
-                                          <td>
-                                            <BLabel className='bg-darkgreen45 fg-white'>+23%</BLabel>
-                                          </td>
-                                          <td>
-                                            <div className='line-2EB398' sparkBarColor='#2EB398'>7,7,7,7,7,7,6,7,4,7,7,7,7,5,7,7,7,9</div>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td>Transactions:</td>
-                                          <td>
-                                            <BLabel className='bg-blue fg-white'>43,000 (+50%)</BLabel>
-                                          </td>
-                                          <td>
-                                            <div className='line-79B0EC' sparkBarColor='#79B0EC'>4,6,7,7,4,3,2,1,4,9,3,2,3,5,2,4,3,1</div>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td>Conversions:</td>
-                                          <td>
-                                            <BLabel className='bg-orange fg-white'>2000 (+75%)</BLabel>
-                                          </td>
-                                          <td>
-                                            <div className='line-FFC497' sparkBarColor='#FFC497'>3,2,4,6,7,4,5,7,4,3,2,1,4,6,7,8,2,8</div>
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </Table>
-                                  </Col>
-                                </Row>
-                              </Grid>
-                            </TabPane>
-                            <TabPane ref='complex_stats_table_panel:profile'>
-                              <h4>Left Panel</h4>
-                              <p><LoremIpsum query='2s'/></p>
-                            </TabPane>
-                            <TabPane ref='complex_stats_table_panel:settings'>
-                              <h4>Left Panel</h4>
-                              <p><LoremIpsum query='2s'/></p>
-                            </TabPane>
-                          </TabContent>
-                        </Col>
-                      </Row>
-                    </Grid>
-                  </PanelBody>
-                  <PanelRight className='bg-green fg-white tabs panel-sm-2'>
-                    <TabContainer>
-                      <TabList>
-                        <Tab pane='complex_stats_table_panel:complex_statistics' active>
-                          <Icon glyph='icon-ikons-bar-chart-2 icon-1-and-quarter-x'/>
-                        </Tab>
-                        <Tab pane='complex_stats_table_panel:profile'>
-                          <Icon glyph='icon-fontello-user icon-1-and-quarter-x'/>
-                        </Tab>
-                        <Tab pane='complex_stats_table_panel:settings'>
-                          <Icon glyph='icon-fontello-cog icon-1-and-quarter-x'/>
-                        </Tab>
-                      </TabList>
-                    </TabContainer>
-                  </PanelRight>
-                </Panel>
-              </PanelContainer>
               <PanelContainer controlStyles='bg-brown50 fg-white'>
                 <Panel horizontal className='force-collapse'>
                   <PanelBody className='panel-sm-7' style={{padding: 0}}>
@@ -684,7 +816,59 @@ var Body = React.createClass({
                 <Panel>
                   <PanelHeader>
                     <div style={{padding: 25}}>
-                      <div id='map' className='map leaflet-container leaflet-fade-anim' style={{height: 300}}></div>
+                      <div id='routingmap' style={{height: 300}}></div>
+                      <div className='fg-black50 text-center' style={{borderBottom: '1px solid #ccc'}}>
+                        <h5 style={{padding: 12.5, margin: 0}}>WALK 0.3 MILES - FOR 6 MINUTES</h5>
+                      </div>
+                      <div>
+                        <div className='map-dest' style={{marginBottom: 12.5}}>
+                          <h3 className='fg-black50'>
+                            <Icon glyph='icon-fontello-dot-circled' className='fg-darkgray'/>{' '}
+                            <span>Albert Einstein Memorial</span>
+                          </h3>
+                          <h5>
+                            2101 Constitution Ave NW, Washington, DC 20418, United States
+                          </h5>
+                        </div>
+                        <div className='map-tcontainer'>
+                          <Table className='mapt' hover collapsed>
+                            <tbody>
+                              <tr>
+                                <td><Icon className='fg-blue' glyph='icon-fontello-up-circle icon-2x' /></td>
+                                <td>Walk <strong>east</strong> on <strong>Constitution Ave NW</strong> towards <strong>Henry Bacon Dr NW</strong></td>
+                                <td width='75'><small>171 ft</small></td>
+                              </tr>
+                              <tr>
+                                <td><Icon className='fg-green' glyph='icon-fontello-right-circle icon-2x' /></td>
+                                <td>Turn <strong>right</strong></td>
+                                <td><small>433 ft</small></td>
+                              </tr>
+                              <tr>
+                                <td><Icon className='fg-darkorange' glyph='icon-fontello-left-circle icon-2x' /></td>
+                                <td>
+                                  <div>Follow the road <strong>southeast</strong></div>
+                                  <div>Turn <strong>left</strong> <em>(Slight turn)</em></div>
+                                </td>
+                                <td><small>0.1 mi</small></td>
+                              </tr>
+                              <tr>
+                                <td><Icon className='fg-green' glyph='icon-fontello-right-circle icon-2x' /></td>
+                                <td>Turn right</td>
+                                <td><small>262 ft</small></td>
+                              </tr>
+                            </tbody>
+                          </Table>
+                        </div>
+                        <div className='map-dest'>
+                          <h3 className='fg-black50'>
+                            <Icon glyph='icon-fontello-dot-circled'/>{' '}
+                            <span>Lincoln Memorial</span>
+                          </h3>
+                          <h5>
+                            2 Lincoln Memorial Cir NW, Washington, DC 20037, United States
+                          </h5>
+                        </div>
+                      </div>
                     </div>
                   </PanelHeader>
                 </Panel>
@@ -703,6 +887,7 @@ var Dashboard = React.createClass({
   mixins: [SidebarMixin],
   render: function() {
     var classes = classSet({
+      'dashboard': true,
       'container-open': this.state.open
     });
     return (

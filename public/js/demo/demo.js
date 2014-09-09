@@ -1,4 +1,4 @@
-/*! rubix - v1.0.0 - 2014-09-08 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.0 - 2014-09-09 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -205,87 +205,90 @@ var l20n=_RL20n_.l20n,
 	var mail = __webpack_require__(7);
 	var gallery = __webpack_require__(8);
 	var social = __webpack_require__(9);
-	var posts = __webpack_require__(39);
-	var single_post = __webpack_require__(40);
+	var posts = __webpack_require__(40);
+	var single_post = __webpack_require__(41);
 
 	/* COMPONENT PAGES */
 	var panels = __webpack_require__(10);
 
-	var rubix_line = __webpack_require__(44);
-	var rubix_area = __webpack_require__(45);
-	var rubix_barcol = __webpack_require__(46);
-	var rubix_mixed = __webpack_require__(47);
-	var rubix_piedonut = __webpack_require__(48);
-	var chartjs = __webpack_require__(41);
-	var c3js = __webpack_require__(42);
-	var morrisjs = __webpack_require__(43);
+	var rubix_line = __webpack_require__(45);
+	var rubix_area = __webpack_require__(46);
+	var rubix_barcol = __webpack_require__(47);
+	var rubix_mixed = __webpack_require__(48);
+	var rubix_piedonut = __webpack_require__(49);
+	var chartjs = __webpack_require__(42);
+	var c3js = __webpack_require__(43);
+	var morrisjs = __webpack_require__(44);
 
 	var timeline = __webpack_require__(11);
 	var interactivetimeline = __webpack_require__(12);
-	var maps = __webpack_require__(13);
-	var editor = __webpack_require__(14);
-	var fonts = __webpack_require__(15);
-	var buttons = __webpack_require__(16);
-	var dropdowns = __webpack_require__(17);
-	var tabs_and_navs = __webpack_require__(18);
-	var sliders = __webpack_require__(19);
-	var knobs = __webpack_require__(20);
-	var modals = __webpack_require__(21);
-	var messenger = __webpack_require__(22);
-	var form_controls = __webpack_require__(23);
-	var xeditable = __webpack_require__(24);
-	var wizard = __webpack_require__(25);
-	var bootstraptables = __webpack_require__(26);
-	var datatables = __webpack_require__(27);
-	var tablesaw = __webpack_require__(28);
-	var grid = __webpack_require__(29);
-	var calendar = __webpack_require__(30);
-	var lists = __webpack_require__(31);
-	var dropzone = __webpack_require__(32);
-	var crop = __webpack_require__(33);
+	var codemirror = __webpack_require__(13);
+	var maps = __webpack_require__(14);
+	var editor = __webpack_require__(15);
+	var fonts = __webpack_require__(16);
+	var buttons = __webpack_require__(17);
+	var dropdowns = __webpack_require__(18);
+	var tabs_and_navs = __webpack_require__(19);
+	var sliders = __webpack_require__(20);
+	var knobs = __webpack_require__(21);
+	var modals = __webpack_require__(22);
+	var messenger = __webpack_require__(23);
+	var form_controls = __webpack_require__(24);
+	var xeditable = __webpack_require__(25);
+	var wizard = __webpack_require__(26);
+	var bootstraptables = __webpack_require__(27);
+	var datatables = __webpack_require__(28);
+	var tablesaw = __webpack_require__(29);
+	var grid = __webpack_require__(30);
+	var calendar = __webpack_require__(31);
+	var lists = __webpack_require__(32);
+	var dropzone = __webpack_require__(33);
+	var crop = __webpack_require__(34);
 
 	/* EXTRA PAGES */
-	var login = __webpack_require__(34);
-	var signup = __webpack_require__(35);
-	var lock = __webpack_require__(36);
-	var pricing = __webpack_require__(37);
-	var invoice = __webpack_require__(38);
+	var login = __webpack_require__(35);
+	var signup = __webpack_require__(36);
+	var lock = __webpack_require__(37);
+	var pricing = __webpack_require__(38);
+	var invoice = __webpack_require__(39);
 
 	/* DOCUMENTATION PAGES */
-	var css = __webpack_require__(49);
-	var components = __webpack_require__(50);
-	var installation = __webpack_require__(51);
-	var gulpfilebasics = __webpack_require__(52);
-	var gulpfilesass = __webpack_require__(53);
-	var gulpfilejsx = __webpack_require__(54);
-	var gulpfilewebfont = __webpack_require__(55);
-	var reactdoc = __webpack_require__(56);
-	var rubixdoc = __webpack_require__(57);
-	var rubixsassdoc = __webpack_require__(58);
-	var bootstrapgrid = __webpack_require__(60);
-	var typography = __webpack_require__(61);
-	var code = __webpack_require__(62);
-	var tables = __webpack_require__(63);
-	var forms = __webpack_require__(64);
-	var inputsdocs = __webpack_require__(65);
-	var textareadocs = __webpack_require__(66);
-	var checkradio = __webpack_require__(67);
-	var selectdocs = __webpack_require__(68);
-	var buttondocs = __webpack_require__(69);
-	var dropdowndocs = __webpack_require__(70);
-	var buttongroupdocs = __webpack_require__(71);
-	var inputgroupdocs = __webpack_require__(72);
-	var navdocs = __webpack_require__(73);
-	var navbardocs = __webpack_require__(74);
-	var breadcrumbdocs = __webpack_require__(75);
-	var paginationdocs = __webpack_require__(76);
-	var labelsbadgesdocs = __webpack_require__(77);
-	var jumbodocs = __webpack_require__(78);
-	var alertdocs = __webpack_require__(79);
-	var progressdocs = __webpack_require__(80);
-	var mediadocs = __webpack_require__(81);
-	var listgroupdocs = __webpack_require__(82);
-	var l20ndocs = __webpack_require__(59);
+	var css = __webpack_require__(50);
+	var components = __webpack_require__(51);
+	var installation = __webpack_require__(52);
+	var gulpfilebasics = __webpack_require__(53);
+	var gulpfilesass = __webpack_require__(54);
+	var gulpfilejsx = __webpack_require__(55);
+	var gulpfilewebfont = __webpack_require__(56);
+	var gulpfilescaffolding = __webpack_require__(57);
+	var gulpfileexternalplugins = __webpack_require__(58);
+	var reactdoc = __webpack_require__(59);
+	var rubixdoc = __webpack_require__(60);
+	var rubixsassdoc = __webpack_require__(61);
+	var bootstrapgrid = __webpack_require__(63);
+	var typography = __webpack_require__(64);
+	var code = __webpack_require__(65);
+	var tables = __webpack_require__(66);
+	var forms = __webpack_require__(67);
+	var inputsdocs = __webpack_require__(68);
+	var textareadocs = __webpack_require__(69);
+	var checkradio = __webpack_require__(70);
+	var selectdocs = __webpack_require__(71);
+	var buttondocs = __webpack_require__(72);
+	var dropdowndocs = __webpack_require__(73);
+	var buttongroupdocs = __webpack_require__(74);
+	var inputgroupdocs = __webpack_require__(75);
+	var navdocs = __webpack_require__(76);
+	var navbardocs = __webpack_require__(77);
+	var breadcrumbdocs = __webpack_require__(78);
+	var paginationdocs = __webpack_require__(79);
+	var labelsbadgesdocs = __webpack_require__(80);
+	var jumbodocs = __webpack_require__(81);
+	var alertdocs = __webpack_require__(82);
+	var progressdocs = __webpack_require__(83);
+	var mediadocs = __webpack_require__(84);
+	var listgroupdocs = __webpack_require__(85);
+	var l20ndocs = __webpack_require__(62);
 
 	/* ROUTES */
 	var routes = (
@@ -325,6 +328,7 @@ var l20n=_RL20n_.l20n,
 	        Route({name: "fonts", path: "fonts", view: fonts}), 
 	        Route({name: "timeline", path: "timeline", view: timeline}), 
 	        Route({name: "interactive-timeline", path: "interactive-timeline", view: interactivetimeline}), 
+	        Route({name: "codemirror", path: "codemirror", view: codemirror}), 
 	        Route({name: "maps", path: "maps", view: maps}), 
 	        Route({name: "editor", path: "editor", view: editor}), 
 
@@ -374,7 +378,9 @@ var l20n=_RL20n_.l20n,
 	            Route({name: "basics", path: "basics", view: gulpfilebasics}), 
 	            Route({name: "sass", path: "sass", view: gulpfilesass}), 
 	            Route({name: "jsx", path: "jsx", view: gulpfilejsx}), 
-	            Route({name: "webfonts", path: "webfonts", view: gulpfilewebfont})
+	            Route({name: "webfonts", path: "webfonts", view: gulpfilewebfont}), 
+	            Route({name: "scaffolding", path: "scaffolding", view: gulpfilescaffolding}), 
+	            Route({name: "externalplugins", path: "externalplugins", view: gulpfileexternalplugins})
 	          ), 
 
 	          Route({name: "rubix", path: "rubix"}, 
@@ -486,9 +492,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -711,7 +717,7 @@ var l20n=_RL20n_.l20n,
 	            React.DOM.img({src: "/imgs/homepage/support.png"})
 	          ), 
 	          React.DOM.p({className: "text-center"}, 
-	            "We have already provided extensive documentation on using/implementing Rubix. However, we take this a step further by ensuring version releases (which includes bug fixes, new features etc) every week (excluding time taken for review process) for the next 6 months and general support for 1 year."
+	            "We have already provided extensive documentation on using/implementing Rubix. However, we take this a step further by ensuring version releases (which includes bug fixes, new features etc) for the next 6 months and general support for 1 year."
 	          )
 	        ), 
 	        React.DOM.div(null, 
@@ -739,9 +745,43 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
+
+	var Contact = React.createClass({displayName: 'Contact',
+	  getInitialState: function() {
+	    return {
+	      invited: this.props.invited ? true : false,
+	      invitedText: this.props.invited ? 'invited' : 'invite'
+	    };
+	  },
+	  handleClick: function(e) {
+	    e.preventDefault();
+	    e.stopPropagation();
+	    this.setState({
+	      invited: !this.state.invited,
+	      invitedText: (!this.state.invited) ? 'invited': 'invite'
+	    });
+	  },
+	  render: function() {
+	    return (
+	      React.DOM.tr(null, 
+	        React.DOM.td({style: {verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}}, 
+	          React.DOM.img({src: '/imgs/avatars/'+this.props.avatar+'.png'})
+	        ), 
+	        React.DOM.td({style: {verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}}, 
+	          this.props.name
+	        ), 
+	        React.DOM.td({style: {verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}, className: "text-right"}, 
+	          Button({onlyOnHover: true, bsStyle: "orange", active: this.state.invited, onClick: this.handleClick}, 
+	            this.state.invitedText
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -1004,7 +1044,7 @@ var l20n=_RL20n_.l20n,
 	        subtitle: 'by agents',
 	        titleColor: '#EBA068',
 	        subtitleColor: '#EBA068',
-	        hideLegend: true,
+	        hideLegend: false,
 	        height: 300,
 	        tooltip: {
 	          color: '#EBA068'
@@ -1082,20 +1122,50 @@ var l20n=_RL20n_.l20n,
 	      });
 	    })();
 	    (function() {
-	      // create a map in the "map" div, set the view to a given place and zoom
-	      var map = L.map('map', {
-	        scrollWheelZoom: false
-	      }).setView([38.889221, -77.050176], 16);
+	      var map = new GMaps({
+	        div: '#routingmap',
+	        lat: 38.890792,
+	        lng: -77.048518,
+	        scrollwheel: false,
+	        zoom: 16
+	      });
+	      var list = [];
+	      map.travelRoute({
+	        origin: [38.892428, -77.048454],
+	        destination: [38.889497, -77.050181],
+	        travelMode: 'walking',
+	        step: function(e){
+	          list.push({
+	            instructions: e.instructions,
+	            lat: e.end_location.lat(),
+	            lng: e.end_location.lng(),
+	            path: e.path
+	          });
+	        }.bind(this),
+	        end: function(e) {
+	          var lat, lng, path;
+	          var processList = function(i) {
+	            if(list.length === i) return;
+	            lat = list[i].lat;
+	            lng = list[i].lng;
+	            path = list[i].path;
+	            map.drawPolyline({
+	              path: path,
+	              strokeColor: '#FF6FCF',
+	              strokeWeight: 8
+	            });
+	            processList(i+1);
+	          }.bind(this);
+	          processList(0);
+	        }.bind(this)
+	      });
+	    })();
+	    (function() {
+	      var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
-	      // add an OpenStreetMap tile layer
-	      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	      }).addTo(map);
-
-	      // add a marker in the given location, attach some popup content to it and open the popup
-	      L.marker([38.889221, -77.050176]).addTo(map)
-	          .bindPopup('<div><strong>Lincoln Memorial:</strong></div><div><small>The Lincoln Memorial is an American national monument built to honor the 16th President of the United States, Abraham Lincoln.</small></div>')
-	          .openPopup();
+	      elems.forEach(function(html) {
+	        var switchery = new Switchery(html);
+	      });
 	    })();
 	  },
 	  render: function() {
@@ -1114,14 +1184,14 @@ var l20n=_RL20n_.l20n,
 	                  PanelLeft({className: "bg-red fg-white tabs panel-sm-1"}, 
 	                    TabContainer({className: "plain"}, 
 	                      TabList(null, 
-	                        Tab({pane: "panel_tab_panel_combined_plain:home", active: true}, 
-	                          Icon({bundle: "fontello", glyph: "home"})
+	                        Tab({pane: "panel_tab_panel_combined_plain:bar", active: true}, 
+	                          Icon({bundle: "fontello", glyph: "chart-bar-5"})
 	                        ), 
-	                        Tab({pane: "panel_tab_panel_combined_plain:profile"}, 
-	                          Icon({bundle: "fontello", glyph: "user"})
+	                        Tab({pane: "panel_tab_panel_combined_plain:switches"}, 
+	                          Icon({glyph: "icon-feather-toggle"})
 	                        ), 
-	                        Tab({pane: "panel_tab_panel_combined_plain:settings"}, 
-	                          Icon({bundle: "fontello", glyph: "cog"})
+	                        Tab({pane: "panel_tab_panel_combined_plain:note"}, 
+	                          Icon({glyph: "icon-fontello-note-1"})
 	                        )
 	                      )
 	                    )
@@ -1131,16 +1201,57 @@ var l20n=_RL20n_.l20n,
 	                      Row(null, 
 	                        Col({xs: 12, collapseLeft: true, collapseRight: true}, 
 	                          TabContent(null, 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:home", active: true, style: {padding: 0}}, 
+	                            TabPane({ref: "panel_tab_panel_combined_plain:bar", active: true, style: {padding: 0}}, 
 	                              React.DOM.div({id: "male-female-chart"})
 	                            ), 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:profile"}, 
-	                              React.DOM.h4(null, "Left Panel"), 
-	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            TabPane({ref: "panel_tab_panel_combined_plain:switches"}, 
+	                              Table({className: "panel-switches", collapsed: true}, 
+	                                React.DOM.tbody(null, 
+	                                  React.DOM.tr(null, 
+	                                    React.DOM.td(null, 
+	                                      Icon({glyph: "icon-fontello-twitter", className: "fg-blue"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "twitter")
+	                                    ), 
+	                                    React.DOM.td({className: "panel-switches-holder"}, React.DOM.input({type: "checkbox", className: "js-switch", defaultChecked: true}))
+	                                  ), 
+	                                  React.DOM.tr(null, 
+	                                    React.DOM.td(null, 
+	                                      Icon({glyph: "icon-fontello-facebook", className: "fg-darkblue"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "facebook")
+	                                    ), 
+	                                    React.DOM.td({className: "panel-switches-holder"}, React.DOM.input({type: "checkbox", className: "js-switch"}))
+	                                  ), 
+	                                  React.DOM.tr(null, 
+	                                    React.DOM.td(null, 
+	                                      Icon({glyph: "icon-fontello-gplus", className: "fg-deepred"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "google+")
+	                                    ), 
+	                                    React.DOM.td({className: "panel-switches-holder"}, React.DOM.input({type: "checkbox", className: "js-switch"}))
+	                                  ), 
+	                                  React.DOM.tr(null, 
+	                                    React.DOM.td(null, 
+	                                      Icon({glyph: "icon-fontello-linkedin", className: "fg-deepred"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "linkedin")
+	                                    ), 
+	                                    React.DOM.td({className: "panel-switches-holder"}, React.DOM.input({type: "checkbox", className: "js-switch", defaultChecked: true}))
+	                                  ), 
+	                                  React.DOM.tr(null, 
+	                                    React.DOM.td(null, 
+	                                      Icon({glyph: "icon-fontello-instagram", className: "fg-deepred"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "instagram")
+	                                    ), 
+	                                    React.DOM.td({className: "panel-switches-holder"}, 
+	                                      Button({bsStyle: "primary"}, "connect")
+	                                    )
+	                                  )
+	                                )
+	                              )
 	                            ), 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:settings"}, 
-	                              React.DOM.h4(null, "Left Panel"), 
-	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                            TabPane({ref: "panel_tab_panel_combined_plain:note"}, 
+	                              Grid(null, 
+	                                Row(null, 
+	                                  Col({xs: 12, style: {padding: 50, paddingTop: 12.5, paddingBottom: 25}, className: "text-center"}, 
+	                                    React.DOM.h3({className: "fg-black50"}, "NOTE"), 
+	                                    React.DOM.hr(null), 
+	                                    React.DOM.p(null, LoremIpsum({query: "3s"}))
+	                                  )
+	                                )
+	                              )
 	                            )
 	                          )
 	                        )
@@ -1199,8 +1310,48 @@ var l20n=_RL20n_.l20n,
 	                  PanelBody({style: {padding: 0}}, 
 	                    Grid(null, 
 	                      Row(null, 
-	                        Col({xs: 12, collapseLeft: true, collapseRight: true, className: "text-center"}, 
-	                          React.DOM.canvas({id: "chartjs-1", height: "200", width: "200"})
+	                        Col({xs: 12, className: "text-center", style: {padding: 25}}, 
+	                          React.DOM.canvas({id: "chartjs-1", height: "250", width: "250"}), 
+	                          Table({striped: true, collapsed: true}, 
+	                            React.DOM.tbody(null, 
+	                              React.DOM.tr(null, 
+	                                React.DOM.td({className: "text-left"}, "Bounce Rate:"), 
+	                                React.DOM.td({className: "text-center"}, 
+	                                  BLabel({className: "bg-red fg-white"}, "+46%")
+	                                ), 
+	                                React.DOM.td({className: "text-right"}, 
+	                                  React.DOM.div({className: "line-EA7882", sparkBarColor: "#EA7882"}, "2,3,7,5,4,4,3,2,3,4,3,2,4,3,4,3,2,5")
+	                                )
+	                              ), 
+	                              React.DOM.tr(null, 
+	                                React.DOM.td({className: "text-left"}, "New visits:"), 
+	                                React.DOM.td({className: "text-center"}, 
+	                                  BLabel({className: "bg-darkgreen45 fg-white"}, "+23%")
+	                                ), 
+	                                React.DOM.td({className: "text-right"}, 
+	                                  React.DOM.div({className: "line-2EB398", sparkBarColor: "#2EB398"}, "7,7,7,7,7,7,6,7,4,7,7,7,7,5,7,7,7,9")
+	                                )
+	                              ), 
+	                              React.DOM.tr(null, 
+	                                React.DOM.td({className: "text-left"}, "Transactions:"), 
+	                                React.DOM.td({className: "text-center"}, 
+	                                  BLabel({className: "bg-blue fg-white"}, "43,000 (+50%)")
+	                                ), 
+	                                React.DOM.td({className: "text-right"}, 
+	                                  React.DOM.div({className: "line-79B0EC", sparkBarColor: "#79B0EC"}, "4,6,7,7,4,3,2,1,4,9,3,2,3,5,2,4,3,1")
+	                                )
+	                              ), 
+	                              React.DOM.tr(null, 
+	                                React.DOM.td({className: "text-left"}, "Conversions:"), 
+	                                React.DOM.td({className: "text-center"}, 
+	                                  BLabel({className: "bg-orange fg-white"}, "2000 (+75%)")
+	                                ), 
+	                                React.DOM.td({className: "text-right"}, 
+	                                  React.DOM.div({className: "line-FFC497", sparkBarColor: "#FFC497"}, "3,2,4,6,7,4,5,7,4,3,2,1,4,6,7,8,2,8")
+	                                )
+	                              )
+	                            )
+	                          )
 	                        )
 	                      )
 	                    )
@@ -1215,11 +1366,11 @@ var l20n=_RL20n_.l20n,
 	                        Tab({pane: "panel-middle-left:orders", active: true}, 
 	                          Icon({className: "icon-1-and-quarter-x", bundle: "feather", glyph: "bar-graph-2"})
 	                        ), 
+	                        Tab({pane: "panel-middle-left:people"}, 
+	                          Icon({className: "icon-1-and-quarter-x", glyph: "icon-simple-line-icons-users"})
+	                        ), 
 	                        Tab({pane: "panel-middle-left:tickets"}, 
 	                          Icon({className: "icon-1-and-quarter-x", bundle: "feather", glyph: "pie-graph"})
-	                        ), 
-	                        Tab({pane: "panel-middle-left:maps"}, 
-	                          Icon({className: "icon-1-and-quarter-x", bundle: "feather", glyph: "map"})
 	                        )
 	                      )
 	                    )
@@ -1281,12 +1432,84 @@ var l20n=_RL20n_.l20n,
 	                          )
 	                        )
 	                      ), 
-	                      TabPane({ref: "panel-middle-left:tickets"}, 
-	                        React.DOM.div({id: "tickets-cleared"})
+	                      TabPane({ref: "panel-middle-left:people"}, 
+	                        Grid(null, 
+	                          Row(null, 
+	                            Col({xs: 12}, 
+	                              Form(null, 
+	                                FormGroup(null, 
+	                                  InputGroup(null, 
+	                                    Input({type: "text", placeholder: "Type a name here...", className: "border-orange border-focus-darkorange"}), 
+	                                    InputGroupButton(null, Button({bsStyle: "orange"}, Icon({glyph: "icon-fontello-search"})))
+	                                  )
+	                                )
+	                              ), 
+	                              React.DOM.div({className: "text-center"}, 
+	                                Checkbox(null, "Invite all friends")
+	                              ), 
+	                              React.DOM.div(null, 
+	                                Table(null, 
+	                                  React.DOM.tbody(null, 
+	                                    Contact({name: "Jordyn Ouellet", avatar: "avatar5", noBorder: true}), 
+	                                    Contact({name: "Ava Perry", avatar: "avatar9"}), 
+	                                    Contact({name: "Angelina Mills", avatar: "avatar10", invited: true}), 
+	                                    Contact({name: "Crystal Ford", avatar: "avatar11"}), 
+	                                    Contact({name: "Toby King", avatar: "avatar7"}), 
+	                                    Contact({name: "Ju Lan", avatar: "avatar13", invited: true}), 
+	                                    Contact({name: "Alexandra Mordin", avatar: "avatar20"})
+	                                  )
+	                                )
+	                              )
+	                            )
+	                          )
+	                        )
 	                      ), 
-	                      TabPane({ref: "panel-middle-left:maps"}, 
-	                        React.DOM.h4(null, "Left Panel"), 
-	                        React.DOM.p(null, LoremIpsum({query: "2s"}))
+	                      TabPane({ref: "panel-middle-left:tickets"}, 
+	                        React.DOM.div({id: "tickets-cleared"}), 
+	                        Table({collapsed: true}, 
+	                          React.DOM.tbody(null, 
+	                            React.DOM.tr(null, 
+	                              React.DOM.td(null, 
+	                                Progress({collapseBottom: true, withLabel: "Karl Pohl", value: 57, color: "#FA824F", min: 0, max: 100})
+	                              ), 
+	                              React.DOM.td({className: "text-right"}, 
+	                                BLabel(null, "57")
+	                              )
+	                            ), 
+	                            React.DOM.tr(null, 
+	                              React.DOM.td(null, 
+	                                Progress({collapseBottom: true, withLabel: "Gamze Erdoğan", value: 35, color: "#EBA068", min: 0, max: 100})
+	                              ), 
+	                              React.DOM.td({className: "text-right"}, 
+	                                BLabel(null, "33")
+	                              )
+	                            ), 
+	                            React.DOM.tr(null, 
+	                              React.DOM.td(null, 
+	                                Progress({collapseBottom: true, withLabel: "Leyla Cəlilli", value: 30, color: "#FFC497", fgColor: "#B86A2D", min: 0, max: 100})
+	                              ), 
+	                              React.DOM.td({className: "text-right"}, 
+	                                BLabel(null, "23")
+	                              )
+	                            ), 
+	                            React.DOM.tr(null, 
+	                              React.DOM.td(null, 
+	                                Progress({collapseBottom: true, withLabel: "Nadir Üzeyirzadə", value: 41, color: "#FFC9A0", fgColor: "#B86A2D", min: 0, max: 100})
+	                              ), 
+	                              React.DOM.td({className: "text-right"}, 
+	                                BLabel(null, "11")
+	                              )
+	                            ), 
+	                            React.DOM.tr(null, 
+	                              React.DOM.td(null, 
+	                                Progress({collapseBottom: true, withLabel: "Anna Sanchez", value: 66, color: "#FFD3B1", fgColor: "#B86A2D", min: 0, max: 100})
+	                              ), 
+	                              React.DOM.td({className: "text-right"}, 
+	                                BLabel(null, "7")
+	                              )
+	                            )
+	                          )
+	                        )
 	                      )
 	                    )
 	                  )
@@ -1294,91 +1517,6 @@ var l20n=_RL20n_.l20n,
 	              )
 	            ), 
 	            Col({sm: 7}, 
-	              PanelContainer(null, 
-	                Panel({horizontal: true, className: "force-collapse"}, 
-	                  PanelBody({className: "panel-sm-10", style: {padding: 0}}, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, collapseLeft: true, collapseRight: true}, 
-	                          TabContent(null, 
-	                            TabPane({ref: "complex_stats_table_panel:complex_statistics", active: true}, 
-	                              Grid(null, 
-	                                Row(null, 
-	                                  Col({xs: 12, style: {padding: 25}}, 
-	                                    Table({striped: true, style: {margin: 0}}, 
-	                                      React.DOM.tbody(null, 
-	                                        React.DOM.tr(null, 
-	                                          React.DOM.td(null, "Bounce Rate:"), 
-	                                          React.DOM.td(null, 
-	                                            BLabel({className: "bg-red fg-white"}, "+46%")
-	                                          ), 
-	                                          React.DOM.td(null, 
-	                                            React.DOM.div({className: "line-EA7882", sparkBarColor: "#EA7882"}, "2,3,7,5,4,4,3,2,3,4,3,2,4,3,4,3,2,5")
-	                                          )
-	                                        ), 
-	                                        React.DOM.tr(null, 
-	                                          React.DOM.td(null, "New visits:"), 
-	                                          React.DOM.td(null, 
-	                                            BLabel({className: "bg-darkgreen45 fg-white"}, "+23%")
-	                                          ), 
-	                                          React.DOM.td(null, 
-	                                            React.DOM.div({className: "line-2EB398", sparkBarColor: "#2EB398"}, "7,7,7,7,7,7,6,7,4,7,7,7,7,5,7,7,7,9")
-	                                          )
-	                                        ), 
-	                                        React.DOM.tr(null, 
-	                                          React.DOM.td(null, "Transactions:"), 
-	                                          React.DOM.td(null, 
-	                                            BLabel({className: "bg-blue fg-white"}, "43,000 (+50%)")
-	                                          ), 
-	                                          React.DOM.td(null, 
-	                                            React.DOM.div({className: "line-79B0EC", sparkBarColor: "#79B0EC"}, "4,6,7,7,4,3,2,1,4,9,3,2,3,5,2,4,3,1")
-	                                          )
-	                                        ), 
-	                                        React.DOM.tr(null, 
-	                                          React.DOM.td(null, "Conversions:"), 
-	                                          React.DOM.td(null, 
-	                                            BLabel({className: "bg-orange fg-white"}, "2000 (+75%)")
-	                                          ), 
-	                                          React.DOM.td(null, 
-	                                            React.DOM.div({className: "line-FFC497", sparkBarColor: "#FFC497"}, "3,2,4,6,7,4,5,7,4,3,2,1,4,6,7,8,2,8")
-	                                          )
-	                                        )
-	                                      )
-	                                    )
-	                                  )
-	                                )
-	                              )
-	                            ), 
-	                            TabPane({ref: "complex_stats_table_panel:profile"}, 
-	                              React.DOM.h4(null, "Left Panel"), 
-	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
-	                            ), 
-	                            TabPane({ref: "complex_stats_table_panel:settings"}, 
-	                              React.DOM.h4(null, "Left Panel"), 
-	                              React.DOM.p(null, LoremIpsum({query: "2s"}))
-	                            )
-	                          )
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelRight({className: "bg-green fg-white tabs panel-sm-2"}, 
-	                    TabContainer(null, 
-	                      TabList(null, 
-	                        Tab({pane: "complex_stats_table_panel:complex_statistics", active: true}, 
-	                          Icon({glyph: "icon-ikons-bar-chart-2 icon-1-and-quarter-x"})
-	                        ), 
-	                        Tab({pane: "complex_stats_table_panel:profile"}, 
-	                          Icon({glyph: "icon-fontello-user icon-1-and-quarter-x"})
-	                        ), 
-	                        Tab({pane: "complex_stats_table_panel:settings"}, 
-	                          Icon({glyph: "icon-fontello-cog icon-1-and-quarter-x"})
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
 	              PanelContainer({controlStyles: "bg-brown50 fg-white"}, 
 	                Panel({horizontal: true, className: "force-collapse"}, 
 	                  PanelBody({className: "panel-sm-7", style: {padding: 0}}, 
@@ -1423,7 +1561,59 @@ var l20n=_RL20n_.l20n,
 	                Panel(null, 
 	                  PanelHeader(null, 
 	                    React.DOM.div({style: {padding: 25}}, 
-	                      React.DOM.div({id: "map", className: "map leaflet-container leaflet-fade-anim", style: {height: 300}})
+	                      React.DOM.div({id: "routingmap", style: {height: 300}}), 
+	                      React.DOM.div({className: "fg-black50 text-center", style: {borderBottom: '1px solid #ccc'}}, 
+	                        React.DOM.h5({style: {padding: 12.5, margin: 0}}, "WALK 0.3 MILES - FOR 6 MINUTES")
+	                      ), 
+	                      React.DOM.div(null, 
+	                        React.DOM.div({className: "map-dest", style: {marginBottom: 12.5}}, 
+	                          React.DOM.h3({className: "fg-black50"}, 
+	                            Icon({glyph: "icon-fontello-dot-circled", className: "fg-darkgray"}), ' ', 
+	                            React.DOM.span(null, "Albert Einstein Memorial")
+	                          ), 
+	                          React.DOM.h5(null, 
+	                            "2101 Constitution Ave NW, Washington, DC 20418, United States"
+	                          )
+	                        ), 
+	                        React.DOM.div({className: "map-tcontainer"}, 
+	                          Table({className: "mapt", hover: true, collapsed: true}, 
+	                            React.DOM.tbody(null, 
+	                              React.DOM.tr(null, 
+	                                React.DOM.td(null, Icon({className: "fg-blue", glyph: "icon-fontello-up-circle icon-2x"})), 
+	                                React.DOM.td(null, "Walk ", React.DOM.strong(null, "east"), " on ", React.DOM.strong(null, "Constitution Ave NW"), " towards ", React.DOM.strong(null, "Henry Bacon Dr NW")), 
+	                                React.DOM.td({width: "75"}, React.DOM.small(null, "171 ft"))
+	                              ), 
+	                              React.DOM.tr(null, 
+	                                React.DOM.td(null, Icon({className: "fg-green", glyph: "icon-fontello-right-circle icon-2x"})), 
+	                                React.DOM.td(null, "Turn ", React.DOM.strong(null, "right")), 
+	                                React.DOM.td(null, React.DOM.small(null, "433 ft"))
+	                              ), 
+	                              React.DOM.tr(null, 
+	                                React.DOM.td(null, Icon({className: "fg-darkorange", glyph: "icon-fontello-left-circle icon-2x"})), 
+	                                React.DOM.td(null, 
+	                                  React.DOM.div(null, "Follow the road ", React.DOM.strong(null, "southeast")), 
+	                                  React.DOM.div(null, "Turn ", React.DOM.strong(null, "left"), " ", React.DOM.em(null, "(Slight turn)"))
+	                                ), 
+	                                React.DOM.td(null, React.DOM.small(null, "0.1 mi"))
+	                              ), 
+	                              React.DOM.tr(null, 
+	                                React.DOM.td(null, Icon({className: "fg-green", glyph: "icon-fontello-right-circle icon-2x"})), 
+	                                React.DOM.td(null, "Turn right"), 
+	                                React.DOM.td(null, React.DOM.small(null, "262 ft"))
+	                              )
+	                            )
+	                          )
+	                        ), 
+	                        React.DOM.div({className: "map-dest"}, 
+	                          React.DOM.h3({className: "fg-black50"}, 
+	                            Icon({glyph: "icon-fontello-dot-circled"}), ' ', 
+	                            React.DOM.span(null, "Lincoln Memorial")
+	                          ), 
+	                          React.DOM.h5(null, 
+	                            "2 Lincoln Memorial Cir NW, Washington, DC 20037, United States"
+	                          )
+	                        )
+	                      )
 	                    )
 	                  )
 	                )
@@ -1442,6 +1632,7 @@ var l20n=_RL20n_.l20n,
 	  mixins: [SidebarMixin],
 	  render: function() {
 	    var classes = classSet({
+	      'dashboard': true,
 	      'container-open': this.state.open
 	    });
 	    return (
@@ -1465,9 +1656,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var classSet = React.addons.classSet;
 	var InboxNavItem = React.createClass({displayName: 'InboxNavItem',
@@ -1577,7 +1768,7 @@ var l20n=_RL20n_.l20n,
 	                        ), 
 	                        Col({xs: 4, className: "text-right"}, 
 	                          React.DOM.div({className: "inbox-avatar"}, 
-	                            React.DOM.img({src: "/imgs/anna_sanchez.png", width: "40", height: "40"}), 
+	                            React.DOM.img({src: "/imgs/avatars/avatar0.png", width: "40", height: "40"}), 
 	                            React.DOM.div({className: "inbox-avatar-name hidden-xs hidden-sm"}, 
 	                              React.DOM.div(null, "Anna Sanchez"), 
 	                              React.DOM.div(null, React.DOM.small(null, "Mailbox"))
@@ -1692,9 +1883,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var classSet = React.addons.classSet;
 	var Body = React.createClass({displayName: 'Body',
@@ -1730,7 +1921,7 @@ var l20n=_RL20n_.l20n,
 	                        ), 
 	                        Col({xs: 4, className: "text-right"}, 
 	                          React.DOM.div({className: "inbox-avatar"}, 
-	                            React.DOM.img({src: "/imgs/anna_sanchez.png", width: "40", height: "40"}), 
+	                            React.DOM.img({src: "/imgs/avatars/avatar0.png", width: "40", height: "40"}), 
 	                            React.DOM.div({className: "inbox-avatar-name hidden-xs hidden-sm"}, 
 	                              React.DOM.div(null, "Anna Sanchez"), 
 	                              React.DOM.div(null, React.DOM.small(null, "Compose"))
@@ -1833,9 +2024,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var classSet = React.addons.classSet;
 	var Body = React.createClass({displayName: 'Body',
@@ -1887,7 +2078,7 @@ var l20n=_RL20n_.l20n,
 	                        ), 
 	                        Col({xs: 4, className: "text-right"}, 
 	                          React.DOM.div({className: "inbox-avatar"}, 
-	                            React.DOM.img({src: "/imgs/anna_sanchez.png", width: "40", height: "40"}), 
+	                            React.DOM.img({src: "/imgs/avatars/avatar0.png", width: "40", height: "40"}), 
 	                            React.DOM.div({className: "inbox-avatar-name hidden-xs hidden-sm"}, 
 	                              React.DOM.div(null, "Anna Sanchez"), 
 	                              React.DOM.div(null, React.DOM.small(null, "Compose"))
@@ -2026,9 +2217,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var GalleryItem = React.createClass({displayName: 'GalleryItem',
 	  getInitialState: function() {
@@ -2164,9 +2355,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var SocialBanner = React.createClass({displayName: 'SocialBanner',
 	  getInitialState: function() {
@@ -2196,8 +2387,8 @@ var l20n=_RL20n_.l20n,
 	      React.DOM.div({style: {height: 350, marginTop: -25, backgroundImage: 'url(/imgs/shots/Blick_auf_Manhattan.JPG)', backgroundSize: 'cover', position: 'relative', marginBottom: 25, backgroundPosition: 'center'}}, 
 	        React.DOM.div({className: "social-cover", style: {position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)'}}
 	        ), 
-	        React.DOM.div({className: "social-desc", style: {position: 'absolute', left: 0, right: 300, top: 0, bottom: 0}}, 
-	          React.DOM.div({style: {marginLeft: '10%', marginTop: 100}}, 
+	        React.DOM.div({className: "social-desc"}, 
+	          React.DOM.div(null, 
 	            React.DOM.h1({className: "fg-white"}, "Empire State, NY, USA"), 
 	            React.DOM.h5({className: "fg-white", style: {opacity: 0.8}}, "- Aug 20th, 2014"), 
 	            React.DOM.div({style: {marginTop: 50}}, 
@@ -2205,12 +2396,12 @@ var l20n=_RL20n_.l20n,
 	                Button({id: "likeCount", retainBackground: true, rounded: true, bsStyle: "orange75", active: this.state.likeActive, onClick: this.handleLike}, 
 	                  Icon({glyph: "icon-fontello-heart-1"})
 	                ), 
-	                Label({htmlFor: "likeCount", style: {cursor: 'pointer', display: 'inline-block'}}, React.DOM.span({className: this.state.likeTextStyle, style: {marginLeft: 25}}, this.state.likeCount, " likes"))
+	                Label({className: "social-like-count", htmlFor: "likeCount"}, React.DOM.span({className: this.state.likeTextStyle}, this.state.likeCount, " likes"))
 	              )
 	            )
 	          )
 	        ), 
-	        React.DOM.div({className: "social-avatar", style: {position: 'absolute', top: 0, right: 0, bottom: 0, width: 300, background: '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%)'}}, 
+	        React.DOM.div({className: "social-avatar"}, 
 	          Img({src: "/imgs/avatars/avatar.jpg", height: "100", width: "100", style: {display: 'block', borderRadius: 100, border: '2px solid #fff', margin: 'auto', marginTop: 50}}), 
 	          React.DOM.h4({className: "fg-white text-center"}, "Anna Sanchez"), 
 	          React.DOM.h5({className: "fg-white text-center", style: {opacity: 0.8}}, "DevOps Engineer, NY"), 
@@ -2310,7 +2501,7 @@ var l20n=_RL20n_.l20n,
 	                ), 
 	                PanelFooter({style: {padding: 25, paddingTop: 0, paddingBottom: 0}}, 
 	                  React.DOM.div({className: "inbox-avatar", style: {borderBottom: '1px solid #EAEDF1'}}, 
-	                    React.DOM.img({src: "/imgs/anna_sanchez.png", width: "30", height: "30", style: {verticalAlign: 'top', top: 10, position: 'relative'}}), 
+	                    React.DOM.img({src: "/imgs/avatars/avatar0.png", width: "30", height: "30", style: {verticalAlign: 'top', top: 10, position: 'relative'}}), 
 	                    React.DOM.div({className: "inbox-avatar-name"}, 
 	                      React.DOM.div({className: "fg-darkgrayishblue75"}, "Anna Sanchez"), 
 	                      React.DOM.div({className: "fg-text"}, React.DOM.small(null, "Nice!"))
@@ -2425,7 +2616,7 @@ var l20n=_RL20n_.l20n,
 	                ), 
 	                PanelFooter({style: {padding: 25, paddingTop: 0, paddingBottom: 0}}, 
 	                  React.DOM.div({className: "inbox-avatar", style: {borderBottom: '1px solid #EAEDF1'}}, 
-	                    React.DOM.img({src: "/imgs/anna_sanchez.png", width: "30", height: "30", style: {verticalAlign: 'top', top: 10, position: 'relative'}}), 
+	                    React.DOM.img({src: "/imgs/avatars/avatar0.png", width: "30", height: "30", style: {verticalAlign: 'top', top: 10, position: 'relative'}}), 
 	                    React.DOM.div({className: "inbox-avatar-name"}, 
 	                      React.DOM.div({className: "fg-darkgrayishblue75"}, "Anna Sanchez"), 
 	                      React.DOM.div({className: "fg-text"}, React.DOM.small(null, "Love this! It also features the Superbowl ad")), 
@@ -2488,9 +2679,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -3201,9 +3392,9 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -3458,11 +3649,11 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var dataObject = JSON.parse(__webpack_require__(103));
+	var dataObject = JSON.parse(__webpack_require__(106));
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -3495,7 +3686,7 @@ var l20n=_RL20n_.l20n,
 	                  Grid(null, 
 	                    Row(null, 
 	                      Col({xs: 12}, 
-	                        React.DOM.div({id: "my-timeline"})
+	                        React.DOM.div({id: "my-timeline", dir: "ltr"})
 	                      )
 	                    )
 	                  )
@@ -3538,9 +3729,89 @@ var l20n=_RL20n_.l20n,
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
+
+	var codesnippet = __webpack_require__(107);
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    var editor = CodeMirror.fromTextArea($('#code').get(0), {
+	      lineNumbers: true,
+	      styleActiveLine: true,
+	      matchBrackets: true,
+	      theme: 'ambiance'
+	    });
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        Grid(null, 
+	          Row(null, 
+	            Col({sm: 12}, 
+	              PanelContainer({controlStyles: "bg-blue fg-white"}, 
+	                PanelHeader({className: "bg-blue fg-white", style: {margin: 0}}, 
+	                  Grid(null, 
+	                    Row(null, 
+	                      Col({xs: 12}, 
+	                        React.DOM.h3(null, "Codemirror")
+	                      )
+	                    )
+	                  )
+	                ), 
+	                PanelBody(null, 
+	                  Grid(null, 
+	                    Row(null, 
+	                      Col({xs: 12, style: {padding: 25}}, 
+	                        Textarea({id: "code", name: "code"}, 
+	                          codesnippet
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var CodeMirrorPage = React.createClass({displayName: 'CodeMirrorPage',
+	  mixins: [SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return this.transferPropsTo(
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = CodeMirrorPage;
+
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var MapContainer = React.createClass({displayName: 'MapContainer',
 	  render: function() {
@@ -3587,6 +3858,7 @@ var l20n=_RL20n_.l20n,
 	  componentDidMount: function() {
 	    (function() {
 	      new GMaps({
+	        scrollwheel: false,
 	        div: '#basic-map',
 	        lat: -12.043333,
 	        lng: -77.028333
@@ -3595,6 +3867,7 @@ var l20n=_RL20n_.l20n,
 
 	    (function() {
 	      new GMaps({
+	        scrollwheel: false,
 	        div: '#map-events',
 	        zoom: 16,
 	        lat: -12.043333,
@@ -3610,6 +3883,7 @@ var l20n=_RL20n_.l20n,
 
 	    (function() {
 	      var map = new GMaps({
+	        scrollwheel: false,
 	        div: '#markers',
 	        zoom: 16,
 	        lat: -12.043333,
@@ -3637,6 +3911,7 @@ var l20n=_RL20n_.l20n,
 
 	    (function() {
 	      this.geocode = new GMaps({
+	        scrollwheel: false,
 	        div: '#geocode',
 	        zoom: 16,
 	        lat: -12.043333,
@@ -3647,6 +3922,7 @@ var l20n=_RL20n_.l20n,
 
 	    (function() {
 	      var map = new GMaps({
+	        scrollwheel: false,
 	        div: '#polyline',
 	        zoom: 12,
 	        lat: -12.043333,
@@ -3665,6 +3941,7 @@ var l20n=_RL20n_.l20n,
 
 	    (function() {
 	      var map = new GMaps({
+	        scrollwheel: false,
 	        div: '#overlays',
 	        zoom: 18,
 	        lat: 40.7638435,
@@ -3680,6 +3957,7 @@ var l20n=_RL20n_.l20n,
 
 	    (function() {
 	      var map = new GMaps({
+	        scrollwheel: false,
 	        div: '#polygon',
 	        lat: -12.043333,
 	        lng: -77.028333
@@ -3699,6 +3977,7 @@ var l20n=_RL20n_.l20n,
 
 	    (function() {
 	      var map = new GMaps({
+	        scrollwheel: false,
 	        div: '#geojson',
 	        lat: 39.743296277167325,
 	        lng: -105.00517845153809
@@ -3759,6 +4038,7 @@ var l20n=_RL20n_.l20n,
 
 	    (function() {
 	      this.routingmap = new GMaps({
+	        scrollwheel: false,
 	        div: '#routingmap',
 	        lat: -12.043333,
 	        lng: -77.028333
@@ -3904,14 +4184,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -3976,67 +4256,67 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var fonts = [{
 	  name: 'climacon',
 	  color: 'brown',
-	  fonts: __webpack_require__(87)
+	  fonts: __webpack_require__(90)
 	}, {
 	  name: 'mfizz',
 	  color: 'darkblue',
-	  fonts: __webpack_require__(88)
+	  fonts: __webpack_require__(91)
 	}, {
 	  name: 'devicon',
 	  color: 'darkgreen45',
-	  fonts: __webpack_require__(89)
+	  fonts: __webpack_require__(92)
 	}, {
 	  name: 'stroke-gap-icons',
 	  color: 'pink',
-	  fonts: __webpack_require__(90)
+	  fonts: __webpack_require__(93)
 	}, {
 	  name: 'simple-line-icons',
 	  color: 'brown',
-	  fonts: __webpack_require__(91)
+	  fonts: __webpack_require__(94)
 	}, {
 	  name: 'pixelvicon',
 	  color: 'purple',
-	  fonts: __webpack_require__(92)
+	  fonts: __webpack_require__(95)
 	}, {
 	  name: 'nargela',
 	  color: 'paleblue',
-	  fonts: __webpack_require__(93)
+	  fonts: __webpack_require__(96)
 	}, {
 	  name: 'flatline',
 	  color: 'desaturateddarkblue',
-	  fonts: __webpack_require__(94)
+	  fonts: __webpack_require__(97)
 	}, {
 	  name: 'feather',
 	  color: 'darkcyan',
-	  fonts: __webpack_require__(95)
+	  fonts: __webpack_require__(98)
 	}, {
 	  name: 'dripicons',
 	  color: 'deepred',
-	  fonts: __webpack_require__(96)
+	  fonts: __webpack_require__(99)
 	}, {
 	  name: 'outlined',
 	  color: 'blue',
-	  fonts: __webpack_require__(97)
+	  fonts: __webpack_require__(100)
 	},{
 	  name: 'ikons',
 	  color: 'paleorange',
-	  fonts: __webpack_require__(98)
+	  fonts: __webpack_require__(101)
 	}, {
 	  name: 'fontello',
 	  color: 'green',
-	  fonts: __webpack_require__(99)
+	  fonts: __webpack_require__(102)
 	}];
 
 	var Body = React.createClass({displayName: 'Body',
@@ -4113,16 +4393,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var colors = __webpack_require__(100);
+	var colors = __webpack_require__(103);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -4920,16 +5200,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var colors = __webpack_require__(100);
+	var colors = __webpack_require__(103);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -5580,14 +5860,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -6242,16 +6522,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var ReactStyle = __webpack_require__(102);
+	var ReactStyle = __webpack_require__(105);
 
 	var Body = React.createClass({displayName: 'Body',
 	  getInitialState: function() {
@@ -6626,14 +6906,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -6833,14 +7113,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  destroyPlanet: function() {
@@ -7187,14 +7467,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -7520,14 +7800,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -8267,14 +8547,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  mixins: [RoutingContextMixin],
@@ -8585,16 +8865,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var ReactStyle = __webpack_require__(102);
+	var ReactStyle = __webpack_require__(105);
 
 	var Body = React.createClass({displayName: 'Body',
 	  createStep: function(e) {
@@ -8926,14 +9206,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -9379,14 +9659,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -9930,14 +10210,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -10712,14 +10992,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -10923,14 +11203,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11145,14 +11425,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11243,14 +11523,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11328,14 +11608,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -11775,14 +12055,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  back: function(e) {
@@ -11891,14 +12171,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  back: function(e) {
@@ -12019,14 +12299,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  interval: null,
@@ -12105,14 +12385,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -12262,14 +12542,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -12452,14 +12732,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var PostSummary = React.createClass({displayName: 'PostSummary',
 	  render: function() {
@@ -12617,7 +12897,7 @@ var l20n=_RL20n_.l20n,
 	                          )
 	                        ), 
 	                        PanelRight({className: "bg-yellow", style: {verticalAlign: 'middle', padding: 12.5, width: 80}}, 
-	                          React.DOM.div({className: "text-center"}, Img({src: "/imgs/anna_sanchez.png", width: "40", height: "40", style: {borderRadius: 100}}))
+	                          React.DOM.div({className: "text-center"}, Img({src: "/imgs/avatars/avatar0.png", width: "40", height: "40", style: {borderRadius: 100}}))
 	                        )
 	                      )
 	                    ), 
@@ -12767,14 +13047,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Post = React.createClass({displayName: 'Post',
 	  render: function() {
@@ -12921,14 +13201,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -13174,14 +13454,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -13527,14 +13807,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var ChartContainer = React.createClass({displayName: 'ChartContainer',
 	  render: function() {
@@ -13669,14 +13949,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14016,14 +14296,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14428,14 +14708,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -14937,14 +15217,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -15267,14 +15547,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Chart = React.createClass({displayName: 'Chart',
 	  render: function() {
@@ -15437,14 +15717,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
 	'use strict';
 
-	var Navigation = __webpack_require__(101);
+	var Navigation = __webpack_require__(104);
 
 	var CSS = React.createClass({displayName: 'CSS',
 	  mixins: [RoutingContextMixin, React.addons.LinkedStateMixin],
@@ -16748,14 +17028,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
 	'use strict';
 
-	var Navigation = __webpack_require__(101);
+	var Navigation = __webpack_require__(104);
 
 	var Components = React.createClass({displayName: 'Components',
 	  mixins: [RoutingContextMixin],
@@ -18257,16 +18537,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var package_snippet = __webpack_require__(104);
+	var package_snippet = __webpack_require__(108);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -18352,7 +18632,7 @@ var l20n=_RL20n_.l20n,
 	                      Row(null, 
 	                        Col({xs: 12}, 
 	                          React.DOM.p(null, 
-	                            "Change directory to root of Rubix and run the following command depending on your OS environment:"
+	                            "Change directory to root of Rubix and run the following command (this launches the 'app' starter project) depending on your OS environment:"
 	                          ), 
 	                          React.DOM.p(null, 
 	                            React.DOM.span(null, React.DOM.strong(null, "Windows:")), 
@@ -18363,10 +18643,26 @@ var l20n=_RL20n_.l20n,
 	                            )
 	                          ), 
 	                          React.DOM.p(null, 
+	                            React.DOM.span(null, "To launch the ", React.DOM.strong(null, "demo"), " run this command instead:"), 
+	                            React.DOM.pre(null, 
+	                              React.DOM.code({className: "language-bash"}, 
+	                                "> gulp --rtl --name demo"
+	                              )
+	                            )
+	                          ), 
+	                          React.DOM.p(null, 
 	                            React.DOM.span(null, React.DOM.strong(null, "MacOSX/Linux:")), 
 	                            React.DOM.pre(null, 
 	                              React.DOM.code({className: "language-bash"}, 
 	                                "$ cd path/to/rubix\n$ npm install .\n$ npm install -g gulp\n$ gulp"
+	                              )
+	                            )
+	                          ), 
+	                          React.DOM.p(null, 
+	                            React.DOM.span(null, "To launch the ", React.DOM.strong(null, "demo"), " run this command instead:"), 
+	                            React.DOM.pre(null, 
+	                              React.DOM.code({className: "language-bash"}, 
+	                                "$ gulp --rtl --name demo"
 	                              )
 	                            )
 	                          ), 
@@ -18451,7 +18747,7 @@ var l20n=_RL20n_.l20n,
 	                                  )
 	                                ), 
 	                                React.DOM.tr(null, 
-	                                  React.DOM.td(null, React.DOM.strong(null, React.DOM.a({target: "_blank", href: "http://sass-lang.com/"}, "Sass"), ", ", React.DOM.a({target: "_blank", href: "https://www.npmjs.org/package/gulp-sass"}, "gulp-sass"), ", ", React.DOM.a({target: "_blank", href: "https://www.npmjs.org/package/gulp-minify-css"}, "gulp-minify-css"), ", ", React.DOM.a({target: "_blank", href: "https://www.npmjs.org/package/css-flip"}, "css-flip"))), 
+	                                  React.DOM.td(null, React.DOM.strong(null, React.DOM.a({target: "_blank", href: "http://sass-lang.com/"}, "Sass"), ", ", React.DOM.a({target: "_blank", href: "https://www.npmjs.org/package/gulp-sass"}, "gulp-sass"), ", ", React.DOM.a({target: "_blank", href: "https://www.npmjs.org/package/gulp-minify-css"}, "gulp-minify-css"), ", ", React.DOM.a({target: "_blank", href: "https://www.npmjs.org/package/css-flip"}, "css-flip"), ", ", React.DOM.a({target: "_blank", href: "https://www.npmjs.org/package/gulp-autoprefixer"}, "gulp-autoprefixer"), ", ", React.DOM.a({target: "_blank", href: "https://www.npmjs.org/package/gulp-bless"}, "gulp-bless"))), 
 	                                  React.DOM.td(null, 
 	                                    React.DOM.div(null, 
 	                                      React.DOM.div(null, React.DOM.strong(null, React.DOM.em(null, "Sass:"))), 
@@ -18475,6 +18771,18 @@ var l20n=_RL20n_.l20n,
 	                                      React.DOM.div(null, React.DOM.strong(null, React.DOM.em(null, "css-flip:"))), 
 	                                      React.DOM.p(null, 
 	                                        "A module maintained by Twitter to flip CSS stylesheets from LTR to RTL and vice-versa."
+	                                      )
+	                                    ), 
+	                                    React.DOM.div(null, 
+	                                      React.DOM.div(null, React.DOM.strong(null, React.DOM.em(null, "gulp-autoprefixer:"))), 
+	                                      React.DOM.p(null, 
+	                                        "Don't use mixins for generating vendor prefixes for shadows/gradients etc. Write standard code and use gulp-autoprefixer instead to add vendor prefixes."
+	                                      )
+	                                    ), 
+	                                    React.DOM.div(null, 
+	                                      React.DOM.div(null, React.DOM.strong(null, React.DOM.em(null, "gulp-bless:"))), 
+	                                      React.DOM.p(null, 
+	                                        "We use gulp-bless to split up the resulting CSS output from SASS to ensure that the maximum selectors limit bug in IE9 is not hit. See this link: ", React.DOM.a({href: "http://blesscss.com/", target: "_blank"}, "blesscss"), " for more information on the bug."
 	                                      )
 	                                    )
 	                                  )
@@ -18579,14 +18887,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -18737,16 +19045,19 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
 	  render: function() {
 	    return (
 	      Container({id: "body"}, 
@@ -18809,7 +19120,7 @@ var l20n=_RL20n_.l20n,
 	                                ), 
 	                                React.DOM.td(null, 
 	                                  React.DOM.p(null, 
-	                                    "The third and fourth gulp task are run during production (if argument ", React.DOM.strong(null, "--production"), " is passed to gulp command). The fourth task also depends on ", React.DOM.strong(null, "--rtl"), " argument being passed to gulp command. These tasks minify the CSS generated from Task 1 and Task 2. Before the minification process the CSS rules are shortened by running it through a plugin called ", React.DOM.strong(null, "shrthnd"), " which further reduces the size of the CSS files."
+	                                    "The third and fourth gulp task are run during production (if argument ", React.DOM.strong(null, "--production"), " is passed to gulp command). The fourth task also depends on ", React.DOM.strong(null, "--rtl"), " argument being passed to gulp command. These tasks minify the CSS generated from Task 1 and Task 2."
 	                                  )
 	                                )
 	                              ), 
@@ -18825,14 +19136,21 @@ var l20n=_RL20n_.l20n,
 	                                    "The blessed files are written to ", React.DOM.code(null, "public/css/app/blessed/ltr"), " and ", React.DOM.code(null, "public/css/app/blessed/rtl"), "."
 	                                  ), 
 	                                  React.DOM.p(null, 
-	                                    "The blessed files are ordered (ex: main.min.css, main.min-blessed1.css, main.min-blessed2.css etc). These stylesheets should be placed, in a descending order, before the closing of the ", React.DOM.code(null, "<head>"), " tag. Here is a screenshot of what it should look like:"
+	                                    "The blessed files are ordered (ex: main-blessed1.css, main.css). These stylesheets should be placed, in a descending order, before the closing of the ", React.DOM.code(null, "<head>"), " tag. Here is an example snippet:"
 	                                  )
 	                                )
 	                              )
 	                            )
 	                          ), 
-	                          React.DOM.div(null, 
-	                            Img({responsive: true, src: "/imgs/shots/blessed.png"})
+	                          React.DOM.pre(null, 
+	                            React.DOM.code({className: "language-markup"}, 
+	                            "  <link rel='stylesheet' type='text/css' media='screen,print' href='/css/app/blessed/ltr/main-blessed1.css' />\n", 
+	                            "  <link rel='stylesheet' type='text/css' media='screen,print' href='/css/app/blessed/ltr/main.css' />\n", 
+	                            "  <link rel='stylesheet' type='text/css' media='screen' href='/css/app/blessed/ltr/theme.css' />\n", 
+	                            "  <link rel='stylesheet' type='text/css' media='screen' href='/css/app/blessed/ltr/colors-blessed1.css' />\n", 
+	                            "  <link rel='stylesheet' type='text/css' media='screen' href='/css/app/blessed/ltr/colors.css' />\n", 
+	                            "  <link rel='stylesheet' type='text/css' media='screen' href='/css/app/blessed/ltr/font-faces.css' />\n"
+	                            )
 	                          ), 
 	                          React.DOM.br(null)
 	                        )
@@ -18873,14 +19191,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -18921,7 +19239,7 @@ var l20n=_RL20n_.l20n,
 	                                ), 
 	                                React.DOM.td(null, 
 	                                  React.DOM.p(null, 
-	                                    "The first task compiles the React core library (", React.DOM.code(null, "react.js"), "). The second task minifies the core library (", React.DOM.code(null, "react.min.js"), ") and finally the third task cleans up any temporary files that were created during this process. All output is written to ", React.DOM.code(null, "public/js")
+	                                    "The first task compiles the React core library (", React.DOM.code(null, "react.js"), "). The second task minifies the core library (", React.DOM.code(null, "react.min.js"), ") and finally the third task cleans up any temporary files that were created during this process. All output is written to ", React.DOM.code(null, "public/js/common/react")
 	                                  ), 
 	                                  React.DOM.p(null, 
 	                                    "The first and third task is run only on startup. The second task is run only when a ", React.DOM.strong(null, "--production"), " flag is passed to gulp command."
@@ -18934,7 +19252,7 @@ var l20n=_RL20n_.l20n,
 	                                ), 
 	                                React.DOM.td(null, 
 	                                  React.DOM.p(null, 
-	                                    "The fourth task is run once during startup and everytime there is a change to respective files. These files should not be modified as any modification might conflict with future updates. It compiles L20n react bindings (", React.DOM.code(null, "react.l20n.js"), "). The fifth task is run only when a ", React.DOM.strong(null, "--production"), " flag is passed to gulp command. It minifies the compiled file from previous task (", React.DOM.code(null, "react.l20n.min.js"), "). All output is written to ", React.DOM.code(null, "public/js")
+	                                    "The fourth task is run once during startup and everytime there is a change to respective files. These files should not be modified as any modification might conflict with future updates. It compiles L20n react bindings (", React.DOM.code(null, "react-l20n.js"), "). The fifth task is run only when a ", React.DOM.strong(null, "--production"), " flag is passed to gulp command. It minifies the compiled file from previous task (", React.DOM.code(null, "react-l20n.min.js"), "). All output is written to ", React.DOM.code(null, "public/js/common/react-l20n")
 	                                  )
 	                                )
 	                              ), 
@@ -18944,7 +19262,7 @@ var l20n=_RL20n_.l20n,
 	                                ), 
 	                                React.DOM.td(null, 
 	                                  React.DOM.p(null, 
-	                                    "The sixth task is run once during startup and everytime there is a change to respective files. These files should not be modified as any modification might conflict with future updates. It compiles Bootstrap react bindings (", React.DOM.code(null, "react.bootstrap.js"), "). The seventh task is run only when a ", React.DOM.strong(null, "--production"), " flag is passed to gulp command. It minifies the compiled file from previous task (", React.DOM.code(null, "react.bootstrap.min.js"), "). All output is written to ", React.DOM.code(null, "public/js")
+	                                    "The sixth task is run once during startup and everytime there is a change to respective files. These files should not be modified as any modification might conflict with future updates. It compiles Bootstrap react bindings (", React.DOM.code(null, "react-bootstrap.js"), "). The seventh task is run only when a ", React.DOM.strong(null, "--production"), " flag is passed to gulp command. It minifies the compiled file from previous task (", React.DOM.code(null, "react-bootstrap.min.js"), "). All output is written to ", React.DOM.code(null, "public/js/common/react-bootstrap")
 	                                  )
 	                                )
 	                              ), 
@@ -18954,10 +19272,10 @@ var l20n=_RL20n_.l20n,
 	                                ), 
 	                                React.DOM.td(null, 
 	                                  React.DOM.p(null, 
-	                                    "The eighth and ninth tasks look for changes to ", React.DOM.code(null, "src/jsx/app"), " directory and compiles the JSX files to JS (", React.DOM.code(null, "app.js"), "). NOTE: The starting point of your project is located at ", React.DOM.code(null, "src/jsx/app/main.jsx"), " (assuming ", React.DOM.code(null, "app"), " is your project name). All output is written to ", React.DOM.code(null, "public/js")
+	                                    "The eighth and ninth tasks look for changes to ", React.DOM.code(null, "src/jsx/app"), " directory and compiles the JSX files to JS (", React.DOM.code(null, "app.js"), "). NOTE: The starting point of your project is located at ", React.DOM.code(null, "src/jsx/app/main.jsx"), " (assuming ", React.DOM.code(null, "app"), " is your project name). All output is written to ", React.DOM.code(null, "public/js/app")
 	                                  ), 
 	                                  React.DOM.p(null, 
-	                                    "The final task is run only when a ", React.DOM.strong(null, "--production"), " flag is passed to gulp command. It minifies the compiled file from previous task (", React.DOM.code(null, "app.min.js"), "). All output is written to ", React.DOM.code(null, "public/js")
+	                                    "The final task is run only when a ", React.DOM.strong(null, "--production"), " flag is passed to gulp command. It minifies the compiled file from previous task (", React.DOM.code(null, "app.min.js"), "). All output is written to ", React.DOM.code(null, "public/js/app")
 	                                  )
 	                                )
 	                              )
@@ -19001,14 +19319,14 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -19039,7 +19357,7 @@ var l20n=_RL20n_.l20n,
 	                            "Assuming that your project name is ", React.DOM.strong(null, React.DOM.em(null, "app")), " your webfont folder should be located at ", React.DOM.code(null, "public/fonts/dropbox/app"), ". We have simplified the process of including webfonts in your project. All you have to do is drop a TTF file of your favorite font into the above folder and let gulp take care of the rest."
 	                          ), 
 	                          React.DOM.p(null, 
-	                            "Behind the scenes gulp converts the TTF file to WOFF format and then base64 encodes the binary output and concatenates it with the other fonts and writes it to ", React.DOM.code(null, "public/fonts/app/fonts.css"), ". This is the preferred way of including web fonts in your project. You'll notice performance improvements immediately and you needn't worry about maintaining and serving 5 different font types."
+	                            "Behind the scenes gulp converts the TTF file to WOFF format and then base64 encodes the binary output and concatenates it with the other fonts and writes it to ", React.DOM.code(null, "public/css/fonts/app/fonts.css"), ". This is the preferred way of including web fonts in your project. You'll notice performance improvements immediately and you needn't worry about maintaining and serving 5 different font types."
 	                          )
 	                        )
 	                      )
@@ -19079,14 +19397,186 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        Grid(null, 
+	          Row(null, 
+	            Col({sm: 12}, 
+	              PanelContainer({controlStyles: "bg-darkgreen45 fg-white"}, 
+	                Panel(null, 
+	                  PanelHeader({className: "bg-darkgreen45 fg-white"}, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.h3(null, "Gulpfile: Client-side Scaffolding")
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelBody(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.p(null, 
+	                            "To scaffold a new project just run the following command from your terminal/command prompt (we assume the name of your project to be ", React.DOM.strong(null, "testingscaffolding"), "):"
+	                          ), 
+	                          React.DOM.pre(null, 
+	                            React.DOM.code({className: "language-bash"}, 
+	                              "$ gulp --gulpfile scaffold.js --name testingscaffolding"
+	                            )
+	                          ), 
+	                          React.DOM.p(null, 
+	                            "This is a screenshot of the output:"
+	                          ), 
+	                          React.DOM.div(null, 
+	                            Img({responsive: true, src: "/imgs/shots/scaffolding.png"})
+	                          )
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var GulpfileScaffolding = React.createClass({displayName: 'GulpfileScaffolding',
+	  mixins: [SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = GulpfileScaffolding;
+
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
+
+	var Body = React.createClass({displayName: 'Body',
+	  componentDidMount: function() {
+	    Prism.highlightAll();
+	  },
+	  render: function() {
+	    return (
+	      Container({id: "body"}, 
+	        Grid(null, 
+	          Row(null, 
+	            Col({sm: 12}, 
+	              PanelContainer({controlStyles: "bg-darkgreen45 fg-white"}, 
+	                Panel(null, 
+	                  PanelHeader({className: "bg-darkgreen45 fg-white"}, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.h3(null, "Gulpfile: External Plugins")
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelBody(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.p(null, 
+	                            "To minify your external plugins you can include them in the ", React.DOM.strong(null, "plugins.js"), " file located at the root of the Rubix directory and run the following command:"
+	                          ), 
+	                          React.DOM.pre(null, 
+	                            React.DOM.code({className: "language-bash"}, 
+	                              "$ gulp --gulpfile plugins.js"
+	                            )
+	                          ), 
+	                          React.DOM.p(null, 
+	                            "It concatenates all your external plugins and minifies them to a single file located at ", React.DOM.strong(null, "public/js/minified/external.min.js"), " This is a screenshot of the output:"
+	                          ), 
+	                          React.DOM.div(null, 
+	                            Img({responsive: true, src: "/imgs/shots/minification.png"})
+	                          )
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ), 
+	        this.props.children
+	      )
+	    );
+	  }
+	});
+
+	var classSet = React.addons.classSet;
+	var GulpfileExternalPlugins = React.createClass({displayName: 'GulpfileExternalPlugins',
+	  mixins: [SidebarMixin],
+	  render: function() {
+	    var classes = classSet({
+	      'container-open': this.state.open
+	    });
+	    return (
+	      Container({id: "container", className: classes}, 
+	        Sidebar(null), 
+	        Header(null), 
+	        Body(null, 
+	          Footer(null)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = GulpfileExternalPlugins;
+
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
 	  render: function() {
@@ -19157,21 +19647,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 57 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var treesnippet = __webpack_require__(105);
+	var treesnippet = __webpack_require__(109);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -19439,21 +19929,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 58 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var sasstreesnippet = __webpack_require__(106);
+	var sasstreesnippet = __webpack_require__(110);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -19546,21 +20036,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 59 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var sasstreesnippet = __webpack_require__(106);
+	var sasstreesnippet = __webpack_require__(110);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -19629,31 +20119,31 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 60 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var gridbasic = __webpack_require__(107);
-	var gridsnippet = __webpack_require__(108);
-	var gridfixedwidth = __webpack_require__(109);
-	var gridzeropadding = __webpack_require__(110);
-	var gridgutter = __webpack_require__(111);
-	var griddir = __webpack_require__(112);
-	var gridnest = __webpack_require__(113);
-	var rowsyntax = __webpack_require__(114);
-	var colsyntax = __webpack_require__(115);
-	var colclearfix = __webpack_require__(116);
-	var colhiddenvisible = __webpack_require__(117);
-	var coloffsets = __webpack_require__(118);
-	var colpushpull = __webpack_require__(119);
-	var colcollapse = __webpack_require__(120);
+	var gridbasic = __webpack_require__(111);
+	var gridsnippet = __webpack_require__(112);
+	var gridfixedwidth = __webpack_require__(113);
+	var gridzeropadding = __webpack_require__(114);
+	var gridgutter = __webpack_require__(115);
+	var griddir = __webpack_require__(116);
+	var gridnest = __webpack_require__(117);
+	var rowsyntax = __webpack_require__(118);
+	var colsyntax = __webpack_require__(119);
+	var colclearfix = __webpack_require__(120);
+	var colhiddenvisible = __webpack_require__(121);
+	var coloffsets = __webpack_require__(122);
+	var colpushpull = __webpack_require__(123);
+	var colcollapse = __webpack_require__(124);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -19925,16 +20415,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 61 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -20565,16 +21055,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 62 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -20698,16 +21188,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 63 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -21257,16 +21747,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 64 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -21546,23 +22036,23 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 65 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var inputgetdomnode = __webpack_require__(121);
-	var inputgetchecked = __webpack_require__(122);
-	var inputsetchecked = __webpack_require__(123);
-	var inputgetvalue = __webpack_require__(124);
+	var inputgetdomnode = __webpack_require__(125);
+	var inputgetchecked = __webpack_require__(126);
+	var inputsetchecked = __webpack_require__(127);
+	var inputgetvalue = __webpack_require__(128);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -21717,21 +22207,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 66 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var textareadomnode = __webpack_require__(125);
-	var textareagetvalue = __webpack_require__(126);
+	var textareadomnode = __webpack_require__(129);
+	var textareagetvalue = __webpack_require__(130);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -21811,23 +22301,23 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 67 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var rccheckedstate = __webpack_require__(127);
-	var setrccheckedstate = __webpack_require__(128);
-	var isrccheckedstate = __webpack_require__(129);
-	var rcgetvalue = __webpack_require__(130);
+	var rccheckedstate = __webpack_require__(131);
+	var setrccheckedstate = __webpack_require__(132);
+	var isrccheckedstate = __webpack_require__(133);
+	var rcgetvalue = __webpack_require__(134);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -21980,23 +22470,23 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 68 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var rccheckedstate = __webpack_require__(127);
-	var setrccheckedstate = __webpack_require__(128);
-	var isrccheckedstate = __webpack_require__(129);
-	var rcgetvalue = __webpack_require__(130);
+	var rccheckedstate = __webpack_require__(131);
+	var setrccheckedstate = __webpack_require__(132);
+	var isrccheckedstate = __webpack_require__(133);
+	var rcgetvalue = __webpack_require__(134);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -22120,23 +22610,23 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 69 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var rccheckedstate = __webpack_require__(127);
-	var setrccheckedstate = __webpack_require__(128);
-	var isrccheckedstate = __webpack_require__(129);
-	var rcgetvalue = __webpack_require__(130);
+	var rccheckedstate = __webpack_require__(131);
+	var setrccheckedstate = __webpack_require__(132);
+	var isrccheckedstate = __webpack_require__(133);
+	var rcgetvalue = __webpack_require__(134);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -22382,21 +22872,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 70 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var dropdownbasic = __webpack_require__(131);
-	var dropdownalign = __webpack_require__(132);
+	var dropdownbasic = __webpack_require__(135);
+	var dropdownalign = __webpack_require__(136);
 
 	var Body = React.createClass({displayName: 'Body',
 	  handleSelection: function(itemprops) {
@@ -22966,16 +23456,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 71 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -23344,16 +23834,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 72 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -23735,21 +24225,21 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 73 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var basictab = __webpack_require__(133);
-	var tabselect = __webpack_require__(134);
+	var basictab = __webpack_require__(137);
+	var tabselect = __webpack_require__(138);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -24076,16 +24566,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 74 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -24298,16 +24788,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 75 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -24387,16 +24877,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 76 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -24583,16 +25073,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 77 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -24698,16 +25188,16 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 78 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -24778,17 +25268,17 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 79 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -24924,17 +25414,17 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 80 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -25084,17 +25574,17 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 81 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -25245,17 +25735,17 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 82 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 	/** @jsx React.DOM */
 
-	var Header = __webpack_require__(84);
-	var Sidebar = __webpack_require__(85);
-	var Footer = __webpack_require__(86);
+	var Header = __webpack_require__(87);
+	var Sidebar = __webpack_require__(88);
+	var Footer = __webpack_require__(89);
 
-	var Doc = __webpack_require__(83);
+	var Doc = __webpack_require__(86);
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
@@ -25496,7 +25986,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 83 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -25550,7 +26040,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 84 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -25922,7 +26412,7 @@ var l20n=_RL20n_.l20n,
 	                Grid(null, 
 	                  Row(null, 
 	                    Col({xs: 2, className: "avatar-container", collapseRight: true}, 
-	                      React.DOM.div(null, React.DOM.img({src: "/imgs/sarah_patchett.png", width: "40", height: "40", alt: "sarah_patchett"})), 
+	                      React.DOM.div(null, React.DOM.img({src: "/imgs/avatars/avatar22.png", width: "40", height: "40", alt: "sarah_patchett"})), 
 	                      React.DOM.div({className: "text-center"}, 
 	                        BLabel({bsStyle: "info"}, "NEW")
 	                      )
@@ -25945,7 +26435,7 @@ var l20n=_RL20n_.l20n,
 	                Grid(null, 
 	                  Row(null, 
 	                    Col({xs: 2, className: "avatar-container", collapseRight: true}, 
-	                      React.DOM.img({src: "/imgs/john_young.png", width: "40", height: "40", alt: "john_young"})
+	                      React.DOM.img({src: "/imgs/avatars/avatar21.png", width: "40", height: "40", alt: "john_young"})
 	                    ), 
 	                    Col({xs: 10, className: "notification-container", collapseLeft: true, collapseRight: true}, 
 	                      React.DOM.div({className: "time"}, 
@@ -26140,12 +26630,12 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 85 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
 
-	var ChatComponent = __webpack_require__(135)
+	var ChatComponent = __webpack_require__(139)
 
 	var ApplicationSidebar = React.createClass({displayName: 'ApplicationSidebar',
 	  render: function() {
@@ -26204,6 +26694,7 @@ var l20n=_RL20n_.l20n,
 	                  ), 
 	                  SidebarNavItem({href: "/app/timeline", glyph: "icon-ikons-time", name: "Static Timeline"}), 
 	                  SidebarNavItem({href: "/app/interactive-timeline", glyph: "icon-fontello-back-in-time", name: "Interactive Timeline"}), 
+	                  SidebarNavItem({href: "/app/codemirror", glyph: "icon-dripicons-code", name: "Codemirror"}), 
 	                  SidebarNavItem({href: "/app/maps", glyph: "icon-ikons-pin-2", name: "Maps"}), 
 	                  SidebarNavItem({href: "/app/editor", glyph: "icon-simple-line-icons-note", name: "Editor"}), 
 	                  SidebarNavItem({glyph: "icon-feather-toggle", name: React.DOM.span(null, "UI Elements ", BLabel({className: "bg-deepred fg-white"}, "7"))}, 
@@ -26271,15 +26762,17 @@ var l20n=_RL20n_.l20n,
 	              React.DOM.div({className: "sidebar-nav-container"}, 
 	                SidebarNav({style: {marginBottom: 0}}, 
 	                  SidebarNavItem({glyph: "icon-fontello-install", name: "Installation", href: "/app/docs/installation"}), 
-	                  SidebarNavItem({glyph: "devicon-gulp-plain", name: React.DOM.span(null, "Gulpfile.js ", BLabel({className: "bg-red fg-white"}, "4"))}, 
+	                  SidebarNavItem({glyph: "devicon-gulp-plain", name: React.DOM.span(null, "Gulpfile.js ", BLabel({className: "bg-red fg-white"}, "6"))}, 
 	                    SidebarNav(null, 
 	                      SidebarNavItem({name: "Basics", href: "/app/docs/gulpfile/basics"}), 
 	                      SidebarNavItem({name: "Sass to CSS", href: "/app/docs/gulpfile/sass"}), 
 	                      SidebarNavItem({name: "JSX to JS", href: "/app/docs/gulpfile/jsx"}), 
-	                      SidebarNavItem({name: "WebFonts", href: "/app/docs/gulpfile/webfonts"})
+	                      SidebarNavItem({name: "WebFonts", href: "/app/docs/gulpfile/webfonts"}), 
+	                      SidebarNavItem({name: "Scaffolding", href: "/app/docs/gulpfile/scaffolding"}), 
+	                      SidebarNavItem({name: "External Plugins", href: "/app/docs/gulpfile/externalplugins"})
 	                    )
 	                  ), 
-	                  SidebarNavItem({glyph: "icon-fontello-looped-square-interest", name: React.DOM.span(null, "Rubix ", BLabel({className: "bg-darkgreen45 fg-white"}, "2"))}, 
+	                  SidebarNavItem({glyph: "icon-fontello-looped-square-interest", name: React.DOM.span(null, "Rubix ", BLabel({className: "bg-darkgreen45 fg-white"}, "3"))}, 
 	                    SidebarNav(null, 
 	                      SidebarNavItem({name: "React", href: "/app/docs/rubix/react"}), 
 	                      SidebarNavItem({name: "Rubix - JSX", href: "/app/docs/rubix/rubix-jsx"}), 
@@ -26767,7 +27260,7 @@ var l20n=_RL20n_.l20n,
 	          Grid(null, 
 	            Row({className: "fg-white"}, 
 	              Col({xs: 4, collapseRight: true}, 
-	                React.DOM.img({src: "/imgs/anna_sanchez.png", width: "40", height: "40"})
+	                React.DOM.img({src: "/imgs/avatars/avatar0.png", width: "40", height: "40"})
 	              ), 
 	              Col({xs: 8, collapseLeft: true, id: "avatar-col"}, 
 	                React.DOM.div({style: {top: 23, fontSize: 16, lineHeight: 1, position: 'relative'}}, "Anna Sanchez"), 
@@ -26812,7 +27305,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 86 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26848,7 +27341,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 87 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -26988,7 +27481,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 88 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27089,7 +27582,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 89 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27179,7 +27672,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 90 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27389,7 +27882,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 91 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27561,7 +28054,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 92 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27651,7 +28144,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 93 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27741,7 +28234,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 94 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27801,7 +28294,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 95 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -27941,7 +28434,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 96 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -28046,7 +28539,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 97 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -28206,7 +28699,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 98 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -28516,7 +29009,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 99 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30574,7 +31067,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 100 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30643,7 +31136,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 101 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -30689,15 +31182,15 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 102 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * @providesModule ReactStyle
 	 */
 
-	var ReactStyleRules = __webpack_require__(136);
-	var ReactStyleRulesManager = __webpack_require__(137);
+	var ReactStyleRules = __webpack_require__(140);
+	var ReactStyleRulesManager = __webpack_require__(141);
 
 	/**
 	 * @constructor
@@ -30794,199 +31287,205 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 103 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "\n{\n    \"timeline\":  \n    {\n        \"headline\":\"Revolutionary User Interfaces\",\n    \"startDate\":\"1600\",\n        \"text\":\"<p>The human computer interface helps to define computing at any one time. As computers have become more mainstream the interfaces have become more intimate. This is the journey of computer technology and how it has come to touch all of our lives.</p>\",\n        \"type\":\"default\",\n    \"asset\":\n        {\n            \"media\":\"/imgs/timeline/user-interface/input.png\",\n            \"credit\":\"credit: Arjuna Soriano\",\n            \"caption\":\"From punch cards to multi touch.\"\n    },\n    \"date\": [\n            {\n                \"startDate\":\"1600\",\n                \"headline\":\"The Antikythera\",\n                \"text\":\"In the year 1900, sponge divers discovered the Antikythera Mechanism, a remarkable mechanical computer used to track the cycles of the solar system dated to as early as 89 B.C. There was no input however. All computations were carried out by the intricate system of clockwork like plates and wheels..\",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/DiQSHiAYt98\",\n                    \"credit\":\"credit: <a href=\\\"http://www.nature.com/nature/videoarchive/index.html\\\">Nature Video Channel</a>\",\n                    \"caption\":\"\"\n                }\n            },\n        {\n                \"startDate\":\"1642\",\n                \"headline\":\"Pascal's Calculator\",\n                \"text\":\"<p>Blaise Pascal invented this calculator to help his father reorganize the French tax system. It could add and subtract in one step and multiply and divide by repetition.</p><p>Input was achieved by spinning the little wheels: inspiration for the iPod click wheel?</p>\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/pascaline.jpg\",\n                    \"credit\":\"credit: Â© 2005 <a href=\\\"http://commons.wikimedia.org/wiki/User:David.Monniaux\\\">David Monniaux</a>  \",\n                    \"caption\":\"This piece is on display at MusÃ©e des Arts et MÃ©tiers, Paris.\"\n                }\n            },\n        {\n                \"startDate\":\"1820\",\n                \"headline\":\"Thomas Arithometer\",\n                \"text\":\"This is the first mass-produced calculator that could add, subtract, multiply and divide. Numbers were  input with all of the little knobs and dials and then the handle was twisted to perform the calculation.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/59/Arithmometre.jpg\",\n                    \"credit\":\"credit: By <a href=\\\"http://commons.wikimedia.org/wiki/File%3AArithmometre.jpg\\\">Ezrdr</a>, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1801\",\n                \"headline\":\"Jacquard Loom\",\n                \"text\":\"A loom is not a computer. It is the first machine however to use punch-cards as a means of input into a machine. By changing the arrangement of the holes in the card, the loom would weave different patterns. \",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/2ypE4ZJF7qY\",\n                    \"credit\":\"credit: <a href='http://www.youtube.com/user/FiberMusings'>FiberMusings</a>\",\n                    \"caption\":\"The Jacquard loom is still in use today in modern factories. The punch-cards can be clearly seen being pulled to the top of the loom.\"\n                }\n            },\n            {\n                \"startDate\":\"1833\",\n                \"headline\":\"The Analytical Engine\",\n                \"text\":\"Charles Babbage designed but was never able to produce a working model but it is significant in that it relied upon punched cards for data and programs and would employ a language similar to modern assembly language complete with loops and conditional branching (for the nerds out there).\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/a/a4/Analytical_Engine_%282290032530%29.jpg\",\n                    \"credit\":\"credit: By <a href='http://commons.wikimedia.org/wiki/File%3AAnalytical_Engine_(2290032530).jpg'>Marcin Wichary</a> via Wikimedia Commons\",\n                    \"caption\":\"This modern model of the Analytical Engine is housed at the Science Museum in London.\"\n                }\n            },\n            {\n                \"startDate\":\"1868\",\n                \"headline\":\"The Typewriter\",\n                \"text\":\"Again, not a computer but an important step forward in user interfaces. Invented by Christopher Sholes, An American engineer, the typewriter was layed out in the familiar QWERTY style.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/9/9a/Sholes_typewriter.jpg\",\n                    \"credit\":\"credit:By George Iles, via Wikimedia Commons\",\n                    \"caption\":\"A prototype of the typewriter with the QWERTY layout clearly visible.\"\n                }\n            },\n            {\n                \"startDate\":\"1890\",\n                \"headline\":\"Herman Hollerith\",\n                \"text\":\"In 1890, Hollerith introduced his tabulating machine to be used in the census. He also later invented a key punch, a machine that punched the holes into cards operated by a keyboard. His company was one of the companies that later merged to form IBM.\",\n                \"asset\":\n                {\n                    \"media\":\"http://youtu.be/UZVEp78b0XI?t=1m54s\",\n                    \"credit\":\"credit:<a href=\\\"http://www.youtube.com/user/clipcafe\\\">clipcafe</a>\",\n                    \"caption\":\"A history of early IBM punch card machines and featuring a Pascal calculator.\"\n                }\n            },\n            {\n                \"startDate\":\"1940\",\n                \"headline\":\"Remote Access Computing\",\n                \"text\":\"George Stibitz demonstrated the Complex Number Calculator (CNC) at Dartmouth College. The astonishing part was that the CNC was in New York City.\",\n                \"asset\":\n                {\n                    \"media\":\"\",\n                    \"credit\":\"\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1946\",\n                \"headline\":\"ENIAC\",\n                \"text\":\"Weighing 30 tons, and containing over 18,000 vacuum tubes, the ENIAC was the first truly modern computer. It could be programmed for many complex programs and used an early keyboard as its input.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/1/16/Classic_shot_of_the_ENIAC.jpg\",\n                    \"credit\":\"credit: U.S. Army photo\",\n                    \"caption\":\"\\\"Cpl. Irwin Goldstein (foreground) sets the switches on one of the ENIAC's function tables at the Moore School of Electrical Engineering.\\\" (Caption via Wikimedia)\"\n                }\n            },\n            {\n                \"startDate\":\"1951\",\n                \"headline\":\"UNICVAC I\",\n                \"text\":\"The Universal Automatic Computer I weighed in at 13 tons and sold for over one million dollars. It was the first mass produced computer, selling 46 units. The massive cockpit of a console featured a keyboard\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/55/Museum_of_Science%2C_Boston%2C_MA_-_IMG_3163.JPG\",\n                    \"credit\":\"credit: By Daderot (Own work) [Public domain], via Wikimedia Commons\",\n                    \"caption\":\"Input for the UNIVAC I was via keyboard in this massive input console.\"\n                }\n            },\n            {\n                \"startDate\":\"1964\",\n                \"headline\":\"Multics\",\n                \"text\":\"A collaboration between MIT, Bell Laboratories and General Electric created the Multics system. It was a multi-user, time sharing system that spurred along the use of a new interface, a monitor.\",\n                \"asset\":\n                {\n                    \"media\":\"\",\n                    \"credit\":\"\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1968\",\n                \"headline\":\"Minicomputer\",\n                \"text\":\"Data General introduces the Nova Minicomputer which served as an inspiration for Steve Wozniak's design of the Apple I.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/7/7f/Data_General_Nova_SN_1.agr.JPG\",\n                    \"credit\":\"credit: By Arnold Reinhold, via Wikimedia Commons\",\n                    \"caption\":\"The first Data General Nova minicomputer displayed at the Computer History Museum in Silicon Valley.\"\n                }\n            },\n            {\n                \"startDate\":\"1968,12,9\",\n                \"headline\":\"The Mouse\",\n                \"text\":\"Douglas C. Engelbart and his team demonstrated an online system featuring a mouse, hypertext and the first graphical user interface, a \\\"windows\\\" system. The mouse was encased in a wood body and had only one button.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/f/f0/SRI_Douglas_Engelbart_2008.jpg\",\n                    \"credit\":\"credit: By SRI International, via Wikimedia Commons\",\n                    \"caption\":\"Douglas Engelbart with the first computer mouse prototype.\"\n                }\n            },\n            {\n                \"startDate\":\"1974\",\n                \"headline\":\"Xerox Alto\",\n                \"text\":\"The Xerox Alto was the first workstation with a built in mouse with three buttons.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/5/5e/Xerox_Alto_mit_Rechner.JPG\",\n                    \"credit\":\"credit: By Joho345, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1976\",\n                \"headline\":\"Apple I\",\n                \"text\":\"Steve Wozniak designed the Apple I, a single-board computer that he and Steve Jobs sold for $500 each. Thus began Apple Inc. and the Personal Computer.\",\n                \"asset\":\n                {\n                    \"media\":\"http://www.flickr.com/photos/euthman/281712899/\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/euthman/281712899/'>Ed Uthman</a> via Flickr\",\n                    \"caption\":\"An Apple I computer on display at the Smithsonian.\"\n                }\n            },\n            {\n                \"startDate\":\"1976\",\n                \"headline\":\"The Osborne I\",\n                \"text\":\"Weighing 24 pounds and costing under $2,000, the Osborne I was the first portable computer, although you probably couldn't use it in your lap for too long.\",\n                \"asset\":\n                {\n                    \"media\":\"http://www.flickr.com/photos/mightyohm/5333827381/\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/mightyohm/5333827381/'>Jeff Keyzer</a> via Flickr\",\n                    \"caption\":\"An Apple I computer on display at the Smithsonian.\"\n                }\n            },\n            {\n                \"startDate\":\"1982\",\n                \"headline\":\"Windows 1.0\",\n                \"text\":\"Microsoft unveils what will become the dominant operating system for the next several decades.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/a/a9/Microsoft_Windows_1.0_page1.jpg\",\n                    \"credit\":\"credit: By Microsoft, via Wikimedia Commons\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"1984\",\n                \"headline\":\"The Macintosh\",\n                \"text\":\"Apple introduced the Macintosh which was the first commercially successful computer with a mouse and a Graphical User Interface. Apple's Think Different Superbowl commercial also plays this year.\",\n                \"asset\":\n                {\n                    \"media\":\"https://farm3.staticflickr.com/2077/2179402603_bd8f1fcbe6_b.jpg\",\n                    \"credit\":\"credit: <a href='http://www.flickr.com/photos/mwichary/2179402603/'>Marcin Wichary</a> via Flickr\",\n                    \"caption\":\"The Original Macintosh with extra external floppy drive.\"\n                }\n            },\n            {\n                \"startDate\":\"1997\",\n                \"headline\":\"The Stylus\",\n                \"text\":\"Personal digital assistants introduce the touch screen with the use of a stylus. Handwriting recognition was hit or miss but some companies developed simplified alphabet input strokes to improve recognition.\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/palm.png\",\n                    \"credit\":\"credit: <a href='http://en.wikipedia.org/wiki/File:Palmpilot5000_eu.png'>Channel R</a> via Wikimedia Commons\",\n                    \"caption\":\"A Palm Pilot.\"\n                }\n            },\n            {\n                \"startDate\":\"2001,10,23\",\n                \"headline\":\"Continuous Scrolling\",\n                \"text\":\"The first iPod introduces the wheel as a user interface. It allowed users to continuously scroll through thousands of songs seemlessly. This interface helped Apple dominate the music player business and eventually the music content business through its iTunes ecosystem.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/3/35/Ipod_1G.png\",\n                    \"credit\":\"credit: By Rjcflyer@aol.com at en.wikipedia via Wikimedia Commons\",\n                    \"caption\":\"The Original iPod with click wheel user interface.\"\n                }\n            },\n            {\n                \"startDate\":\"2007\",\n                \"headline\":\"Multi Touch\",\n                \"text\":\"Steve Jobs unveils the iPhone and the multi touch interface.\",\n                \"asset\":\n                {\n                    \"media\":\"http://upload.wikimedia.org/wikipedia/commons/4/49/IPhone_at_Macworld_%28angled_view%29.jpg\",\n                    \"credit\":\"credit: By blakeburris, via <a href='http://commons.wikimedia.org/wiki/File:IPhone_at_Macworld_(angled_view).jpg'>Wikimedia Commons</a>\",\n                    \"caption\":\"\"\n                }\n            },\n            {\n                \"startDate\":\"2012\",\n                \"headline\":\"Speech Recognition\",\n                \"text\":\"<p>Speech recognition has been tested and improved upon for years in military cockpits in the U.S. France and U.K. In fact, Siri, the speech recognition engine used in the iPhone 4S was developed first by DARPA, the Defense Advanced Research Projects Agency.</p>\",\n                \"asset\":\n                {\n                    \"media\":\"/imgs/timeline/user-interface/4s.jpg\",\n                    \"credit\":\"credit: Apple Inc.\",\n                    \"caption\":\"\"\n                }\n            }\n        ]\n    }\n}\n"
 
 /***/ },
-/* 104 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"copyright\": \"SketchPixy LLP, email: support@sketchpixy.com\",\n  \"devDependencies\": {\n    \"compression\": \"^1.0.8\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"map-stream\": \"^0.1.0\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"run-sequence\": \"^0.3.6\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
-
-/***/ },
-/* 105 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = ".\n|-- gulpfile.js\n|-- node_modules\n|-- package.json\n|-- prebuild\n|-- public\n|   |-- css\n|   |   |-- app\n|   |   |-- demo\n|   |   |-- fonts\n|   |   |   |-- app\n|   |   |   `-- demo\n|   |   `-- vendor\n|   |-- favicons\n|   |-- fonts\n|   |   |-- Lato-others\n|   |   |-- dropbox\n|   |   |   |-- app\n|   |   |   `-- demo\n|   |   `-- glyphicon\n|   |-- imgs\n|   |-- js\n|   |   |-- app\n|   |   |-- common\n|   |   |-- demo\n|   |   |-- polyfills\n|   |   `-- vendor\n|   `-- locales\n|       |-- app\n|       `-- demo\n|-- service.js\n|-- src\n|   |-- global\n|   |   |-- requires\n|   |   |-- sass\n|   |   `-- vendor\n|   |-- jsx\n|   |   |-- app\n|   |   `-- demo\n|   `-- sass\n|       |-- app\n|       `-- demo\n"
-
-/***/ },
-/* 106 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "sass\n|-- <project-name>\n|   |-- colors.scss\n|   |-- font-faces.scss\n|   |-- main.scss\n|   |-- theme.scss\n|   |-- pages\n|   |   `-- _pages.scss\n|   |-- print\n|   |   `-- _print.scss\n|   |-- theme\n|   |   |-- _colors.scss\n|   |   |-- _theme-mixin.scss\n|   |   |-- components\n|   |   |   |-- _breadcrumbs.scss\n|   |   |   |-- _button.scss\n|   |   |   |-- _components.scss\n|   |   |   |-- _datepicker.scss\n|   |   |   |-- _dropdown.scss\n|   |   |   |-- _forms.scss\n|   |   |   |-- _ion-rangeSlider.scss\n|   |   |   |-- _ion-tabs.scss\n|   |   |   |-- _link.scss\n|   |   |   |-- _messenger.scss\n|   |   |   |-- _pagination.scss\n|   |   |   |-- _panel.scss\n|   |   |   |-- _select2.scss\n|   |   |   `-- _vex.scss\n|   |   `-- sections\n|   |       |-- _body.scss\n|   |       |-- _footer.scss\n|   |       |-- _header.scss\n|   |       |-- _sections.scss\n|   |       `-- _sidebar.scss\n"
-
-/***/ },
 /* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n</Grid>\n"
+	module.exports = "function findSequence(goal) {\n  function find(start, history) {\n    if (start == goal)\n      return history;\n    else if (start > goal)\n      return null;\n    else\n      return find(start + 5, \"(\" + history + \" + 5)\") ||\n             find(start * 3, \"(\" + history + \" * 3)\");\n  }\n  return find(1, \"1\");\n}\n"
 
 /***/ },
 /* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col sm={6} md={6} lg={6} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4}>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop gutterBottom>\n  <Row>\n    <Col md={2} lg={2} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:2)</Well>\n    </Col>\n    <Col md={4} lg={4} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"copyright\": \"SketchPixy LLP, email: support@sketchpixy.com\",\n  \"devDependencies\": {\n    \"compression\": \"^1.0.8\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"map-stream\": \"^0.1.0\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"run-sequence\": \"^0.3.6\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
 
 /***/ },
 /* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid fixed>\n</Grid>\n"
+	module.exports = ".\n|-- gulpfile.js\n|-- node_modules\n|-- package.json\n|-- prebuild\n|-- public\n|   |-- css\n|   |   |-- app\n|   |   |-- demo\n|   |   |-- fonts\n|   |   |   |-- app\n|   |   |   `-- demo\n|   |   `-- vendor\n|   |-- favicons\n|   |-- fonts\n|   |   |-- Lato-others\n|   |   |-- dropbox\n|   |   |   |-- app\n|   |   |   `-- demo\n|   |   `-- glyphicon\n|   |-- imgs\n|   |-- js\n|   |   |-- app\n|   |   |-- common\n|   |   |-- demo\n|   |   |-- polyfills\n|   |   `-- vendor\n|   `-- locales\n|       |-- app\n|       `-- demo\n|-- service.js\n|-- src\n|   |-- global\n|   |   |-- requires\n|   |   |-- sass\n|   |   `-- vendor\n|   |-- jsx\n|   |   |-- app\n|   |   `-- demo\n|   `-- sass\n|       |-- app\n|       `-- demo\n"
 
 /***/ },
 /* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid collapse>\n</Grid>\n"
+	module.exports = "sass\n|-- <project-name>\n|   |-- colors.scss\n|   |-- font-faces.scss\n|   |-- main.scss\n|   |-- theme.scss\n|   |-- pages\n|   |   `-- _pages.scss\n|   |-- print\n|   |   `-- _print.scss\n|   |-- theme\n|   |   |-- _colors.scss\n|   |   |-- _theme-mixin.scss\n|   |   |-- components\n|   |   |   |-- _breadcrumbs.scss\n|   |   |   |-- _button.scss\n|   |   |   |-- _components.scss\n|   |   |   |-- _datepicker.scss\n|   |   |   |-- _dropdown.scss\n|   |   |   |-- _forms.scss\n|   |   |   |-- _ion-rangeSlider.scss\n|   |   |   |-- _ion-tabs.scss\n|   |   |   |-- _link.scss\n|   |   |   |-- _messenger.scss\n|   |   |   |-- _pagination.scss\n|   |   |   |-- _panel.scss\n|   |   |   |-- _select2.scss\n|   |   |   `-- _vex.scss\n|   |   `-- sections\n|   |       |-- _body.scss\n|   |       |-- _footer.scss\n|   |       |-- _header.scss\n|   |       |-- _sections.scss\n|   |       `-- _sidebar.scss\n"
 
 /***/ },
 /* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid gutter>\n</Grid>\n"
+	module.exports = "<Grid>\n</Grid>\n"
 
 /***/ },
 /* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid gutterTop gutterLeft gutterRight gutterBottom>\n</Grid>\n"
+	module.exports = "<Grid>\n  <Row>\n    <Col sm={6} md={6} lg={6} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col sm={4} md={4} lg={4}>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop>\n  <Row>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>\n      <Well noMargin>Col(lg:3)</Well>\n    </Col>\n    <Col sm={6} md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n<Grid gutterTop gutterBottom>\n  <Row>\n    <Col md={2} lg={2} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:2)</Well>\n    </Col>\n    <Col md={4} lg={4} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>\n      <Well noMargin>Col(lg:4)</Well>\n    </Col>\n    <Col md={6} lg={6}>\n      <Well noMargin>Col(lg:6)</Well>\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
 /* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col xs={12}>\n      <Grid fixed gutter>\n        <Row>\n          <Col xs={6} sm={3} md={4} lg={2}></Col>\n        </Row>\n      </Grid>\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "<Grid fixed>\n</Grid>\n"
 
 /***/ },
 /* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Row>\n</Row>\n"
+	module.exports = "<Grid collapse>\n</Grid>\n"
 
 /***/ },
 /* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Col xs={12} sm={12} md={12} lg={12}>\n</Col>\n"
+	module.exports = "<Grid gutter>\n</Grid>\n"
 
 /***/ },
 /* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Col clearfix>\n</Col>\n"
+	module.exports = "<Grid gutterTop gutterLeft gutterRight gutterBottom>\n</Grid>\n"
 
 /***/ },
 /* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Col xs={6} md={3} lg={4} sm={12} hidden='xs, md, lg, print' visible='sm'>\n</Col>\n"
+	module.exports = "<Grid>\n  <Row>\n    <Col xs={12}>\n      <Grid fixed gutter>\n        <Row>\n          <Col xs={6} sm={3} md={4} lg={2}></Col>\n        </Row>\n      </Grid>\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
 /* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col md={4}>\n      Col(md:4)\n    </Col>\n    <Col md={4} mdOffset={4}>\n      Col(md:4,mdOffset:4)\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "<Row>\n</Row>\n"
 
 /***/ },
 /* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col md={9} mdPush={3}>\n      Col(md:9, mdPush:3)\n    </Col>\n    <Col md={3} mdPull={9}>\n      Col(md:3, mdPull:9)\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "<Col xs={12} sm={12} md={12} lg={12}>\n</Col>\n"
 
 /***/ },
 /* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<Grid>\n  <Row>\n    <Col xs={6} collapseRight>\n    </Col>\n    <Col xs={6} collapseLeft>\n    </Col>\n  </Row>\n</Grid>\n"
+	module.exports = "<Col clearfix>\n</Col>\n"
 
 /***/ },
 /* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var node = this.refs.inputelement.getInputDOMNode();\n    console.log(node.value === 'Default text');\n  },\n  render: function() {\n    return (\n      <Input type='text' ref='inputelement' defaultValue='Default text' />\n    );\n  }  \n});\n"
+	module.exports = "<Col xs={6} md={3} lg={4} sm={12} hidden='xs, md, lg, print' visible='sm'>\n</Col>\n"
 
 /***/ },
 /* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var checked = this.refs.checkboxelement.getChecked();\n    console.log(checked === true);\n  },\n  render: function() {\n    return (\n      <Input type='checkbox' ref='checkboxelement' defaultChecked />\n    );\n  }  \n});\n"
+	module.exports = "<Grid>\n  <Row>\n    <Col md={4}>\n      Col(md:4)\n    </Col>\n    <Col md={4} mdOffset={4}>\n      Col(md:4,mdOffset:4)\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
 /* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    this.refs.checkboxelement.setChecked(false);\n    var checked = this.refs.checkboxelement.getChecked();\n    console.log(checked === false);\n  },\n  render: function() {\n    return (\n      <Input type='checkbox' ref='checkboxelement' defaultChecked />\n    );\n  }  \n});\n"
+	module.exports = "<Grid>\n  <Row>\n    <Col md={9} mdPush={3}>\n      Col(md:9, mdPush:3)\n    </Col>\n    <Col md={3} mdPull={9}>\n      Col(md:3, mdPull:9)\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
 /* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.inputelement.getValue();\n    console.log(value === 'Default Value');\n  },\n  render: function() {\n    return (\n      <Input type='text' ref='inputelement' defaultValue='Default Value' />\n    );\n  }  \n});\n"
+	module.exports = "<Grid>\n  <Row>\n    <Col xs={6} collapseRight>\n    </Col>\n    <Col xs={6} collapseLeft>\n    </Col>\n  </Row>\n</Grid>\n"
 
 /***/ },
 /* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var node = this.refs.textareaelement.getInputDOMNode();\n    console.log(node.getAttribute('rows') === 3);\n  },\n  render: function() {\n    return (\n      <Textarea ref='textareaelement' rows='3' />\n    );\n  }  \n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var node = this.refs.inputelement.getInputDOMNode();\n    console.log(node.value === 'Default text');\n  },\n  render: function() {\n    return (\n      <Input type='text' ref='inputelement' defaultValue='Default text' />\n    );\n  }  \n});\n"
 
 /***/ },
 /* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.textareaelement.getValue();\n    console.log(value === 'Default Value');\n  },\n  render: function() {\n    return (\n      <Textarea ref='textareaelement' rows='3' defaultValue='Default Value' />\n    );\n  }  \n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var checked = this.refs.checkboxelement.getChecked();\n    console.log(checked === true);\n  },\n  render: function() {\n    return (\n      <Input type='checkbox' ref='checkboxelement' defaultChecked />\n    );\n  }  \n});\n"
 
 /***/ },
 /* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var checkedState = this.refs.check.getChecked();\n    console.log(checkedState === true);\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    this.refs.checkboxelement.setChecked(false);\n    var checked = this.refs.checkboxelement.getChecked();\n    console.log(checked === false);\n  },\n  render: function() {\n    return (\n      <Input type='checkbox' ref='checkboxelement' defaultChecked />\n    );\n  }  \n});\n"
 
 /***/ },
 /* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    this.refs.check.setChecked(false);\n    console.log(checkedState === false);\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.inputelement.getValue();\n    console.log(value === 'Default Value');\n  },\n  render: function() {\n    return (\n      <Input type='text' ref='inputelement' defaultValue='Default Value' />\n    );\n  }  \n});\n"
 
 /***/ },
 /* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    if(this.refs.check.isChecked())\n      console.log('Checkbox is checked');\n    else\n      console.log('Checkbox is unchecked');\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var node = this.refs.textareaelement.getInputDOMNode();\n    console.log(node.getAttribute('rows') === 3);\n  },\n  render: function() {\n    return (\n      <Textarea ref='textareaelement' rows='3' />\n    );\n  }  \n});\n"
 
 /***/ },
 /* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.check.getValue();\n    console.log(value === 'Should be checked');\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.textareaelement.getValue();\n    console.log(value === 'Default Value');\n  },\n  render: function() {\n    return (\n      <Textarea ref='textareaelement' rows='3' defaultValue='Default Value' />\n    );\n  }  \n});\n"
 
 /***/ },
 /* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var checkedState = this.refs.check.getChecked();\n    console.log(checkedState === true);\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
 
 /***/ },
 /* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    this.refs.check.setChecked(false);\n    console.log(checkedState === false);\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
 
 /***/ },
 /* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  handleSelect: function(itemprops) {\n    alert(itemprops.pane);\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>\n        <Tab pane='tab1:home' active>Home</Tab>\n        <Tab pane='tab1:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu33'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu33' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab1:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    if(this.refs.check.isChecked())\n      console.log('Checkbox is checked');\n    else\n      console.log('Checkbox is unchecked');\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
 
 /***/ },
 /* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "var demo = React.createClass({\n  componentDidMount: function(itemprops) {\n    this.refs.tablist.selectTab('pane', 'tab2:profile');\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>\n        <Tab pane='tab2:home' active>Home</Tab>\n        <Tab pane='tab2:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu34'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu34' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab2:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function() {\n    var value = this.refs.check.getValue();\n    console.log(value === 'Should be checked');\n  },\n  render: function() {\n    return (\n      <Checkbox ref='check' defaultChecked>\n        Should be checked\n      </Checkbox>\n    );\n  }\n});\n"
 
 /***/ },
 /* 135 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='blue' container={this} menu='menu1'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu1' bsStyle='blue' onItemSelect={this.handleSelection}>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+
+/***/ },
+/* 136 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  handleSelection: function(itemprops) {\n    // access any property attached to MenuItem child component.\n    // ex: itemprops.keyaction === 'another-action' if MenuItem\n    // with \"Another action\" is clicked.\n    var value = itemprops.children;\n    alert(value);\n    if(itemprops.keyaction === 'another-action')\n      alert('You clicked another-action');\n  },\n  render: function() {\n    return (\n      <Dropdown>\n        <DropdownButton bsStyle='red' container={this} menu='menu2'>\n          <span>Dropdown </span><Caret/>\n        </DropdownButton>\n        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>\n          <MenuItem active href='#'>Action</MenuItem>\n          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>\n          <MenuItem href='#'>Something else here</MenuItem>\n          <MenuItem divider/>\n          <MenuItem href='#'>Separated link</MenuItem>\n        </Menu>\n      </Dropdown>\n    );\n  }\n});\n"
+
+/***/ },
+/* 137 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  handleSelect: function(itemprops) {\n    alert(itemprops.pane);\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' onTabSelect={this.handleSelect} listName='tab1'>\n        <Tab pane='tab1:home' active>Home</Tab>\n        <Tab pane='tab1:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu33'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu33' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab1:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab1:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab1:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
+
+/***/ },
+/* 138 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "var demo = React.createClass({\n  componentDidMount: function(itemprops) {\n    this.refs.tablist.selectTab('pane', 'tab2:profile');\n  },\n  render: function() {\n    return (\n      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>\n        <Tab pane='tab2:home' active>Home</Tab>\n        <Tab pane='tab2:profile'>Profile</Tab>\n        <Tab>\n          <DropdownButton tab container={this} menu='menu34'>\n            <span>Dropdown </span><Caret/>\n          </DropdownButton>\n          <Menu autoHide ref='menu34' bsStyle='orange75'>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:fat'>\n                @fat\n              </Tab>\n            </MenuItem>\n            <MenuItem href='#'>\n              <Tab dropdown pane='tab2:mdo'>\n                @mdo\n              </Tab>\n            </MenuItem>\n          </Menu>\n        </Tab>\n      </TabList>\n      <TabContent>\n        <TabPane ref='tab2:home' active>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:profile'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:fat'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n        <TabPane ref='tab2:mdo'>\n          <LoremIpsum query='5s' />\n        </TabPane>\n      </TabContent>\n    );\n  }\n});\n"
+
+/***/ },
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */
@@ -31075,7 +31574,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 136 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31167,7 +31666,7 @@ var l20n=_RL20n_.l20n,
 
 
 /***/ },
-/* 137 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31177,7 +31676,7 @@ var l20n=_RL20n_.l20n,
 
 	'use strict'
 
-	var ReactStyleRules = __webpack_require__(136);
+	var ReactStyleRules = __webpack_require__(140);
 
 	/**
 	 * @param {number} maxRulesLengthPerStyle

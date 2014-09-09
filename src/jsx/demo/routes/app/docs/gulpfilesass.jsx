@@ -5,6 +5,9 @@ var Sidebar = require('../../../common/sidebar.jsx');
 var Footer = require('../../../common/footer.jsx');
 
 var Body = React.createClass({
+  componentDidMount: function() {
+    Prism.highlightAll();
+  },
   render: function() {
     return (
       <Container id='body'>
@@ -67,7 +70,7 @@ var Body = React.createClass({
                                 </td>
                                 <td>
                                   <p>
-                                    {"The third and fourth gulp task are run during production (if argument "}<strong>--production</strong>{" is passed to gulp command). The fourth task also depends on "}<strong>--rtl</strong>{" argument being passed to gulp command. These tasks minify the CSS generated from Task 1 and Task 2. Before the minification process the CSS rules are shortened by running it through a plugin called "}<strong>shrthnd</strong>{" which further reduces the size of the CSS files."}
+                                    {"The third and fourth gulp task are run during production (if argument "}<strong>--production</strong>{" is passed to gulp command). The fourth task also depends on "}<strong>--rtl</strong>{" argument being passed to gulp command. These tasks minify the CSS generated from Task 1 and Task 2."}
                                   </p>
                                 </td>
                               </tr>
@@ -83,15 +86,22 @@ var Body = React.createClass({
                                     {"The blessed files are written to "}<code>public/css/app/blessed/ltr</code> and <code>public/css/app/blessed/rtl</code>.
                                   </p>
                                   <p>
-                                    {"The blessed files are ordered (ex: main.min.css, main.min-blessed1.css, main.min-blessed2.css etc). These stylesheets should be placed, in a descending order, before the closing of the "}<code>{"<head>"}</code>{" tag. Here is a screenshot of what it should look like:"}
+                                    {"The blessed files are ordered (ex: main-blessed1.css, main.css). These stylesheets should be placed, in a descending order, before the closing of the "}<code>{"<head>"}</code>{" tag. Here is an example snippet:"}
                                   </p>
                                 </td>
                               </tr>
                             </tbody>
                           </Table>
-                          <div>
-                            <Img responsive src='/imgs/shots/blessed.png' />
-                          </div>
+                          <pre>
+                            <code className='language-markup'>
+                            {"  <link rel='stylesheet' type='text/css' media='screen,print' href='/css/app/blessed/ltr/main-blessed1.css' />\n"}
+                            {"  <link rel='stylesheet' type='text/css' media='screen,print' href='/css/app/blessed/ltr/main.css' />\n"}
+                            {"  <link rel='stylesheet' type='text/css' media='screen' href='/css/app/blessed/ltr/theme.css' />\n"}
+                            {"  <link rel='stylesheet' type='text/css' media='screen' href='/css/app/blessed/ltr/colors-blessed1.css' />\n"}
+                            {"  <link rel='stylesheet' type='text/css' media='screen' href='/css/app/blessed/ltr/colors.css' />\n"}
+                            {"  <link rel='stylesheet' type='text/css' media='screen' href='/css/app/blessed/ltr/font-faces.css' />\n"}
+                            </code>
+                          </pre>
                           <br/>
                         </Col>
                       </Row>

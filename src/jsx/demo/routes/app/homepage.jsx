@@ -161,7 +161,7 @@ var Homepage = React.createClass({
             <img src='/imgs/homepage/support.png' />
           </div>
           <p className='text-center'>
-            {"We have already provided extensive documentation on using/implementing Rubix. However, we take this a step further by ensuring version releases (which includes bug fixes, new features etc) every week (excluding time taken for review process) for the next 6 months and general support for 1 year."}
+            {"We have already provided extensive documentation on using/implementing Rubix. However, we take this a step further by ensuring version releases (which includes bug fixes, new features etc) for the next 6 months and general support for 1 year."}
           </p>
         </Hero>
         <div>
