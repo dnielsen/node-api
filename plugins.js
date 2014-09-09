@@ -61,7 +61,8 @@ gulp.task('minifyplugins', function() {
     'public/js/vendor/morris/morris.js',
     'public/js/vendor/prism/prism.js',
     'public/js/vendor/gmaps/gmaps.js',
-    'public/js/vendor/holder/holder.js'
+    'public/js/vendor/holder/holder.js',
+    'public/js/vendor/switchery/switchery.js'
   ]).pipe(uglify('external.min.js', {
       preserveComments: false,
       compress: {
