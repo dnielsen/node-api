@@ -3,7 +3,7 @@ window.Rubix = window.Rubix || {};
 var RubixListeners = [];
 
 var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
-var useTable = isSafari ? 'table' : 'table';
+var useTable = isSafari ? 'inline' : 'table';
 
 /**
  * @param {string} id
@@ -56,6 +56,7 @@ Rubix = function(id, opts) {
         'pointer-events': 'none',
         'border-radius': '5px',
         'z-index': 100,
+        'min-height': 75,
         'user-select': 'none',
         'cursor': 'default',
         'border': '3px solid ' + (opts.tooltip.color ? opts.tooltip.color : '#89949B'),
@@ -3226,6 +3227,7 @@ Rubix.PieDonut = function(id, type, opts) {
         'pointer-events': 'none',
         'border-radius': '5px',
         'z-index': 100,
+        'min-height': 75,
         'user-select': 'none',
         'cursor': 'default',
         'border': '3px solid ' + (opts.tooltip.color ? opts.tooltip.color : '#89949B'),
