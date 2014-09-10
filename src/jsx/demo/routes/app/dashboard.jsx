@@ -690,7 +690,7 @@ var Body = React.createClass({
                       <TabPane ref='panel-middle-left:people'>
                         <Grid>
                           <Row>
-                            <Col xs={12}>
+                            <Col xs={12} style={{padding: 25}}>
                               <Form>
                                 <FormGroup>
                                   <InputGroup>
@@ -703,7 +703,7 @@ var Body = React.createClass({
                                 <Checkbox>Invite all friends</Checkbox>
                               </div>
                               <div>
-                                <Table>
+                                <Table collapsed>
                                   <tbody>
                                     <Contact name='Jordyn Ouellet' avatar='avatar5' noBorder />
                                     <Contact name='Ava Perry' avatar='avatar9' />
@@ -724,42 +724,42 @@ var Body = React.createClass({
                         <Table collapsed>
                           <tbody>
                             <tr>
-                              <td>
+                              <td style={{padding: '12.5px 25px'}}>
                                 <Progress collapseBottom withLabel='Karl Pohl' value={57} color='#FA824F' min={0} max={100} />
                               </td>
-                              <td className='text-right'>
+                              <td style={{padding: '12.5px 25px'}} className='text-right'>
                                 <BLabel>57</BLabel>
                               </td>
                             </tr>
                             <tr>
-                              <td>
+                              <td style={{padding: '12.5px 25px'}}>
                                 <Progress collapseBottom withLabel='Gamze Erdoğan' value={35} color='#EBA068' min={0} max={100} />
                               </td>
-                              <td className='text-right'>
+                              <td style={{padding: '12.5px 25px'}} className='text-right'>
                                 <BLabel>33</BLabel>
                               </td>
                             </tr>
                             <tr>
-                              <td>
+                              <td style={{padding: '12.5px 25px'}}>
                                 <Progress collapseBottom withLabel='Leyla Cəlilli' value={30} color='#FFC497' fgColor='#B86A2D' min={0} max={100} />
                               </td>
-                              <td className='text-right'>
+                              <td style={{padding: '12.5px 25px'}} className='text-right'>
                                 <BLabel>23</BLabel>
                               </td>
                             </tr>
                             <tr>
-                              <td>
+                              <td style={{padding: '12.5px 25px'}}>
                                 <Progress collapseBottom withLabel='Nadir Üzeyirzadə' value={41} color='#FFC9A0' fgColor='#B86A2D' min={0} max={100} />
                               </td>
-                              <td className='text-right'>
+                              <td style={{padding: '12.5px 25px'}} className='text-right'>
                                 <BLabel>11</BLabel>
                               </td>
                             </tr>
                             <tr>
-                              <td>
+                              <td style={{padding: '12.5px 25px'}}>
                                 <Progress collapseBottom withLabel='Anna Sanchez' value={66} color='#FFD3B1' fgColor='#B86A2D' min={0} max={100} />
                               </td>
-                              <td className='text-right'>
+                              <td style={{padding: '12.5px 25px'}} className='text-right'>
                                 <BLabel>7</BLabel>
                               </td>
                             </tr>
@@ -864,7 +864,7 @@ var Body = React.createClass({
                             <Icon glyph='icon-fontello-dot-circled'/>{' '}
                             <span>Lincoln Memorial</span>
                           </h3>
-                          <h5>
+                          <h5 style={{marginBottom: 0}}>
                             2 Lincoln Memorial Cir NW, Washington, DC 20037, United States
                           </h5>
                         </div>

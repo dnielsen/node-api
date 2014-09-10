@@ -1,4 +1,4 @@
-/*! rubix - v1.0.0 - 2014-09-09 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.0 - 2014-09-10 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -1435,7 +1435,7 @@ var l20n=_RL20n_.l20n,
 	                      TabPane({ref: "panel-middle-left:people"}, 
 	                        Grid(null, 
 	                          Row(null, 
-	                            Col({xs: 12}, 
+	                            Col({xs: 12, style: {padding: 25}}, 
 	                              Form(null, 
 	                                FormGroup(null, 
 	                                  InputGroup(null, 
@@ -1448,7 +1448,7 @@ var l20n=_RL20n_.l20n,
 	                                Checkbox(null, "Invite all friends")
 	                              ), 
 	                              React.DOM.div(null, 
-	                                Table(null, 
+	                                Table({collapsed: true}, 
 	                                  React.DOM.tbody(null, 
 	                                    Contact({name: "Jordyn Ouellet", avatar: "avatar5", noBorder: true}), 
 	                                    Contact({name: "Ava Perry", avatar: "avatar9"}), 
@@ -1469,42 +1469,42 @@ var l20n=_RL20n_.l20n,
 	                        Table({collapsed: true}, 
 	                          React.DOM.tbody(null, 
 	                            React.DOM.tr(null, 
-	                              React.DOM.td(null, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
 	                                Progress({collapseBottom: true, withLabel: "Karl Pohl", value: 57, color: "#FA824F", min: 0, max: 100})
 	                              ), 
-	                              React.DOM.td({className: "text-right"}, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
 	                                BLabel(null, "57")
 	                              )
 	                            ), 
 	                            React.DOM.tr(null, 
-	                              React.DOM.td(null, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
 	                                Progress({collapseBottom: true, withLabel: "Gamze Erdoğan", value: 35, color: "#EBA068", min: 0, max: 100})
 	                              ), 
-	                              React.DOM.td({className: "text-right"}, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
 	                                BLabel(null, "33")
 	                              )
 	                            ), 
 	                            React.DOM.tr(null, 
-	                              React.DOM.td(null, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
 	                                Progress({collapseBottom: true, withLabel: "Leyla Cəlilli", value: 30, color: "#FFC497", fgColor: "#B86A2D", min: 0, max: 100})
 	                              ), 
-	                              React.DOM.td({className: "text-right"}, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
 	                                BLabel(null, "23")
 	                              )
 	                            ), 
 	                            React.DOM.tr(null, 
-	                              React.DOM.td(null, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
 	                                Progress({collapseBottom: true, withLabel: "Nadir Üzeyirzadə", value: 41, color: "#FFC9A0", fgColor: "#B86A2D", min: 0, max: 100})
 	                              ), 
-	                              React.DOM.td({className: "text-right"}, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
 	                                BLabel(null, "11")
 	                              )
 	                            ), 
 	                            React.DOM.tr(null, 
-	                              React.DOM.td(null, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
 	                                Progress({collapseBottom: true, withLabel: "Anna Sanchez", value: 66, color: "#FFD3B1", fgColor: "#B86A2D", min: 0, max: 100})
 	                              ), 
-	                              React.DOM.td({className: "text-right"}, 
+	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
 	                                BLabel(null, "7")
 	                              )
 	                            )
@@ -1609,7 +1609,7 @@ var l20n=_RL20n_.l20n,
 	                            Icon({glyph: "icon-fontello-dot-circled"}), ' ', 
 	                            React.DOM.span(null, "Lincoln Memorial")
 	                          ), 
-	                          React.DOM.h5(null, 
+	                          React.DOM.h5({style: {marginBottom: 0}}, 
 	                            "2 Lincoln Memorial Cir NW, Washington, DC 20037, United States"
 	                          )
 	                        )

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! rubix - v1.0.0 - 2014-09-09 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.0 - 2014-09-10 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 
 /* REQUIRED: DO NOT REMOVE */
 
@@ -21839,6 +21839,7 @@ html.boxed #homepage-container {
 }
 
 .dashboard .panel-switches td {
+  vertical-align: middle;
   padding: 12.5px;
 }
 
