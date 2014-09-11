@@ -3933,10 +3933,16 @@
 	  },
 	  componentDidMount: function() {
 	    ReactBootstrap.Dispatcher.on('sidebar:controlbtn', this.handleState);
-	    setTimeout(function() {
-	      $('html, body, #body').scrollTop(0);
-	      $(window).scrollTop(0);
-	    }, 15);
+	    var scrollToTop = function() {
+	      if($(window).scrollTop() === 0) return;
+	      setTimeout(function() {
+	        $('html, body, #body').scrollTop(0);
+	        $(window).scrollTop(0);
+	        scrollToTop();
+	      }, 15);
+	    };
+
+	    scrollToTop();
 	  },
 	  componentWillUnmount: function() {
 	    ReactBootstrap.Dispatcher.off('sidebar:controlbtn', this.handleState);
