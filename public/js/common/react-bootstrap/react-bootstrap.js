@@ -3934,7 +3934,7 @@
 	  componentDidMount: function() {
 	    ReactBootstrap.Dispatcher.on('sidebar:controlbtn', this.handleState);
 	    setTimeout(function() {
-	      $('body, #body').scrollTop(0);
+	      $('html, body, #body').scrollTop(0);
 	    }, 15);
 	  },
 	  componentWillUnmount: function() {
