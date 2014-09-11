@@ -56,6 +56,7 @@ var SidebarControlBtn = React.createClass({
     ReactBootstrap.Dispatcher.on('sidebar:controlbtn', this.handleState);
     setTimeout(function() {
       $('html, body, #body').scrollTop(0);
+      $(window).scrollTop(0);
     }, 15);
   },
   componentWillUnmount: function() {
