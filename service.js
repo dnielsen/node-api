@@ -40,10 +40,6 @@ html = html.replace(new RegExp('{app}', 'g'), defaultAppName);
 html = html.replace(new RegExp('{stylesheets}', 'g'), stylesheets);
 html = html.replace(new RegExp('{version}', 'g'), package.version);
 
-html = minify(html, {
-  collapseWhitespace: true
-});
-
 var ltr = html.replace(new RegExp('{dir}', 'g'), 'ltr');
 var rtl = html.replace(new RegExp('{dir}', 'g'), 'rtl');
 
@@ -87,7 +83,6 @@ app.post('/dropzone/file-upload', function(req, res) {
 var server = app.listen(process.env.PORT, function() {
   console.log('Server started on port %d', server.address().port);
 });
-
 
 process.on('uncaughtException', function() {
   process.exit(0);
