@@ -18,7 +18,8 @@ var Entities = {
   }
 };
 
-var initializeLocales = function(appname, locales) {
+var initializeLocales = function(appname, locales, rpath) {
+  rpath = rpath || '';
   ctx.ready(function() {
     Entities.ready = true;
     for(var i in Entities.entities) {
@@ -27,7 +28,7 @@ var initializeLocales = function(appname, locales) {
     ReactBootstrap.Dispatcher.emit('ctx:ready');
   });
   ctx.linkResource(function(locale) {
-    return '/locales/' + appname + '/' + locale + '/strings.l20n';
+    return rpath + '/locales/' + appname + '/' + locale + '/strings.l20n';
   });
   ctx.registerLocales(locales.default, locales.locales);
   ctx.requestLocales(locales.default);
@@ -84,8 +85,8 @@ var Entity = React.createClass({
 
 module.exports = {
   ctx: ctx,
-  initializeLocales: function(appname, locales) {
-    initializeLocales(appname, locales);
+  initializeLocales: function(appname, locales, rpath) {
+    initializeLocales(appname, locales, rpath);
   },
   ready: function() {
     if(Entities.ready) {

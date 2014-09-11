@@ -2467,7 +2467,10 @@
 	    success: React.PropTypes.bool,
 	    warning: React.PropTypes.bool,
 	    striped: React.PropTypes.bool,
-	    withLabel: React.PropTypes.string,
+	    withLabel: React.PropTypes.oneOfType([
+	      React.PropTypes.bool,
+	      React.PropTypes.string
+	    ]),
 
 	    color: React.PropTypes.string,
 	    fgColor: React.PropTypes.string,

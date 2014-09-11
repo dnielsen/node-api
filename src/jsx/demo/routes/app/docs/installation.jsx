@@ -39,6 +39,34 @@ var Body = React.createClass({
                   </PanelBody>
                 </Panel>
               </PanelContainer>
+              <PanelContainer controlStyles='bg-red fg-white'>
+                <Panel>
+                  <PanelHeader className='bg-red fg-white'>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <h3>Pre-built Demo</h3>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelHeader>
+                  <PanelBody>
+                    <Grid>
+                      <Row>
+                        <Col xs={12}>
+                          <p>{"We have included a pre-built demo which you can find in the "}<strong>rubix-static</strong>{" directory. You can just drop this directory into a local server of your choice (like Apache/Nginx/Lighthttpd etc) and navigate around to see if the demo works as you expect. Note that some features in X-Editable's AJAX demo does not work with this setup."}</p>
+                          <p>
+                            {"This pre-built demo also includes documentation. Just navigate to "}<strong>rubix-static/documentation.html</strong>{" to access the offline documentation."}
+                          </p>
+                          <p>
+                            {"However, if you want to develop/make changes to the demo project you'll need to install NodeJS. The instructions for doing so are provided in the next section."}
+                          </p>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </PanelBody>
+                </Panel>
+              </PanelContainer>
               <PanelContainer controlStyles='bg-blue fg-white'>
                 <Panel>
                   <PanelHeader className='bg-blue fg-white'>

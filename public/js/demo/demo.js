@@ -18581,6 +18581,34 @@ var l20n=_RL20n_.l20n,
 	                  )
 	                )
 	              ), 
+	              PanelContainer({controlStyles: "bg-red fg-white"}, 
+	                Panel(null, 
+	                  PanelHeader({className: "bg-red fg-white"}, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.h3(null, "Pre-built Demo")
+	                        )
+	                      )
+	                    )
+	                  ), 
+	                  PanelBody(null, 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
+	                          React.DOM.p(null, "We have included a pre-built demo which you can find in the ", React.DOM.strong(null, "rubix-static"), " directory. You can just drop this directory into a local server of your choice (like Apache/Nginx/Lighthttpd etc) and navigate around to see if the demo works as you expect. Note that some features in X-Editable's AJAX demo does not work with this setup."), 
+	                          React.DOM.p(null, 
+	                            "This pre-built demo also includes documentation. Just navigate to ", React.DOM.strong(null, "rubix-static/documentation.html"), " to access the offline documentation."
+	                          ), 
+	                          React.DOM.p(null, 
+	                            "However, if you want to develop/make changes to the demo project you'll need to install NodeJS. The instructions for doing so are provided in the next section."
+	                          )
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              ), 
 	              PanelContainer({controlStyles: "bg-blue fg-white"}, 
 	                Panel(null, 
 	                  PanelHeader({className: "bg-blue fg-white"}, 
