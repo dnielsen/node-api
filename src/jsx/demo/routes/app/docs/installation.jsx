@@ -90,7 +90,7 @@ var Body = React.createClass({
                             </a>
                           </h3>
                           <p>
-                            <span>{"NPM is needed for installing the dependencies defined in package.json (found in the root of Rubix folder). It should be bundled by default in the Node.JS installation for Windows (if you downloaded and installed the MSI) / MacOSX (if you downloaded and installed the PKG file) / if you built from source."}</span>
+                            <span>{"NPM is needed for installing the dependencies defined in package.json (found in the "}<strong>rubix-app</strong>{" folder). It should be bundled by default in the Node.JS installation for Windows (if you downloaded and installed the MSI) / MacOSX (if you downloaded and installed the PKG file) / if you built from source."}</span>
                           </p>
                           <p>
                             {"If it isn't available in your environment for some reason you can try one of the fancy installs suggested in the NPM documentation located here: "}
@@ -118,7 +118,7 @@ var Body = React.createClass({
                       <Row>
                         <Col xs={12}>
                           <p>
-                            {"Change directory to root of Rubix and run the following command (this launches the 'app' starter project) depending on your OS environment:"}
+                            {"Change directory to "}<strong>rubix-app</strong>{" and run the following command (this launches the 'app' starter project) depending on your OS environment:"}
                           </p>
                           <p>
                             <span><strong>Windows:</strong></span>

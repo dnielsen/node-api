@@ -1,4 +1,4 @@
-/*! rubix - v1.0.0 - 2014-09-11 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.0 - 2014-09-15 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -18632,7 +18632,7 @@ var l20n=_RL20n_.l20n,
 	                            )
 	                          ), 
 	                          React.DOM.p(null, 
-	                            React.DOM.span(null, "NPM is needed for installing the dependencies defined in package.json (found in the root of Rubix folder). It should be bundled by default in the Node.JS installation for Windows (if you downloaded and installed the MSI) / MacOSX (if you downloaded and installed the PKG file) / if you built from source.")
+	                            React.DOM.span(null, "NPM is needed for installing the dependencies defined in package.json (found in the ", React.DOM.strong(null, "rubix-app"), " folder). It should be bundled by default in the Node.JS installation for Windows (if you downloaded and installed the MSI) / MacOSX (if you downloaded and installed the PKG file) / if you built from source.")
 	                          ), 
 	                          React.DOM.p(null, 
 	                            "If it isn't available in your environment for some reason you can try one of the fancy installs suggested in the NPM documentation located here: ", 
@@ -18660,7 +18660,7 @@ var l20n=_RL20n_.l20n,
 	                      Row(null, 
 	                        Col({xs: 12}, 
 	                          React.DOM.p(null, 
-	                            "Change directory to root of Rubix and run the following command (this launches the 'app' starter project) depending on your OS environment:"
+	                            "Change directory to ", React.DOM.strong(null, "rubix-app"), " and run the following command (this launches the 'app' starter project) depending on your OS environment:"
 	                          ), 
 	                          React.DOM.p(null, 
 	                            React.DOM.span(null, React.DOM.strong(null, "Windows:")), 
@@ -19689,7 +19689,7 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var treesnippet = __webpack_require__(110);
+	var treesnippet = __webpack_require__(109);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -19971,7 +19971,7 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var sasstreesnippet = __webpack_require__(109);
+	var sasstreesnippet = __webpack_require__(110);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -20078,7 +20078,7 @@ var l20n=_RL20n_.l20n,
 	var DocUnit = Doc.DocUnit;
 	var DocContainer = Doc.DocContainer;
 
-	var sasstreesnippet = __webpack_require__(109);
+	var sasstreesnippet = __webpack_require__(110);
 
 	var Body = React.createClass({displayName: 'Body',
 	  componentDidMount: function() {
@@ -31336,13 +31336,13 @@ var l20n=_RL20n_.l20n,
 /* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "sass\n|-- <project-name>\n|   |-- colors.scss\n|   |-- font-faces.scss\n|   |-- main.scss\n|   |-- theme.scss\n|   |-- pages\n|   |   `-- _pages.scss\n|   |-- print\n|   |   `-- _print.scss\n|   |-- theme\n|   |   |-- _colors.scss\n|   |   |-- _theme-mixin.scss\n|   |   |-- components\n|   |   |   |-- _breadcrumbs.scss\n|   |   |   |-- _button.scss\n|   |   |   |-- _components.scss\n|   |   |   |-- _datepicker.scss\n|   |   |   |-- _dropdown.scss\n|   |   |   |-- _forms.scss\n|   |   |   |-- _ion-rangeSlider.scss\n|   |   |   |-- _ion-tabs.scss\n|   |   |   |-- _link.scss\n|   |   |   |-- _messenger.scss\n|   |   |   |-- _pagination.scss\n|   |   |   |-- _panel.scss\n|   |   |   |-- _select2.scss\n|   |   |   `-- _vex.scss\n|   |   `-- sections\n|   |       |-- _body.scss\n|   |       |-- _footer.scss\n|   |       |-- _header.scss\n|   |       |-- _sections.scss\n|   |       `-- _sidebar.scss\n"
+	module.exports = ".\n|-- gulpfile.js\n|-- node_modules\n|-- package.json\n|-- prebuild\n|-- public\n|   |-- css\n|   |   |-- app\n|   |   |-- demo\n|   |   |-- fonts\n|   |   |   |-- app\n|   |   |   `-- demo\n|   |   `-- vendor\n|   |-- favicons\n|   |-- fonts\n|   |   |-- Lato-others\n|   |   |-- dropbox\n|   |   |   |-- app\n|   |   |   `-- demo\n|   |   `-- glyphicon\n|   |-- imgs\n|   |-- js\n|   |   |-- app\n|   |   |-- common\n|   |   |-- demo\n|   |   |-- polyfills\n|   |   `-- vendor\n|   `-- locales\n|       |-- app\n|       `-- demo\n|-- service.js\n|-- src\n|   |-- global\n|   |   |-- requires\n|   |   |-- sass\n|   |   `-- vendor\n|   |-- jsx\n|   |   |-- app\n|   |   `-- demo\n|   `-- sass\n|       |-- app\n|       `-- demo\n"
 
 /***/ },
 /* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = ".\n|-- gulpfile.js\n|-- node_modules\n|-- package.json\n|-- prebuild\n|-- public\n|   |-- css\n|   |   |-- app\n|   |   |-- demo\n|   |   |-- fonts\n|   |   |   |-- app\n|   |   |   `-- demo\n|   |   `-- vendor\n|   |-- favicons\n|   |-- fonts\n|   |   |-- Lato-others\n|   |   |-- dropbox\n|   |   |   |-- app\n|   |   |   `-- demo\n|   |   `-- glyphicon\n|   |-- imgs\n|   |-- js\n|   |   |-- app\n|   |   |-- common\n|   |   |-- demo\n|   |   |-- polyfills\n|   |   `-- vendor\n|   `-- locales\n|       |-- app\n|       `-- demo\n|-- service.js\n|-- src\n|   |-- global\n|   |   |-- requires\n|   |   |-- sass\n|   |   `-- vendor\n|   |-- jsx\n|   |   |-- app\n|   |   `-- demo\n|   `-- sass\n|       |-- app\n|       `-- demo\n"
+	module.exports = "sass\n|-- <project-name>\n|   |-- colors.scss\n|   |-- font-faces.scss\n|   |-- main.scss\n|   |-- theme.scss\n|   |-- pages\n|   |   `-- _pages.scss\n|   |-- print\n|   |   `-- _print.scss\n|   |-- theme\n|   |   |-- _colors.scss\n|   |   |-- _theme-mixin.scss\n|   |   |-- components\n|   |   |   |-- _breadcrumbs.scss\n|   |   |   |-- _button.scss\n|   |   |   |-- _components.scss\n|   |   |   |-- _datepicker.scss\n|   |   |   |-- _dropdown.scss\n|   |   |   |-- _forms.scss\n|   |   |   |-- _ion-rangeSlider.scss\n|   |   |   |-- _ion-tabs.scss\n|   |   |   |-- _link.scss\n|   |   |   |-- _messenger.scss\n|   |   |   |-- _pagination.scss\n|   |   |   |-- _panel.scss\n|   |   |   |-- _select2.scss\n|   |   |   `-- _vex.scss\n|   |   `-- sections\n|   |       |-- _body.scss\n|   |       |-- _footer.scss\n|   |       |-- _header.scss\n|   |       |-- _sections.scss\n|   |       `-- _sidebar.scss\n"
 
 /***/ },
 /* 111 */
