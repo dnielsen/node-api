@@ -124,7 +124,7 @@ var Body = React.createClass({
                             <span><strong>Windows:</strong></span>
                             <pre>
                               <code className='language-bash'>
-                                {"> cd path\\to\\rubix\n> npm install .\n> npm install -g gulp\n> gulp"}
+                                {"> cd path\\to\\rubix-app\n> npm install .\n> npm install -g gulp\n> gulp"}
                               </code>
                             </pre>
                           </p>
@@ -140,7 +140,7 @@ var Body = React.createClass({
                             <span><strong>MacOSX/Linux:</strong></span>
                             <pre>
                               <code className='language-bash'>
-                                {"$ cd path/to/rubix\n$ npm install .\n$ npm install -g gulp\n$ gulp"}
+                                {"$ cd path/to/rubix-app\n$ npm install .\n$ npm install -g gulp\n$ gulp"}
                               </code>
                             </pre>
                           </p>

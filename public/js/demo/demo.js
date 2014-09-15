@@ -1,4 +1,4 @@
-/*! rubix - v1.0.0 - 2014-09-15 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.1 - 2014-09-15 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -18666,7 +18666,7 @@ var l20n=_RL20n_.l20n,
 	                            React.DOM.span(null, React.DOM.strong(null, "Windows:")), 
 	                            React.DOM.pre(null, 
 	                              React.DOM.code({className: "language-bash"}, 
-	                                "> cd path\\to\\rubix\n> npm install .\n> npm install -g gulp\n> gulp"
+	                                "> cd path\\to\\rubix-app\n> npm install .\n> npm install -g gulp\n> gulp"
 	                              )
 	                            )
 	                          ), 
@@ -18682,7 +18682,7 @@ var l20n=_RL20n_.l20n,
 	                            React.DOM.span(null, React.DOM.strong(null, "MacOSX/Linux:")), 
 	                            React.DOM.pre(null, 
 	                              React.DOM.code({className: "language-bash"}, 
-	                                "$ cd path/to/rubix\n$ npm install .\n$ npm install -g gulp\n$ gulp"
+	                                "$ cd path/to/rubix-app\n$ npm install .\n$ npm install -g gulp\n$ gulp"
 	                              )
 	                            )
 	                          ), 
@@ -31330,7 +31330,7 @@ var l20n=_RL20n_.l20n,
 /* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"copyright\": \"SketchPixy LLP, email: support@sketchpixy.com\",\n  \"devDependencies\": {\n    \"compression\": \"^1.0.8\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"map-stream\": \"^0.1.0\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"run-sequence\": \"^0.3.6\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
+	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"1.0.1\",\n  \"private\": true,\n  \"copyright\": \"SketchPixy LLP, email: support@sketchpixy.com\",\n  \"devDependencies\": {\n    \"compression\": \"^1.0.8\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"map-stream\": \"^0.1.0\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"run-sequence\": \"^0.3.6\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
 
 /***/ },
 /* 109 */
