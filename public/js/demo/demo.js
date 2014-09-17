@@ -1,4 +1,4 @@
-/*! rubix - v1.0.1 - 2014-09-15 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.1 - 2014-09-17 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -18602,6 +18602,9 @@ var l20n=_RL20n_.l20n,
 	                          ), 
 	                          React.DOM.p(null, 
 	                            "However, if you want to develop/make changes to the demo project you'll need to install NodeJS. The instructions for doing so are provided in the next section."
+	                          ), 
+	                          React.DOM.p(null, 
+	                            React.DOM.strong(null, "PLEASE NOTE: "), "You still need a web server to open the documentation.html file if you are going to open the file in Chrome (as Chrome blocks AJAX requests if opened under File protocol: ", React.DOM.strong(null, "file:///path/to/rubix-static/documentation.html"), "). This problem does not exist in any other browser."
 	                          )
 	                        )
 	                      )

@@ -61,6 +61,9 @@ var Body = React.createClass({
                           <p>
                             {"However, if you want to develop/make changes to the demo project you'll need to install NodeJS. The instructions for doing so are provided in the next section."}
                           </p>
+                          <p>
+                            <strong>{"PLEASE NOTE: "}</strong>{"You still need a web server to open the documentation.html file if you are going to open the file in Chrome (as Chrome blocks AJAX requests if opened under File protocol: "}<strong>{"file:///path/to/rubix-static/documentation.html"}</strong>{"). This problem does not exist in any other browser."}
+                          </p>
                         </Col>
                       </Row>
                     </Grid>
