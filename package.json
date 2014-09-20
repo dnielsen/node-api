@@ -2,6 +2,7 @@
   "name": "rubix",
   "version": "1.0.1",
   "private": true,
+  "author": "SketchPixy (support@sketchpixy.com)",
   "copyright": "SketchPixy LLP, email: support@sketchpixy.com",
   "devDependencies": {
     "compression": "^1.0.8",
