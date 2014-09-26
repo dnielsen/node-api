@@ -38,6 +38,22 @@
 /* IMPORT PRINT STYLES */
 @import "print/print";
 
+.form-control::-webkit-input-placeholder {
+   color: #aaa !important;
+}
+
+.form-control:-moz-placeholder { /* Firefox 18- */
+   color: #aaa !important;
+}
+
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+   color: #aaa !important;
+}
+
+.form-control:-ms-input-placeholder {  
+   color: #aaa !important;
+}
+
 html[dir='rtl'] {
   [class^="icon-"].float-right-rtl,
   [class*=" icon-"].float-right-rtl {

@@ -1,4 +1,4 @@
-/*! rubix - v1.0.1 - 2014-09-17 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.1 - 2014-09-26 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -749,869 +749,136 @@ var l20n=_RL20n_.l20n,
 	var Sidebar = __webpack_require__(88);
 	var Footer = __webpack_require__(89);
 
-	var Contact = React.createClass({displayName: 'Contact',
-	  getInitialState: function() {
-	    return {
-	      invited: this.props.invited ? true : false,
-	      invitedText: this.props.invited ? 'invited' : 'invite'
-	    };
-	  },
-	  handleClick: function(e) {
-	    e.preventDefault();
-	    e.stopPropagation();
-	    this.setState({
-	      invited: !this.state.invited,
-	      invitedText: (!this.state.invited) ? 'invited': 'invite'
-	    });
-	  },
-	  render: function() {
-	    return (
-	      React.DOM.tr(null, 
-	        React.DOM.td({style: {verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}}, 
-	          React.DOM.img({src: '/imgs/avatars/'+this.props.avatar+'.png'})
-	        ), 
-	        React.DOM.td({style: {verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}}, 
-	          this.props.name
-	        ), 
-	        React.DOM.td({style: {verticalAlign: 'middle', borderTop: this.props.noBorder ? 'none': null}, className: "text-right"}, 
-	          Button({onlyOnHover: true, bsStyle: "orange", active: this.state.invited, onClick: this.handleClick}, 
-	            this.state.invitedText
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-
 	var Body = React.createClass({displayName: 'Body',
+	  handleEvents: function(e) {
+	    var table = $('#example').DataTable();
+	    var value = e.target.value === 'All events' ? '' : e.target.value;
+	    table.column(1).search(value, true, false).draw();
+	  },
 	  componentDidMount: function() {
-	    (function() {
-	      var chart = new Rubix('#main-chart', {
-	        width: '100%',
-	        height: 300,
-	        title: 'Chart of Total Users',
-	        titleColor: '#2EB398',
-	        subtitle: 'Period: 2004 and 2008',
-	        subtitleColor: '#2EB398',
-	        axis: {
-	          x: {
-	            type: 'datetime',
-	            tickCount: 3,
-	            label: 'Time',
-	            labelColor: '#2EB398'
-	          },
-	          y: {
-	            type: 'linear',
-	            tickFormat: 'd',
-	            tickCount: 2,
-	            labelColor: '#2EB398'
+	    var maxDate = 0;
+	    $(this.refs.datetimepicker1.getDOMNode()).datetimepicker().on("dp.change",function (e) {
+	      var table = $('#example').DataTable();
+	      var date = e.date.format("lll");
+	      table.column(0).search(date, true, false).draw();
+	    });
+	    $(this.refs.icon.getDOMNode()).attr('class', 'rubix-icon icon-fontello-calendar');
+	    $('#example')
+	      .addClass('nowrap')
+	      .dataTable({
+	        responsive: true,
+	        processing: true,
+	        ajax: {
+	          url: 'http://localhost:3001/activities',
+	          dataSrc: ''
+	        },
+	        columns: [
+	          {data: 'timestamp'},
+	          {data: 'process_name'},
+	          {data: function() {
+	            return 'TBD';
+	          }},
+	          {data: function() {
+	            return 'TBD';
+	          }},
+	          {data: function() {
+	            return 'TBD';
+	          }},
+	          {data: 'status'}
+	        ],
+	        aoColumnDefs: [
+	          {
+	            aTargets: [0],
+	            sType: 'date',
+	            mRender: function(data, type, full) {
+	              if(data){
+	                  var mDate = moment(data);
+	                  if (mDate && mDate.isValid()) {
+	                    var d = mDate.format("lll");
+	                    maxDate = Math.max(mDate.unix(), maxDate);
+	                    return d;
+	                  } else return "";
+	              }
+	              return "";
+	            }
 	          }
-	        },
-	        tooltip: {
-	          color: '#55C9A6',
-	          format: {
-	            y: '.0f',
-	            x: '%x'
-	          }
-	        },
-	        margin: {
-	          top: 25,
-	          left: 50,
-	          right: 25
-	        },
-	        interpolate: 'linear',
-	        master_detail: true
-	      });
-
-	      var total_users = chart.area_series({
-	        name: 'Total Users',
-	        color: '#2EB398',
-	        marker: 'circle',
-	        fillopacity: 0.7,
-	        noshadow: true
-	      });
-
-	      chart.extent = [1297110663*850+(86400000*20*(.35*40)), 1297110663*850+(86400000*20*(.66*40))];
-
-	      var t = 1297110663*850;
-	      var v = [5, 10, 2, 20, 40, 35, 30, 20, 25, 10, 20, 10, 20, 15, 25, 20, 30, 25, 30, 25, 30, 35, 40, 20, 15, 20, 10, 25, 15, 20, 10, 25, 30, 30, 25, 20, 10, 50, 60, 30];
-
-	      var getValue = function() {
-	        var val = v.shift();
-	        v.push(val);
-	        return val;
-	      }
-
-	      var data = d3.range(40).map(function() {
-	        return {
-	          x: (t+=(86400000*20)),
-	          y: getValue()
-	        };
-	      });
-
-	      total_users.addData(data);
-	    })();
-	    (function() {
-	      var chart = new Rubix('#alert-chart', {
-	        width: '100%',
-	        height: 200,
-	        hideLegend: true,
-	        hideAxisAndGrid: true,
-	        focusLineColor: '#fff',
-	        theme_style: 'dark',
-	        axis: {
-	          x: {
-	            type: 'linear'
-	          },
-	          y: {
-	            type: 'linear',
-	            tickFormat: 'd'
-	          }
-	        },
-	        tooltip: {
-	          color: '#fff',
-	          format: {
-	            x: 'd',
-	            y: 'd'
-	          }
-	        },
-	        margin: {
-	          left: 25,
-	          top: 50,
-	          right: 25,
-	          bottom: 25
-	        }
-	      });
-
-	      var alerts = chart.column_series({
-	        name: 'Load',
-	        color: '#7CD5BA',
-	        nostroke: true
-	      });
-
-	      alerts.addData([
-	        {x: 0, y: 30},
-	        {x: 1, y: 40},
-	        {x: 2, y: 15},
-	        {x: 3, y: 30},
-	        {x: 4, y: 35},
-	        {x: 5, y: 70},
-	        {x: 6, y: 50},
-	        {x: 7, y: 60},
-	        {x: 8, y: 35},
-	        {x: 9, y: 30},
-	        {x: 10, y: 40},
-	        {x: 11, y: 30},
-	        {x: 12, y: 50},
-	        {x: 13, y: 35}
-	      ]);
-	    })();
-	    (function() {
-	      var chart = new Rubix('#male-female-chart', {
-	        height: 200,
-	        title: 'Demographics',
-	        subtitle: 'Visitors',
-	        axis: {
-	          x: {
-	            type: 'ordinal',
-	            tickFormat: 'd',
-	            tickCount: 2,
-	            label: 'Time'
-	          },
-	          y:  {
-	            type: 'linear',
-	            tickFormat: 'd'
-	          }
-	        },
-	        tooltip: {
-	          theme_style: 'dark',
-	          format: {
-	            y: '.0f'
-	          },
-	          abs: {
-	            y: true
-	          }
-	        },
-	        stacked: true,
-	        interpolate: 'linear',
-	        show_markers: true
-	      });
-
-	      var column = chart.column_series({
-	        name: 'Male Visitors',
-	        color: '#2D89EF',
-	        marker: 'cross'
-	      });
-
-	      var data = [
-	        {x: 2005, y: 21},
-	        {x: 2006, y: 44},
-	        {x: 2007, y: 14},
-	        {x: 2008, y: 18},
-	        {x: 2009, y: 23},
-	        {x: 2010, y: 21}
-	      ];
-	      column.addData(data);
-
-	      var column1 = chart.column_series({
-	        name: 'Female Visitors',
-	        color: '#FF0097',
-	        marker: 'diamond'
-	      });
-
-	      var data1 = [
-	        {x: 2005, y: -79},
-	        {x: 2006, y: -56},
-	        {x: 2007, y: -86},
-	        {x: 2008, y: -82},
-	        {x: 2009, y: -77},
-	        {x: 2010, y: -79}
-	      ];
-	      column1.addData(data1);
-	    })();
-	    (function() {
-	      var chart = new Rubix('#orderscomparision', {
-	        height: 225,
-	        noSort: true,
-	        hideYAxis: true,
-	        title: 'Mac Pro vs iPhone',
-	        subtitle: 'weekly sales data',
-	        hideXAxisTickLines: true,
-	        hideYAxisTickLines: true,
-	        hideLegend: true,
-	        gridColor: '#EBEBEB',
-	        tickColor: '#EBA068',
-	        titleColor: '#EBA068',
-	        subtitleColor: '#EBA068',
-	        axis: {
-	          x: {
-	            type: 'ordinal'
-	          },
-	          y:  {
-	            type: 'linear',
-	            tickFormat: 'd'
-	          }
-	        },
-	        margin: {
-	          top: 50
-	        },
-	        tooltip: {
-	          color: '#EBA068',
-	          format: {
-	            y: '.0f'
-	          }
-	        },
-	        show_markers: false
-	      });
-
-	      var series1 = chart.column_series({
-	        name: 'Mac Pro Sales',
-	        color: '#EBA068',
-	        marker: 'square',
-	        fillopacity: 1
-	      });
-
-	      series1.addData([
-	        {x: 'Sun', y: 1},
-	        {x: 'Mon', y: 2},
-	        {x: 'Tue', y: 3},
-	        {x: 'Wed', y: 2},
-	        {x: 'Thu', y: 2},
-	        {x: 'Fri', y: 3},
-	        {x: 'Sat', y: 1}
-	      ]);
-
-
-	      var series2 = chart.column_series({
-	        name: 'iPhone Sales',
-	        color: '#FFD3B1',
-	        fillopacity: 1
-	      });
-
-	      series2.addData([
-	        {x: 'Sun', y: 3},
-	        {x: 'Mon', y: 4},
-	        {x: 'Tue', y: 6},
-	        {x: 'Wed', y: 5},
-	        {x: 'Thu', y: 5.5},
-	        {x: 'Fri', y: 3},
-	        {x: 'Sat', y: 2}
-	      ]);
-	    })();
-	    (function() {
-	      var ticketsCleared = Rubix.Donut('#tickets-cleared', {
-	        title: 'Tickets Cleared',
-	        subtitle: 'by agents',
-	        titleColor: '#EBA068',
-	        subtitleColor: '#EBA068',
-	        hideLegend: false,
-	        height: 300,
-	        tooltip: {
-	          color: '#EBA068'
-	        }
-	      });
-
-	      ticketsCleared.addData([
-	        {
-	          name: 'Karl Pohl',
-	          value: 57,
-	          color: '#FA824F'
-	        },
-	        {
-	          name: 'Gamze Erdoğan',
-	          value: 32,
-	          color: '#EBA068'
-	        },
-	        {
-	          name: 'Leyla Cəlilli',
-	          value: 23,
-	          color: '#FFC497'
-	        },
-	        {
-	          name: 'Nadir Üzeyirzadə',
-	          value: 11,
-	          color: '#FFC9A0'
-	        },
-	        {
-	          name: 'Anna Sanchez',
-	          value: 7,
-	          color: '#FFD3B1'
-	        }
-	      ]);
-	    })();
-	    (function() {
-	      $('.line-EA7882').sparkline('html', { type: 'line', height: 25, lineColor: '#EA7882', fillColor: 'rgba(234, 120, 130, 0.5)' });
-	      $('.line-2EB398').sparkline('html', { type: 'line', height: 25, lineColor: '#2EB398', fillColor: 'rgba(46, 179, 152, 0.5)' });
-	      $('.line-79B0EC').sparkline('html', { type: 'line', height: 25, lineColor: '#79B0EC', fillColor: 'rgba(121, 176, 236, 0.5)' });
-	      $('.line-FFC497').sparkline('html', { type: 'line', height: 25, lineColor: '#FFC497', fillColor: 'rgba(255, 196, 151, 0.5)' });
-	      $('.compositebar1').sparkline('html', { type: 'bar', barColor: '#ffffff', height: 25 });
-	    })();
-	    (function() {
-	      $(this.refs.datetimepicker1.getDOMNode()).datetimepicker({
-	        widgetParent: '#datetimepicker1-parent'
-	      }).hide();
-	    }.bind(this))();
-	    (function() {
-	      var data = {
-	        labels: ['Japan', 'France', 'USA', 'Russia', 'China', 'Dubai', 'India'],
-	        datasets: [{
-	          label: 'My First dataset',
-	          fillColor: 'rgba(220,220,220,0.2)',
-	          strokeColor: 'rgba(220,220,220,1)',
-	          pointColor: 'rgba(220,220,220,1)',
-	          pointStrokeColor: '#fff',
-	          pointHighlightFill: '#fff',
-	          pointHighlightStroke: 'rgba(220,220,220,1)',
-	          data: [65, 59, 90, 81, 56, 55, 40]
-	        }, {
-	          label: 'My Second dataset',
-	          fillColor: 'rgba(234, 120, 130, 0.5)',
-	          strokeColor: 'rgba(234, 120, 130, 1)',
-	          pointColor: 'rgba(234, 120, 130, 1)',
-	          pointStrokeColor: '#fff',
-	          pointHighlightFill: '#fff',
-	          pointHighlightStroke: 'rgba(151,187,205,1)',
-	          data: [28, 48, 40, 19, 96, 27, 100]
-	        }]
-	      };
-
-	      var ctx = document.getElementById('chartjs-1').getContext('2d');
-	      new Chart(ctx).Radar(data, {
-	        responsive: false,
-	        maintainAspectRatio: true
-	      });
-	    })();
-	    (function() {
-	      var map = new GMaps({
-	        div: '#routingmap',
-	        lat: 38.890792,
-	        lng: -77.048518,
-	        scrollwheel: false,
-	        zoom: 16
-	      });
-	      var list = [];
-	      map.travelRoute({
-	        origin: [38.892428, -77.048454],
-	        destination: [38.889497, -77.050181],
-	        travelMode: 'walking',
-	        step: function(e){
-	          list.push({
-	            instructions: e.instructions,
-	            lat: e.end_location.lat(),
-	            lng: e.end_location.lng(),
-	            path: e.path
-	          });
-	        }.bind(this),
-	        end: function(e) {
-	          var lat, lng, path;
-	          var processList = function(i) {
-	            if(list.length === i) return;
-	            lat = list[i].lat;
-	            lng = list[i].lng;
-	            path = list[i].path;
-	            map.drawPolyline({
-	              path: path,
-	              strokeColor: '#FF6FCF',
-	              strokeWeight: 8
-	            });
-	            processList(i+1);
-	          }.bind(this);
-	          processList(0);
-	        }.bind(this)
-	      });
-	    })();
-	    (function() {
-	      var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-	      elems.forEach(function(html) {
-	        var switchery = new Switchery(html);
-	      });
-	    })();
+	        ],
+	        columnDefs: [
+	          { targets: [-1, -2], className: 'dt-body-right' }
+	        ]
+	    });
 	  },
 	  render: function() {
 	    return (
 	      Container({id: "body"}, 
 	        Grid(null, 
 	          Row(null, 
-	            Col({sm: 12}, 
+	            Col({xs: 12}, 
 	              PanelContainer(null, 
 	                Panel(null, 
-	                  PanelBody({style: {paddingTop: 5}}, 
-	                    React.DOM.div({id: "main-chart"})
-	                  )
-	                ), 
-	                Panel({horizontal: true, className: "force-collapse"}, 
-	                  PanelLeft({className: "bg-red fg-white tabs panel-sm-1"}, 
-	                    TabContainer({className: "plain"}, 
-	                      TabList(null, 
-	                        Tab({pane: "panel_tab_panel_combined_plain:bar", active: true}, 
-	                          Icon({bundle: "fontello", glyph: "chart-bar-5"})
-	                        ), 
-	                        Tab({pane: "panel_tab_panel_combined_plain:switches"}, 
-	                          Icon({glyph: "icon-feather-toggle"})
-	                        ), 
-	                        Tab({pane: "panel_tab_panel_combined_plain:note"}, 
-	                          Icon({glyph: "icon-fontello-note-1"})
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelBody({className: "panel-sm-4", style: {padding: 0}}, 
+	                  PanelBody(null, 
 	                    Grid(null, 
 	                      Row(null, 
-	                        Col({xs: 12, collapseLeft: true, collapseRight: true}, 
-	                          TabContent(null, 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:bar", active: true, style: {padding: 0}}, 
-	                              React.DOM.div({id: "male-female-chart"})
-	                            ), 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:switches"}, 
-	                              Table({className: "panel-switches", collapsed: true}, 
-	                                React.DOM.tbody(null, 
-	                                  React.DOM.tr(null, 
-	                                    React.DOM.td(null, 
-	                                      Icon({glyph: "icon-fontello-twitter", className: "fg-blue"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "twitter")
-	                                    ), 
-	                                    React.DOM.td({className: "panel-switches-holder"}, React.DOM.input({type: "checkbox", className: "js-switch", defaultChecked: true}))
-	                                  ), 
-	                                  React.DOM.tr(null, 
-	                                    React.DOM.td(null, 
-	                                      Icon({glyph: "icon-fontello-facebook", className: "fg-darkblue"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "facebook")
-	                                    ), 
-	                                    React.DOM.td({className: "panel-switches-holder"}, React.DOM.input({type: "checkbox", className: "js-switch"}))
-	                                  ), 
-	                                  React.DOM.tr(null, 
-	                                    React.DOM.td(null, 
-	                                      Icon({glyph: "icon-fontello-gplus", className: "fg-deepred"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "google+")
-	                                    ), 
-	                                    React.DOM.td({className: "panel-switches-holder"}, React.DOM.input({type: "checkbox", className: "js-switch"}))
-	                                  ), 
-	                                  React.DOM.tr(null, 
-	                                    React.DOM.td(null, 
-	                                      Icon({glyph: "icon-fontello-linkedin", className: "fg-deepred"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "linkedin")
-	                                    ), 
-	                                    React.DOM.td({className: "panel-switches-holder"}, React.DOM.input({type: "checkbox", className: "js-switch", defaultChecked: true}))
-	                                  ), 
-	                                  React.DOM.tr(null, 
-	                                    React.DOM.td(null, 
-	                                      Icon({glyph: "icon-fontello-instagram", className: "fg-deepred"}), React.DOM.span({className: "text-uppercase panel-switches-text"}, "instagram")
-	                                    ), 
-	                                    React.DOM.td({className: "panel-switches-holder"}, 
-	                                      Button({bsStyle: "primary"}, "connect")
-	                                    )
-	                                  )
-	                                )
-	                              )
-	                            ), 
-	                            TabPane({ref: "panel_tab_panel_combined_plain:note"}, 
-	                              Grid(null, 
-	                                Row(null, 
-	                                  Col({xs: 12, style: {padding: 50, paddingTop: 12.5, paddingBottom: 25}, className: "text-center"}, 
-	                                    React.DOM.h3({className: "fg-black50"}, "NOTE"), 
-	                                    React.DOM.hr(null), 
-	                                    React.DOM.p(null, LoremIpsum({query: "3s"}))
-	                                  )
-	                                )
-	                              )
-	                            )
-	                          )
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelRight({className: "bg-lightgreen fg-white panel-sm-2"}, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "text-center"}, 
-	                          React.DOM.br(null), 
-	                          React.DOM.div(null, 
-	                            React.DOM.h4(null, "Gross Revenue"), 
-	                            React.DOM.h2({className: "fg-green visible-xs visible-md visible-lg"}, "9,362.74"), 
-	                            React.DOM.h4({className: "fg-green visible-sm"}, "9,362.74")
-	                          ), 
-	                          React.DOM.hr({className: "border-green"}), 
-	                          React.DOM.div(null, 
-	                            React.DOM.h4(null, "Net Revenue"), 
-	                            React.DOM.h2({className: "fg-green visible-xs visible-md visible-lg"}, "6,734.89"), 
-	                            React.DOM.h4({className: "fg-green visible-sm"}, "6,734.89")
-	                          )
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelRight({className: "bg-green fg-green panel-sm-4"}, 
-	                    Grid(null, 
-	                      Row({className: "bg-green fg-lightgreen"}, 
-	                        Col({xs: 6}, 
-	                          React.DOM.h3(null, "Daily Load")
-	                        ), 
-	                        Col({xs: 6, className: "text-right"}, 
-	                          React.DOM.h2({className: "fg-lightgreen"}, "67%")
+	                        Col({xs: 12}, 
+	                          React.DOM.h3({style: {margin: 0, marginBottom: 25}}, "Filter Event History")
 	                        )
 	                      )
 	                    ), 
 	                    Grid(null, 
 	                      Row(null, 
-	                        Col({xs: 12}, 
-	                          React.DOM.div({id: "alert-chart", className: "rubix-chart"})
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        ), 
-	        Grid(null, 
-	          Row(null, 
-	            Col({sm: 5, collapseRight: true}, 
-	              PanelContainer(null, 
-	                Panel(null, 
-	                  PanelBody({style: {padding: 0}}, 
-	                    Grid(null, 
-	                      Row(null, 
-	                        Col({xs: 12, className: "text-center", style: {padding: 25}}, 
-	                          React.DOM.canvas({id: "chartjs-1", height: "250", width: "250"}), 
-	                          Table({striped: true, collapsed: true}, 
-	                            React.DOM.tbody(null, 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td({className: "text-left"}, "Bounce Rate:"), 
-	                                React.DOM.td({className: "text-center"}, 
-	                                  BLabel({className: "bg-red fg-white"}, "+46%")
-	                                ), 
-	                                React.DOM.td({className: "text-right"}, 
-	                                  React.DOM.div({className: "line-EA7882", sparkBarColor: "#EA7882"}, "2,3,7,5,4,4,3,2,3,4,3,2,4,3,4,3,2,5")
-	                                )
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td({className: "text-left"}, "New visits:"), 
-	                                React.DOM.td({className: "text-center"}, 
-	                                  BLabel({className: "bg-darkgreen45 fg-white"}, "+23%")
-	                                ), 
-	                                React.DOM.td({className: "text-right"}, 
-	                                  React.DOM.div({className: "line-2EB398", sparkBarColor: "#2EB398"}, "7,7,7,7,7,7,6,7,4,7,7,7,7,5,7,7,7,9")
-	                                )
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td({className: "text-left"}, "Transactions:"), 
-	                                React.DOM.td({className: "text-center"}, 
-	                                  BLabel({className: "bg-blue fg-white"}, "43,000 (+50%)")
-	                                ), 
-	                                React.DOM.td({className: "text-right"}, 
-	                                  React.DOM.div({className: "line-79B0EC", sparkBarColor: "#79B0EC"}, "4,6,7,7,4,3,2,1,4,9,3,2,3,5,2,4,3,1")
-	                                )
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td({className: "text-left"}, "Conversions:"), 
-	                                React.DOM.td({className: "text-center"}, 
-	                                  BLabel({className: "bg-orange fg-white"}, "2000 (+75%)")
-	                                ), 
-	                                React.DOM.td({className: "text-right"}, 
-	                                  React.DOM.div({className: "line-FFC497", sparkBarColor: "#FFC497"}, "3,2,4,6,7,4,5,7,4,3,2,1,4,6,7,8,2,8")
-	                                )
-	                              )
-	                            )
+	                        Col({xs: 3}, 
+	                          Select({onChange: this.handleEvents}, 
+	                            React.DOM.option(null, "All events"), 
+	                            React.DOM.option({value: "Generate IDOC"}, "Generate IDOC"), 
+	                            React.DOM.option({value: "Receive MasterBillOfLading"}, "Receive MasterBillOfLading")
 	                          )
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              PanelContainer({controlStyles: "bg-lightorange fg-davygray"}, 
-	                Panel(null, 
-	                  PanelHeader({className: "bg-lightorange fg-darkorange fg-tab-active tabs"}, 
-	                    TabContainer(null, 
-	                      TabList(null, 
-	                        Tab({pane: "panel-middle-left:orders", active: true}, 
-	                          Icon({className: "icon-1-and-quarter-x", bundle: "feather", glyph: "bar-graph-2"})
 	                        ), 
-	                        Tab({pane: "panel-middle-left:people"}, 
-	                          Icon({className: "icon-1-and-quarter-x", glyph: "icon-simple-line-icons-users"})
+	                        Col({xs: 3, collapseLeft: true}, 
+	                          Select(null, 
+	                            React.DOM.option(null, "Select an object"), 
+	                            React.DOM.option({value: "shipped-loads"}, "TBD")
+	                          )
 	                        ), 
-	                        Tab({pane: "panel-middle-left:tickets"}, 
-	                          Icon({className: "icon-1-and-quarter-x", bundle: "feather", glyph: "pie-graph"})
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  PanelBody({style: {paddingTop: 0}}, 
-	                    TabContent(null, 
-	                      TabPane({ref: "panel-middle-left:orders", active: true}, 
-	                        React.DOM.div({id: "orderscomparision"}), 
-	                        Grid({style: {margin: -25, marginTop: 0}}, 
-	                          Row({className: "bg-lightorange fg-darkorange text-center"}, 
-	                            Col({xs: 12, collapseLeft: true, collapseRight: true, style: {padding: 25, paddingTop: 0}}, 
-	                              Table({alignMiddle: true, collapsed: true}, 
-	                                React.DOM.tbody(null, 
-	                                  React.DOM.tr(null, 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.h6(null, "Total Orders"), 
-	                                      React.DOM.h4(null, "8,584")
-	                                    ), 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.div({style: {position: 'relative'}}, 
-	                                        React.DOM.div({className: "compositebar1"}, "4,6,7,7,4,3,2,1,4,9,3,2,3,5,2,4,3,1")
-	                                      )
-	                                    ), 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.h4(null, "+ 12%")
-	                                    )
-	                                  ), 
-	                                  React.DOM.tr(null, 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.h6(null, "Total Orders"), 
-	                                      React.DOM.h4(null, "2,312")
-	                                    ), 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.div({style: {position: 'relative'}}, 
-	                                        React.DOM.div({className: "compositebar1"}, "3,2,4,6,3,6,7,3,2,1,5,7,8,9,3,2,6,7")
-	                                      )
-	                                    ), 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.h4(null, "0%")
-	                                    )
-	                                  ), 
-	                                  React.DOM.tr(null, 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.h6(null, "Total Orders"), 
-	                                      React.DOM.h4(null, "4,932")
-	                                    ), 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.div({style: {position: 'relative'}}, 
-	                                        React.DOM.div({className: "compositebar1"}, "2,3,2,4,2,6,4,2,3,5,2,5,2,1,5,2,5,2")
-	                                      )
-	                                    ), 
-	                                    React.DOM.td({style: {width: '33%'}}, 
-	                                      React.DOM.h4(null, "- 81%")
-	                                    )
-	                                  )
-	                                )
-	                              )
+	                        Col({xs: 3, collapseLeft: true, className: "text-right"}, 
+	                          Input({type: "text", placeholder: "Enter an Object ID or File Name"})
+	                        ), 
+	                        Col({xs: 3, collapseLeft: true}, 
+	                          InputGroup({className: "date", ref: "datetimepicker1"}, 
+	                            Input({type: "text", className: "form-control"}), 
+	                            InputGroupAddon(null, 
+	                              Icon({ref: "icon", glyph: "icon-fontello-calendar"})
 	                            )
 	                          )
 	                        )
-	                      ), 
-	                      TabPane({ref: "panel-middle-left:people"}, 
-	                        Grid(null, 
-	                          Row(null, 
-	                            Col({xs: 12, style: {padding: 25}}, 
-	                              Form(null, 
-	                                FormGroup(null, 
-	                                  InputGroup(null, 
-	                                    Input({type: "text", placeholder: "Type a name here...", className: "border-orange border-focus-darkorange"}), 
-	                                    InputGroupButton(null, Button({bsStyle: "orange"}, Icon({glyph: "icon-fontello-search"})))
-	                                  )
-	                                )
-	                              ), 
-	                              React.DOM.div({className: "text-center"}, 
-	                                Checkbox(null, "Invite all friends")
-	                              ), 
-	                              React.DOM.div(null, 
-	                                Table({collapsed: true}, 
-	                                  React.DOM.tbody(null, 
-	                                    Contact({name: "Jordyn Ouellet", avatar: "avatar5", noBorder: true}), 
-	                                    Contact({name: "Ava Perry", avatar: "avatar9"}), 
-	                                    Contact({name: "Angelina Mills", avatar: "avatar10", invited: true}), 
-	                                    Contact({name: "Crystal Ford", avatar: "avatar11"}), 
-	                                    Contact({name: "Toby King", avatar: "avatar7"}), 
-	                                    Contact({name: "Ju Lan", avatar: "avatar13", invited: true}), 
-	                                    Contact({name: "Alexandra Mordin", avatar: "avatar20"})
-	                                  )
-	                                )
-	                              )
-	                            )
-	                          )
-	                        )
-	                      ), 
-	                      TabPane({ref: "panel-middle-left:tickets"}, 
-	                        React.DOM.div({id: "tickets-cleared"}), 
-	                        Table({collapsed: true}, 
-	                          React.DOM.tbody(null, 
-	                            React.DOM.tr(null, 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
-	                                Progress({collapseBottom: true, withLabel: "Karl Pohl", value: 57, color: "#FA824F", min: 0, max: 100})
-	                              ), 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
-	                                BLabel(null, "57")
-	                              )
-	                            ), 
-	                            React.DOM.tr(null, 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
-	                                Progress({collapseBottom: true, withLabel: "Gamze Erdoğan", value: 35, color: "#EBA068", min: 0, max: 100})
-	                              ), 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
-	                                BLabel(null, "33")
-	                              )
-	                            ), 
-	                            React.DOM.tr(null, 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
-	                                Progress({collapseBottom: true, withLabel: "Leyla Cəlilli", value: 30, color: "#FFC497", fgColor: "#B86A2D", min: 0, max: 100})
-	                              ), 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
-	                                BLabel(null, "23")
-	                              )
-	                            ), 
-	                            React.DOM.tr(null, 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
-	                                Progress({collapseBottom: true, withLabel: "Nadir Üzeyirzadə", value: 41, color: "#FFC9A0", fgColor: "#B86A2D", min: 0, max: 100})
-	                              ), 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
-	                                BLabel(null, "11")
-	                              )
-	                            ), 
-	                            React.DOM.tr(null, 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}}, 
-	                                Progress({collapseBottom: true, withLabel: "Anna Sanchez", value: 66, color: "#FFD3B1", fgColor: "#B86A2D", min: 0, max: 100})
-	                              ), 
-	                              React.DOM.td({style: {padding: '12.5px 25px'}, className: "text-right"}, 
-	                                BLabel(null, "7")
-	                              )
-	                            )
-	                          )
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            ), 
-	            Col({sm: 7}, 
-	              PanelContainer({controlStyles: "bg-brown50 fg-white"}, 
-	                Panel({horizontal: true, className: "force-collapse"}, 
-	                  PanelBody({className: "panel-sm-7", style: {padding: 0}}, 
-	                    InputGroup({className: "date", ref: "datetimepicker1"}, 
-	                      Input({type: "text", className: "form-control"}), 
-	                      InputGroupAddon(null, 
-	                        Icon({glyph: "icon-fontello-calendar"})
 	                      )
 	                    ), 
-	                    React.DOM.div(null, 
-	                      React.DOM.div({id: "datetimepicker1-parent", className: "datetimepicker-inline"})
-	                    )
-	                  ), 
-	                  PanelRight({className: "panel-sm-5 bg-brown50 fg-white", style: {verticalAlign: 'middle'}}, 
+	                    React.DOM.hr(null), 
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12}, 
-	                          React.DOM.div({className: "text-center"}, 
-	                            Icon({glyph: "climacon rain cloud", style: {fontSize: '800%', lineHeight: 0}})
-	                          )
-	                        )
-	                      ), 
-	                      Row(null, 
-	                        Col({xs: 6, collapseRight: true}, 
-	                          React.DOM.h4(null, "Max: 25°")
-	                        ), 
-	                        Col({xs: 6, collapseLeft: true, className: "text-right"}, 
-	                          React.DOM.h4(null, "Min: 22°")
-	                        )
-	                      ), 
-	                      Row(null, 
-	                        Col({xs: 12, className: "text-center"}, 
-	                          React.DOM.h5(null, "Thundershower"), 
-	                          React.DOM.h6(null, "Wind: 9 km/h | Humidity: 91%")
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              PanelContainer(null, 
-	                Panel(null, 
-	                  PanelHeader(null, 
-	                    React.DOM.div({style: {padding: 25}}, 
-	                      React.DOM.div({id: "routingmap", style: {height: 300}}), 
-	                      React.DOM.div({className: "fg-black50 text-center", style: {borderBottom: '1px solid #ccc'}}, 
-	                        React.DOM.h5({style: {padding: 12.5, margin: 0}}, "WALK 0.3 MILES - FOR 6 MINUTES")
-	                      ), 
-	                      React.DOM.div(null, 
-	                        React.DOM.div({className: "map-dest", style: {marginBottom: 12.5}}, 
-	                          React.DOM.h3({className: "fg-black50"}, 
-	                            Icon({glyph: "icon-fontello-dot-circled", className: "fg-darkgray"}), ' ', 
-	                            React.DOM.span(null, "Albert Einstein Memorial")
-	                          ), 
-	                          React.DOM.h5(null, 
-	                            "2101 Constitution Ave NW, Washington, DC 20418, United States"
-	                          )
-	                        ), 
-	                        React.DOM.div({className: "map-tcontainer"}, 
-	                          Table({className: "mapt", hover: true, collapsed: true}, 
-	                            React.DOM.tbody(null, 
+	                          Table({id: "example", className: "display", cellSpacing: "0", width: "100%"}, 
+	                            React.DOM.thead(null, 
 	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, Icon({className: "fg-blue", glyph: "icon-fontello-up-circle icon-2x"})), 
-	                                React.DOM.td(null, "Walk ", React.DOM.strong(null, "east"), " on ", React.DOM.strong(null, "Constitution Ave NW"), " towards ", React.DOM.strong(null, "Henry Bacon Dr NW")), 
-	                                React.DOM.td({width: "75"}, React.DOM.small(null, "171 ft"))
-	                              ), 
+	                                React.DOM.th(null, "Timestamp"), 
+	                                React.DOM.th(null, "Event"), 
+	                                React.DOM.th(null, "Object"), 
+	                                React.DOM.th(null, "Format"), 
+	                                React.DOM.th(null, "Action"), 
+	                                React.DOM.th(null, "Status")
+	                              )
+	                            ), 
+	                            React.DOM.tfoot(null, 
 	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, Icon({className: "fg-green", glyph: "icon-fontello-right-circle icon-2x"})), 
-	                                React.DOM.td(null, "Turn ", React.DOM.strong(null, "right")), 
-	                                React.DOM.td(null, React.DOM.small(null, "433 ft"))
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, Icon({className: "fg-darkorange", glyph: "icon-fontello-left-circle icon-2x"})), 
-	                                React.DOM.td(null, 
-	                                  React.DOM.div(null, "Follow the road ", React.DOM.strong(null, "southeast")), 
-	                                  React.DOM.div(null, "Turn ", React.DOM.strong(null, "left"), " ", React.DOM.em(null, "(Slight turn)"))
-	                                ), 
-	                                React.DOM.td(null, React.DOM.small(null, "0.1 mi"))
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, Icon({className: "fg-green", glyph: "icon-fontello-right-circle icon-2x"})), 
-	                                React.DOM.td(null, "Turn right"), 
-	                                React.DOM.td(null, React.DOM.small(null, "262 ft"))
+	                                React.DOM.th(null, "Timestamp"), 
+	                                React.DOM.th(null, "Event"), 
+	                                React.DOM.th(null, "Object"), 
+	                                React.DOM.th(null, "Format"), 
+	                                React.DOM.th(null, "Action"), 
+	                                React.DOM.th(null, "Status")
 	                              )
 	                            )
-	                          )
-	                        ), 
-	                        React.DOM.div({className: "map-dest"}, 
-	                          React.DOM.h3({className: "fg-black50"}, 
-	                            Icon({glyph: "icon-fontello-dot-circled"}), ' ', 
-	                            React.DOM.span(null, "Lincoln Memorial")
 	                          ), 
-	                          React.DOM.h5({style: {marginBottom: 0}}, 
-	                            "2 Lincoln Memorial Cir NW, Washington, DC 20037, United States"
-	                          )
+	                          React.DOM.br(null)
 	                        )
 	                      )
 	                    )
@@ -1632,7 +899,6 @@ var l20n=_RL20n_.l20n,
 	  mixins: [SidebarMixin],
 	  render: function() {
 	    var classes = classSet({
-	      'dashboard': true,
 	      'container-open': this.state.open
 	    });
 	    return (
@@ -9669,14 +8935,66 @@ var l20n=_RL20n_.l20n,
 	var Footer = __webpack_require__(89);
 
 	var Body = React.createClass({displayName: 'Body',
+	  handleEvents: function(e) {
+	    var table = $('#example').DataTable();
+	    var value = e.target.value === 'All events' ? '' : e.target.value;
+	    table.column(1).search(value, true, false).draw();
+	  },
 	  componentDidMount: function() {
+	    var maxDate = 0;
+	    $(this.refs.datetimepicker1.getDOMNode()).datetimepicker().on("dp.change",function (e) {
+	      var table = $('#example').DataTable();
+	      var date = e.date.format("lll");
+	      table.column(0).search(date, true, false).draw();
+	    });
+	    $(this.refs.icon.getDOMNode()).attr('class', 'rubix-icon icon-fontello-calendar');
 	    $('#example')
 	      .addClass('nowrap')
 	      .dataTable({
 	        responsive: true,
+	        processing: true,
+	        ajax: {
+	          url: 'http://localhost:3000/activities',
+	          dataSrc: ''
+	        },
+	        columns: [
+	          {data: 'timestamp'},
+	          {data: 'process_name'},
+	          {data: function() {
+	            return 'TBD';
+	          }},
+	          {data: function() {
+	            return 'TBD';
+	          }},
+	          {data: function() {
+	            return 'TBD';
+	          }},
+	          {data: 'status'}
+	        ],
+	        aoColumnDefs: [
+	          {
+	            aTargets: [0],
+	            sType: 'date',
+	            mRender: function(data, type, full) {
+	              if(data){
+	                  var mDate = moment(data);
+	                  if (mDate && mDate.isValid()) {
+	                    var d = mDate.format("lll");
+	                    maxDate = Math.max(mDate.unix(), maxDate);
+	                    return d;
+	                  } else return "";
+	              }
+	              return "";
+	            }
+	          }
+	        ],
 	        columnDefs: [
-	          { targets: [-1, -3], className: 'dt-body-right' }
-	        ]
+	          { targets: [-1, -2], className: 'dt-body-right' }
+	        ],
+	        initComplete: function() {
+	          console.log(maxDate);
+	          // $(this.refs.datetimepicker1.getDOMNode()).data('DateTimePicker').setMaxDate(moment(maxDate));
+	        }.bind(this)
 	    });
 	  },
 	  render: function() {
@@ -9691,483 +9009,61 @@ var l20n=_RL20n_.l20n,
 	                    Grid(null, 
 	                      Row(null, 
 	                        Col({xs: 12}, 
+	                          React.DOM.h3({style: {margin: 0, marginBottom: 12.5}}, "Filter Event History")
+	                        )
+	                      )
+	                    ), 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 3}, 
+	                          Select({onChange: this.handleEvents}, 
+	                            React.DOM.option(null, "All events"), 
+	                            React.DOM.option({value: "Generate IDOC"}, "Generate IDOC"), 
+	                            React.DOM.option({value: "Receive MasterBillOfLading"}, "Receive MasterBillOfLading")
+	                          )
+	                        ), 
+	                        Col({xs: 3, collapseLeft: true}, 
+	                          Select(null, 
+	                            React.DOM.option(null, "Select an object"), 
+	                            React.DOM.option({value: "shipped-loads"}, "TBD")
+	                          )
+	                        ), 
+	                        Col({xs: 3, collapseLeft: true, className: "text-right"}, 
+	                          Input({type: "text", placeholder: "Enter an Object ID or File Name"})
+	                        ), 
+	                        Col({xs: 3, collapseLeft: true}, 
+	                          InputGroup({className: "date", ref: "datetimepicker1"}, 
+	                            Input({type: "text", className: "form-control"}), 
+	                            InputGroupAddon(null, 
+	                              Icon({ref: "icon", glyph: "icon-fontello-calendar"})
+	                            )
+	                          )
+	                        )
+	                      )
+	                    ), 
+	                    React.DOM.hr(null), 
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({xs: 12}, 
 	                          Table({id: "example", className: "display", cellSpacing: "0", width: "100%"}, 
 	                            React.DOM.thead(null, 
 	                              React.DOM.tr(null, 
-	                                React.DOM.th(null, "Name"), 
-	                                React.DOM.th(null, "Position"), 
-	                                React.DOM.th(null, "Office"), 
-	                                React.DOM.th(null, "Age"), 
-	                                React.DOM.th(null, "Start date"), 
-	                                React.DOM.th(null, "Salary")
+	                                React.DOM.th(null, "Timestamp"), 
+	                                React.DOM.th(null, "Event"), 
+	                                React.DOM.th(null, "Object"), 
+	                                React.DOM.th(null, "Format"), 
+	                                React.DOM.th(null, "Action"), 
+	                                React.DOM.th(null, "Status")
 	                              )
 	                            ), 
 	                            React.DOM.tfoot(null, 
 	                              React.DOM.tr(null, 
-	                                React.DOM.th(null, "Name"), 
-	                                React.DOM.th(null, "Position"), 
-	                                React.DOM.th(null, "Office"), 
-	                                React.DOM.th(null, "Age"), 
-	                                React.DOM.th(null, "Start date"), 
-	                                React.DOM.th(null, "Salary")
-	                              )
-	                            ), 
-	                            React.DOM.tbody(null, 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Tiger Nixon"), 
-	                                React.DOM.td(null, "System Architect"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "61"), 
-	                                React.DOM.td(null, "2011/04/25"), 
-	                                React.DOM.td(null, "$320,800")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Garrett Winters"), 
-	                                React.DOM.td(null, "Accountant"), 
-	                                React.DOM.td(null, "Tokyo"), 
-	                                React.DOM.td(null, "63"), 
-	                                React.DOM.td(null, "2011/07/25"), 
-	                                React.DOM.td(null, "$170,750")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Ashton Cox"), 
-	                                React.DOM.td(null, "Junior Technical Author"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "66"), 
-	                                React.DOM.td(null, "2009/01/12"), 
-	                                React.DOM.td(null, "$86,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Cedric Kelly"), 
-	                                React.DOM.td(null, "Senior Javascript Developer"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "22"), 
-	                                React.DOM.td(null, "2012/03/29"), 
-	                                React.DOM.td(null, "$433,060")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Airi Satou"), 
-	                                React.DOM.td(null, "Accountant"), 
-	                                React.DOM.td(null, "Tokyo"), 
-	                                React.DOM.td(null, "33"), 
-	                                React.DOM.td(null, "2008/11/28"), 
-	                                React.DOM.td(null, "$162,700")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Brielle Williamson"), 
-	                                React.DOM.td(null, "Integration Specialist"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "61"), 
-	                                React.DOM.td(null, "2012/12/02"), 
-	                                React.DOM.td(null, "$372,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Herrod Chandler"), 
-	                                React.DOM.td(null, "Sales Assistant"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "59"), 
-	                                React.DOM.td(null, "2012/08/06"), 
-	                                React.DOM.td(null, "$137,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Rhona Davidson"), 
-	                                React.DOM.td(null, "Integration Specialist"), 
-	                                React.DOM.td(null, "Tokyo"), 
-	                                React.DOM.td(null, "55"), 
-	                                React.DOM.td(null, "2010/10/14"), 
-	                                React.DOM.td(null, "$327,900")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Colleen Hurst"), 
-	                                React.DOM.td(null, "Javascript Developer"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "39"), 
-	                                React.DOM.td(null, "2009/09/15"), 
-	                                React.DOM.td(null, "$205,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Sonya Frost"), 
-	                                React.DOM.td(null, "Software Engineer"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "23"), 
-	                                React.DOM.td(null, "2008/12/13"), 
-	                                React.DOM.td(null, "$103,600")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Jena Gaines"), 
-	                                React.DOM.td(null, "Office Manager"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "30"), 
-	                                React.DOM.td(null, "2008/12/19"), 
-	                                React.DOM.td(null, "$90,560")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Quinn Flynn"), 
-	                                React.DOM.td(null, "Support Lead"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "22"), 
-	                                React.DOM.td(null, "2013/03/03"), 
-	                                React.DOM.td(null, "$342,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Charde Marshall"), 
-	                                React.DOM.td(null, "Regional Director"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "36"), 
-	                                React.DOM.td(null, "2008/10/16"), 
-	                                React.DOM.td(null, "$470,600")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Haley Kennedy"), 
-	                                React.DOM.td(null, "Senior Marketing Designer"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "43"), 
-	                                React.DOM.td(null, "2012/12/18"), 
-	                                React.DOM.td(null, "$313,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Tatyana Fitzpatrick"), 
-	                                React.DOM.td(null, "Regional Director"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "19"), 
-	                                React.DOM.td(null, "2010/03/17"), 
-	                                React.DOM.td(null, "$385,750")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Michael Silva"), 
-	                                React.DOM.td(null, "Marketing Designer"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "66"), 
-	                                React.DOM.td(null, "2012/11/27"), 
-	                                React.DOM.td(null, "$198,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Paul Byrd"), 
-	                                React.DOM.td(null, "Chief Financial Officer (CFO)"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "64"), 
-	                                React.DOM.td(null, "2010/06/09"), 
-	                                React.DOM.td(null, "$725,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Gloria Little"), 
-	                                React.DOM.td(null, "Systems Administrator"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "59"), 
-	                                React.DOM.td(null, "2009/04/10"), 
-	                                React.DOM.td(null, "$237,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Bradley Greer"), 
-	                                React.DOM.td(null, "Software Engineer"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "41"), 
-	                                React.DOM.td(null, "2012/10/13"), 
-	                                React.DOM.td(null, "$132,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Dai Rios"), 
-	                                React.DOM.td(null, "Personnel Lead"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "35"), 
-	                                React.DOM.td(null, "2012/09/26"), 
-	                                React.DOM.td(null, "$217,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Jenette Caldwell"), 
-	                                React.DOM.td(null, "Development Lead"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "30"), 
-	                                React.DOM.td(null, "2011/09/03"), 
-	                                React.DOM.td(null, "$345,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Yuri Berry"), 
-	                                React.DOM.td(null, "Chief Marketing Officer (CMO)"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "40"), 
-	                                React.DOM.td(null, "2009/06/25"), 
-	                                React.DOM.td(null, "$675,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Caesar Vance"), 
-	                                React.DOM.td(null, "Pre-Sales Support"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "21"), 
-	                                React.DOM.td(null, "2011/12/12"), 
-	                                React.DOM.td(null, "$106,450")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Doris Wilder"), 
-	                                React.DOM.td(null, "Sales Assistant"), 
-	                                React.DOM.td(null, "Sidney"), 
-	                                React.DOM.td(null, "23"), 
-	                                React.DOM.td(null, "2010/09/20"), 
-	                                React.DOM.td(null, "$85,600")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Angelica Ramos"), 
-	                                React.DOM.td(null, "Chief Executive Officer (CEO)"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "47"), 
-	                                React.DOM.td(null, "2009/10/09"), 
-	                                React.DOM.td(null, "$1,200,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Gavin Joyce"), 
-	                                React.DOM.td(null, "Developer"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "42"), 
-	                                React.DOM.td(null, "2010/12/22"), 
-	                                React.DOM.td(null, "$92,575")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Jennifer Chang"), 
-	                                React.DOM.td(null, "Regional Director"), 
-	                                React.DOM.td(null, "Singapore"), 
-	                                React.DOM.td(null, "28"), 
-	                                React.DOM.td(null, "2010/11/14"), 
-	                                React.DOM.td(null, "$357,650")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Brenden Wagner"), 
-	                                React.DOM.td(null, "Software Engineer"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "28"), 
-	                                React.DOM.td(null, "2011/06/07"), 
-	                                React.DOM.td(null, "$206,850")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Fiona Green"), 
-	                                React.DOM.td(null, "Chief Operating Officer (COO)"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "48"), 
-	                                React.DOM.td(null, "2010/03/11"), 
-	                                React.DOM.td(null, "$850,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Shou Itou"), 
-	                                React.DOM.td(null, "Regional Marketing"), 
-	                                React.DOM.td(null, "Tokyo"), 
-	                                React.DOM.td(null, "20"), 
-	                                React.DOM.td(null, "2011/08/14"), 
-	                                React.DOM.td(null, "$163,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Michelle House"), 
-	                                React.DOM.td(null, "Integration Specialist"), 
-	                                React.DOM.td(null, "Sidney"), 
-	                                React.DOM.td(null, "37"), 
-	                                React.DOM.td(null, "2011/06/02"), 
-	                                React.DOM.td(null, "$95,400")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Suki Burks"), 
-	                                React.DOM.td(null, "Developer"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "53"), 
-	                                React.DOM.td(null, "2009/10/22"), 
-	                                React.DOM.td(null, "$114,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Prescott Bartlett"), 
-	                                React.DOM.td(null, "Technical Author"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "27"), 
-	                                React.DOM.td(null, "2011/05/07"), 
-	                                React.DOM.td(null, "$145,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Gavin Cortez"), 
-	                                React.DOM.td(null, "Team Leader"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "22"), 
-	                                React.DOM.td(null, "2008/10/26"), 
-	                                React.DOM.td(null, "$235,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Martena Mccray"), 
-	                                React.DOM.td(null, "Post-Sales support"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "46"), 
-	                                React.DOM.td(null, "2011/03/09"), 
-	                                React.DOM.td(null, "$324,050")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Unity Butler"), 
-	                                React.DOM.td(null, "Marketing Designer"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "47"), 
-	                                React.DOM.td(null, "2009/12/09"), 
-	                                React.DOM.td(null, "$85,675")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Howard Hatfield"), 
-	                                React.DOM.td(null, "Office Manager"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "51"), 
-	                                React.DOM.td(null, "2008/12/16"), 
-	                                React.DOM.td(null, "$164,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Hope Fuentes"), 
-	                                React.DOM.td(null, "Secretary"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "41"), 
-	                                React.DOM.td(null, "2010/02/12"), 
-	                                React.DOM.td(null, "$109,850")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Vivian Harrell"), 
-	                                React.DOM.td(null, "Financial Controller"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "62"), 
-	                                React.DOM.td(null, "2009/02/14"), 
-	                                React.DOM.td(null, "$452,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Timothy Mooney"), 
-	                                React.DOM.td(null, "Office Manager"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "37"), 
-	                                React.DOM.td(null, "2008/12/11"), 
-	                                React.DOM.td(null, "$136,200")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Jackson Bradshaw"), 
-	                                React.DOM.td(null, "Director"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "65"), 
-	                                React.DOM.td(null, "2008/09/26"), 
-	                                React.DOM.td(null, "$645,750")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Olivia Liang"), 
-	                                React.DOM.td(null, "Support Engineer"), 
-	                                React.DOM.td(null, "Singapore"), 
-	                                React.DOM.td(null, "64"), 
-	                                React.DOM.td(null, "2011/02/03"), 
-	                                React.DOM.td(null, "$234,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Bruno Nash"), 
-	                                React.DOM.td(null, "Software Engineer"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "38"), 
-	                                React.DOM.td(null, "2011/05/03"), 
-	                                React.DOM.td(null, "$163,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Sakura Yamamoto"), 
-	                                React.DOM.td(null, "Support Engineer"), 
-	                                React.DOM.td(null, "Tokyo"), 
-	                                React.DOM.td(null, "37"), 
-	                                React.DOM.td(null, "2009/08/19"), 
-	                                React.DOM.td(null, "$139,575")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Thor Walton"), 
-	                                React.DOM.td(null, "Developer"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "61"), 
-	                                React.DOM.td(null, "2013/08/11"), 
-	                                React.DOM.td(null, "$98,540")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Finn Camacho"), 
-	                                React.DOM.td(null, "Support Engineer"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "47"), 
-	                                React.DOM.td(null, "2009/07/07"), 
-	                                React.DOM.td(null, "$87,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Serge Baldwin"), 
-	                                React.DOM.td(null, "Data Coordinator"), 
-	                                React.DOM.td(null, "Singapore"), 
-	                                React.DOM.td(null, "64"), 
-	                                React.DOM.td(null, "2012/04/09"), 
-	                                React.DOM.td(null, "$138,575")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Zenaida Frank"), 
-	                                React.DOM.td(null, "Software Engineer"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "63"), 
-	                                React.DOM.td(null, "2010/01/04"), 
-	                                React.DOM.td(null, "$125,250")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Zorita Serrano"), 
-	                                React.DOM.td(null, "Software Engineer"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "56"), 
-	                                React.DOM.td(null, "2012/06/01"), 
-	                                React.DOM.td(null, "$115,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Jennifer Acosta"), 
-	                                React.DOM.td(null, "Junior Javascript Developer"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "43"), 
-	                                React.DOM.td(null, "2013/02/01"), 
-	                                React.DOM.td(null, "$75,650")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Cara Stevens"), 
-	                                React.DOM.td(null, "Sales Assistant"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "46"), 
-	                                React.DOM.td(null, "2011/12/06"), 
-	                                React.DOM.td(null, "$145,600")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Hermione Butler"), 
-	                                React.DOM.td(null, "Regional Director"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "47"), 
-	                                React.DOM.td(null, "2011/03/21"), 
-	                                React.DOM.td(null, "$356,250")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Lael Greer"), 
-	                                React.DOM.td(null, "Systems Administrator"), 
-	                                React.DOM.td(null, "London"), 
-	                                React.DOM.td(null, "21"), 
-	                                React.DOM.td(null, "2009/02/27"), 
-	                                React.DOM.td(null, "$103,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Jonas Alexander"), 
-	                                React.DOM.td(null, "Developer"), 
-	                                React.DOM.td(null, "San Francisco"), 
-	                                React.DOM.td(null, "30"), 
-	                                React.DOM.td(null, "2010/07/14"), 
-	                                React.DOM.td(null, "$86,500")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Shad Decker"), 
-	                                React.DOM.td(null, "Regional Director"), 
-	                                React.DOM.td(null, "Edinburgh"), 
-	                                React.DOM.td(null, "51"), 
-	                                React.DOM.td(null, "2008/11/13"), 
-	                                React.DOM.td(null, "$183,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Michael Bruce"), 
-	                                React.DOM.td(null, "Javascript Developer"), 
-	                                React.DOM.td(null, "Singapore"), 
-	                                React.DOM.td(null, "29"), 
-	                                React.DOM.td(null, "2011/06/27"), 
-	                                React.DOM.td(null, "$183,000")
-	                              ), 
-	                              React.DOM.tr(null, 
-	                                React.DOM.td(null, "Donna Snider"), 
-	                                React.DOM.td(null, "Customer Support"), 
-	                                React.DOM.td(null, "New York"), 
-	                                React.DOM.td(null, "27"), 
-	                                React.DOM.td(null, "2011/01/25"), 
-	                                React.DOM.td(null, "$112,000")
+	                                React.DOM.th(null, "Timestamp"), 
+	                                React.DOM.th(null, "Event"), 
+	                                React.DOM.th(null, "Object"), 
+	                                React.DOM.th(null, "Format"), 
+	                                React.DOM.th(null, "Action"), 
+	                                React.DOM.th(null, "Status")
 	                              )
 	                            )
 	                          ), 
@@ -26107,22 +25003,6 @@ var l20n=_RL20n_.l20n,
 	  }
 	});
 
-	var DirectNavItem = React.createClass({displayName: 'DirectNavItem',
-	  mixins: [RoutingContextMixin],
-	  render: function() {
-	    var classes = React.addons.classSet({
-	      'pressed': (this.getRouting().getPath() === this.props.path)
-	    });
-	    return this.transferPropsTo(
-	      NavItem({className: classes.trim()}, 
-	        Link({href: this.props.path}, 
-	          Icon({bundle: this.props.bundle || 'fontello', glyph: this.props.glyph})
-	        )
-	      )
-	    );
-	  }
-	});
-
 	var Skins = React.createClass({displayName: 'Skins',
 	  statics: {
 	    skins: ['default', 'green', 'blue', 'purple', 'brown', 'cyan']
@@ -26246,101 +25126,8 @@ var l20n=_RL20n_.l20n,
 	      Preloader.hide();
 	    });
 	  },
-	  changeSettingsMenuItemState: function(item) {
-	    if(item === 'fluid' || item === null || item === undefined) {
-	      this.refs['settings-menu'].selectItem('data-val', 'fluid');
-	      $('html').removeClass('boxed');
-	    } else if(item === 'boxed') {
-	      this.refs['settings-menu'].selectItem('data-val', 'boxed');
-	      $('html').addClass('boxed');
-	    }
-	    setTimeout(function() {
-	      $(window).trigger('resize');
-	    }, 300);
-	  },
-	  changeViewport: function(props) {
-	    switch(props['data-type']) {
-	      case 'dimension':
-	        if(props['data-val'] === 'boxed') {
-	          localStorage.setItem('settingsMenu', 'boxed');
-	          this.changeSettingsMenuItemState('boxed');
-	        } else {
-	          localStorage.setItem('settingsMenu', 'fluid');
-	          this.changeSettingsMenuItemState('fluid');
-	        }
-	      break;
-	      default:
-	      break;
-	    }
-	  },
-	  handleLogout: function() {
-	    $('body').addClass('fade-out');
-	    setTimeout(function() {
-	      RRouter.routing.navigate('/');
-	    }.bind(this), 250);
-	  },
 	  componentWillMount: function() {
 	    ReactBootstrap.Dispatcher.on('ctx:ready', this.l20nContextReady);
-	  },
-	  componentDidMount: function() {
-	    (function() {
-	      var item = localStorage.getItem('settingsMenu');
-	      this.changeSettingsMenuItemState(item);
-	      localStorage.setItem('settingsMenu', item || 'fluid');
-	    }.bind(this))();
-
-	    (function() {
-	      if($('html').attr('dir') === 'ltr') {
-	        this.refs.ltr.setChecked(true);
-	      } else {
-	        this.refs.rtl.setChecked(true);
-	      }
-	    }.bind(this))();
-
-	    (function() {
-	      this.bodyLayoutRadioChange(localStorage.getItem('bodyLayout'));
-	    }.bind(this))();
-
-	    (function() {
-	      var chart = new Rubix('#commit-column-chart', {
-	          width: '100%',
-	          height: 100,
-	          hideAxisAndGrid: true,
-	          hideLegend: true,
-	          tooltip: {
-	            color: '#2EB398'
-	          },
-	          margin: {
-	            top: 25,
-	            bottom: 25
-	          }
-	      });
-
-	      var alerts = chart.column_series({
-	          name: 'Commits',
-	          color: '#2EB398'
-	      });
-
-	      alerts.addData([
-	          {x: 10, y: 20},
-	          {x: 11, y: 50},
-	          {x: 12, y: 35},
-	          {x: 13, y: 30},
-	          {x: 14, y: 20},
-	          {x: 15, y: 25},
-	          {x: 16, y: 30},
-	          {x: 17, y: 50},
-	          {x: 18, y: 20},
-	          {x: 19, y: 30},
-	          {x: 20, y: 50},
-	          {x: 21, y: 20},
-	          {x: 22, y: 50},
-	          {x: 23, y: 35},
-	          {x: 24, y: 30},
-	          {x: 25, y: 20},
-	          {x: 26, y: 30}
-	      ]);
-	    })();
 	  },
 	  componentWillUnmount: function() {
 	    ReactBootstrap.Dispatcher.off('ctx:ready', this.l20nContextReady);
@@ -26371,256 +25158,10 @@ var l20n=_RL20n_.l20n,
 	              LocaleMenuItem({lang: "ar", locale: "ar", flag: "Saudi-Arabia"}), 
 	              LocaleMenuItem({lang: "ch", locale: "ch", flag: "China"})
 	            )
-	          ), 
-	          NavItem({divider: true}), 
-	          DirectNavItem({glyph: "user-female", path: "/app/social", className: "small-font"}), 
-	          NavItem({dropdown: true, className: "small-font collapse-left"}, 
-	            DropdownButton({nav: true, toggleOnHover: true, container: this, menu: "settings-menu"}, 
-	              Icon({bundle: "fontello", glyph: "cog-7"})
-	            ), 
-	            Menu({alignRight: true, noTimer: true, bsStyle: "theme", style: {width: 375}, ref: "settings-menu", id: "settings-menu", onItemSelect: this.changeViewport}, 
-	              MenuItem({header: true}, 
-	                Entity({entity: "settingsMenuHeading"})
-	              ), 
-	              MenuItem({'data-type': "dimension", 'data-val': "fluid", href: "#"}, 
-	                Entity({entity: "settingsMenuFluid"})
-	              ), 
-	              MenuItem({'data-type': "dimension", 'data-val': "boxed", href: "#"}, 
-	                Entity({entity: "settingsMenuBoxed"})
-	              ), 
-	              MenuItem({header: true}, 
-	                "Layout"
-	              ), 
-	              MenuItem({noHover: true}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 6}, 
-	                      Radio({browser: true, ref: "ltr", value: "ltr", name: "switch-layout", defaultChecked: true, onChange: this.handleLayoutRadioChange}, 
-	                        "LTR"
-	                      )
-	                    ), 
-	                    Col({xs: 6, className: "text-right"}, 
-	                      Radio({browser: true, ref: "rtl", value: "rtl", name: "switch-layout", onChange: this.handleLayoutRadioChange}, 
-	                        "RTL"
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              MenuItem({header: true}, 
-	                "Body Layout"
-	              ), 
-	              MenuItem({noHover: true}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 8}, 
-	                      Radio({browser: true, ref: "fixed-body", value: "fixed-body", name: "switch-body-layout", defaultChecked: true, onChange: this.handleBodyLayoutRadioChange}, 
-	                        "Fixed (Header + Sidebar)"
-	                      )
-	                    ), 
-	                    Col({xs: 4, className: "text-right"}, 
-	                      Radio({browser: true, ref: "static-body", value: "static-body", name: "switch-body-layout", onChange: this.handleBodyLayoutRadioChange}, 
-	                        "Static"
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          ), 
-	          NavItem({divider: true}), 
-	          DirectNavItem({glyph: "mail-3", path: "/app/mailbox/inbox"}), 
-	          NavItem({dropdown: true, className: "collapse-left"}, 
-	            DropdownButton({nav: true, toggleOnHover: true, container: this, menu: "bullhorn-menu"}, 
-	              Icon({bundle: "fontello", glyph: "bullhorn"}), 
-	              Badge({className: "fg-darkbrown bg-orange notification-badge"}, "3")
-	            ), 
-	            Menu({alignRight: true, noTimer: true, id: "notifications-menu", ref: "bullhorn-menu", className: "double-width", alwaysInactive: true}, 
-	              MenuItem({header: true}, 
-	                Entity({entity: "notificationsMenuHeading"})
-	              ), 
-	              MenuItem({href: "#"}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 2, className: "avatar-container", collapseRight: true}, 
-	                      React.DOM.div(null, React.DOM.img({src: "/imgs/avatars/avatar22.png", width: "40", height: "40", alt: "sarah_patchett"})), 
-	                      React.DOM.div({className: "text-center"}, 
-	                        BLabel({bsStyle: "info"}, "NEW")
-	                      )
-	                    ), 
-	                    Col({xs: 10, className: "notification-container", collapseLeft: true, collapseRight: true}, 
-	                      React.DOM.div({className: "time"}, 
-	                        React.DOM.strong({className: "fg-darkgray50"}, Icon({bundle: "fontello", glyph: "chat-5"}), React.DOM.em(null, Entity({entity: "notificationsTimeFirst"})))
-	                      ), 
-	                      React.DOM.div({className: "message-header"}, 
-	                        React.DOM.strong({className: "fg-darkgreen45"}, "Sarah Patchett sent you a private message")
-	                      ), 
-	                      React.DOM.div({className: "message-details fg-text"}, 
-	                        React.DOM.span(null, "Hey Anna! Sorry for delayed response. I've just finished reading the mail you sent couple of days ago...")
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              MenuItem({href: "#"}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 2, className: "avatar-container", collapseRight: true}, 
-	                      React.DOM.img({src: "/imgs/avatars/avatar21.png", width: "40", height: "40", alt: "john_young"})
-	                    ), 
-	                    Col({xs: 10, className: "notification-container", collapseLeft: true, collapseRight: true}, 
-	                      React.DOM.div({className: "time"}, 
-	                        React.DOM.strong({className: "fg-darkgray50"}, Icon({bundle: "fontello", glyph: "user-add"}), React.DOM.em(null, "2 hours ago"))
-	                      ), 
-	                      React.DOM.div({className: "message-header"}, 
-	                        React.DOM.strong({className: "fg-darkgreen45"}, "John Young added you as a collaborator")
-	                      ), 
-	                      React.DOM.div({className: "message-details fg-text"}, 
-	                        React.DOM.span(null, "to the repository "), React.DOM.em({className: "fg-darkblue"}, "sketchpixy/rubix")
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              MenuItem({href: "#"}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 2, className: "avatar-container", collapseRight: true}, 
-	                      React.DOM.div(null, React.DOM.img({src: "/imgs/github.png", width: "40", height: "40", alt: "github"})), 
-	                      React.DOM.div({className: "text-center"}, 
-	                        BLabel({bsStyle: "danger"}, "ALERT")
-	                      )
-	                    ), 
-	                    Col({xs: 10, className: "notification-container", collapseLeft: true, collapseRight: true}, 
-	                      React.DOM.div({className: "time"}, 
-	                        React.DOM.strong({className: "fg-darkgray50"}, Icon({bundle: "fontello", glyph: "attention-alt-1"}), React.DOM.em(null, "5 days ago"))
-	                      ), 
-	                      React.DOM.div({className: "message-header"}, 
-	                        React.DOM.strong({className: "fg-darkgreen45"}, "Github sent you a notification")
-	                      ), 
-	                      React.DOM.div({className: "message-details fg-text"}, 
-	                        React.DOM.span(null, "Your "), React.DOM.span({className: "fg-darkblue"}, "Large Plan"), React.DOM.span(null, " will expire in one week. Please update your billing details at our Billing center. Thank you!")
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              MenuItem({noHover: true}, 
-	                Grid({collapse: true, style: {marginBottom: -10}}, 
-	                  Row(null, 
-	                    Col({xs: 6, collapseLeft: true, collapseRight: true}, 
-	                      Button({block: true, className: "notification-footer-btn left-btn"}, "MARK ALL READ")
-	                    ), 
-	                    Col({xs: 6, collapseLeft: true, collapseRight: true}, 
-	                      Button({block: true, className: "notification-footer-btn right-btn"}, "VIEW ALL")
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          ), 
-	          NavItem({dropdown: true, className: "collapse-left"}, 
-	            DropdownButton({nav: true, toggleOnHover: true, container: this, menu: "rss-menu"}, 
-	              Icon({bundle: "fontello", glyph: "rss-1"}), 
-	              Badge({className: "fg-darkgreen bg-darkgreen40 notification-badge"}, "4")
-	            ), 
-	            Menu({alignRight: true, noTimer: true, id: "rss-menu", ref: "rss-menu", className: "double-width", alwaysInactive: true}, 
-	              MenuItem({header: true}, "Your news feed"), 
-	              MenuItem({href: "#"}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 2}, 
-	                      Icon({className: "fg-text", bundle: "fontello", glyph: "star"})
-	                    ), 
-	                    Col({xs: 10, collapseLeft: true, className: "notification-container", style: {width: 265}}, 
-	                      React.DOM.div({className: "time"}, 
-	                        React.DOM.strong({className: "fg-darkgray50"}, React.DOM.em(null, "an hour ago"))
-	                      ), 
-	                      React.DOM.div({className: "message-header fg-darkgray50"}, 
-	                        React.DOM.strong({className: "fg-darkgreen45"}, "@johndoe"), React.DOM.strong(null, " starred "), React.DOM.strong({className: "fg-darkblue"}, "joyent/node")
-	                      ), 
-	                      React.DOM.div({className: "message-details fg-text"}, 
-	                        "evented I/O for v8 javascript"
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              MenuItem({href: "#"}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 2}, 
-	                      Icon({className: "fg-text", bundle: "fontello", glyph: "chat-1"})
-	                    ), 
-	                    Col({xs: 10, collapseLeft: true, className: "notification-container", style: {width: 265}}, 
-	                      React.DOM.div({className: "time"}, 
-	                        React.DOM.strong({className: "fg-darkgray50"}, React.DOM.em(null, "2 hours ago"))
-	                      ), 
-	                      React.DOM.div({className: "message-header fg-darkgray50"}, 
-	                        React.DOM.strong({className: "fg-darkgreen45"}, "@jackie"), React.DOM.strong(null, " commented on issue "), React.DOM.strong({className: "fg-darkblue"}, "#150")
-	                      ), 
-	                      React.DOM.div({className: "message-details fg-text"}, 
-	                        "Nice catch! I'll get this fixed soon. Meanwhile..."
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              MenuItem({href: "#"}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 2}, 
-	                      Icon({className: "fg-text", bundle: "fontello", glyph: "fork"})
-	                    ), 
-	                    Col({xs: 10, collapseLeft: true, className: "notification-container", style: {width: 265}}, 
-	                      React.DOM.div({className: "time"}, 
-	                        React.DOM.strong({className: "fg-darkgray50"}, React.DOM.em(null, "5 hours ago"))
-	                      ), 
-	                      React.DOM.div({className: "message-header fg-darkgray50"}, 
-	                        React.DOM.strong({className: "fg-darkgreen45"}, "@sketchpixy"), React.DOM.strong(null, " forked "), React.DOM.strong({className: "fg-darkblue"}, "facebook/react")
-	                      ), 
-	                      React.DOM.div({className: "message-details fg-text"}, 
-	                        "to sketchpixy/react"
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              MenuItem({href: "#"}, 
-	                Grid(null, 
-	                  Row(null, 
-	                    Col({xs: 2}, 
-	                      Icon({className: "fg-text", bundle: "fontello", glyph: "attention-alt-1"})
-	                    ), 
-	                    Col({xs: 10, collapseLeft: true, className: "notification-container", style: {width: 265}}, 
-	                      React.DOM.div({className: "time"}, 
-	                        React.DOM.strong({className: "fg-darkgray50"}, React.DOM.em(null, "2 days ago"))
-	                      ), 
-	                      React.DOM.div({className: "message-header fg-darkgray50"}, 
-	                        React.DOM.strong({className: "fg-darkgreen45"}, "@mario"), React.DOM.strong(null, " opened issue "), React.DOM.strong({className: "fg-darkblue"}, "twbs/bootstrap#44")
-	                      ), 
-	                      React.DOM.div({className: "message-details fg-text"}, 
-	                        "Request: Support RTL version"
-	                      )
-	                    )
-	                  )
-	                )
-	              ), 
-	              MenuItem({header: true}, "Your commit activity"), 
-	              MenuItem({noHover: true}, 
-	                Grid({style: {marginBottom: -10}}, 
-	                  Row(null, 
-	                    Col({xs: 12}, 
-	                      React.DOM.div({id: "commit-column-chart"})
-	                    )
-	                  )
-	                )
-	              )
-	            )
 	          )
 	        ), 
 	        Nav(null, 
-	          NavItem({className: "logout", href: "#", onClick: this.handleLogout}, 
+	          NavItem({className: "logout", href: "#"}, 
 	            Icon({bundle: "fontello", glyph: "off-1"})
 	          )
 	        )
@@ -26679,173 +25220,10 @@ var l20n=_RL20n_.l20n,
 	              React.DOM.div({className: "sidebar-nav-container"}, 
 	                SidebarNav({style: {marginBottom: 0}}, 
 	                  SidebarNavItem({glyph: "icon-fontello-gauge", name: "Dashboard", href: "/app/dashboard"}), 
-	                  SidebarNavItem({glyph: "icon-feather-mail", name: React.DOM.span(null, "Mailbox ", BLabel({className: "bg-darkgreen45 fg-white"}, "3"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({glyph: "icon-feather-inbox", name: "Inbox", href: "/app/mailbox/inbox"}), 
-	                      SidebarNavItem({glyph: "icon-outlined-mail-open", name: "Mail", href: "/app/mailbox/mail"}), 
-	                      SidebarNavItem({glyph: "icon-dripicons-message", name: "Compose", href: "/app/mailbox/compose"})
-	                    )
-	                  ), 
-	                  SidebarNavItem({glyph: "icon-pixelvicon-photo-gallery", name: "Gallery", href: "/app/gallery"}), 
-	                  SidebarNavItem({glyph: "icon-feather-share", name: "Social", href: "/app/social"}), 
-	                  SidebarNavItem({glyph: "icon-stroke-gap-icons-Blog", name: React.DOM.span(null, "Blog ", BLabel({className: "bg-darkcyan fg-white"}, "2"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({glyph: "icon-feather-layout", name: "Posts", href: "/app/blog/posts"}), 
-	                      SidebarNavItem({glyph: "icon-feather-paper", name: "Single Post", href: "/app/blog/post"})
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        ), 
-	        React.DOM.hr({style: {borderColor: '#3B4648', borderWidth: 2, marginTop: 15, marginBottom: 0, width: 200}}), 
-	        Grid(null, 
-	          Row(null, 
-	            Col({xs: 12}, 
-	              React.DOM.div({className: "sidebar-header"}, "COMPONENTS"), 
-	              React.DOM.div({className: "sidebar-nav-container"}, 
-	                SidebarNav({style: {marginBottom: 0}}, 
-	                  SidebarNavItem({glyph: "icon-simple-line-icons-layers float-right-rtl", name: "Panels", href: "/app/panels"}), 
-	                  SidebarNavItem({glyph: "icon-ikons-bar-chart-2 float-right-rtl", name: React.DOM.span(null, "Charts ", BLabel({className: "bg-brown50 fg-white"}, "4"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({glyph: "icon-fontello-chart-area", name: "Rubix Charts"}, 
-	                        SidebarNav(null, 
-	                          SidebarNavItem({name: "Line Series", href: "/app/charts/rubix/line"}), 
-	                          SidebarNavItem({name: "Area Series", href: "/app/charts/rubix/area"}), 
-	                          SidebarNavItem({name: "Bar + Column Series", href: "/app/charts/rubix/barcol"}), 
-	                          SidebarNavItem({name: "Mixed Series", href: "/app/charts/rubix/mixed"}), 
-	                          SidebarNavItem({name: "Pie + Donut Series", href: "/app/charts/rubix/piedonut"})
-	                        )
-	                      ), 
-	                      SidebarNavItem({glyph: "icon-simple-line-icons-graph", name: "Chart.JS", href: "/app/charts/chartjs"}), 
-	                      SidebarNavItem({glyph: "icon-dripicons-graph-line", name: "C3.JS", href: "/app/charts/c3js"}), 
-	                      SidebarNavItem({glyph: "icon-feather-pie-graph", name: "Morris.JS", href: "/app/charts/morrisjs"})
-	                    )
-	                  ), 
-	                  SidebarNavItem({href: "/app/timeline", glyph: "icon-ikons-time", name: "Static Timeline"}), 
-	                  SidebarNavItem({href: "/app/interactive-timeline", glyph: "icon-fontello-back-in-time", name: "Interactive Timeline"}), 
-	                  SidebarNavItem({href: "/app/codemirror", glyph: "icon-dripicons-code", name: "Codemirror"}), 
-	                  SidebarNavItem({href: "/app/maps", glyph: "icon-ikons-pin-2", name: "Maps"}), 
-	                  SidebarNavItem({href: "/app/editor", glyph: "icon-simple-line-icons-note", name: "Editor"}), 
-	                  SidebarNavItem({glyph: "icon-feather-toggle", name: React.DOM.span(null, "UI Elements ", BLabel({className: "bg-deepred fg-white"}, "7"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({href: "/app/ui-elements/buttons", glyph: "icon-mfizz-oracle", name: "Buttons"}), 
-	                      SidebarNavItem({href: "/app/ui-elements/dropdowns", glyph: "icon-outlined-arrow-down", name: "Dropdowns"}), 
-	                      SidebarNavItem({href: "/app/ui-elements/tabs-and-navs", glyph: "icon-nargela-navigation", name: "Tabs & Navs"}), 
-	                      SidebarNavItem({href: "/app/ui-elements/sliders", glyph: "icon-outlined-three-stripes-horiz", name: "Sliders"}), 
-	                      SidebarNavItem({href: "/app/ui-elements/knobs", glyph: "icon-ikons-chart-3-8", name: "Knobs"}), 
-	                      SidebarNavItem({href: "/app/ui-elements/modals", glyph: "icon-pixelvicon-browser-1", name: "Modals"}), 
-	                      SidebarNavItem({href: "/app/ui-elements/messenger", glyph: "icon-dripicons-message", name: "Messenger"})
-	                    )
-	                  ), 
-	                  SidebarNavItem({glyph: "icon-stroke-gap-icons-Files float-right-rtl", name: React.DOM.span(null, "Forms ", BLabel({className: "bg-danger fg-white"}, "3"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({glyph: "icon-mfizz-fire-alt", href: "/app/forms/controls", name: "Controls"}), 
-	                      SidebarNavItem({glyph: "icon-stroke-gap-icons-Edit", href: "/app/forms/xeditable", name: "X-Editable"}), 
-	                      SidebarNavItem({glyph: "icon-simple-line-icons-magic-wand", href: "/app/forms/wizard", name: "Wizard"})
-	                    )
-	                  ), 
-	                  SidebarNavItem({glyph: "icon-fontello-table", name: React.DOM.span(null, "Tables ", BLabel({className: "bg-blue fg-white"}, "3"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({href: "/app/tables/bootstrap-tables", glyph: "icon-fontello-th-thumb", name: "Bootstrap Tables"}), 
-	                      SidebarNavItem({href: "/app/tables/datatables", glyph: "icon-fontello-th-2", name: "Datatables"}), 
-	                      SidebarNavItem({href: "/app/tables/tablesaw", glyph: "icon-fontello-view-mode", name: "Tablesaw"})
-	                    )
-	                  ), 
-	                  SidebarNavItem({href: "/app/grid", glyph: "icon-ikons-grid-1 float-right-rtl", name: "Grid"}), 
-	                  SidebarNavItem({href: "/app/calendar", glyph: "icon-fontello-calendar-alt", name: "Calendar"}), 
-	                  SidebarNavItem({href: "/app/lists", glyph: "icon-fontello-flow-cascade", name: "Lists"}), 
-	                  SidebarNavItem({glyph: "icon-fontello-folder-open-empty", name: React.DOM.span(null, "File Utilities ", BLabel({className: "bg-orange fg-darkbrown"}, "2"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({href: "/app/file-utilities/dropzone", glyph: "icon-stroke-gap-icons-Download", name: "Dropzone"}), 
-	                      SidebarNavItem({href: "/app/file-utilities/crop", glyph: "icon-ikons-crop", name: "Image Cropping"})
-	                    )
-	                  ), 
-	                  SidebarNavItem({href: "/app/fonts", glyph: "icon-fontello-fontsize", name: "Fonts"})
-	                )
-	              )
-	            )
-	          )
-	        ), 
-	        React.DOM.hr({style: {borderColor: '#3B4648', borderWidth: 2, marginTop: 15, marginBottom: 0, width: 200}}), 
-	        Grid({gutterBottom: true}, 
-	          Row(null, 
-	            Col({xs: 12}, 
-	              React.DOM.div({className: "sidebar-header"}, "EXTRAS"), 
-	              React.DOM.div({className: "sidebar-nav-container"}, 
-	                SidebarNav({style: {marginBottom: 0}}, 
-	                  SidebarNavItem({glyph: "icon-ikons-login", name: "Login", href: "/app/login"}), 
-	                  SidebarNavItem({glyph: "icon-simple-line-icons-users", name: "Signup", href: "/app/signup"}), 
-	                  SidebarNavItem({glyph: "icon-ikons-lock", name: "Lock Page", href: "/app/lock"}), 
-	                  SidebarNavItem({glyph: "icon-dripicons-document", name: "Invoice", href: "/app/invoice"}), 
-	                  SidebarNavItem({glyph: "icon-feather-tag icon-rotate-135", name: "Pricing Tables", href: "/app/pricing"})
-	                )
-	              )
-	            )
-	          )
-	        ), 
-	        React.DOM.hr({style: {borderColor: '#3B4648', borderWidth: 2, marginTop: 15, marginBottom: 0, width: 200}}), 
-	        Grid({gutterBottom: true}, 
-	          Row(null, 
-	            Col({xs: 12}, 
-	              React.DOM.div({className: "sidebar-header"}, "DOCUMENTATION"), 
-	              React.DOM.div({className: "sidebar-nav-container"}, 
-	                SidebarNav({style: {marginBottom: 0}}, 
-	                  SidebarNavItem({glyph: "icon-fontello-install", name: "Installation", href: "/app/docs/installation"}), 
-	                  SidebarNavItem({glyph: "devicon-gulp-plain", name: React.DOM.span(null, "Gulpfile.js ", BLabel({className: "bg-red fg-white"}, "6"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({name: "Basics", href: "/app/docs/gulpfile/basics"}), 
-	                      SidebarNavItem({name: "Sass to CSS", href: "/app/docs/gulpfile/sass"}), 
-	                      SidebarNavItem({name: "JSX to JS", href: "/app/docs/gulpfile/jsx"}), 
-	                      SidebarNavItem({name: "WebFonts", href: "/app/docs/gulpfile/webfonts"}), 
-	                      SidebarNavItem({name: "Scaffolding", href: "/app/docs/gulpfile/scaffolding"}), 
-	                      SidebarNavItem({name: "External Plugins", href: "/app/docs/gulpfile/externalplugins"})
-	                    )
-	                  ), 
-	                  SidebarNavItem({glyph: "icon-fontello-looped-square-interest", name: React.DOM.span(null, "Rubix ", BLabel({className: "bg-darkgreen45 fg-white"}, "3"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({name: "React", href: "/app/docs/rubix/react"}), 
-	                      SidebarNavItem({name: "Rubix - JSX", href: "/app/docs/rubix/rubix-jsx"}), 
-	                      SidebarNavItem({name: "Rubix - SASS", href: "/app/docs/rubix/rubix-sass"})
-	                    )
-	                  ), 
-	                  SidebarNavItem({glyph: "devicon-bootstrap-plain", name: React.DOM.span(null, "Bootstrap ", BLabel({className: "bg-darkblue fg-white"}, "7"))}, 
-	                    SidebarNav(null, 
-	                      SidebarNavItem({name: "Grid", href: "/app/docs/bootstrap/grid"}), 
-	                      SidebarNavItem({name: "Typography", href: "/app/docs/bootstrap/typography"}), 
-	                      SidebarNavItem({name: "Code", href: "/app/docs/bootstrap/code"}), 
-	                      SidebarNavItem({name: "Tables", href: "/app/docs/bootstrap/tables"}), 
-	                      SidebarNavItem({name: "Forms", href: "/app/docs/bootstrap/forms"}), 
-	                      SidebarNavItem({name: "Form Controls"}, 
-	                        SidebarNav(null, 
-	                          SidebarNavItem({name: "Inputs", href: "/app/docs/bootstrap/form_controls/inputs"}), 
-	                          SidebarNavItem({name: "Textarea", href: "/app/docs/bootstrap/form_controls/textarea"}), 
-	                          SidebarNavItem({name: "Checkbox & Radio", href: "/app/docs/bootstrap/form_controls/checkradio"}), 
-	                          SidebarNavItem({name: "Select", href: "/app/docs/bootstrap/form_controls/select"}), 
-	                          SidebarNavItem({name: "Buttons", href: "/app/docs/bootstrap/form_controls/buttons"})
-	                        )
-	                      ), 
-	                      SidebarNavItem({name: "Components"}, 
-	                        SidebarNav(null, 
-	                          SidebarNavItem({name: "Dropdowns", href: "/app/docs/bootstrap/components/dropdowns"}), 
-	                          SidebarNavItem({name: "Button Groups", href: "/app/docs/bootstrap/components/button_groups"}), 
-	                          SidebarNavItem({name: "Input Groups", href: "/app/docs/bootstrap/components/input_groups"}), 
-	                          SidebarNavItem({name: "Navs", href: "/app/docs/bootstrap/components/navs"}), 
-	                          SidebarNavItem({name: "Navbar", href: "/app/docs/bootstrap/components/navbar"}), 
-	                          SidebarNavItem({name: "Breadcrumbs", href: "/app/docs/bootstrap/components/breadcrumbs"}), 
-	                          SidebarNavItem({name: "Pagination", href: "/app/docs/bootstrap/components/pagination"}), 
-	                          SidebarNavItem({name: "Labels & Badges", href: "/app/docs/bootstrap/components/labels_and_badges"}), 
-	                          SidebarNavItem({name: "Jumbotron", href: "/app/docs/bootstrap/components/jumbotron"}), 
-	                          SidebarNavItem({name: "Alerts", href: "/app/docs/bootstrap/components/alerts"}), 
-	                          SidebarNavItem({name: "Progress bars", href: "/app/docs/bootstrap/components/progress-bars"}), 
-	                          SidebarNavItem({name: "Media", href: "/app/docs/bootstrap/components/media"}), 
-	                          SidebarNavItem({name: "List Group", href: "/app/docs/bootstrap/components/list-group"})
-	                        )
-	                      )
-	                    )
-	                  ), 
-	                  SidebarNavItem({glyph: "icon-outlined-geolocalizator", name: "Mozilla L20n.js", href: "/app/docs/l20n"})
+	                  SidebarNavItem({glyph: "icon-ikons-plug", name: "Connectors"}), 
+	                  SidebarNavItem({glyph: "icon-ikons-code", name: "API Manager"}), 
+	                  SidebarNavItem({glyph: "icon-ikons-bar-chart-2", name: "System Performance"}), 
+	                  SidebarNavItem({glyph: "icon-dripicons-document", name: "Event Logs"})
 	                )
 	              )
 	            )
@@ -31333,7 +29711,7 @@ var l20n=_RL20n_.l20n,
 /* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"1.0.1\",\n  \"private\": true,\n  \"copyright\": \"SketchPixy LLP, email: support@sketchpixy.com\",\n  \"devDependencies\": {\n    \"compression\": \"^1.0.8\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"map-stream\": \"^0.1.0\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"run-sequence\": \"^0.3.6\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
+	module.exports = "{\n  \"name\": \"rubix\",\n  \"version\": \"1.0.1\",\n  \"private\": true,\n  \"author\": \"SketchPixy (support@sketchpixy.com)\",\n  \"copyright\": \"SketchPixy LLP, email: support@sketchpixy.com\",\n  \"devDependencies\": {\n    \"bunyan\": \"^1.1.0\",\n    \"compression\": \"^1.0.8\",\n    \"crypto\": \"0.0.3\",\n    \"css-flip\": \"^0.5.0\",\n    \"del\": \"^0.1.1\",\n    \"express\": \"^4.4.5\",\n    \"fluxxor\": \"^1.3.2\",\n    \"gulp\": \"^3.8.7\",\n    \"gulp-autoprefixer\": \"0.0.8\",\n    \"gulp-bless\": \"^1.0.2\",\n    \"gulp-concat\": \"^2.2.0\",\n    \"gulp-cssfont64\": \"0.0.1\",\n    \"gulp-insert\": \"^0.4.0\",\n    \"gulp-minify-css\": \"^0.3.7\",\n    \"gulp-rename\": \"^1.2.0\",\n    \"gulp-replace\": \"^0.4.0\",\n    \"gulp-sass\": \"^0.7.2\",\n    \"gulp-ttf2woff\": \"0.0.8\",\n    \"gulp-uglifyjs\": \"^0.4.0\",\n    \"gulp-util\": \"^2.2.19\",\n    \"gulp-webpack\": \"^0.1.0\",\n    \"html-minifier\": \"^0.6.6\",\n    \"jsx-loader\": \"^0.11.0\",\n    \"knex\": \"^0.6.22\",\n    \"map-stream\": \"^0.1.0\",\n    \"mysql\": \"^2.5.1\",\n    \"raw-loader\": \"^0.5.1\",\n    \"react\": \"^0.11.1\",\n    \"restify\": \"^2.8.2\",\n    \"run-sequence\": \"^0.3.6\",\n    \"through\": \"^2.3.4\",\n    \"transform-loader\": \"^0.2.1\",\n    \"ua-parser\": \"^0.3.3\",\n    \"underscore\": \"^1.7.0\",\n    \"vinyl-transform\": \"0.0.1\",\n    \"yargs\": \"^1.3.1\"\n  }\n}\n"
 
 /***/ },
 /* 109 */

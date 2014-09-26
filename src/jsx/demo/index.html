@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class='default' dir='{dir}'>
+<html class='default' dir='ltr'>
   <head>
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1' />
@@ -28,12 +28,15 @@
     <meta name='application-name' content='Rubix'>
     <link media='screen' rel='stylesheet' type='text/css' href='/css/vendor/pace/pace.css' />
     <link media='screen' rel='stylesheet' type='text/css' href='/css/vendor/perfect-scrollbar/perfect-scrollbar.css'>
-    <link media='screen' rel='stylesheet' type='text/css' href='/css/vendor/morris/morris.css'>
-    <link media='screen' rel='stylesheet' type='text/css' href='/js/vendor/codemirror/lib/codemirror.css'>
-    <link media='screen' rel='stylesheet' type='text/css' href='/js/vendor/codemirror/theme/ambiance.css'>
-{stylesheets}    <link media='screen' rel='stylesheet' type='text/css' href='/css/fonts/{app}/fonts.css'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/demo/blessed/ltr/main-blessed1.css', 'screen,print'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/demo/blessed/ltr/main.css', 'screen,print'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/demo/blessed/ltr/theme.css'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/demo/blessed/ltr/colors-blessed1.css'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/demo/blessed/ltr/colors.css'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/demo/blessed/ltr/font-faces.css'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/fonts/demo/fonts.css'>
   </head>
-  <body class='fade-out' data-version='{version}'>
+  <body class='fade-out' data-version='1.1'>
     <div id='pace-loader' class='pace-big'></div>
     <div id='app-preloader'></div>
     <div id='app-container'></div>
@@ -46,19 +49,28 @@
       <a class='play-pause'></a>
       <ol class='indicator'></ol>
     </div>
-    <script type='text/javascript' src='/js/vendor/pace/pace.js'></script>
-    <script type='text/javascript' src='/js/vendor/codemirror/lib/codemirror.js'></script>
-    <script type='text/javascript' src='/js/vendor/codemirror/mode/javascript/javascript.js'></script>
-    <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=true"></script>
-    <script type='text/javascript' src='/js/minified/external.min.js'></script>
-    <script type='text/javascript' src='/js/{app}/{app}.js'></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-54510890-1', 'auto');
-      ga('send', 'pageview');
-    </script>
+  <script type='text/javascript' src='/js/vendor/pace/pace.js' />
+  <script type='text/javascript' src='/js/polyfills/html5shiv.js'></script>
+  <script type='text/javascript' src='/js/polyfills/modernizr.min.js'></script>
+  <script type='text/javascript' src='/js/vendor/eventemitter2/eventemitter2.min.js'></script>
+  <script type='text/javascript' src='/js/vendor/jquery/jquery.js'></script>
+  <script type='text/javascript' src='/js/vendor/jquery-ui/jquery-ui.js'></script>
+  <script type='text/javascript' src='/js/vendor/bootstrap/bootstrap.js'></script>
+  <script type='text/javascript' src='/js/vendor/p-scrollbar/min/perfect-scrollbar.min.js'></script>
+  <script type='text/javascript' src='/js/vendor/sparklines/sparklines.js'></script>
+  <script type='text/javascript' src='/js/vendor/moment/moment.js'></script>
+  <script type='text/javascript' src='/js/vendor/select2/select2.js'></script>
+  <script type='text/javascript' src='/js/vendor/datatables/datatables.js'></script>
+  <script type='text/javascript' src='/js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js'></script>
+  <script type='text/javascript' src='/js/vendor/chartjs/chartjs.js'></script>
+  <script type='text/javascript' src='/js/vendor/c3js/c3js.js'></script>
+  <script type='text/javascript' src='/js/vendor/l20n/l20n.js'></script>
+  <script type='text/javascript' src='/js/common/react/react.js'></script>
+  <script type='text/javascript' src='/js/common/rrouter/rrouter.js'></script>
+  <script type='text/javascript' src='/js/common/react-bootstrap/react-bootstrap.js'></script>
+  <script type='text/javascript' src='/js/common/react-l20n/react-l20n.js'></script>
+  <script type='text/javascript' src='/js/common/react-responsive/react-responsive.js'></script>
+  <script type='text/javascript' src='/js/vendor/vex/vex.min.js'></script>
+  <script type='text/javascript' src='/js/demo/demo.min.js'></script>
   </body>
 </html>

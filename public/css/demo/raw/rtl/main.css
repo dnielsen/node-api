@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! rubix - v1.0.1 - 2014-09-17 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.1 - 2014-09-26 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 
 /* REQUIRED: DO NOT REMOVE */
 
@@ -21905,6 +21905,24 @@ html.boxed #homepage-container {
   .rubix-panel-controls {
     display: none !important;
   }
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #aaa !important;
+}
+
+.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: #aaa !important;
+}
+
+.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #aaa !important;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #aaa !important;
 }
 
 html[dir='rtl'] [class^="icon-"].float-right-rtl,
