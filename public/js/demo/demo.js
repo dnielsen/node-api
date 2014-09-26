@@ -769,7 +769,7 @@ var l20n=_RL20n_.l20n,
 	        responsive: true,
 	        processing: true,
 	        ajax: {
-	          url: 'http://sketchpixy.com:3001/activities',
+	          url: 'http://localhost:3001/activities',
 	          dataSrc: ''
 	        },
 	        columns: [
