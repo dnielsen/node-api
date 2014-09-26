@@ -1,5 +1,4 @@
-var restify = require('restify'),
-    common = require('./common'),
+var common = require('./common'),
     knex = common.knex,
     Type = require('./type'),
     __ = require("underscore");
@@ -115,7 +114,7 @@ Resource.prototype.find_by_primary_key = function (req, resp, next, custom_handl
     var that = this;
 
     if (!this.primary_key) {
-        return next(new restify.InvalidArgumentError('no primary key for this resource'));
+        return next(new Error('no primary key for this resource'));
     }
 
     var primary_key_field = this.primary_key;
@@ -124,7 +123,7 @@ Resource.prototype.find_by_primary_key = function (req, resp, next, custom_handl
     var field_def = this.owns[primary_key_field];
     var fails_validation = !field_def.type.validate(primary_key);
     if (fails_validation) {
-        throw new restify.InvalidArgumentError("'" + primary_key + "' invalid for " + primary_key_field);
+        throw new Error("'" + primary_key + "' invalid for " + primary_key_field);
     }
 
     var query = knex(this.tableName).where(this.tableName + '.' + primary_key_field, primary_key);
@@ -140,7 +139,7 @@ Resource.prototype.find_by_primary_key = function (req, resp, next, custom_handl
 
     var send_response = function (result_set) {
         if (result_set === undefined || result_set.length === 0) {
-            return next(new restify.ResourceNotFoundError(primary_key));
+            return next(new Error(primary_key));
         }
 
         var enveloped_result_set = that.apply_envelopes(result_set[0]);
@@ -157,7 +156,7 @@ Resource.prototype.find_by_primary_key = function (req, resp, next, custom_handl
     };
 
     query.then(send_response, function (err) {
-        return next(new restify.RestError(err));
+        return next(new Error(err));
     });
 };
 
@@ -178,7 +177,7 @@ Resource.prototype.find_all = function (req, resp, next, custom_handler) {
     var result_set;
 
     var return_error = function (err) {
-        return next(new restify.RestError(err));
+        return next(new Error(err));
     };
 
     var send_response = function (count_result) {
@@ -207,7 +206,7 @@ Resource.prototype.find_all = function (req, resp, next, custom_handler) {
         //if custom handler returns false, assume it handles the response itself
         if(enveloped_result_set) {
             resp.send(enveloped_result_set);
-            next();
+            // next();
         }
         return;
     };
@@ -378,7 +377,7 @@ Resource.prototype.apply_filters = function (requests, query, label) {
 
         //label is the handle for an associated resource from a previous call
         if (label !== undefined) {
-            throw new restify.InvalidArgumentError("filters may only be nested to 1 level");
+            throw new Error("filters may only be nested to 1 level");
         }
 
         var value = requests[filter_name];
@@ -422,7 +421,7 @@ Resource.prototype.apply_sorting = function (requests, query, quiet) {
             return;
         }
 
-        var exception = new restify.InvalidArgumentError("sort_by field '" + field + "' not recognized");
+        var exception = new Error("sort_by field '" + field + "' not recognized");
 
         //allow for subfield sorting
 
@@ -508,7 +507,7 @@ Resource.prototype.apply_paging = function (req, query, quiet) {
     var limit = req.query.limit;
     if (limit === '' || isNaN(limit) || limit < 0) {
         if (quiet) { return; }
-        throw new restify.InvalidArgumentError("limit value " + limit);
+        throw new Error("limit value " + limit);
     }
     query.limit(limit);
 
@@ -519,7 +518,7 @@ Resource.prototype.apply_paging = function (req, query, quiet) {
     var offset = req.query.offset;
     if (offset === '' || isNaN(offset)) {
         if (quiet) { return; }
-        throw new restify.InvalidArgumentError("offset value " + offset);
+        throw new Error("offset value " + offset);
     }
     query.offset(offset);
 };
@@ -540,12 +539,12 @@ Resource.prototype.assemble_insert = function (post_data) {
         if (__.has(field_def, "props")) {
             is_required = __.contains(field_def.props, "required");
             if (is_required && !was_posted) {
-                throw new restify.MissingParameterError('must provide ' + field);
+                throw new Error('must provide ' + field);
             }
 
             is_read_only = __.contains(field_def.props, "read-only");
             if (is_read_only && was_posted) {
-                throw new restify.InvalidArgumentError('cannot set field ' + field);
+                throw new Error('cannot set field ' + field);
             }
         }
 
@@ -566,7 +565,7 @@ Resource.prototype.assemble_insert = function (post_data) {
         //ask the field type to validate the assigned value
         var fails_validation = !field_def.type.validate(value);
         if (fails_validation) {
-            throw new restify.InvalidArgumentError("'" + value + "' invalid for " + field);
+            throw new Error("'" + value + "' invalid for " + field);
         }
 
         insert_data[field] = value;
@@ -586,7 +585,7 @@ Resource.prototype.create = function (req, resp, next, post_process_handler) {
 
             // make sure the requesting user isn't trying to set that field
             if (__.has(entity, my_user_field) && entity[my_user_field] !== requester[assoc_user_field]) {
-                throw new restify.InvalidArgumentError('Cannot assign different user.');
+                throw new Error('Cannot assign different user.');
             }
 
             // then set the field to the current user
@@ -607,7 +606,7 @@ Resource.prototype.create = function (req, resp, next, post_process_handler) {
         } else if (orig_message.indexOf("ER_BAD_FIELD_ERROR : ") !== -1) {
             response = "A field was not recognized";
         }
-        resp.send(new restify.RestError(new Error(response)));
+        resp.send(new Error(response));
         next();
     };
 
@@ -662,7 +661,7 @@ Resource.prototype.create = function (req, resp, next, post_process_handler) {
 
 Resource.prototype.delete_by_primary_key = function (req, resp, next) {
     if (!this.primary_key) {
-        return next(new restify.InvalidArgumentError('no primary key for this resource'));
+        return next(new Error('no primary key for this resource'));
     }
 
     var primary_key_field = this.primary_key;
@@ -671,12 +670,12 @@ Resource.prototype.delete_by_primary_key = function (req, resp, next) {
     var field_def = this.owns[primary_key_field];
     var fails_validation = !field_def.type.validate(primary_key);
     if (fails_validation) {
-        throw new restify.InvalidArgumentError("'" + primary_key + "' invalid for " + primary_key_field);
+        throw new Error("'" + primary_key + "' invalid for " + primary_key_field);
     }
 
     var send_response = function (results) {
         if (results === undefined || results === 0 || results.length === 0) {
-            return next(new restify.ResourceNotFoundError(primary_key));
+            return next(new Error(primary_key));
         }
 
         resp.send(200, "Deleted : " + (results.length === 1 ? results[0] : results));
@@ -684,7 +683,7 @@ Resource.prototype.delete_by_primary_key = function (req, resp, next) {
     };
 
     var report_error = function (err) {
-        return next(new restify.RestError(err));
+        return next(new Error(err));
     };
 
     var query = knex(this.tableName).where(primary_key_field, primary_key);

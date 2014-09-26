@@ -34,7 +34,7 @@ var port = argv.port ? argv.port : 8080;
 
 /* file patterns to watch */
 var paths = {
-  index: ['src/jsx/'+defaultAppName+'/index.html', 'service.js'],
+  index: ['src/jsx/'+defaultAppName+'/index.html', 'api.js'],
   l20n: ['src/global/vendor/l20n/*.jsx'],
   jsx: ['src/jsx/*.jsx', 'src/global/requires/*.js', 'src/jsx/**/*.jsx', 'src/jsx/**/**/*.jsx', 'src/jsx/**/**/**/*.jsx', '!src/global/vendor/l20n/*.jsx', '!src/global/vendor/bootstrap/*.jsx'],
   scss: ['public/fonts/web/*.ttf', 'src/sass/*.scss', 'src/sass/**/*.scss', 'src/sass/**/**/*.scss', 'src/sass/**/**/**/*.scss', 'src/sass/**/**/**/**/*.scss', 'src/global/sass/*.scss', 'src/global/sass/**/*.scss', 'src/global/sass/**/**/*.scss', 'src/global/sass/**/**/**/*.scss', 'src/global/sass/**/**/**/**/*.scss'],
@@ -316,7 +316,7 @@ gulp.task('base64-css', ['base64-css:concat'], function(cb) {
 var child = null;
 gulp.task('express', function() {
   if(child) child.kill();
-  child = child_process.spawn(process.execPath, ['./service.js'], {
+  child = child_process.spawn(process.execPath, ['./api.js'], {
     env: {
       NODE_ENV: process.env.NODE_ENV,
       APP: defaultAppName,

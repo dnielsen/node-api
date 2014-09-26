@@ -23,22 +23,17 @@ var Body = React.createClass({
       .dataTable({
         responsive: true,
         processing: true,
-        ajax: {
-          url: 'http://localhost:3001/activities',
-          dataSrc: ''
+        ajax: function(data, callback, settings) {
+          $.get('/activities', function(data) {
+            callback(data);
+          });
         },
         columns: [
           {data: 'timestamp'},
           {data: 'process_name'},
-          {data: function() {
-            return 'TBD';
-          }},
-          {data: function() {
-            return 'TBD';
-          }},
-          {data: function() {
-            return 'TBD';
-          }},
+          {data: 'protocol'},
+          {data: 'format'},
+          {data: 'action'},
           {data: 'status'}
         ],
         aoColumnDefs: [

@@ -18,6 +18,9 @@ var spec = {
         "environment" : { type : Type.Str, props : ["default"]},
         "status" : { type : Type.Str, props : ["default"]},
         "flow_name" : { type : Type.Str, props : ["default"]},
+        "action": {type: Type.Str, props: ["default"]},
+        "format": {type: Type.Str, props: ["default"]},
+        "protocol": {type: Type.Str, props: ["default"]}
     }
 };
 
