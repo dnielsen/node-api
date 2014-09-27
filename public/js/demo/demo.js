@@ -768,6 +768,7 @@ var l20n=_RL20n_.l20n,
 	      .dataTable({
 	        responsive: true,
 	        processing: true,
+	        // serverSide: true,
 	        ajax: function(data, callback, settings) {
 	          $.get('/activities', function(data) {
 	            callback(data);
@@ -781,11 +782,11 @@ var l20n=_RL20n_.l20n,
 	          {data: 'action'},
 	          {data: 'status'}
 	        ],
-	        aoColumnDefs: [
+	        columnDefs: [
 	          {
-	            aTargets: [0],
-	            sType: 'date',
-	            mRender: function(data, type, full) {
+	            targets: [0],
+	            type: 'date',
+	            render: function(data, type, full) {
 	              if(data){
 	                  var mDate = moment(data);
 	                  if (mDate && mDate.isValid()) {
@@ -796,9 +797,7 @@ var l20n=_RL20n_.l20n,
 	              }
 	              return "";
 	            }
-	          }
-	        ],
-	        columnDefs: [
+	          },
 	          { targets: [-1, -2], className: 'dt-body-right' }
 	        ]
 	    });

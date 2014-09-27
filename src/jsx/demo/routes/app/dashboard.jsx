@@ -23,6 +23,7 @@ var Body = React.createClass({
       .dataTable({
         responsive: true,
         processing: true,
+        // serverSide: true,
         ajax: function(data, callback, settings) {
           $.get('/activities', function(data) {
             callback(data);
@@ -36,11 +37,11 @@ var Body = React.createClass({
           {data: 'action'},
           {data: 'status'}
         ],
-        aoColumnDefs: [
+        columnDefs: [
           {
-            aTargets: [0],
-            sType: 'date',
-            mRender: function(data, type, full) {
+            targets: [0],
+            type: 'date',
+            render: function(data, type, full) {
               if(data){
                   var mDate = moment(data);
                   if (mDate && mDate.isValid()) {
@@ -51,9 +52,7 @@ var Body = React.createClass({
               }
               return "";
             }
-          }
-        ],
-        columnDefs: [
+          },
           { targets: [-1, -2], className: 'dt-body-right' }
         ]
     });
