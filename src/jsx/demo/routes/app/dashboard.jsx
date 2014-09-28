@@ -5,30 +5,54 @@ var Sidebar = require('../../common/sidebar.jsx');
 var Footer = require('../../common/footer.jsx');
 
 var Body = React.createClass({
+  getInitialState: function() {
+    return {
+      events: [],
+      objects: []
+    };
+  },
   handleEvents: function(e) {
     var table = $('#example').DataTable();
     var value = e.target.value === 'All events' ? '' : e.target.value;
     table.column(1).search(value, true, false).draw();
   },
+  handleObjects: function(e) {
+    var table = $('#example').DataTable();
+    var value = e.target.value === 'Select an object' ? '' : e.target.value;
+    table.column(2).search(value, true, false).draw();
+  },
+  handleObjectIDSearch: function(e) {
+    var table = $('#example').DataTable();
+    table.column(2).search(e.target.value, true, false).draw();
+  },
   componentDidMount: function() {
     var maxDate = 0;
     $(this.refs.datetimepicker1.getDOMNode()).datetimepicker().on("dp.change",function (e) {
       var table = $('#example').DataTable();
-      var date = e.date.format("lll");
+      var date = e.date.format("YYYY-MM-DD hh:mm");
       table.column(0).search(date, true, false).draw();
+    });
+    $('#searchinput').off('*').on('change', function(e) {
+      if($('#searchinput').val().length) return;
+      var table = $('#example').DataTable();
+      table.column(0).search('', true, false).draw();
     });
     $(this.refs.icon.getDOMNode()).attr('class', 'rubix-icon icon-fontello-calendar');
     $('#example')
       .addClass('nowrap')
-      .dataTable({
+      .DataTable({
         responsive: true,
         processing: true,
-        // serverSide: true,
+        serverSide: true,
         ajax: function(data, callback, settings) {
-          $.get('/activities', function(data) {
-            callback(data);
-          });
-        },
+          $.post('/data-source/activities', data, function(d) {
+            this.setState({
+              events: d.events,
+              objects: d.objects
+            });
+            callback(d);
+          }.bind(this));
+        }.bind(this),
         columns: [
           {data: 'timestamp'},
           {data: 'process_name'},
@@ -78,22 +102,25 @@ var Body = React.createClass({
                         <Col xs={3}>
                           <Select onChange={this.handleEvents}>
                             <option>All events</option>
-                            <option value='Generate IDOC'>Generate IDOC</option>
-                            <option value='Receive MasterBillOfLading'>Receive MasterBillOfLading</option>
+                            {this.state.events.map(function(ev, i) {
+                              return <option value={ev.process_name} key={'event-'+i}>{ev.process_name}</option>
+                            })}
                           </Select>
                         </Col>
                         <Col xs={3} collapseLeft>
-                          <Select>
+                          <Select onChange={this.handleObjects}>
                             <option>Select an object</option>
-                            <option value='shipped-loads'>TBD</option>
+                            {this.state.objects.map(function(ob, i) {
+                              return <option value={ob.protocol} key={'object-'+i}>{ob.protocol}</option>
+                            })}
                           </Select>
                         </Col>
                         <Col xs={3} collapseLeft className='text-right'>
-                          <Input type='text' placeholder='Enter an Object ID or File Name' />
+                          <Input type='text' placeholder='Enter an Object ID or File Name' onChange={this.handleObjectIDSearch} />
                         </Col>
                         <Col xs={3} collapseLeft>
                           <InputGroup className='date' ref='datetimepicker1'>
-                            <Input type='text' className='form-control' />
+                            <Input id='searchinput' type='text' className='form-control' />
                             <InputGroupAddon>
                               <Icon ref='icon' glyph='icon-fontello-calendar' />
                             </InputGroupAddon>

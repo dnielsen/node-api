@@ -1,4 +1,4 @@
-/*! rubix - v1.0.0 - 2014-09-08 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.1 - 2014-09-28 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -400,7 +400,7 @@ var l20n=_RL20n_.l20n,
 	          Grid(null, 
 	            Row({className: "fg-white"}, 
 	              Col({xs: 4, collapseRight: true}, 
-	                React.DOM.img({src: "/imgs/anna_sanchez.png", width: "40", height: "40"})
+	                React.DOM.img({src: "/imgs/avatars/avatar0.png", width: "40", height: "40"})
 	              ), 
 	              Col({xs: 8, collapseLeft: true, id: "avatar-col"}, 
 	                React.DOM.div({style: {top: 23, fontSize: 16, lineHeight: 1, position: 'relative'}}, "Anna Sanchez"), 

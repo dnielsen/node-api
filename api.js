@@ -4,9 +4,16 @@
 var fs = require('fs');
 var path = require('path');
 var express = require('express');
+var bodyParser = require('body-parser');
 var compression = require('compression');
+var methodOverride = require('method-override');
 
 var app = express();
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+app.use(methodOverride());
 app.use(compression());
 app.use(express.static(path.join(process.cwd(), 'public')));
 
@@ -22,6 +29,7 @@ app.get('/', function(req, res) {
 });
 app.get('/activities', activities.find_all);
 app.get('/activities/:id', activities.find_by_primary_key);
+app.post('/data-source/activities', activities.data_source);
 
 //----------------------  Start the server  --------------------------------------
 

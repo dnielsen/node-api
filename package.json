@@ -5,6 +5,7 @@
   "author": "SketchPixy (support@sketchpixy.com)",
   "copyright": "SketchPixy LLP, email: support@sketchpixy.com",
   "devDependencies": {
+    "body-parser": "^1.9.0",
     "compression": "^1.0.8",
     "crypto": "0.0.3",
     "css-flip": "^0.5.0",
@@ -29,6 +30,7 @@
     "jsx-loader": "^0.11.0",
     "knex": "^0.6.22",
     "map-stream": "^0.1.0",
+    "method-override": "^2.2.0",
     "mysql": "^2.5.1",
     "raw-loader": "^0.5.1",
     "react": "^0.11.1",

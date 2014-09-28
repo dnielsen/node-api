@@ -160,6 +160,80 @@ Resource.prototype.find_by_primary_key = function (req, resp, next, custom_handl
     });
 };
 
+Resource.prototype.data_source = function (req, resp, next, custom_handler) {
+    var that = this;
+
+    var columns = [];
+    for(var i=0; i<req.body.columns.length; i++) {
+        columns.push(req.body.columns[i].data);
+    }
+    var query = knex.select.apply(knex, columns).from(this.tableName);
+    var count_query = knex.select(knex.raw('count(timestamp) as count')).from(this.tableName);
+    var filtered_query = knex.select(knex.raw('count(timestamp) as count')).from(this.tableName);
+    var event_query = knex.select(knex.raw('distinct process_name')).from(this.tableName);
+    var object_query = knex.select(knex.raw('distinct protocol')).from(this.tableName);
+
+    if(req.body.search.value.length) {
+        query = query.whereRaw("CONCAT_WS('|',`timestamp`,`process_name`,`protocol`,`format`,`action`,`status`) like '%"+req.body.search.value+"%'");
+        filtered_query = filtered_query.whereRaw("CONCAT_WS('|',`timestamp`,`process_name`,`protocol`,`format`,`action`,`status`) like '%"+req.body.search.value+"%'");
+    }
+
+    for(var i=0; i<req.body.columns.length; i++) {
+        if(req.body.columns[i].search.value.length) {
+            query = query.where(req.body.columns[i].data, 'like', 
+                '%'+req.body.columns[i].search.value+'%');
+            filtered_query = filtered_query.where(req.body.columns[i].data, 'like', 
+                '%'+req.body.columns[i].search.value+'%');
+        }
+    }
+
+    query = query.offset(parseInt(req.body.start)).limit(parseInt(req.body.length));
+
+    for(var i=0; i<req.body.order.length; i++) {
+        query = query.orderBy(
+            req.body.columns[parseInt(req.body.order[i].column)].data,
+            req.body.order[i].dir
+        );
+    }
+
+    var return_error = function (err) {
+        return next(new Error(err));
+    };
+
+    var send_response = function (result) {
+        resp.send({
+            draw: req.body.draw,
+            recordsTotal: result.recordsTotal,
+            recordsFiltered: result.recordsFiltered,
+            data: result.records,
+            events: result.events,
+            objects: result.objects
+        });
+        return;
+    };
+
+    var fetch_total_count = function(result) {
+        event_query.then(function(event_result) {
+            object_query.then(function(object_result) {
+                count_query.then(function(count_result) {
+                    filtered_query.then(function(filtered_result) {
+                        send_response({
+                            records: result,
+                            events: event_result,
+                            objects: object_result,
+                            recordsTotal: count_result[0].count,
+                            recordsFiltered: filtered_result[0].count,
+                        });
+                    }, return_error);
+                });
+            });
+        });
+    }.bind(this);
+
+    // console.log(query.toString()); //diagnostic
+    query.then(fetch_total_count, return_error);
+};
+
 Resource.prototype.find_all = function (req, resp, next, custom_handler) {
     var that = this;
 

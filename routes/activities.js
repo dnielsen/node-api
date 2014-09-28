@@ -39,4 +39,7 @@ exports.find_by_primary_key = function (req, resp, next) {
     return resource.find_by_primary_key(req, resp, next);
 };
 
+exports.data_source = function (req, resp, next) {
+    return resource.data_source(req, resp, next);
+};
 
