@@ -31,7 +31,7 @@ var Body = React.createClass({
       pickTime: false
     }).on("dp.change",function (e) {
       var table = $('#example').DataTable();
-      var date = e.date.format("YYYY-MM-DD hh:mm");
+      var date = e.date.format("YYYY-MM-DD");
       table.column(0).search(date, true, false).draw();
     });
     $('#searchinput').off('*').on('change', function(e) {
