@@ -165,6 +165,7 @@ Resource.prototype.data_source = function (req, resp, next, custom_handler) {
 
     var columns = [];
     for(var i=0; i<req.body.columns.length; i++) {
+        if(req.body.columns[i].data === 'function') continue;
         columns.push(req.body.columns[i].data);
     }
     var query = knex.select.apply(knex, columns).from(this.tableName);
@@ -179,6 +180,7 @@ Resource.prototype.data_source = function (req, resp, next, custom_handler) {
     }
 
     for(var i=0; i<req.body.columns.length; i++) {
+        if(req.body.columns[i].data === 'function') continue;
         if(req.body.columns[i].search.value.length) {
             query = query.where(req.body.columns[i].data, 'like', 
                 '%'+req.body.columns[i].search.value+'%');

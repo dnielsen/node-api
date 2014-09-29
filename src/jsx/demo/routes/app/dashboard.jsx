@@ -4,6 +4,8 @@ var Header = require('../../common/header.jsx');
 var Sidebar = require('../../common/sidebar.jsx');
 var Footer = require('../../common/footer.jsx');
 
+var xml = require('raw!./xml.txt');
+
 var Body = React.createClass({
   getInitialState: function() {
     return {
@@ -24,6 +26,30 @@ var Body = React.createClass({
   handleObjectIDSearch: function(e) {
     var table = $('#example').DataTable();
     table.column(2).search(e.target.value, true, false).draw();
+  },
+  getModal: function() {
+    var highlightAll = function() {
+      Prism.highlightAll();
+    };
+
+    return (
+      <Modal lg onShown={highlightAll}>
+        <ModalHeader>
+          <Button onClick={ModalManager.remove} onTouchEnd={ModalManager.remove} close />
+          <h4 className='modal-title'>Event Data Viewer</h4>
+        </ModalHeader>
+        <ModalBody>
+          <pre style={{margin: 0}}>
+            <code className='language-markup'>
+              {xml}
+            </code>
+          </pre>
+        </ModalBody>
+      </Modal>
+    );
+  },
+  handleLinkClick: function() {
+    ModalManager.create.bind(this, this.getModal())();
   },
   componentDidMount: function() {
     var maxDate = 0;
@@ -79,7 +105,20 @@ var Body = React.createClass({
               return "";
             }
           },
-          { targets: [-1, -2], className: 'dt-body-right' }
+          { targets: [-1, -2], className: 'dt-body-right' },
+          {
+            targets: [6],
+            data: function(x, y, z, grid) {
+              var cell = $('#example tr:eq('+(grid.row+2)+') > td:eq('+grid.col+')');
+              if(cell.get(0)) {
+                $('.view-data').off('click').on('click', function(e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  this.handleLinkClick();
+                }.bind(this));
+              }
+              return '<a class="view-data" href="#">View Data</a>';
+            }.bind(this)}
         ]
     });
   },
@@ -143,6 +182,7 @@ var Body = React.createClass({
                                 <th>Format</th>
                                 <th>Action</th>
                                 <th>Status</th>
+                                <th>Event Data</th>
                               </tr>
                             </thead>
                             <tfoot>
@@ -153,6 +193,7 @@ var Body = React.createClass({
                                 <th>Format</th>
                                 <th>Action</th>
                                 <th>Status</th>
+                                <th>Event Data</th>
                               </tr>
                             </tfoot>
                           </Table>

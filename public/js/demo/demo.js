@@ -1,4 +1,4 @@
-/*! rubix - v1.0.1 - 2014-09-29 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! rubix - v1.0.1 - 2014-09-30 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -349,6 +349,8 @@ var l20n=_RL20n_.l20n,
 	var Sidebar = __webpack_require__(9);
 	var Footer = __webpack_require__(10);
 
+	var xml = __webpack_require__(11);
+
 	var Body = React.createClass({displayName: 'Body',
 	  getInitialState: function() {
 	    return {
@@ -369,6 +371,30 @@ var l20n=_RL20n_.l20n,
 	  handleObjectIDSearch: function(e) {
 	    var table = $('#example').DataTable();
 	    table.column(2).search(e.target.value, true, false).draw();
+	  },
+	  getModal: function() {
+	    var highlightAll = function() {
+	      Prism.highlightAll();
+	    };
+
+	    return (
+	      Modal({lg: true, onShown: highlightAll}, 
+	        ModalHeader(null, 
+	          Button({onClick: ModalManager.remove, onTouchEnd: ModalManager.remove, close: true}), 
+	          React.DOM.h4({className: "modal-title"}, "Event Data Viewer")
+	        ), 
+	        ModalBody(null, 
+	          React.DOM.pre({style: {margin: 0}}, 
+	            React.DOM.code({className: "language-markup"}, 
+	              xml
+	            )
+	          )
+	        )
+	      )
+	    );
+	  },
+	  handleLinkClick: function() {
+	    ModalManager.create.bind(this, this.getModal())();
 	  },
 	  componentDidMount: function() {
 	    var maxDate = 0;
@@ -424,7 +450,20 @@ var l20n=_RL20n_.l20n,
 	              return "";
 	            }
 	          },
-	          { targets: [-1, -2], className: 'dt-body-right' }
+	          { targets: [-1, -2], className: 'dt-body-right' },
+	          {
+	            targets: [6],
+	            data: function(x, y, z, grid) {
+	              var cell = $('#example tr:eq('+(grid.row+2)+') > td:eq('+grid.col+')');
+	              if(cell.get(0)) {
+	                $('.view-data').off('click').on('click', function(e) {
+	                  e.preventDefault();
+	                  e.stopPropagation();
+	                  this.handleLinkClick();
+	                }.bind(this));
+	              }
+	              return '<a class="view-data" href="#">View Data</a>';
+	            }.bind(this)}
 	        ]
 	    });
 	  },
@@ -487,7 +526,8 @@ var l20n=_RL20n_.l20n,
 	                                React.DOM.th(null, "Object"), 
 	                                React.DOM.th(null, "Format"), 
 	                                React.DOM.th(null, "Action"), 
-	                                React.DOM.th(null, "Status")
+	                                React.DOM.th(null, "Status"), 
+	                                React.DOM.th(null, "Event Data")
 	                              )
 	                            ), 
 	                            React.DOM.tfoot(null, 
@@ -497,7 +537,8 @@ var l20n=_RL20n_.l20n,
 	                                React.DOM.th(null, "Object"), 
 	                                React.DOM.th(null, "Format"), 
 	                                React.DOM.th(null, "Action"), 
-	                                React.DOM.th(null, "Status")
+	                                React.DOM.th(null, "Status"), 
+	                                React.DOM.th(null, "Event Data")
 	                              )
 	                            )
 	                          ), 
@@ -1387,6 +1428,12 @@ var l20n=_RL20n_.l20n,
 
 	module.exports = Footer;
 
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xsd:schema xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://southwire.com/Mainframe/Accounting\" targetNamespace=\"http://southwire.com/Mainframe/Accounting\">\n<xsd:complexType name=\"PaidInvoices\">\n    <xsd:sequence>\n        <xsd:element name=\"PaidInvoice\" maxOccurs=\"unbounded\">\n            <xsd:complexType>\n                <xsd:sequence>\n                    <xsd:element name=\"DocNum\">\n                        <xsd:simpleType>\n                            <xsd:restriction base=\"xsd:string\">\n                                <xsd:minLength value=\"1\"/>\n                                <xsd:maxLength value=\"10\"/>\n                            </xsd:restriction>\n                        </xsd:simpleType>\n                    </xsd:element>\n                    <xsd:element name=\"PayDocNum\">\n                        <xsd:simpleType>\n                            <xsd:restriction base=\"xsd:string\">\n                                <xsd:minLength value=\"1\"/>\n                                <xsd:maxLength value=\"10\"/>\n                            </xsd:restriction>\n                        </xsd:simpleType>\n                    </xsd:element>\n                    <xsd:element name=\"InvoiceNum\">\n                        <xsd:simpleType>\n                            <xsd:restriction base=\"xsd:string\">\n                                <xsd:minLength value=\"1\"/>\n                                <xsd:maxLength value=\"16\"/>\n                            </xsd:restriction>\n                        </xsd:simpleType>\n                    </xsd:element>\n                    <xsd:element name=\"CheckDt\">\n                        <xsd:simpleType>\n                            <xsd:restriction base=\"xsd:string\">\n                                <xsd:length value=\"8\"/>\n                            </xsd:restriction>\n                        </xsd:simpleType>\n                    </xsd:element>\n                    <xsd:element name=\"CheckNum\">\n                        <xsd:simpleType>\n                            <xsd:restriction base=\"xsd:string\">\n                                <xsd:minLength value=\"1\"/>\n                                <xsd:maxLength value=\"18\"/>\n                            </xsd:restriction>\n                        </xsd:simpleType>\n                    </xsd:element>\n                    <xsd:element name=\"VendorNum\">\n                        <xsd:simpleType>\n                            <xsd:restriction base=\"xsd:string\">\n                                <xsd:minLength value=\"1\"/>\n                                <xsd:maxLength value=\"10\"/>\n                            </xsd:restriction>\n                        </xsd:simpleType>\n                    </xsd:element>\n                </xsd:sequence>\n            </xsd:complexType>\n        </xsd:element>\n    </xsd:sequence>\n</xsd:complexType>\n</xsd:schema>\n"
 
 /***/ }
 /******/ ])
