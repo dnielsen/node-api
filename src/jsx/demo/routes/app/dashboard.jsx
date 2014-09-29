@@ -81,6 +81,13 @@ var Body = React.createClass({
             callback(d);
           }.bind(this));
         }.bind(this),
+        drawCallback: function() {
+          $('.view-data').off('click').on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.handleLinkClick();
+          }.bind(this));
+        }.bind(this),
         columns: [
           {data: 'timestamp'},
           {data: 'process_name'},
@@ -109,14 +116,6 @@ var Body = React.createClass({
           {
             targets: [6],
             data: function(x, y, z, grid) {
-              var cell = $('#example tr:eq('+(grid.row+2)+') > td:eq('+grid.col+')');
-              if(cell.get(0)) {
-                $('.view-data').off('click').on('click', function(e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  this.handleLinkClick();
-                }.bind(this));
-              }
               return '<a class="view-data" href="#">View Data</a>';
             }.bind(this)}
         ]
