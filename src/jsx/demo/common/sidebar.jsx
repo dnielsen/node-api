@@ -1,7 +1,5 @@
 /** @jsx React.DOM */
 
-var ChatComponent = require('./chat.jsx')
-
 var ApplicationSidebar = React.createClass({
   render: function() {
     return (
@@ -13,10 +11,10 @@ var ApplicationSidebar = React.createClass({
               <div className='sidebar-nav-container'>
                 <SidebarNav style={{marginBottom: 0}}>
                   <SidebarNavItem glyph='icon-fontello-gauge' name='Dashboard' href='/app/dashboard' />
-                  <SidebarNavItem glyph='icon-ikons-plug' name='Connectors' />
-                  <SidebarNavItem glyph='icon-ikons-code' name='API Manager' />
-                  <SidebarNavItem glyph='icon-ikons-bar-chart-2' name='System Performance' />
-                  <SidebarNavItem glyph='icon-dripicons-document' name='Event Logs' />
+                  <SidebarNavItem glyph='icon-ikons-plug' name='Connectors' href='/app/connectors' />
+                  <SidebarNavItem glyph='icon-ikons-code' name='API Manager' href='/app/api-manager' />
+                  <SidebarNavItem glyph='icon-ikons-bar-chart-2' name='System Performance' href='/app/system-performance' />
+                  <SidebarNavItem glyph='icon-dripicons-document' name='Event Logs' href='/app/event-logs' />
                 </SidebarNav>
               </div>
             </Col>
@@ -461,41 +459,30 @@ var SidebarSection = React.createClass({
         <div id='avatar'>
           <Grid>
             <Row className='fg-white'>
-              <Col xs={4} collapseRight>
-                <img src='/imgs/avatars/avatar0.png' width='40' height='40' />
-              </Col>
-              <Col xs={8} collapseLeft id='avatar-col'>
-                <div style={{top: 23, fontSize: 16, lineHeight: 1, position: 'relative'}}>Anna Sanchez</div>
-                <div>
-                  <Progress id='demo-progress' value={30} min={0} max={100} color='#ffffff'/>
-                  <Link href='/app/lock'><Icon id='demo-icon' bundle='fontello' glyph='lock-5' /></Link>
-                </div>
+              <Col xs={12} id='avatar-col'>
+                <div className='text-center' style={{top: 23, fontSize: 24, lineHeight: 1, position: 'relative'}}>TMS User</div>
               </Col>
             </Row>
           </Grid>
         </div>
         <SidebarControls>
           <SidebarControlBtn bundle='fontello' glyph='docs' key={0} />
-          <SidebarControlBtn bundle='fontello' glyph='chat-1' key={1} />
-          <SidebarControlBtn bundle='fontello' glyph='chart-pie-2' key={2} />
-          <SidebarControlBtn bundle='fontello' glyph='th-list-2' key={3} />
-          <SidebarControlBtn bundle='fontello' glyph='bell-5' key={4} />
+          <SidebarControlBtn bundle='fontello' glyph='chart-pie-2' key={1} style={{visibility: 'hidden'}} />
+          <SidebarControlBtn bundle='fontello' glyph='th-list-2' key={2} style={{visibility: 'hidden'}} />
+          <SidebarControlBtn bundle='fontello' glyph='bell-5' key={3} style={{visibility: 'hidden'}} />
         </SidebarControls>
         <div id='sidebar-container'>
           <Sidebar key={0} active>
             <ApplicationSidebar />
           </Sidebar>
           <Sidebar key={1}>
-            <ChatComponent />
+            <StatisticsComponent style={{display: 'none'}} />
           </Sidebar>
           <Sidebar key={2}>
-            <StatisticsComponent />
+            <TimelineComponent style={{display: 'none'}} />
           </Sidebar>
           <Sidebar key={3}>
-            <TimelineComponent />
-          </Sidebar>
-          <Sidebar key={4}>
-            <NotificationComponent />
+            <NotificationComponent style={{display: 'none'}} />
           </Sidebar>
         </div>
       </div>

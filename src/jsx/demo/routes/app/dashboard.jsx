@@ -27,7 +27,9 @@ var Body = React.createClass({
   },
   componentDidMount: function() {
     var maxDate = 0;
-    $(this.refs.datetimepicker1.getDOMNode()).datetimepicker().on("dp.change",function (e) {
+    $(this.refs.datetimepicker1.getDOMNode()).datetimepicker({
+      pickTime: false
+    }).on("dp.change",function (e) {
       var table = $('#example').DataTable();
       var date = e.date.format("YYYY-MM-DD hh:mm");
       table.column(0).search(date, true, false).draw();
