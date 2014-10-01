@@ -2,10 +2,20 @@
     "db_config" : {
         "client" : "mysql",
         "connection" : {
+            "host" : "db4free.net",
+            "user" : "sketchpixy",
+            "password" : "fuzylagedipidah",
+            "database" : "logsqa",
+            "charset" : "UTF8MB4_GENERAL_CI"
+        }
+    },
+    "local_db_config" : {
+        "client" : "mysql",
+        "connection" : {
             "host" : "127.0.0.1",
             "user" : "root",
             "password" : "dtMS4Y13sezqiUX",
-            "database" : "activity_log",
+            "database" : "logsqa",
             "charset" : "UTF8MB4_GENERAL_CI"
         }
     },

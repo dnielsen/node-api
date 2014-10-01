@@ -1,4 +1,4 @@
-/*! rubix - v1.0.1 - 2014-10-02 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! 3PLogic - v1.0.2 - 2014-10-02 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
