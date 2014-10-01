@@ -10,4 +10,4 @@ var Jumbotron = React.createClass({
   }
 });
 
-module.exports = Jumbotron
+module.exports = Jumbotron;

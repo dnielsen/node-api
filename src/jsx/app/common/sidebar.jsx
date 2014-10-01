@@ -1,16 +1,5 @@
 /** @jsx React.DOM */
 
-var SidebarComponent = require('./sidebar_component.jsx');
-
-var Sidebar = SidebarComponent.Sidebar,
-    SidebarNav = SidebarComponent.SidebarNav,
-    SidebarMixin = SidebarComponent.SidebarMixin,
-    SidebarNavItem = SidebarComponent.SidebarNavItem,
-    SidebarControls = SidebarComponent.SidebarControls,
-    SidebarControlBtn = SidebarComponent.SidebarControlBtn;
-
-var ChatComponent = require('./chat.jsx')
-
 var ApplicationSidebar = React.createClass({
   render: function() {
     return (
@@ -18,25 +7,14 @@ var ApplicationSidebar = React.createClass({
         <Grid>
           <Row>
             <Col xs={12}>
-              <div className='sidebar-header'>PAGES</div>
+              <div className='sidebar-header'>TMS.CONNECT</div>
               <div className='sidebar-nav-container'>
                 <SidebarNav style={{marginBottom: 0}}>
                   <SidebarNavItem glyph='icon-fontello-gauge' name='Dashboard' href='/app/dashboard' />
-                  <SidebarNavItem glyph='icon-feather-mail' name={<span>Mailbox <BLabel className='bg-darkgreen45 fg-white'>3</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem glyph='icon-feather-inbox' name='Inbox' href='/app/mailbox/inbox' />
-                      <SidebarNavItem glyph='icon-outlined-mail-open' name='Mail' href='/app/mailbox/mail' />
-                      <SidebarNavItem glyph='icon-dripicons-message' name='Compose' href='/app/mailbox/compose' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-pixelvicon-photo-gallery' name='Gallery' href='/app/gallery' />
-                  <SidebarNavItem glyph='icon-feather-share' name='Social' href='/app/social' />
-                  <SidebarNavItem glyph='icon-stroke-gap-icons-Blog' name={<span>Blog <BLabel className='bg-darkcyan fg-white'>2</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem glyph='icon-feather-layout' name='Posts' href='/app/blog/posts' />
-                      <SidebarNavItem glyph='icon-feather-paper' name='Single Post' href='/app/blog/post' />
-                    </SidebarNav>
-                  </SidebarNavItem>
+                  <SidebarNavItem glyph='icon-ikons-plug' name='Connectors' href='/app/connectors' />
+                  <SidebarNavItem glyph='icon-ikons-code' name='API Manager' href='/app/api-manager' />
+                  <SidebarNavItem glyph='icon-ikons-bar-chart-2' name='System Performance' href='/app/system-performance' />
+                  <SidebarNavItem glyph='icon-dripicons-document' name='Event Logs' href='/app/event-logs' />
                 </SidebarNav>
               </div>
             </Col>
@@ -46,131 +24,13 @@ var ApplicationSidebar = React.createClass({
         <Grid>
           <Row>
             <Col xs={12}>
-              <div className='sidebar-header'>COMPONENTS</div>
+              <div className='sidebar-header'>BUSINESS RULES</div>
               <div className='sidebar-nav-container'>
                 <SidebarNav style={{marginBottom: 0}}>
-                  <SidebarNavItem glyph='icon-simple-line-icons-layers float-right-rtl' name='Panels' href='/app/panels' />
-                  <SidebarNavItem glyph='icon-ikons-bar-chart-2 float-right-rtl' name={<span>Charts <BLabel className='bg-brown50 fg-white'>4</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem glyph='icon-fontello-chart-area' name='Rubix Charts'>
-                        <SidebarNav>
-                          <SidebarNavItem name='Line Series' href='/app/charts/rubix/line' />
-                          <SidebarNavItem name='Area Series' href='/app/charts/rubix/area' />
-                          <SidebarNavItem name='Bar + Column Series' href='/app/charts/rubix/barcol' />
-                          <SidebarNavItem name='Mixed Series' href='/app/charts/rubix/mixed' />
-                          <SidebarNavItem name='Pie + Donut Series' href='/app/charts/rubix/piedonut' />
-                        </SidebarNav>
-                      </SidebarNavItem>
-                      <SidebarNavItem glyph='icon-simple-line-icons-graph' name='Chart.JS' href='/app/charts/chartjs' />
-                      <SidebarNavItem glyph='icon-dripicons-graph-line' name='C3.JS' href='/app/charts/c3js' />
-                      <SidebarNavItem glyph='icon-feather-pie-graph' name='Morris.JS' href='/app/charts/morrisjs' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem href='/app/timeline' glyph='icon-ikons-time' name='Static Timeline' />
-                  <SidebarNavItem href='/app/interactive-timeline' glyph='icon-fontello-back-in-time' name='Interactive Timeline' />
-                  <SidebarNavItem href='/app/maps' glyph='icon-ikons-pin-2' name='Maps' />
-                  <SidebarNavItem href='/app/editor' glyph='icon-simple-line-icons-note' name='Editor' />
-                  <SidebarNavItem glyph='icon-feather-toggle' name={<span>UI Elements <BLabel className='bg-deepred fg-white'>7</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem href='/app/ui-elements/buttons' glyph='icon-mfizz-oracle' name='Buttons' />
-                      <SidebarNavItem href='/app/ui-elements/dropdowns' glyph='icon-outlined-arrow-down' name='Dropdowns' />
-                      <SidebarNavItem href='/app/ui-elements/tabs-and-navs' glyph='icon-nargela-navigation' name='Tabs &amp; Navs' />
-                      <SidebarNavItem href='/app/ui-elements/sliders' glyph='icon-outlined-three-stripes-horiz' name='Sliders' />
-                      <SidebarNavItem href='/app/ui-elements/knobs' glyph='icon-ikons-chart-3-8' name='Knobs' />
-                      <SidebarNavItem href='/app/ui-elements/modals' glyph='icon-pixelvicon-browser-1' name='Modals' />
-                      <SidebarNavItem href='/app/ui-elements/messenger' glyph='icon-dripicons-message' name='Messenger' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-stroke-gap-icons-Files float-right-rtl' name={<span>Forms <BLabel className='bg-danger fg-white'>3</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem glyph='icon-mfizz-fire-alt' href='/app/forms/controls' name='Controls' />
-                      <SidebarNavItem glyph='icon-stroke-gap-icons-Edit' href='/app/forms/xeditable' name='X-Editable' />
-                      <SidebarNavItem glyph='icon-simple-line-icons-magic-wand' href='/app/forms/wizard' name='Wizard' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-fontello-table' name={<span>Tables <BLabel className='bg-blue fg-white'>3</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem href='/app/tables/bootstrap-tables' glyph='icon-fontello-th-thumb' name='Bootstrap Tables' />
-                      <SidebarNavItem href='/app/tables/datatables' glyph='icon-fontello-th-2' name='Datatables' />
-                      <SidebarNavItem href='/app/tables/tablesaw' glyph='icon-fontello-view-mode' name='Tablesaw' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem href='/app/grid' glyph='icon-ikons-grid-1 float-right-rtl' name='Grid' />
-                  <SidebarNavItem href='/app/calendar' glyph='icon-fontello-calendar-alt' name='Calendar' />
-                  <SidebarNavItem href='/app/lists' glyph='icon-fontello-flow-cascade' name='Lists' />
-                  <SidebarNavItem glyph='icon-fontello-folder-open-empty' name={<span>File Utilities <BLabel className='bg-orange fg-darkbrown'>2</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem href='/app/file-utilities/dropzone' glyph='icon-stroke-gap-icons-Download' name='Dropzone' />
-                      <SidebarNavItem href='/app/file-utilities/crop' glyph='icon-ikons-crop' name='Image Cropping' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem href='/app/fonts' glyph='icon-fontello-fontsize' name='Fonts' />
-                </SidebarNav>
-              </div>
-            </Col>
-          </Row>
-        </Grid>
-        <hr style={{borderColor: '#3B4648', borderWidth: 2, marginTop: 15, marginBottom: 0, width: 200}} />
-        <Grid gutterBottom>
-          <Row>
-            <Col xs={12}>
-              <div className='sidebar-header'>EXTRAS</div>
-              <div className='sidebar-nav-container'>
-                <SidebarNav style={{marginBottom: 0}}>
-                  <SidebarNavItem glyph='icon-ikons-login' name='Login' href='/app/login' />
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='Signup' href='/app/signup' />
-                  <SidebarNavItem glyph='icon-ikons-lock' name='Lock Page' href='/app/lock' />
-                  <SidebarNavItem glyph='icon-dripicons-document' name='Invoice' href='/app/invoice' />
-                  <SidebarNavItem glyph='icon-feather-tag icon-rotate-135' name='Pricing Tables' href='/app/pricing' />
-                </SidebarNav>
-              </div>
-            </Col>
-          </Row>
-        </Grid>
-        <hr style={{borderColor: '#3B4648', borderWidth: 2, marginTop: 15, marginBottom: 0, width: 200}} />
-        <Grid gutterBottom>
-          <Row>
-            <Col xs={12}>
-              <div className='sidebar-header'>DOCUMENTATION</div>
-              <div className='sidebar-nav-container'>
-                <SidebarNav style={{marginBottom: 0}}>
-                  <SidebarNavItem glyph='icon-fontello-install' name='Installation' href='/app/docs/installation' />
-                  <SidebarNavItem glyph='devicon-gulp-plain' name={<span>Gulpfile.js <BLabel className='bg-red fg-white'>4</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem name='Basics' href='/app/docs/gulpfile/basics' />
-                      <SidebarNavItem name='Sass to CSS' href='/app/docs/gulpfile/sass' />
-                      <SidebarNavItem name='JSX to JS' href='/app/docs/gulpfile/jsx' />
-                      <SidebarNavItem name='WebFonts' href='/app/docs/gulpfile/webfonts' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-fontello-looped-square-interest' name='React' href='/app/docs/react' />
-                  <SidebarNavItem glyph='devicon-bootstrap-plain' name={<span>Bootstrap <BLabel className='bg-darkblue fg-white'>4</BLabel></span>}>
-                    <SidebarNav>
-                      <SidebarNavItem name='Grid' href='/app/docs/bootstrap/grid' />
-                      <SidebarNavItem name='Typography' href='/app/docs/bootstrap/typography' />
-                      <SidebarNavItem name='Code' href='/app/docs/bootstrap/code' />
-                      <SidebarNavItem name='Tables' href='/app/docs/bootstrap/tables' />
-                      <SidebarNavItem name='Forms' href='/app/docs/bootstrap/forms' />
-                      <SidebarNavItem name='Form Controls'>
-                        <SidebarNav>
-                          <SidebarNavItem name='Inputs' href='/app/docs/bootstrap/form_controls/inputs' />
-                          <SidebarNavItem name='Textarea' href='/app/docs/bootstrap/form_controls/textarea' />
-                          <SidebarNavItem name='Checkbox &amp; Radio' href='/app/docs/bootstrap/form_controls/checkradio' />
-                          <SidebarNavItem name='Select' href='/app/docs/bootstrap/form_controls/select' />
-                          <SidebarNavItem name='Buttons' href='/app/docs/bootstrap/form_controls/buttons' />
-                        </SidebarNav>
-                      </SidebarNavItem>
-                      <SidebarNavItem name='Components'>
-                        <SidebarNav>
-                          <SidebarNavItem name='Dropdowns' href='/app/docs/bootstrap/components/dropdowns' />
-                          <SidebarNavItem name='Button Groups' href='/app/docs/bootstrap/components/button_groups' />
-                          <SidebarNavItem name='Input Groups' href='/app/docs/bootstrap/components/input_groups' />
-                          <SidebarNavItem name='Navs' href='/app/docs/bootstrap/components/navs' />
-                        </SidebarNav>
-                      </SidebarNavItem>
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-outlined-geolocalizator' name='Mozilla L20n.js' href='/app/docs/l20n' />
+                  <SidebarNavItem glyph='icon-simple-line-icons-calculator' name='Variables' />
+                  <SidebarNavItem glyph='icon-simple-line-icons-chemistry' name='Triggers' />
+                  <SidebarNavItem glyph='icon-simple-line-icons-layers' name='Automations' />
+                  <SidebarNavItem glyph='icon-simple-line-icons-notebook' name='SLA' />
                 </SidebarNav>
               </div>
             </Col>
@@ -612,44 +472,33 @@ var SidebarSection = React.createClass({
   render: function() {
     return this.transferPropsTo(
       <div id='sidebar'>
-        <div className='avatar'>
+        <div id='avatar'>
           <Grid>
             <Row className='fg-white'>
-              <Col xs={4} collapseRight>
-                <img src='/imgs/anna_sanchez.png' width='40' height='40' />
-              </Col>
-              <Col xs={8} collapseLeft className='avatar-col'>
-                <div style={{top: 23, fontSize: 16, lineHeight: 1, position: 'relative'}}>Anna Sanchez</div>
-                <div>
-                  <Progress className='demo-progress' value={30} min={0} max={100} color='#ffffff'/>
-                  <Link href='/app/lock'><Icon className='demo-icon' bundle='fontello' glyph='lock-5' /></Link>
-                </div>
+              <Col xs={12} id='avatar-col'>
+                <div className='text-center' style={{top: 23, fontSize: 24, lineHeight: 1, position: 'relative'}}>TMS User</div>
               </Col>
             </Row>
           </Grid>
         </div>
         <SidebarControls>
           <SidebarControlBtn bundle='fontello' glyph='docs' key={0} />
-          <SidebarControlBtn bundle='fontello' glyph='chat-1' key={1} />
-          <SidebarControlBtn bundle='fontello' glyph='chart-pie-2' key={2} />
-          <SidebarControlBtn bundle='fontello' glyph='th-list-2' key={3} />
-          <SidebarControlBtn bundle='fontello' glyph='bell-5' key={4} />
+          <SidebarControlBtn bundle='fontello' glyph='chart-pie-2' key={1} style={{visibility: 'hidden'}} />
+          <SidebarControlBtn bundle='fontello' glyph='th-list-2' key={2} style={{visibility: 'hidden'}} />
+          <SidebarControlBtn bundle='fontello' glyph='bell-5' key={3} style={{visibility: 'hidden'}} />
         </SidebarControls>
-        <div className='sidebar-container'>
+        <div id='sidebar-container'>
           <Sidebar key={0} active>
             <ApplicationSidebar />
           </Sidebar>
           <Sidebar key={1}>
-            <ChatComponent />
+            <StatisticsComponent style={{display: 'none'}} />
           </Sidebar>
           <Sidebar key={2}>
-            <StatisticsComponent />
+            <TimelineComponent style={{display: 'none'}} />
           </Sidebar>
           <Sidebar key={3}>
-            <TimelineComponent />
-          </Sidebar>
-          <Sidebar key={4}>
-            <NotificationComponent />
+            <NotificationComponent style={{display: 'none'}} />
           </Sidebar>
         </div>
       </div>
@@ -658,4 +507,3 @@ var SidebarSection = React.createClass({
 });
 
 module.exports = SidebarSection;
-module.exports.SidebarMixin = SidebarMixin;

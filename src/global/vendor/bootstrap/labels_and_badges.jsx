@@ -6,6 +6,11 @@ var BMixin = {
   propTypes: {
     bsStyle: React.PropTypes.string
   },
+  getDefaultProps: function() {
+    return {
+      bsStyle: 'default'
+    };
+  },
   preRender: function(classesObj, type) {
     var classes = null;
 

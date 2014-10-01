@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! rubix - v0.1.0 - 2014-09-04 [copyright: SketchPixy LLP, email: admin@sketchpixy.com] */
+/*! rubix - v1.0.1 - 2014-10-01 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 /* defaults */
 .btn-default {
   background: #89949B;
@@ -135,10 +135,8 @@
   background: #D71F4B; }
   .bg-deepred > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-deepred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #aa193d; }
-    .bg-deepred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #D71F4B; }
+  .bg-deepred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #D71F4B; }
   .bg-deepred table td, .bg-deepred th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -246,10 +244,8 @@
   background: #EA7882; }
   .bg-red > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-red > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #e34c5b; }
-    .bg-red > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #EA7882; }
+  .bg-red > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #EA7882; }
   .bg-red table td, .bg-red th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -357,10 +353,8 @@
   background: #F09FA6; }
   .bg-lightred > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #e9737f; }
-    .bg-lightred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #F09FA6; }
+  .bg-lightred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #F09FA6; }
   .bg-lightred table td, .bg-lightred th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -468,10 +462,8 @@
   background: #003BFF; }
   .bg-brightblue > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brightblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #0030cc; }
-    .bg-brightblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #003BFF; }
+  .bg-brightblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #003BFF; }
   .bg-brightblue table td, .bg-brightblue th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -579,10 +571,8 @@
   background: #4A90E2; }
   .bg-darkblue > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #2276d7; }
-    .bg-darkblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #4A90E2; }
+  .bg-darkblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #4A90E2; }
   .bg-darkblue table td, .bg-darkblue th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -690,10 +680,8 @@
   background: #79B0EC; }
   .bg-blue > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-blue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #4c96e6; }
-    .bg-blue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #79B0EC; }
+  .bg-blue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #79B0EC; }
   .bg-blue table td, .bg-blue th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -801,10 +789,8 @@
   background: #D2E0EB; }
   .bg-lightblue50 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightblue50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #afc8db; }
-    .bg-lightblue50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #D2E0EB; }
+  .bg-lightblue50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #D2E0EB; }
   .bg-lightblue50 table td, .bg-lightblue50 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -912,10 +898,8 @@
   background: #A0C7F2; }
   .bg-lightblue > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #73adec; }
-    .bg-lightblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #A0C7F2; }
+  .bg-lightblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #A0C7F2; }
   .bg-lightblue table td, .bg-lightblue th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1023,10 +1007,8 @@
   background: #E5EFFB; }
   .bg-hoverblue > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-hoverblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #b9d5f4; }
-    .bg-hoverblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #E5EFFB; }
+  .bg-hoverblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #E5EFFB; }
   .bg-hoverblue table td, .bg-hoverblue th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1134,10 +1116,8 @@
   background: #B4A1DD; }
   .bg-purple > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-purple > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #967ccf; }
-    .bg-purple > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #B4A1DD; }
+  .bg-purple > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #B4A1DD; }
   .bg-purple table td, .bg-purple th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1245,10 +1225,8 @@
   background: #C1B2E3; }
   .bg-lightpurple50 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightpurple50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #a28dd5; }
-    .bg-lightpurple50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #C1B2E3; }
+  .bg-lightpurple50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #C1B2E3; }
   .bg-lightpurple50 table td, .bg-lightpurple50 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1356,10 +1334,8 @@
   background: #D3C9EB; }
   .bg-lightpurple > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightpurple > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #b4a4dd; }
-    .bg-lightpurple > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #D3C9EB; }
+  .bg-lightpurple > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #D3C9EB; }
   .bg-lightpurple table td, .bg-lightpurple th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1467,10 +1443,8 @@
   background: #AB4F45; }
   .bg-darkbrown > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkbrown > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #873d36; }
-    .bg-darkbrown > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #AB4F45; }
+  .bg-darkbrown > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #AB4F45; }
   .bg-darkbrown table td, .bg-darkbrown th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1578,10 +1552,8 @@
   background: #A8553A; }
   .bg-brown > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brown > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #82412d; }
-    .bg-brown > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #A8553A; }
+  .bg-brown > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #A8553A; }
   .bg-brown table td, .bg-brown th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1689,10 +1661,8 @@
   background: #C36849; }
   .bg-brown75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brown75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #a35136; }
-    .bg-brown75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #C36849; }
+  .bg-brown75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #C36849; }
   .bg-brown75 table td, .bg-brown75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1800,10 +1770,8 @@
   background: #C67055; }
   .bg-brown60 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brown60 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #ae553a; }
-    .bg-brown60 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #C67055; }
+  .bg-brown60 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #C67055; }
   .bg-brown60 table td, .bg-brown60 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -1911,10 +1879,8 @@
   background: #D67F6B; }
   .bg-brown50 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brown50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #cb5c43; }
-    .bg-brown50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #D67F6B; }
+  .bg-brown50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #D67F6B; }
   .bg-brown50 table td, .bg-brown50 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2022,10 +1988,8 @@
   background: #948266; }
   .bg-brownishgreen > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brownishgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #766751; }
-    .bg-brownishgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #948266; }
+  .bg-brownishgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #948266; }
   .bg-brownishgreen table td, .bg-brownishgreen th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2133,10 +2097,8 @@
   background: #FFC497; }
   .bg-orange > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-orange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #ffa564; }
-    .bg-orange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #FFC497; }
+  .bg-orange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #FFC497; }
   .bg-orange table td, .bg-orange th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2244,10 +2206,8 @@
   background: #EA8564; }
   .bg-paleorange > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-paleorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #e45f37; }
-    .bg-paleorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #EA8564; }
+  .bg-paleorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #EA8564; }
   .bg-paleorange table td, .bg-paleorange th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2355,10 +2315,8 @@
   background: #EF6B5D; }
   .bg-pinkishred > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-pinkishred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #ea3e2f; }
-    .bg-pinkishred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #EF6B5D; }
+  .bg-pinkishred > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #EF6B5D; }
   .bg-pinkishred table td, .bg-pinkishred th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2466,10 +2424,8 @@
   background: #EE682F; }
   .bg-orange75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-orange75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #d84a12; }
-    .bg-orange75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #EE682F; }
+  .bg-orange75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #EE682F; }
   .bg-orange75 table td, .bg-orange75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2577,10 +2533,8 @@
   background: #FA824F; }
   .bg-orange65 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-orange65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #f95c1d; }
-    .bg-orange65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #FA824F; }
+  .bg-orange65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #FA824F; }
   .bg-orange65 table td, .bg-orange65 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2688,10 +2642,8 @@
   background: #FFC9A0; }
   .bg-orange45 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-orange45 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #ffaa6d; }
-    .bg-orange45 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #FFC9A0; }
+  .bg-orange45 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #FFC9A0; }
   .bg-orange45 table td, .bg-orange45 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2799,10 +2751,8 @@
   background: #EBA068; }
   .bg-darkorange > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #e5823b; }
-    .bg-darkorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #EBA068; }
+  .bg-darkorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #EBA068; }
   .bg-darkorange table td, .bg-darkorange th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -2910,10 +2860,8 @@
   background: #FFD3B1; }
   .bg-lightorange > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #ffb67e; }
-    .bg-lightorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #FFD3B1; }
+  .bg-lightorange > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #FFD3B1; }
   .bg-lightorange table td, .bg-lightorange th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3021,10 +2969,8 @@
   background: #306C67; }
   .bg-darkgreen > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #204945; }
-    .bg-darkgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #306C67; }
+  .bg-darkgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #306C67; }
   .bg-darkgreen table td, .bg-darkgreen th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3132,10 +3078,8 @@
   background: #36845E; }
   .bg-darkgreen85 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgreen85 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #276044; }
-    .bg-darkgreen85 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #36845E; }
+  .bg-darkgreen85 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #36845E; }
   .bg-darkgreen85 table td, .bg-darkgreen85 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3243,10 +3187,8 @@
   background: #518F41; }
   .bg-darkgreen75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgreen75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #3e6c31; }
-    .bg-darkgreen75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #518F41; }
+  .bg-darkgreen75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #518F41; }
   .bg-darkgreen75 table td, .bg-darkgreen75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3354,10 +3296,8 @@
   background: #66A655; }
   .bg-darkgreen65 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgreen65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #528444; }
-    .bg-darkgreen65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #66A655; }
+  .bg-darkgreen65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #66A655; }
   .bg-darkgreen65 table td, .bg-darkgreen65 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3465,10 +3405,8 @@
   background: #68BD80; }
   .bg-darkgreen55 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgreen55 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #4aa863; }
-    .bg-darkgreen55 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #68BD80; }
+  .bg-darkgreen55 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #68BD80; }
   .bg-darkgreen55 table td, .bg-darkgreen55 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3576,10 +3514,8 @@
   background: #55A69F; }
   .bg-darkgreen50 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgreen50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #44847e; }
-    .bg-darkgreen50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #55A69F; }
+  .bg-darkgreen50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #55A69F; }
   .bg-darkgreen50 table td, .bg-darkgreen50 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3687,10 +3623,8 @@
   background: #2EB398; }
   .bg-darkgreen45 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgreen45 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #248a74; }
-    .bg-darkgreen45 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #2EB398; }
+  .bg-darkgreen45 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #2EB398; }
   .bg-darkgreen45 table td, .bg-darkgreen45 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3798,10 +3732,8 @@
   background: #44C1AC; }
   .bg-darkgreen40 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgreen40 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #349e8a; }
-    .bg-darkgreen40 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #44C1AC; }
+  .bg-darkgreen40 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #44C1AC; }
   .bg-darkgreen40 table td, .bg-darkgreen40 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -3909,10 +3841,8 @@
   background: #55C9A6; }
   .bg-green > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-green > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #39b28c; }
-    .bg-green > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #55C9A6; }
+  .bg-green > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #55C9A6; }
   .bg-green table td, .bg-green th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4020,10 +3950,8 @@
   background: #7CD5BA; }
   .bg-lightgreen > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #55c9a4; }
-    .bg-lightgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #7CD5BA; }
+  .bg-lightgreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #7CD5BA; }
   .bg-lightgreen table td, .bg-lightgreen th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4131,10 +4059,8 @@
   background: #E5F7F1; }
   .bg-hovergreen > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-hovergreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #beebdb; }
-    .bg-hovergreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #E5F7F1; }
+  .bg-hovergreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #E5F7F1; }
   .bg-hovergreen table td, .bg-hovergreen th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4242,10 +4168,8 @@
   background: #FCB621; }
   .bg-brightyellow > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brightyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #e79b03; }
-    .bg-brightyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #FCB621; }
+  .bg-brightyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #FCB621; }
   .bg-brightyellow table td, .bg-brightyellow th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4353,10 +4277,8 @@
   background: #F3C557; }
   .bg-brightyellow75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brightyellow75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #f0b427; }
-    .bg-brightyellow75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #F3C557; }
+  .bg-brightyellow75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #F3C557; }
   .bg-brightyellow75 table td, .bg-brightyellow75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4464,10 +4386,8 @@
   background: #EDBC6C; }
   .bg-brightyellow65 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brightyellow65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #e7a73f; }
-    .bg-brightyellow65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #EDBC6C; }
+  .bg-brightyellow65 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #EDBC6C; }
   .bg-brightyellow65 table td, .bg-brightyellow65 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4575,10 +4495,8 @@
   background: #FADD7F; }
   .bg-yellow > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-yellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #f8ce4e; }
-    .bg-yellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #FADD7F; }
+  .bg-yellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #FADD7F; }
   .bg-yellow table td, .bg-yellow th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4686,10 +4604,8 @@
   background: #DEBC85; }
   .bg-paleyellow > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-paleyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #d3a65d; }
-    .bg-paleyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #DEBC85; }
+  .bg-paleyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #DEBC85; }
   .bg-paleyellow table td, .bg-paleyellow th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4797,10 +4713,8 @@
   background: #FBE499; }
   .bg-lightyellow > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #f9d568; }
-    .bg-lightyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #FBE499; }
+  .bg-lightyellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #FBE499; }
   .bg-lightyellow table td, .bg-lightyellow th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -4908,10 +4822,8 @@
   background: #FFF1E7; }
   .bg-hoveryellow > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-hoveryellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #ffd2b4; }
-    .bg-hoveryellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #FFF1E7; }
+  .bg-hoveryellow > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #FFF1E7; }
   .bg-hoveryellow table td, .bg-hoveryellow th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5019,10 +4931,8 @@
   background: #E299B7; }
   .bg-pink > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-pink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #d7719c; }
-    .bg-pink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #E299B7; }
+  .bg-pink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #E299B7; }
   .bg-pink table td, .bg-pink th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5130,10 +5040,8 @@
   background: #ECBCD0; }
   .bg-lightpink > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightpink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #e194b4; }
-    .bg-lightpink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #ECBCD0; }
+  .bg-lightpink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #ECBCD0; }
   .bg-lightpink table td, .bg-lightpink th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5241,10 +5149,8 @@
   background: #A5C7EC; }
   .bg-paleblue > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-paleblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #7bade3; }
-    .bg-paleblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #A5C7EC; }
+  .bg-paleblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #A5C7EC; }
   .bg-paleblue table td, .bg-paleblue th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5352,10 +5258,8 @@
   background: #A0DFCC; }
   .bg-palegreen > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-palegreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #7ad2b6; }
-    .bg-palegreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #A0DFCC; }
+  .bg-palegreen > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #A0DFCC; }
   .bg-palegreen table td, .bg-palegreen th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5463,10 +5367,8 @@
   background: #E394B3; }
   .bg-palepink > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-palepink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #d86c97; }
-    .bg-palepink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #E394B3; }
+  .bg-palepink > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #E394B3; }
   .bg-palepink table td, .bg-palepink th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5574,10 +5476,8 @@
   background: #64584C; }
   .bg-brownishgray > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brownishgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #473e36; }
-    .bg-brownishgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #64584C; }
+  .bg-brownishgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #64584C; }
   .bg-brownishgray table td, .bg-brownishgray th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5685,10 +5585,8 @@
   background: #776B5F; }
   .bg-brownishgray75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-brownishgray75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #5b5148; }
-    .bg-brownishgray75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #776B5F; }
+  .bg-brownishgray75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #776B5F; }
   .bg-brownishgray75 table td, .bg-brownishgray75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5796,10 +5694,8 @@
   background: #EAEDF1; }
   .bg-gray > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-gray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #cbd3dd; }
-    .bg-gray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #EAEDF1; }
+  .bg-gray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #EAEDF1; }
   .bg-gray table td, .bg-gray th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -5907,10 +5803,8 @@
   background: #999895; }
   .bg-darkgray > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #807f7b; }
-    .bg-darkgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #999895; }
+  .bg-darkgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #999895; }
   .bg-darkgray table td, .bg-darkgray th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6018,10 +5912,8 @@
   background: #B8B6B0; }
   .bg-darkgray75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgray75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #a09d95; }
-    .bg-darkgray75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #B8B6B0; }
+  .bg-darkgray75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #B8B6B0; }
   .bg-darkgray75 table td, .bg-darkgray75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6129,10 +6021,8 @@
   background: #B8C3C8; }
   .bg-darkgray50 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgray50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #9babb2; }
-    .bg-darkgray50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #B8C3C8; }
+  .bg-darkgray50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #B8C3C8; }
   .bg-darkgray50 table td, .bg-darkgray50 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6240,10 +6130,8 @@
   background: #CDCCC8; }
   .bg-darkgray40 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgray40 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #b5b3ad; }
-    .bg-darkgray40 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #CDCCC8; }
+  .bg-darkgray40 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #CDCCC8; }
   .bg-darkgray40 table td, .bg-darkgray40 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6351,10 +6239,8 @@
   background: #DCDBD8; }
   .bg-darkgray25 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgray25 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #c4c2bd; }
-    .bg-darkgray25 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #DCDBD8; }
+  .bg-darkgray25 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #DCDBD8; }
   .bg-darkgray25 table td, .bg-darkgray25 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6462,10 +6348,8 @@
   background: #EEEDEB; }
   .bg-lightgray > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #d7d4cf; }
-    .bg-lightgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #EEEDEB; }
+  .bg-lightgray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #EEEDEB; }
   .bg-lightgray table td, .bg-lightgray th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6573,10 +6457,8 @@
   background: #F1F0EE; }
   .bg-lightgray50 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-lightgray50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #dad7d2; }
-    .bg-lightgray50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #F1F0EE; }
+  .bg-lightgray50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #F1F0EE; }
   .bg-lightgray50 table td, .bg-lightgray50 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6684,10 +6566,8 @@
   background: #ffffff; }
   .bg-white > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-white > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #e6e6e6; }
-    .bg-white > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #ffffff; }
+  .bg-white > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #ffffff; }
   .bg-white table td, .bg-white th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6795,10 +6675,8 @@
   background: #000000; }
   .bg-black > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-black > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: black; }
-    .bg-black > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #000000; }
+  .bg-black > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #000000; }
   .bg-black table td, .bg-black th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -6906,10 +6784,8 @@
   background: #3F3F3B; }
   .bg-black75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-black75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #252522; }
-    .bg-black75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #3F3F3B; }
+  .bg-black75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #3F3F3B; }
   .bg-black75 table td, .bg-black75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7017,10 +6893,8 @@
   background: #3B4648; }
   .bg-black50 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-black50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #242b2c; }
-    .bg-black50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #3B4648; }
+  .bg-black50 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #3B4648; }
   .bg-black50 table td, .bg-black50 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7128,10 +7002,8 @@
   background: #555555; }
   .bg-davygray > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-davygray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #3b3b3b; }
-    .bg-davygray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #555555; }
+  .bg-davygray > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #555555; }
   .bg-davygray table td, .bg-davygray th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7239,10 +7111,8 @@
   background: #43525A; }
   .bg-darkgrayishblue75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgrayishblue75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #2d383d; }
-    .bg-darkgrayishblue75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #43525A; }
+  .bg-darkgrayishblue75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #43525A; }
   .bg-darkgrayishblue75 table td, .bg-darkgrayishblue75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7350,10 +7220,8 @@
   background: #4C5D67; }
   .bg-darkgrayishblue > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkgrayishblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #36434a; }
-    .bg-darkgrayishblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #4C5D67; }
+  .bg-darkgrayishblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #4C5D67; }
   .bg-darkgrayishblue table td, .bg-darkgrayishblue th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7461,10 +7329,8 @@
   background: #515E78; }
   .bg-desaturateddarkblue > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-desaturateddarkblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #3c475a; }
-    .bg-desaturateddarkblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #515E78; }
+  .bg-desaturateddarkblue > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #515E78; }
   .bg-desaturateddarkblue table td, .bg-desaturateddarkblue th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7572,10 +7438,8 @@
   background: #3B465C; }
   .bg-desaturateddarkblue75 > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-desaturateddarkblue75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #272f3d; }
-    .bg-desaturateddarkblue75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #3B465C; }
+  .bg-desaturateddarkblue75 > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #3B465C; }
   .bg-desaturateddarkblue75 table td, .bg-desaturateddarkblue75 th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7683,10 +7547,8 @@
   background: #68A0A5; }
   .bg-darkcyan > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-darkcyan > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #518589; }
-    .bg-darkcyan > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #68A0A5; }
+  .bg-darkcyan > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #68A0A5; }
   .bg-darkcyan table td, .bg-darkcyan th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7794,10 +7656,8 @@
   background: #92BDC1; }
   .bg-grayishcyan > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-grayishcyan > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #71a9af; }
-    .bg-grayishcyan > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #92BDC1; }
+  .bg-grayishcyan > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #92BDC1; }
   .bg-grayishcyan table td, .bg-grayishcyan th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -7905,10 +7765,8 @@
   background: #428bca; }
   .bg-primary > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-primary > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #3073a9; }
-    .bg-primary > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #428bca; }
+  .bg-primary > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #428bca; }
   .bg-primary table td, .bg-primary th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -8016,10 +7874,8 @@
   background: #5cb85c; }
   .bg-success > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-success > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #469d44; }
-    .bg-success > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #5cb85c; }
+  .bg-success > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #5cb85c; }
   .bg-success table td, .bg-success th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -8127,10 +7983,8 @@
   background: #5bc0de; }
   .bg-info > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-info > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #31b2d5; }
-    .bg-info > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #5bc0de; }
+  .bg-info > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #5bc0de; }
   .bg-info table td, .bg-info th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -8238,10 +8092,8 @@
   background: #f0ad4e; }
   .bg-warning > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-warning > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #ec971f; }
-    .bg-warning > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #f0ad4e; }
+  .bg-warning > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #f0ad4e; }
   .bg-warning table td, .bg-warning th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -8349,10 +8201,8 @@
   background: #d9534f; }
   .bg-danger > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-danger > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #c92e2c; }
-    .bg-danger > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #d9534f; }
+  .bg-danger > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #d9534f; }
   .bg-danger table td, .bg-danger th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -8460,120 +8310,116 @@
   background: #89949B; }
   .bg-text > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-text > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #6f7b82; }
-    .bg-text > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #89949B; }
+  .bg-text > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #89949B; }
   .bg-text table td, .bg-text th {
     border-color: rgba(0, 0, 0, 0.05) !important; }
 
 .list-bg-default > .list-group-item.active {
-  background: #ccc !important;
+  background: #B4B7B9 !important;
   color: #fff !important; }
 
 .list-fg-default > .list-group-item {
-  color: #ccc; }
+  color: #B4B7B9; }
 
 .rubix-panel-header .nav-default.nav-tabs > li > a {
   color: #fff; }
   .rubix-panel-header .nav-default.nav-tabs > li > a:hover, .rubix-panel-header .nav-default.nav-tabs > li > a:focus {
     color: #fff; }
 .rubix-panel-header .nav-default.nav-tabs > li.active > a:hover, .rubix-panel-header .nav-default.nav-tabs > li.active > a:focus {
-  color: #ccc; }
+  color: #B4B7B9; }
 
 .nav-default.nav-tabs {
-  border-color: #ccc; }
+  border-color: #B4B7B9; }
   .nav-default.nav-tabs > li > a, .nav-default.nav-tabs > li > a:hover, .nav-default.nav-tabs > li > a:focus, .nav-default.nav-tabs > li.active > a {
-    color: #ccc;
-    border-color: #ccc;
+    color: #B4B7B9;
+    border-color: #B4B7B9;
     border-bottom-color: rgba(0, 0, 0, 0); }
 .nav-default.nav-pills > li > a:hover, .nav-default.nav-pills > li > a:focus, .nav-default.nav-pills > li.active > a {
-  background: #ccc;
+  background: #B4B7B9;
   color: #fff; }
 
 .menu-default, .dropup .menu-default {
-  border-color: #ccc; }
+  border-color: #B4B7B9; }
   .menu-default > li > a:hover, .dropup .menu-default > li > a:hover {
-    background: rgba(204, 204, 204, 0.05); }
+    background: rgba(180, 183, 185, 0.05); }
   .menu-default > .active > a, .menu-default > .active > a:hover, .menu-default > .active > a:focus, .dropup .menu-default > .active > a, .dropup .menu-default > .active > a:hover, .dropup .menu-default > .active > a:focus {
     color: #fff;
-    background: #ccc; }
+    background: #B4B7B9; }
 
 .btn-default {
   outline: none;
-  background: #ccc;
+  background: #B4B7B9;
   color: #fff;
-  border-color: #ccc; }
+  border-color: #B4B7B9; }
   .btn-default.btn-outlined {
-    color: #ccc;
+    color: #B4B7B9;
     background: none; }
     .btn-default.btn-outlined.btn-onlyOnHover {
       color: #89949B; }
   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
     outline: none;
     color: #fff;
-    background: #e6e6e6;
-    border-color: #e6e6e6; }
+    background: #ced0d2;
+    border-color: #ced0d2; }
     .btn-default:hover.btn-outlined, .btn-default:focus.btn-outlined, .btn-default:active.btn-outlined, .btn-default.active.btn-outlined {
-      background: #ccc;
+      background: #B4B7B9;
       color: #fff;
-      border-color: #ccc; }
+      border-color: #B4B7B9; }
   .btn-default.btn-inverse.btn-outlined {
     color: #fff;
     border-color: #fff; }
     .btn-default.btn-inverse.btn-outlined:hover, .btn-default.btn-inverse.btn-outlined:focus, .btn-default.btn-inverse.btn-outlined:active, .btn-default.btn-inverse.btn-outlined.active {
-      color: #ccc;
+      color: #B4B7B9;
       background: #fff;
       border-color: #fff; }
       .btn-default.btn-inverse.btn-outlined:hover.btn-retainBg, .btn-default.btn-inverse.btn-outlined:focus.btn-retainBg, .btn-default.btn-inverse.btn-outlined:active.btn-retainBg, .btn-default.btn-inverse.btn-outlined.active.btn-retainBg {
-        background: #ccc;
+        background: #B4B7B9;
         color: #fff;
-        border-color: #ccc; }
+        border-color: #B4B7B9; }
 
 .tl-default .rubix-timeline-body > ul > li:before {
-  border-color: #ccc; }
+  border-color: #B4B7B9; }
 
 .border-default {
-  border-color: #ccc !important; }
+  border-color: #B4B7B9 !important; }
   .border-default .rubix-timeline-body > ul {
-    border-color: #ccc; }
+    border-color: #B4B7B9; }
   .border-default.rubix-timeline-view:before {
-    border-color: #ccc; }
+    border-color: #B4B7B9; }
 
 .border-hover-default:hover {
-  border-color: #ccc !important; }
+  border-color: #B4B7B9 !important; }
 
 .border-focus-default:focus {
-  border-color: #ccc !important; }
+  border-color: #B4B7B9 !important; }
 
 .fg-focus-default:focus {
-  color: #ccc; }
+  color: #B4B7B9; }
 
 .fg-hover-default:hover {
-  color: #ccc; }
+  color: #B4B7B9; }
 
 .fg-default {
-  color: #ccc; }
+  color: #B4B7B9; }
   .fg-default > .tab-container > .nav-tabs > .b-tab > a {
-    color: #ccc; }
+    color: #B4B7B9; }
   .fg-default .tab-container.plain > .nav-tabs > .b-tab.active > a {
-    color: #ccc; }
+    color: #B4B7B9; }
   .fg-default.fg-tab-active .tab-container > .nav-tabs > .b-tab.active > a {
-    color: #ccc; }
+    color: #B4B7B9; }
 
 .bg-focus-default:focus {
-  background: #ccc; }
+  background: #B4B7B9; }
 
 .bg-hover-default:hover {
-  background: #ccc; }
+  background: #B4B7B9; }
 
 .bg-default {
-  background: #ccc; }
+  background: #B4B7B9; }
   .bg-default > .tab-container > .nav-tabs > .b-tab.open > a {
     background: rgba(0, 0, 0, 0.03); }
-  .bg-default > .tab-container > .nav-tabs > .b-tab > .dropdown-menu {
-    border-color: #b3b3b3; }
-    .bg-default > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
-      background: #ccc; }
+  .bg-default > .tab-container > .nav-tabs > .b-tab > .dropdown-menu > li.active > a {
+    background: #B4B7B9; }
   .bg-default table td, .bg-default th {
     border-color: rgba(0, 0, 0, 0.05) !important; }

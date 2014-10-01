@@ -1,0 +1,8 @@
+{
+  "apps" : [{
+    "name"        : "rubix",
+    "script"      : "/home/ubuntu/sites/node-api/api.js",
+    "cwd"         : "/home/ubuntu/sites/node-api/",
+    "exec_mode"   : "cluster_mode"
+  }]
+}

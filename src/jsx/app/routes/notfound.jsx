@@ -38,7 +38,7 @@ var Body = React.createClass({
 
 var classSet = React.addons.classSet;
 var PageNotFound = React.createClass({
-  mixins: [Sidebar.SidebarMixin],
+  mixins: [SidebarMixin],
   render: function() {
     var classes = classSet({
       'container-open': this.state.open

@@ -34,11 +34,12 @@ var port = argv.port ? argv.port : 8080;
 
 /* file patterns to watch */
 var paths = {
-  index: ['src/jsx/'+defaultAppName+'/index.html', 'service.js'],
+  index: ['src/jsx/'+defaultAppName+'/index.html', 'api.js'],
   l20n: ['src/global/vendor/l20n/*.jsx'],
   jsx: ['src/jsx/*.jsx', 'src/global/requires/*.js', 'src/jsx/**/*.jsx', 'src/jsx/**/**/*.jsx', 'src/jsx/**/**/**/*.jsx', '!src/global/vendor/l20n/*.jsx', '!src/global/vendor/bootstrap/*.jsx'],
   scss: ['public/fonts/web/*.ttf', 'src/sass/*.scss', 'src/sass/**/*.scss', 'src/sass/**/**/*.scss', 'src/sass/**/**/**/*.scss', 'src/sass/**/**/**/**/*.scss', 'src/global/sass/*.scss', 'src/global/sass/**/*.scss', 'src/global/sass/**/**/*.scss', 'src/global/sass/**/**/**/*.scss', 'src/global/sass/**/**/**/**/*.scss'],
-  bootstrap: ['src/global/vendor/bootstrap/*.jsx']
+  bootstrap: ['src/global/vendor/bootstrap/*.jsx'],
+  ttf: ['public/fonts/dropbox/'+defaultAppName+'/*.ttf']
 };
 
 var banner = function() {
@@ -146,18 +147,18 @@ gulp.task('react:react', function() {
             ]
           }))
           .pipe(rename('react.js'))
-          .pipe(gulp.dest('public/js'));
+          .pipe(gulp.dest('public/js/common/react'));
 });
 
 gulp.task('uglify:react', function() {
-  return gulp.src('public/js/react.js')
+  return gulp.src('public/js/common/react/react.js')
           .pipe(uglify('react.min.js', {
             preserveComments: false,
             compress: {
               warnings: false
             }
           }))
-          .pipe(gulp.dest('public/js'));
+          .pipe(gulp.dest('public/js/common/react'));
 });
 
 gulp.task('clean:react', ['react:react'], function(cb) {
@@ -182,19 +183,19 @@ gulp.task('react:react-l20n', function() {
               ]
             }
           }))
-          .pipe(rename('react.l20n.js'))
-          .pipe(gulp.dest('public/js'));
+          .pipe(rename('react-l20n.js'))
+          .pipe(gulp.dest('public/js/common/react-l20n'));
 });
 
 gulp.task('uglify:react-l20n', function() {
-  return gulp.src('public/js/react.l20n.js')
-          .pipe(uglify('react.l20n.min.js', {
+  return gulp.src('public/js/common/react-l20n/react-l20n.js')
+          .pipe(uglify('react-l20n.min.js', {
             preserveComments: false,
             compress: {
               warnings: false
             }
           }))
-          .pipe(gulp.dest('public/js'));
+          .pipe(gulp.dest('public/js/common/react-l20n'));
 });
 /* --------------------------------------- */
 /* --------- END REACT.BOOTSTRAP --------- */
@@ -213,19 +214,19 @@ gulp.task('react:react-bootstrap', function() {
               ]
             }
           }))
-          .pipe(rename('react.bootstrap.js'))
-          .pipe(gulp.dest('public/js'));
+          .pipe(rename('react-bootstrap.js'))
+          .pipe(gulp.dest('public/js/common/react-bootstrap'));
 });
 
 gulp.task('uglify:react-bootstrap', function() {
-  return gulp.src('public/js/react.bootstrap.js')
-          .pipe(uglify('react.bootstrap.min.js', {
+  return gulp.src('public/js/common/react-bootstrap/react-bootstrap.js')
+          .pipe(uglify('react-bootstrap.min.js', {
             preserveComments: false,
             compress: {
               warnings: false
             }
           }))
-          .pipe(gulp.dest('public/js'));
+          .pipe(gulp.dest('public/js/common/react-bootstrap'));
 });
 /* --------------------------------------- */
 /* --------- END REACT.BOOTSTRAP --------- */
@@ -245,20 +246,20 @@ gulp.task('react:app', function() {
               }
           }))
           .pipe(rename(defaultAppName+'.js'))
-          .pipe(gulp.dest('public/js'));
+          .pipe(gulp.dest('public/js/'+defaultAppName+'/'));
 });
 
 gulp.task('react:concat', ['react:app'], function() {
-  return gulp.src(['src/global/requires/*.js', 'public/js/'+defaultAppName+'.js'])
+  return gulp.src(['src/global/requires/*.js', 'public/js/'+defaultAppName+'/'+defaultAppName+'.js'])
           .pipe(concat(''+defaultAppName+'.js'))
           .pipe(insert.prepend('(function() {\n'))
           .pipe(insert.prepend(banner()+'\n'))
           .pipe(insert.append('\n})();'))
-          .pipe(gulp.dest('public/js'));
+          .pipe(gulp.dest('public/js/'+defaultAppName+'/'));
 });
 
 gulp.task('uglify:app', function() {
-  return gulp.src('public/js/'+defaultAppName+'.js')
+  return gulp.src('public/js/'+defaultAppName+'/'+defaultAppName+'.js')
           .pipe(uglify(''+defaultAppName+'.min.js', {
             preserveComments: false,
             compress: {
@@ -266,7 +267,7 @@ gulp.task('uglify:app', function() {
             }
           }))
           .pipe(insert.prepend(banner()))
-          .pipe(gulp.dest('public/js'));
+          .pipe(gulp.dest('public/js/'+defaultAppName+'/'));
 });
 /* ------------------------------- */
 /* ---------- END APP:JS --------- */
@@ -315,7 +316,7 @@ gulp.task('base64-css', ['base64-css:concat'], function(cb) {
 var child = null;
 gulp.task('express', function() {
   if(child) child.kill();
-  child = child_process.spawn(process.execPath, ['./service.js'], {
+  child = child_process.spawn(process.execPath, ['./api.js'], {
     env: {
       NODE_ENV: process.env.NODE_ENV,
       APP: defaultAppName,
@@ -365,7 +366,7 @@ gulp.task('build:dist', ['minifycss', 'bless', 'uglify']);
 if(production) {
   logData('Building please wait...');
   gulp.task('default', function(callback) {
-    runSequence('build:css', 'build:essentials', 'build:app', 'minifycss', 'bless', 'uglify', function() {
+    runSequence('build:css', 'build:essentials', 'build:app', 'minifycss', 'bless', 'base64-css', 'uglify', function() {
       callback();
       gutil.log(
         gutil.colors.bgMagenta(
@@ -378,7 +379,7 @@ if(production) {
   });
 } else {
   gulp.task('default', function(callback) {
-    runSequence('build:css', 'build:essentials', 'build:app', ['express', 'watch'], callback);
+    runSequence('build:css', 'build:essentials', 'build:app', 'base64-css', ['express', 'watch'], callback);
   });  
 }
 
@@ -389,6 +390,7 @@ gulp.task('build:css:watch', ['build:css'], ready);
 gulp.task('express:watch', ['express'], ready);
 gulp.task('react-bootstrap:watch', ['react-bootstrap'], ready);
 gulp.task('rebuild:css', ['build:css'], ready);
+gulp.task('base64-css:watch', ['base64-css'], ready);
 /*END: ALIASES*/
 
 gulp.task('watch', function() {
@@ -397,6 +399,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.l20n, ['react-l20n:watch']);
   gulp.watch(paths.scss, ['rebuild:css']);
   gulp.watch(paths.bootstrap, ['react-bootstrap:watch']);
+  gulp.watch(paths.ttf, ['base64-css:watch'])
 });
 
 function ready() {

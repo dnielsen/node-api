@@ -5801,6 +5801,7 @@
     var g = d3_document.createElementNS(d3.ns.prefix.svg, "g");
     return (d3.transform = function(string) {
       if (string != null) {
+        if(string.search('NaN') !== -1) string = string.replace('NaN', '0');
         g.setAttribute("transform", string);
         var t = g.transform.baseVal.consolidate();
       }
