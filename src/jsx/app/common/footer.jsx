@@ -18,7 +18,7 @@ var Footer = React.createClass({
         <Grid id='footer' className='text-center'>
           <Row>
             <Col xs={12}>
-              <div>© 2014 Your Company Name Here - v{this.state.version}</div>
+              <div>© 2014 3PLogic</div>
             </Col>
           </Row>
         </Grid>

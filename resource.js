@@ -160,23 +160,27 @@ Resource.prototype.find_by_primary_key = function (req, resp, next, custom_handl
     });
 };
 
-Resource.prototype.data_source = function (req, resp, next, custom_handler) {
+Resource.prototype.distinct_keys = function(column, callback) {
+    var query = knex.select(knex.raw('distinct '+column)).from(this.tableName);
+    query.then(callback);
+};
+
+Resource.prototype.data_source = function (req, resp, next, custom_handler, custom_object) {
     var that = this;
 
     var columns = [];
     for(var i=0; i<req.body.columns.length; i++) {
-        if(req.body.columns[i].data === 'function') continue;
+        if(req.body.columns[i].data === 'function' || !req.body.columns[i].data.length) continue;
         columns.push(req.body.columns[i].data);
     }
+
     var query = knex.select.apply(knex, columns).from(this.tableName);
-    var count_query = knex.select(knex.raw('count(timestamp) as count')).from(this.tableName);
-    var filtered_query = knex.select(knex.raw('count(timestamp) as count')).from(this.tableName);
-    var event_query = knex.select(knex.raw('distinct process_name')).from(this.tableName);
-    var object_query = knex.select(knex.raw('distinct protocol')).from(this.tableName);
+    var count_query = knex.select(knex.raw('count(*) as count')).from(this.tableName);
+    var filtered_query = knex.select(knex.raw('count(*) as count')).from(this.tableName);
 
     if(req.body.search.value.length) {
-        query = query.whereRaw("CONCAT_WS('|',`timestamp`,`process_name`,`protocol`,`format`,`action`,`status`) like '%"+req.body.search.value+"%'");
-        filtered_query = filtered_query.whereRaw("CONCAT_WS('|',`timestamp`,`process_name`,`protocol`,`format`,`action`,`status`) like '%"+req.body.search.value+"%'");
+        query = query.whereRaw("CONCAT_WS('|',"+'`'+columns.join('`,`')+'`'+") like '%"+req.body.search.value+"%'");
+        filtered_query = filtered_query.whereRaw("CONCAT_WS('|',"+'`'+columns.join('`,`')+'`'+") like '%"+req.body.search.value+"%'");
     }
 
     for(var i=0; i<req.body.columns.length; i++) {
@@ -192,6 +196,7 @@ Resource.prototype.data_source = function (req, resp, next, custom_handler) {
     query = query.offset(parseInt(req.body.start)).limit(parseInt(req.body.length));
 
     for(var i=0; i<req.body.order.length; i++) {
+        if(req.body.columns[parseInt(req.body.order[i].column)].data === 'function' || !req.body.columns[parseInt(req.body.order[i].column)].data.length) continue;
         query = query.orderBy(
             req.body.columns[parseInt(req.body.order[i].column)].data,
             req.body.order[i].dir
@@ -203,32 +208,24 @@ Resource.prototype.data_source = function (req, resp, next, custom_handler) {
     };
 
     var send_response = function (result) {
-        resp.send({
+        resp.send(__.extend({
             draw: req.body.draw,
             recordsTotal: result.recordsTotal,
             recordsFiltered: result.recordsFiltered,
-            data: result.records,
-            events: result.events,
-            objects: result.objects
-        });
+            data: result.records
+        }, custom_object));
         return;
     };
 
     var fetch_total_count = function(result) {
-        event_query.then(function(event_result) {
-            object_query.then(function(object_result) {
-                count_query.then(function(count_result) {
-                    filtered_query.then(function(filtered_result) {
-                        send_response({
-                            records: result,
-                            events: event_result,
-                            objects: object_result,
-                            recordsTotal: count_result[0].count,
-                            recordsFiltered: filtered_result[0].count,
-                        });
-                    }, return_error);
+        count_query.then(function(count_result) {
+            filtered_query.then(function(filtered_result) {
+                send_response({
+                    records: result,
+                    recordsTotal: count_result[0].count,
+                    recordsFiltered: filtered_result[0].count,
                 });
-            });
+            }, return_error);
         });
     }.bind(this);
 

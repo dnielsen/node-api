@@ -5,9 +5,28 @@ var Brand = React.createClass({
     return this.transferPropsTo(
       <NavHeader>
         <NavBrand tabIndex='-1'>
-          <img src='/imgs/logo.png' alt='rubix' width='111' height='28' />
+          <img src='/imgs/logo.png' alt='rubix' width='111' />
         </NavBrand>
       </NavHeader>
+    );
+  }
+});
+
+var LocaleMenuItem = React.createClass({
+  render: function() {
+    return (
+      <MenuItem flag={this.props.flag} locale={this.props.locale} parent={this.props.parent} href='#' active={this.props.active}>
+        <Grid>
+          <Row>
+            <Col xs={2}>
+              <img src={'/imgs/flags/flags/flat/32/'+this.props.flag+'.png'} width='32' height='32' />
+            </Col>
+            <Col xs={10}>
+              <Entity className='lang-menu-text' entity='languageMenu' data={{lang: this.props.lang}} />
+            </Col>
+          </Row>
+        </Grid>
+      </MenuItem>
     );
   }
 });
@@ -42,7 +61,7 @@ var Header = React.createClass({
                     <Brand />
                   </Col>
                   <Col xs={3} sm={8}>
-                    <Navigation />
+                    <Navigation pressed={this.props.pressed} />
                   </Col>
                 </Row>
               </Container>

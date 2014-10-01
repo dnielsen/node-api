@@ -4,20 +4,39 @@
 
 /* Initialize Locales */
 l20n.initializeLocales('app', {
-  'locales': ['en-US'],
+  'locales': ['en-US', 'fr', 'it', 'ge', 'ar', 'ch'],
   'default': 'en-US'
 });
 
 /* Initializing touch events */
 React.initializeTouchEvents(true);
 
+require('./preloader.jsx');
+
+/* ERROR PAGES */
+var notfound = require('./routes/notfound.jsx');
+
 /* APP PAGES */
-var blank = require('./routes/app/blank.jsx');
+var dashboard = require('./routes/app/dashboard.jsx');
+var connectors = require('./routes/app/connectors.jsx');
+var apimanager = require('./routes/app/api-manager.jsx');
+var systemperformance = require('./routes/app/system-performance.jsx');
+var eventlogs = require('./routes/app/event-logs.jsx');
 
 /* ROUTES */
 var routes = (
   <Routes>
-    <Route name='root' path='/' view={blank} />
+    <Route name='root' path='/' view={dashboard}>
+      <Route name='app' path='app'>
+        <Route name='dashboard' path='dashboard' view={dashboard} />
+        <Route name='connectors' path='connectors' view={connectors} />
+        <Route name='api-manager' path='api-manager' view={apimanager} />
+        <Route name='system-performance' path='system-performance' view={systemperformance} />
+        <Route name='event-logs' path='event-logs' view={eventlogs} />
+      </Route>
+
+      <Route name='notfound' path='/404' view={notfound} />
+    </Route>
   </Routes>
 );
 
