@@ -38,6 +38,22 @@
 /* IMPORT PRINT STYLES */
 @import "print/print";
 
+.form-control::-webkit-input-placeholder {
+   color: #aaa !important;
+}
+
+.form-control:-moz-placeholder { /* Firefox 18- */
+   color: #aaa !important;
+}
+
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+   color: #aaa !important;
+}
+
+.form-control:-ms-input-placeholder {  
+   color: #aaa !important;
+}
+
 html[dir='rtl'] {
   [class^="icon-"].float-right-rtl,
   [class*=" icon-"].float-right-rtl {
@@ -70,4 +86,24 @@ body {
   display: block;
   margin-top: 150px;
   position: relative;
+}
+
+
+/* PAGES STUFF */
+
+td.details-control {
+  padding: 0 !important;
+}
+
+.drill-down {
+  border: none;
+  display: block;
+  padding: 8px 10px;
+
+  &:hover, &:active, &:focus, &.active {
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    background: #2EB398;
+  }
 }

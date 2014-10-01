@@ -27,10 +27,6 @@ var spec = {
 var resource = new Resource(spec);
 Type.User.init(resource);
 
-var get_now = function () {
-    return new Date();
-};
-
 exports.find_all = function (req, resp, next) {
     return resource.find_all(req, resp, next);
 };
@@ -40,6 +36,13 @@ exports.find_by_primary_key = function (req, resp, next) {
 };
 
 exports.data_source = function (req, resp, next) {
-    return resource.data_source(req, resp, next);
+    return resource.distinct_keys('process_name', function(event_result) {
+        resource.distinct_keys('protocol', function(object_result) {
+            resource.data_source(req, resp, next, null, {
+                events: event_result,
+                objects: object_result
+            });
+        });
+    });
 };
 
