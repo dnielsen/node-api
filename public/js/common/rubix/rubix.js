@@ -555,7 +555,7 @@ Rubix.prototype._setupAxis = function(animate) {
 
         if(this.master_detail) {
             if(this.axis.x.type === 'linear') {
-                this.xAxis2.tickFormat(d3.format(this.axis.x.tickFormat));
+                this.xAxis2.tickValues([]);
             } else {
                 this.xAxis2.tickFormat(d3.time.format(this.axis.x.tickFormat));
             }
@@ -571,7 +571,8 @@ Rubix.prototype._setupAxis = function(animate) {
 
         if(this.master_detail) {
             if(this.axis.x.type === 'linear') {
-                this.xAxis2.tickFormat(d3.format(this.axis.x.tickFormat));
+                // this.xAxis2.tickFormat(d3.format(this.axis.x.tickFormat));
+                this.xAxis2.tickValues([]);
             } else {
                 this.xAxis2.tickFormat(d3.time.format(this.axis.x.tickFormat));
             }
@@ -1345,6 +1346,10 @@ Rubix.prototype.callAxis = function(animate) {
             }
         }
 
+        if(this.axis.x.type === 'linear' && this.master_detail) {
+            this.xAxis.tickValues([]);
+        }
+
         this.canvas.select('.noData').style('display', 'none');
         try {
             t.selectAll('.x.axis').style('display', null).call(this.xAxis);
@@ -1746,6 +1751,12 @@ Rubix.prototype.move_tooltip_x = function(dx, ys, points) {
                 _x = formatterX(this.x.invert(points[name].x));
             } else {
                 _x = formatterX(points[name].x);
+                if(this.axis.x.type === 'linear' && this.master_detail) {
+                    for(var i in this.data) {
+                        _x = new Date(this.data[i][points[name].x].xValue);
+                        break;
+                    }
+                }
             }
         }
         if(this.axis.y.type === 'datetime') {
