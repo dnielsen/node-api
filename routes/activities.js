@@ -35,6 +35,10 @@ exports.find_by_primary_key = function (req, resp, next) {
     return resource.find_by_primary_key(req, resp, next);
 };
 
+exports.find_all_by_range = function (req, resp, next) {
+    return resource.find_all_by_range(req, resp, next);
+};
+
 exports.data_source = function (req, resp, next) {
     return resource.distinct_keys('process_name', function(event_result) {
         resource.distinct_keys('protocol', function(object_result) {

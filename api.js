@@ -30,6 +30,7 @@ app.get('/', function(req, res) {
 });
 app.get('/activities', activities.find_all);
 app.get('/activities/:id', activities.find_by_primary_key);
+app.get('/activities/:column/:start/:end', activities.find_all_by_range);
 app.post('/data-source/activities', activities.data_source);
 app.post('/data-source/event-logs', eventlogs.data_source);
 
