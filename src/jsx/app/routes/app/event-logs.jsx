@@ -53,6 +53,14 @@ var BusinessObjectsTable = React.createClass({
               <th>Primary Key</th>
             </tr>
           </thead>
+          <tfoot>
+            <tr style={{background: 'white'}}>
+              <th></th>
+              <th>Object Type</th>
+              <th>Object Value</th>
+              <th>Primary Key</th>
+            </tr>
+          </tfoot>
           <tbody>
             {data.map(function(d, i) {
               return (
@@ -65,14 +73,6 @@ var BusinessObjectsTable = React.createClass({
               );
             })}
           </tbody>
-          <tfoot>
-            <tr style={{background: 'white'}}>
-              <th></th>
-              <th>Object Type</th>
-              <th>Object Value</th>
-              <th>Primary Key</th>
-            </tr>
-          </tfoot>
         </Table>
         <br/>
       </Container>

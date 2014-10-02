@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! rubix - v1.0.1 - 2014-10-01 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! 3PLogic - v1.0.2 - 2014-10-02 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 /* REQUIRED: DO NOT REMOVE */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
@@ -10769,12 +10769,6 @@ table.dataTable tbody tr.selected {
 
 table.dataTable tbody th, table.dataTable tbody td {
   padding: 8px 10px; }
-
-table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
-  border-top: 1px solid #dddddd; }
-
-table.dataTable.row-border tbody tr:first-child th, table.dataTable.row-border tbody tr:first-child td, table.dataTable.display tbody tr:first-child th, table.dataTable.display tbody tr:first-child td {
-  border-top: none; }
 
 table.dataTable.cell-border tbody th, table.dataTable.cell-border tbody td {
   border-top: 1px solid #dddddd;
