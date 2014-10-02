@@ -812,6 +812,14 @@ var l20n=_RL20n_.l20n,
 	              React.DOM.th(null, "Primary Key")
 	            )
 	          ), 
+	          React.DOM.tfoot(null, 
+	            React.DOM.tr({style: {background: 'white'}}, 
+	              React.DOM.th(null), 
+	              React.DOM.th(null, "Object Type"), 
+	              React.DOM.th(null, "Object Value"), 
+	              React.DOM.th(null, "Primary Key")
+	            )
+	          ), 
 	          React.DOM.tbody(null, 
 	            data.map(function(d, i) {
 	              return (
@@ -823,14 +831,6 @@ var l20n=_RL20n_.l20n,
 	                )
 	              );
 	            })
-	          ), 
-	          React.DOM.tfoot(null, 
-	            React.DOM.tr({style: {background: 'white'}}, 
-	              React.DOM.th(null), 
-	              React.DOM.th(null, "Object Type"), 
-	              React.DOM.th(null, "Object Value"), 
-	              React.DOM.th(null, "Primary Key")
-	            )
 	          )
 	        ), 
 	        React.DOM.br(null)
