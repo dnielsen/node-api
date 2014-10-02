@@ -165,6 +165,14 @@ Resource.prototype.distinct_keys = function(column, callback) {
     query.then(callback);
 };
 
+Resource.prototype.find_all_by_range = function(req, resp, next) {
+    var query = knex.select(knex.raw('CONCAT(YEAR(`'+req.params.column+'`),"-",MONTH(`'+req.params.column+'`),"-",DAY(`'+req.params.column+'`)," ",HOUR(`'+req.params.column+'`),":",MINUTE(`'+req.params.column+'`)) as x, COUNT(CONCAT(YEAR(`'+req.params.column+'`),"-",MONTH(`'+req.params.column+'`),"-",DAY(`'+req.params.column+'`)," ",HOUR(`'+req.params.column+'`),":",MINUTE(`'+req.params.column+'`))) as y from `activity_log` where '+req.params.column+'>="'+req.params.start+'" and '+req.params.column+'<="'+req.params.end+'" group by x order by UNIX_TIMESTAMP(x)'));
+    console.log(query.toString());
+    query.then(function(result) {
+        resp.send(result);
+    });
+};
+
 Resource.prototype.data_source = function (req, resp, next, custom_handler, custom_object) {
     var that = this;
 
@@ -190,6 +198,14 @@ Resource.prototype.data_source = function (req, resp, next, custom_handler, cust
                 '%'+req.body.columns[i].search.value+'%');
             filtered_query = filtered_query.where(req.body.columns[i].data, 'like', 
                 '%'+req.body.columns[i].search.value+'%');
+        }
+    }
+
+    if(req.body.hasOwnProperty('range')) {
+        if(typeof req.body.range.start === 'string' && typeof req.body.range.end === 'string' && typeof req.body.range.column === 'string' && req.body.range.start.length && req.body.range.end.length && req.body.range.column.length) {
+            var column_to_check = req.body.range.column;
+            query = query.whereRaw(column_to_check + '>="' + req.body.range.start + '" and ' + column_to_check + '<="' + req.body.range.end+'"');
+            filtered_query = filtered_query.whereRaw(column_to_check + '>="' + req.body.range.start + '" and ' + column_to_check + '<="' + req.body.range.end+'"');
         }
     }
 
@@ -229,7 +245,7 @@ Resource.prototype.data_source = function (req, resp, next, custom_handler, cust
         });
     }.bind(this);
 
-    // console.log(query.toString()); //diagnostic
+    console.log(query.toString()); //diagnostic
     query.then(fetch_total_count, return_error);
 };
 

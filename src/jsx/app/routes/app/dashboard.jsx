@@ -52,19 +52,113 @@ var Body = React.createClass({
     ModalManager.create.bind(this, this.getModal())();
   },
   componentDidMount: function() {
-    var maxDate = 0;
-    $(this.refs.datetimepicker1.getDOMNode()).datetimepicker({
-      pickTime: false
-    }).on("dp.change",function (e) {
-      var table = $('#example').DataTable();
-      var date = e.date.format("YYYY-MM-DD");
-      table.column(0).search(date, true, false).draw();
+    var chart = new Rubix('#main-chart', {
+      width: '100%',
+      height: 300,
+      subtitleColor: '#6666FF',
+      axis: {
+        x: {
+          type: 'linear',
+          label: 'Time',
+          labelColor: '#6666FF'
+        },
+        y: {
+          type: 'linear',
+          tickFormat: 'd',
+          tickCount: 2,
+          labelColor: '#6666FF'
+        }
+      },
+      tooltip: {
+        color: '#0000FF',
+        format: {
+          y: '.0f'
+        }
+      },
+      margin: {
+        top: 25,
+        left: 50,
+        right: 25
+      },
+      interpolate: 'linear',
+      master_detail: true
     });
-    $('#searchinput').off('*').on('change', function(e) {
-      if($('#searchinput').val().length) return;
-      var table = $('#example').DataTable();
-      table.column(0).search('', true, false).draw();
+
+    var activities = chart.area_series({
+      name: 'Activity',
+      color: '#6666FF',
+      marker: 'circle',
+      fillopacity: 0.7,
+      noshadow: true
     });
+
+    // console.log(chart.extent);
+
+    // var t = 1297110663*850;
+    // var v = [5, 10, 2, 20, 40, 35, 30, 20, 25, 10, 20, 10, 20, 15, 25, 20, 30, 25, 30, 25, 30, 35, 40, 20, 15, 20, 10, 25, 15, 20, 10, 25, 30, 30, 25, 20, 10, 50, 60, 30];
+
+    // var getValue = function() {
+    //   var val = v.shift();
+    //   v.push(val);
+    //   return val;
+    // }
+
+    // var data = d3.range(40).map(function() {
+    //   return {
+    //     x: (t+=(86400000*20)),
+    //     y: getValue()
+    //   };
+    // });
+
+    function renderChart() {
+      var start = moment().subtract(7, 'days').format('YYYY-MM-DD H:M:S');
+      var end = moment().format('YYYY-MM-DD H:M:S');
+      $.get('/activities/timestamp/'+start+'/'+end, function(result) {
+        var data = [], aggregate = {}, x;
+        for(var i=0; i < result.length; i++) {
+          data.push({
+            x: i,
+            xValue: moment(new Date(result[i].x)).toDate().getTime(),
+            y: result[i].y
+          });
+        }
+        console.log(data);
+        var start = Math.floor(data.length / 4);
+        if(start >= 1) {
+          // console.log(daterangepicker.data('daterangepicker').startDate.toDate().getTime(), data[data.length-1-start].x, data[data.length-1].x)
+          if(daterangepicker.data('daterangepicker').startDate.toDate().getTime() > data[data.length-1].xValue) return $('#main-chart').css('visibility', 'hidden');
+          $('#main-chart').css('visibility', 'visible');
+          var min = data[data.length-1-start].x;
+          var max = data[data.length-1].x;
+          chart.extent = [data[data.length-1-start].x, max];
+        }
+        activities.addData(data);
+      });
+    }
+
+    var daterangepicker = $(this.refs.daterangepicker.getDOMNode());
+    daterangepicker.daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      format: 'YYYY-MM-DD H:M:S',
+      ranges: {
+       '1 hour': [moment().subtract(1, 'hour'), moment()],
+       '6 hours': [moment().subtract(6, 'hours'), moment()],
+       '12 hours': [moment().subtract(12, 'hours'), moment()],
+       '1 day': [moment().subtract(1, 'day'), moment()],
+       '2 days': [moment().subtract(2, 'days'), moment()],
+       '3 days': [moment().subtract(3, 'days'), moment()],
+       'Last 7 Days': [moment().subtract(6, 'days'), moment()]
+      },
+      opens: 'left',
+      startDate: moment().subtract(1, 'day'),
+      endDate: moment()
+    }, function(start, end) {
+      $('#searchinput').val(start.format('YYYY-MM-DD H:M:S') + ' to ' + end.format('YYYY-MM-DD H:M:S'));
+      var table = $('#example').DataTable();
+      table.draw();
+    });
+    $('#searchinput').val(daterangepicker.data('daterangepicker').startDate.format('YYYY-MM-DD H:M:S') + ' to ' + daterangepicker.data('daterangepicker').endDate.format('YYYY-MM-DD H:M:S'));
     $(this.refs.icon.getDOMNode()).attr('class', 'rubix-icon icon-fontello-calendar');
     $('#example')
       .addClass('nowrap')
@@ -73,12 +167,18 @@ var Body = React.createClass({
         processing: true,
         serverSide: true,
         ajax: function(data, callback, settings) {
+          data.range = {
+            start: daterangepicker.data('daterangepicker').startDate.format('YYYY-MM-DD H:M:S'),
+            end: daterangepicker.data('daterangepicker').endDate.format('YYYY-MM-DD H:M:S'),
+            column: 'timestamp'
+          };
           $.post('/data-source/activities', data, function(d) {
             this.setState({
               events: d.events,
               objects: d.objects
             });
             callback(d);
+            renderChart();
           }.bind(this));
         }.bind(this),
         drawCallback: function() {
@@ -104,9 +204,7 @@ var Body = React.createClass({
               if(data){
                   var mDate = moment(data);
                   if (mDate && mDate.isValid()) {
-                    var d = mDate.format("lll");
-                    maxDate = Math.max(mDate.unix(), maxDate);
-                    return d;
+                    return mDate.format("lll");
                   } else return "";
               }
               return "";
@@ -120,6 +218,8 @@ var Body = React.createClass({
             }.bind(this)}
         ]
     });
+
+    renderChart();
   },
   render: function() {
     return (
@@ -132,6 +232,28 @@ var Body = React.createClass({
                   <PanelBody>
                     <Grid>
                       <Row>
+                        <Col xs={7}>
+                          <h3 style={{margin: 0}}>Live Data Feed</h3>
+                        </Col>
+                        <Col xs={5} className='text-right'>
+                          <InputGroup className='date' ref='daterangepicker'>
+                            <Input id='searchinput' type='text' className='form-control' disabled />
+                            <InputGroupAddon>
+                              <Icon ref='icon' glyph='icon-fontello-calendar' />
+                            </InputGroupAddon>
+                          </InputGroup>
+                        </Col>
+                      </Row>
+                    </Grid>
+                    <div id='main-chart'></div>
+                  </PanelBody>
+                </Panel>
+              </PanelContainer>
+              <PanelContainer>
+                <Panel>
+                  <PanelBody>
+                    <Grid>
+                      <Row>
                         <Col xs={12}>
                           <h3 style={{margin: 0, marginBottom: 25}}>Filter Event History</h3>
                         </Col>
@@ -139,7 +261,7 @@ var Body = React.createClass({
                     </Grid>
                     <Grid>
                       <Row>
-                        <Col xs={3}>
+                        <Col xs={4}>
                           <Select onChange={this.handleEvents}>
                             <option>All events</option>
                             {this.state.events.map(function(ev, i) {
@@ -147,7 +269,7 @@ var Body = React.createClass({
                             })}
                           </Select>
                         </Col>
-                        <Col xs={3} collapseLeft>
+                        <Col xs={4} collapseLeft>
                           <Select onChange={this.handleObjects}>
                             <option>Select an object</option>
                             {this.state.objects.map(function(ob, i) {
@@ -155,16 +277,8 @@ var Body = React.createClass({
                             })}
                           </Select>
                         </Col>
-                        <Col xs={3} collapseLeft className='text-right'>
+                        <Col xs={4} collapseLeft className='text-right'>
                           <Input type='text' placeholder='Enter an Object ID or File Name' onChange={this.handleObjectIDSearch} />
-                        </Col>
-                        <Col xs={3} collapseLeft>
-                          <InputGroup className='date' ref='datetimepicker1'>
-                            <Input id='searchinput' type='text' className='form-control' />
-                            <InputGroupAddon>
-                              <Icon ref='icon' glyph='icon-fontello-calendar' />
-                            </InputGroupAddon>
-                          </InputGroup>
                         </Col>
                       </Row>
                     </Grid>
