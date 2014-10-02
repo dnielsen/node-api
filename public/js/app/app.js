@@ -1,4 +1,4 @@
-/*! 3PLogic - v1.0.2 - 2014-10-02 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! 3PLogic - v1.0.3 - 2014-10-02 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -426,7 +426,8 @@ var l20n=_RL20n_.l20n,
 	        right: 25
 	      },
 	      interpolate: 'linear',
-	      master_detail: true
+	      master_detail: true,
+	      show_markers: true
 	    });
 
 	    var activities = chart.area_series({

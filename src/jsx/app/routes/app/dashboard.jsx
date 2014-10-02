@@ -81,7 +81,8 @@ var Body = React.createClass({
         right: 25
       },
       interpolate: 'linear',
-      master_detail: true
+      master_detail: true,
+      show_markers: true
     });
 
     var activities = chart.area_series({
