@@ -160,7 +160,12 @@ Rubix = function(id, opts) {
     this.data_changed = false;
 
     this.setup();
+
+    EventEmitter2.call(this);
 };
+
+Rubix.prototype = Object.create(EventEmitter2.prototype);
+Rubix.prototype.constructor = Rubix;
 
 Rubix.prototype.setup = function() {
     this._setupOpts();
@@ -737,7 +742,7 @@ Rubix.prototype._setupAxis = function(animate) {
                     self._brush();
                 }
 
-
+                self.emit('brushchange', self.extent);
                 var brush_x_pos = self.brush_path.select('.extent').attr('x');
                 var brush_width = self.brush_path.select('.extent').attr('width');
                 var brush_height = self.brush_path.select('.extent').attr('height');
@@ -811,6 +816,7 @@ Rubix.prototype._setupAxis = function(animate) {
                     self._brush();
                 }
 
+                self.emit('brushchange', self.extent);
                 var brush_x_pos = self.brush_path.select('.extent').attr('x');
                 var brush_width = self.brush_path.select('.extent').attr('width');
                 var brush_height = self.brush_path.select('.extent').attr('height');

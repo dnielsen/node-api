@@ -1,4 +1,4 @@
-/*! 3PLogic - v1.0.3 - 2014-10-02 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! 3PLogic - v1.0.3 - 2014-10-03 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -456,37 +456,12 @@ var l20n=_RL20n_.l20n,
 	    //   };
 	    // });
 
-	    function renderChart() {
-	      var start = moment().subtract(7, 'days').format('YYYY-MM-DD H:M:S');
-	      var end = moment().format('YYYY-MM-DD H:M:S');
-	      $.get('/activities/timestamp/'+start+'/'+end, function(result) {
-	        var data = [], aggregate = {}, x;
-	        for(var i=0; i < result.length; i++) {
-	          data.push({
-	            x: i,
-	            xValue: moment(new Date(result[i].x)).toDate().getTime(),
-	            y: result[i].y
-	          });
-	        }
-	        console.log(data);
-	        var start = Math.floor(data.length / 4);
-	        if(start >= 1) {
-	          // console.log(daterangepicker.data('daterangepicker').startDate.toDate().getTime(), data[data.length-1-start].x, data[data.length-1].x)
-	          if(daterangepicker.data('daterangepicker').startDate.toDate().getTime() > data[data.length-1].xValue) return $('#main-chart').css('visibility', 'hidden');
-	          $('#main-chart').css('visibility', 'visible');
-	          var min = data[data.length-1-start].x;
-	          var max = data[data.length-1].x;
-	          chart.extent = [data[data.length-1-start].x, max];
-	        }
-	        activities.addData(data);
-	      });
-	    }
 
 	    var daterangepicker = $(this.refs.daterangepicker.getDOMNode());
 	    daterangepicker.daterangepicker({
 	      timePicker: true,
 	      timePickerIncrement: 30,
-	      format: 'YYYY-MM-DD H:M:S',
+	      format: 'YYYY-MM-DD HH:mm:ss',
 	      ranges: {
 	       '1 hour': [moment().subtract(1, 'hour'), moment()],
 	       '6 hours': [moment().subtract(6, 'hours'), moment()],
@@ -497,14 +472,52 @@ var l20n=_RL20n_.l20n,
 	       'Last 7 Days': [moment().subtract(6, 'days'), moment()]
 	      },
 	      opens: 'left',
-	      startDate: moment().subtract(1, 'day'),
+	      startDate: moment().subtract(3, 'days'),
 	      endDate: moment()
 	    }, function(start, end) {
-	      $('#searchinput').val(start.format('YYYY-MM-DD H:M:S') + ' to ' + end.format('YYYY-MM-DD H:M:S'));
+	      $('#searchinput').val(start.format('YYYY-MM-DD HH:mm:ss') + ' to ' + end.format('YYYY-MM-DD HH:mm:ss'));
 	      var table = $('#example').DataTable();
 	      table.draw();
+	      renderChart();
 	    });
-	    $('#searchinput').val(daterangepicker.data('daterangepicker').startDate.format('YYYY-MM-DD H:M:S') + ' to ' + daterangepicker.data('daterangepicker').endDate.format('YYYY-MM-DD H:M:S'));
+	    function renderChart() {
+	      var start = moment().subtract(7, 'days').format('YYYY-MM-DD HH:mm:ss');
+	      var end = moment().format('YYYY-MM-DD HH:mm:ss');
+	      $.get('/activities/timestamp/'+start+'/'+end, function(result) {
+	        var data = [], x;
+	        for(var i=0; i < result.length; i++) {
+	          data.push({
+	            x: i,
+	            xValue: moment(new Date(result[i].x)).toDate().getTime(),
+	            y: result[i].y
+	          });
+	        }
+	        var start = Math.floor(data.length / 4);
+	        if(start >= 1) {
+	          // console.log(daterangepicker.data('daterangepicker').startDate.toDate().getTime(), data[data.length-1-start].x, data[data.length-1].x)
+	          if(daterangepicker.data('daterangepicker').startDate.toDate().getTime() > data[data.length-1].xValue) return $('#main-chart').css('visibility', 'hidden');
+	          $('#main-chart').css('visibility', 'visible');
+	          var min = data[data.length-1-start].x;
+	          var max = data[data.length-1].x;
+	          chart.extent = [data[data.length-1-start].x, max];
+	        }
+	        chart.on('brushchange', function(extent) {
+	          var start = data[Math.ceil(extent[0])].xValue;
+	          var end = data[Math.ceil(extent[1])].xValue;
+	          console.log(start, end);
+	          daterangepicker.data('daterangepicker').setStartDate(moment(new Date(start)));
+	          daterangepicker.data('daterangepicker').setEndDate(moment(new Date(end)));
+	          start = daterangepicker.data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+	          end = daterangepicker.data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+	          console.log(start, end);
+	          $('#searchinput').val(start + ' to ' + end);
+	          var table = $('#example').DataTable();
+	          table.draw();          
+	        });
+	        activities.addData(data);
+	      });
+	    }
+	    $('#searchinput').val(daterangepicker.data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss') + ' to ' + daterangepicker.data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss'));
 	    $(this.refs.icon.getDOMNode()).attr('class', 'rubix-icon icon-fontello-calendar');
 	    $('#example')
 	      .addClass('nowrap')
@@ -514,8 +527,8 @@ var l20n=_RL20n_.l20n,
 	        serverSide: true,
 	        ajax: function(data, callback, settings) {
 	          data.range = {
-	            start: daterangepicker.data('daterangepicker').startDate.format('YYYY-MM-DD H:M:S'),
-	            end: daterangepicker.data('daterangepicker').endDate.format('YYYY-MM-DD H:M:S'),
+	            start: daterangepicker.data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss'),
+	            end: daterangepicker.data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss'),
 	            column: 'timestamp'
 	          };
 	          $.post('/data-source/activities', data, function(d) {
@@ -524,7 +537,6 @@ var l20n=_RL20n_.l20n,
 	              objects: d.objects
 	            });
 	            callback(d);
-	            renderChart();
 	          }.bind(this));
 	        }.bind(this),
 	        drawCallback: function() {
@@ -566,6 +578,73 @@ var l20n=_RL20n_.l20n,
 	    });
 
 	    renderChart();
+
+	    (function() {
+	      var chart = new Rubix('#bo-chart', {
+	        title: 'Chart breakdown by Business Object',
+	        titleColor: '#EA7882',
+	        subtitleColor: '#EA7882',
+	        height: 250,
+	        axis: {
+	          x: {
+	            type: 'ordinal'
+	          },
+	          y:  {
+	            type: 'linear',
+	            tickFormat: 'd',
+	            label: 'Total fruit consumption'
+	          }
+	        },
+	        tooltip: {
+	          color: 'white',
+	          format: {
+	            y: '.0f'
+	          }
+	        },
+	        show_markers: false
+	      });
+
+	      var success = chart.column_series({
+	        name: 'Success',
+	        color: '#79B0EC',
+	        marker: 'square'
+	      });
+
+	      success.addData([
+	        {x: 'Data files', y: 15},
+	        {x: 'Shipments', y: 40},
+	        {x: 'Loads', y: 30},
+	        {x: 'Updates', y: 50},
+	        {x: 'Invoices', y: 10}
+	      ]);
+
+	      var warning = chart.column_series({
+	        name: 'Warning',
+	        color: '#E3631C',
+	        marker: 'diamond'
+	      });
+
+	      warning.addData([
+	        {x: 'Data files', y: 3},
+	        {x: 'Shipments', y: 0},
+	        {x: 'Loads', y: 0},
+	        {x: 'Updates', y: 5},
+	        {x: 'Invoices', y: 3}
+	      ]);
+
+	      var failure = chart.column_series({
+	        name: 'Failure',
+	        color: '#FF0000'
+	      });
+
+	      failure.addData([
+	        {x: 'Data files', y: 4},
+	        {x: 'Shipments', y: 0},
+	        {x: 'Loads', y: 0},
+	        {x: 'Updates', y: 0},
+	        {x: 'Invoices', y: 2}
+	      ]);
+	    })();
 	  },
 	  render: function() {
 	    return (
@@ -591,7 +670,16 @@ var l20n=_RL20n_.l20n,
 	                        )
 	                      )
 	                    ), 
-	                    React.DOM.div({id: "main-chart"})
+	                    Grid(null, 
+	                      Row(null, 
+	                        Col({sm: 7, collapseLeft: true, collapseRight: true}, 
+	                          React.DOM.div({id: "main-chart"})
+	                        ), 
+	                        Col({sm: 5, collapseLeft: true, collapseRight: true}, 
+	                          React.DOM.div({id: "bo-chart"})
+	                        )
+	                      )
+	                    )
 	                  )
 	                )
 	              ), 

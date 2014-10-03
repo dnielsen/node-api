@@ -2,10 +2,10 @@
     "db_config" : {
         "client" : "mysql",
         "connection" : {
-            "host" : "db4free.net",
-            "user" : "sketchpixy",
-            "password" : "fuzylagedipidah",
-            "database" : "logsqa",
+            "host" : "sql3.freemysqlhosting.net",
+            "user" : "sql353939",
+            "password" : "tQ2*lQ7*",
+            "database" : "sql353939",
             "charset" : "UTF8MB4_GENERAL_CI"
         }
     },
