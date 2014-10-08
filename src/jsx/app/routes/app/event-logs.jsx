@@ -217,13 +217,13 @@ var Body = React.createClass({
             "defaultContent": "",
             "class": "details-control text-center"
           },
-          {data: 'event_log_id', visible: false},
+          {data: 'event_id', visible: false},
           {data: 'timestamp'},
           {data: 'severity'},
-          {data: 'workflow'},
-          {data: 'process'},
-          {data: 'object'},
-          {data: 'object_id'}
+          {data: 'process_name'},
+          {data: 'process_method'},
+          {data: 'environment'},
+          {data: 'object_group_id'}
         ],
         preDrawCallback: function(settings) {
           $('.drill-down').off('click');

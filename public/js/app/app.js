@@ -1,4 +1,4 @@
-/*! 3PLogic - v1.0.3 - 2014-10-03 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
+/*! 3PLogic - v1.0.4 - 2014-10-08 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
 (function() {
 /*DO NOT MODIFY*/
 
@@ -549,8 +549,8 @@ var l20n=_RL20n_.l20n,
 	        columns: [
 	          {data: 'timestamp'},
 	          {data: 'process_name'},
-	          {data: 'protocol'},
-	          {data: 'format'},
+	          {data: 'process_event'},
+	          {data: 'process_method'},
 	          {data: 'action'},
 	          {data: 'status'}
 	        ],
@@ -707,7 +707,7 @@ var l20n=_RL20n_.l20n,
 	                          Select({onChange: this.handleObjects}, 
 	                            React.DOM.option(null, "Select an object"), 
 	                            this.state.objects.map(function(ob, i) {
-	                              return React.DOM.option({value: ob.protocol, key: 'object-'+i}, ob.protocol)
+	                              return React.DOM.option({value: ob.process_event, key: 'object-'+i}, ob.process_event)
 	                            })
 	                          )
 	                        ), 
@@ -1179,13 +1179,13 @@ var l20n=_RL20n_.l20n,
 	            "defaultContent": "",
 	            "class": "details-control text-center"
 	          },
-	          {data: 'event_log_id', visible: false},
+	          {data: 'event_id', visible: false},
 	          {data: 'timestamp'},
 	          {data: 'severity'},
-	          {data: 'workflow'},
-	          {data: 'process'},
-	          {data: 'object'},
-	          {data: 'object_id'}
+	          {data: 'process_name'},
+	          {data: 'process_method'},
+	          {data: 'environment'},
+	          {data: 'object_group_id'}
 	        ],
 	        preDrawCallback: function(settings) {
 	          $('.drill-down').off('click');

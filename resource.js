@@ -166,7 +166,7 @@ Resource.prototype.distinct_keys = function(column, callback) {
 };
 
 Resource.prototype.find_all_by_range = function(req, resp, next) {
-    var query = knex.select(knex.raw('CONCAT(YEAR(`'+req.params.column+'`),"-",MONTH(`'+req.params.column+'`),"-",DAY(`'+req.params.column+'`)," ",HOUR(`'+req.params.column+'`),":",MINUTE(`'+req.params.column+'`)) as x, COUNT(CONCAT(YEAR(`'+req.params.column+'`),"-",MONTH(`'+req.params.column+'`),"-",DAY(`'+req.params.column+'`)," ",HOUR(`'+req.params.column+'`),":",MINUTE(`'+req.params.column+'`))) as y from `activity_log` where '+req.params.column+'>="'+req.params.start+'" and '+req.params.column+'<="'+req.params.end+'" group by x order by UNIX_TIMESTAMP(x)'));
+    var query = knex.select(knex.raw('CONCAT(YEAR(`'+req.params.column+'`),"-",MONTH(`'+req.params.column+'`),"-",DAY(`'+req.params.column+'`)," ",HOUR(`'+req.params.column+'`),":",MINUTE(`'+req.params.column+'`)) as x, COUNT(CONCAT(YEAR(`'+req.params.column+'`),"-",MONTH(`'+req.params.column+'`),"-",DAY(`'+req.params.column+'`)," ",HOUR(`'+req.params.column+'`),":",MINUTE(`'+req.params.column+'`))) as y from `'+this.tableName+'` where '+req.params.column+'>="'+req.params.start+'" and '+req.params.column+'<="'+req.params.end+'" group by x order by UNIX_TIMESTAMP(x)'));
     console.log(query.toString());
     query.then(function(result) {
         resp.send(result);

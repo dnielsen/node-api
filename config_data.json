@@ -1,5 +1,5 @@
 { 
-    "db_config" : {
+    "old_db_config" : {
         "client" : "mysql",
         "connection" : {
             "host" : "sql3.freemysqlhosting.net",
@@ -19,13 +19,13 @@
             "charset" : "UTF8MB4_GENERAL_CI"
         }
     },
-    "client_db_config" : {
+    "db_config" : {
         "client" : "mysql",
         "connection" : {
-            "host" : "connectlogsqa.czdgjabmvmoc.us-west-2.rds.amazonaws.com",
-            "user" : "c0nn3ctL0gz",
-            "password" : "dtMS4Y13sezqiUX",
-            "database" : "logsqa",
+            "host" : "connectlogs.ca4yfk3gcazh.us-east-1.rds.amazonaws.com",
+            "user" : "c0nn3ctAdm1n",
+            "password" : "c7wOSPXQPoeulO8",
+            "database" : "events_prod",
             "charset" : "UTF8MB4_GENERAL_CI"
         }
     }

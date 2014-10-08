@@ -4,10 +4,10 @@ var Type = require('../type'),
     __ = require('underscore');
 
 var spec = {
-    tableName : 'activity_log',
-    primary_key : 'activity_log_id',
+    tableName : 'events',
+    primary_key : 'event_pk',
     schema : {
-        "activity_log_id" : { type : Type.Int, props : ["default", "read_only"]},
+        "event_id" : { type : Type.Int, props : ["default", "read_only"]},
         "parent_message_id" : { type : Type.Str, props : ["default"]},
         "message_id" : { type : Type.Str, props : ["default"]},
         "interface_name" : { type : Type.Str, props : ["default"]},
@@ -41,7 +41,7 @@ exports.find_all_by_range = function (req, resp, next) {
 
 exports.data_source = function (req, resp, next) {
     return resource.distinct_keys('process_name', function(event_result) {
-        resource.distinct_keys('protocol', function(object_result) {
+        resource.distinct_keys('process_event', function(object_result) {
             resource.data_source(req, resp, next, null, {
                 events: event_result,
                 objects: object_result

@@ -204,8 +204,8 @@ var Body = React.createClass({
         columns: [
           {data: 'timestamp'},
           {data: 'process_name'},
-          {data: 'protocol'},
-          {data: 'format'},
+          {data: 'process_event'},
+          {data: 'process_method'},
           {data: 'action'},
           {data: 'status'}
         ],
@@ -362,7 +362,7 @@ var Body = React.createClass({
                           <Select onChange={this.handleObjects}>
                             <option>Select an object</option>
                             {this.state.objects.map(function(ob, i) {
-                              return <option value={ob.protocol} key={'object-'+i}>{ob.protocol}</option>
+                              return <option value={ob.process_event} key={'object-'+i}>{ob.process_event}</option>
                             })}
                           </Select>
                         </Col>

@@ -4,10 +4,10 @@ var Type = require('../type'),
     __ = require('underscore');
 
 var spec = {
-    tableName : 'activity_log',
-    primary_key : 'activity_log_id',
+    tableName : 'events',
+    primary_key : 'event_pk',
     schema : {
-        "activity_log_id" : { type : Type.Int, props : ["default", "read_only"]},
+        "event_id" : { type : Type.Int, props : ["default", "read_only"]},
         "parent_message_id" : { type : Type.Str, props : ["default"]},
         "message_id" : { type : Type.Str, props : ["default"]},
         "interface_name" : { type : Type.Str, props : ["default"]},

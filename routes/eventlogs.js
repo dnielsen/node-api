@@ -4,15 +4,15 @@ var Type = require('../type'),
     __ = require('underscore');
 
 var spec = {
-    tableName : 'event_log',
-    primary_key : 'event_log_id',
+    tableName : 'events',
+    primary_key : 'event_id',
     schema : {
-        "event_log_id" : { type : Type.Int, props : ["default", "read_only"]},
+        "event_id" : { type : Type.Int, props : ["default", "read_only"]},
         "timestamp" : { type : Type.Int, props : ["default"]},
-        "workflow" : { type : Type.Str, props : ["default"]},
-        "process" : { type : Type.Str, props : ["default"]},
-        "object" : { type : Type.Str, props : ["default"]},
-        "object_id" : { type : Type.Str, props : ["default"]},
+        "process_name" : { type : Type.Str, props : ["default"]},
+        "process_method" : { type : Type.Str, props : ["default"]},
+        "environment" : { type : Type.Str, props : ["default"]},
+        "object_group_id" : { type : Type.Str, props : ["default"]},
         "severity" : { type : Type.Str, props : ["default"]}
     }
 };
